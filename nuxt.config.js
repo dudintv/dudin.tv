@@ -5,20 +5,27 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'dudin.tv',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'Vizrt scripts and article from Dmitry Dudin' },
+      { name: 'msapplication-TileColor', content: '#603cba' },
+      { name: 'theme-color', content: '#ffffff' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
+      { rel: 'manifest', href: '/favicons/site.webmanifest' },
+      { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#9804d0' }
     ]
   },
-  /*
+  /*>
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#243B61' },
   /*
   ** Global CSS
   */
