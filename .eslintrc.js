@@ -15,5 +15,6 @@ module.exports = {
   rules: {
     'comma-dangle': 'off',
     'no-console': 'off',
+    'quote-props': 'off',
   }
 }
