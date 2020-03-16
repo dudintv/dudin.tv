@@ -1,9 +1,9 @@
 <template lang="pug">
   .script-item
-    .thumbnail.flex.items-center.justify-center(:style="gradByName(script.category)")
-      .image
-        img(:src="script.thumbnail")
-    .header
+    a.thumbnail.flex.items-center.justify-center.cursor-pointer(:style="gradByName(script.category)")
+      img(:src="script.thumbnail")
+      .hover
+    .header.relative
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 340 82" class="header-bg">
         <path :fill="`url(#grad0_${script.category})`" d="M319 0s11 45 0 81c0 0-40-25-183-15C-8 77 9 0 9 0h310z"/>
         <path :fill="`url(#grad1_${script.category})`" d="M340 0v67s-62-9-169-1C63 73 0 68 0 68V0h340z"/>
@@ -28,7 +28,7 @@
             v-for="(code, index) in script.codes"
             @click.prevent="copyCode(code)"
             )
-            span.number(v-if="script.codes.length > 1") {{ index+1 }}
+            span.absolute.top-0.pt-5(v-if="script.codes.length > 1") {{ index+1 }}
       p.description {{ script.description }}
 </template>
 
@@ -74,13 +74,38 @@ export default {
   .script-item {
     background-color: #455C82;
     max-width: 355px;
+    box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+    transition: box-shadow 0.2s ease-in-out;
+    z-index: 10;
+    transition: background-color .1s linear;
+
+    &:hover {
+      box-shadow: 0 7px 30px rgba(0,0,0,0.4);
+      z-index: 100;
+      background-color: rgb(52, 81, 128);
+    }
   }
   .thumbnail {
+    position: relative;
     width: 355px;
     height: 200px;
-  }
-  .header {
-    position: relative;
+
+    .hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 50;
+      background-color: hsla(0, 100%, 100%, 0);
+      transition: background-color .1s linear;
+    }
+
+    &:hover {
+      .hover {
+        background-color: hsla(0, 100%, 100%, 0.2);
+      }
+    }
   }
   .title {
     line-height: 0.8em;
@@ -103,10 +128,6 @@ export default {
     &:hover {
       opacity: 1;
     }
-  }
-  .number {
-    padding-bottom: 0.5em;
-    line-height: 0.8em;
   }
   .description {
     padding: 5px 20px 20px 20px;
