@@ -16,6 +16,7 @@
     section.flex.items-center.my-8
       .scripts-list
         ScriptItem(v-for="script in scripts" :script="script" :key="script.name")
+    TheSocNetworks
 </template>
 
 <script>
@@ -23,6 +24,7 @@ import TheIntro from '~/components/TheIntro'
 import TheScriptsLogo from '~/components/TheScriptsLogo'
 import TheScriptsFilter from '~/components/TheScriptsFilter'
 import ScriptItem from '~/components/ScriptItem'
+import TheSocNetworks from '~/components/TheSocNetworks'
 
 export default {
   components: {
@@ -30,6 +32,7 @@ export default {
     TheScriptsLogo,
     TheScriptsFilter,
     ScriptItem,
+    TheSocNetworks,
   },
   data: () => ({
     scripts: [
