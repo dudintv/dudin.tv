@@ -16,5 +16,6 @@ module.exports = {
     'comma-dangle': 'off',
     'no-console': 'off',
     'quote-props': 'off',
+    'no-multi-spaces': 'off',
   }
 }
