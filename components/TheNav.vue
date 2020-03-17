@@ -1,23 +1,51 @@
 <template lang="pug">
   header.header
-    img.feathers(src="~/static/images/common/nav-feathers.svg")
+    //- img.feathers(src="~/static/images/common/nav-feathers.svg")
+    #feathers
     .selector
     img.bg(src="~/static/images/common/nav-bg.svg")
     a.logo(href="#")
       img(src="~/static/images/common/dudintv-logo.svg")
     nav.nav.flex.justify-between.w-full
       .first-links
-        nuxt-link(to="scripts") Scripts
-        nuxt-link(to="articles") Articles
+        nuxt-link.relative(to="scripts")
+          #scripts.anim-selector
+          span.name-selector Scripts
+        nuxt-link.relative(to="articles")
+          #articles.anim-selector
+          span.name-selector Articles
       .second-links
-        nuxt-link(to="links") Links
-        nuxt-link(to="portfolio") Portfolio
-        nuxt-link(to="contacts") Contacts
+        nuxt-link.relative(to="links")
+          #links.anim-selector
+          span.name-selector Links
+        nuxt-link.relative(to="portfolio")
+          #portfolio.anim-selector
+          span.name-selector Portfolio
+        nuxt-link.relative(to="contacts")
+          #contacts.anim-selector
+          span.name-selector Contacts
 </template>
 
 <script>
-export default {
+import lottie from 'lottie-web'
 
+export default {
+  mounted () {
+    lottie.loadAnimation({
+      container: document.getElementById('feathers'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/animations/header-feathers.json'
+    })
+    lottie.loadAnimation({
+      container: document.getElementById('scripts'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/animations/selected-menu-item.json'
+    })
+  }
 }
 </script>
 
@@ -29,7 +57,7 @@ export default {
   .bg {
     width: 100%;
     position: relative;
-    z-index: 20;
+    z-index: 100;
   }
 
   .logo {
@@ -37,7 +65,7 @@ export default {
     top: 6%;
     left: 3%;
     width: 23.5%;
-    z-index: 30;
+    z-index: 200;
     transition: .2s transform ease;
 
     img {
@@ -72,11 +100,24 @@ export default {
     }
   }
 
-  .feathers {
+  #feathers {
     position: absolute;
     left: 5%;
     top: 25%;
     width: 15%;
     z-index: 10;
+  }
+
+  .anim-selector {
+    position: absolute;
+    top: -200px;
+    left: -80px;
+    width: 270px;
+    height: 283px;
+    z-index: 5;
+  }
+  .name-selector {
+    position: relative;
+    z-index: 30;
   }
 </style>
