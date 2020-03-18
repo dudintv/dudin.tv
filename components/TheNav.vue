@@ -2,34 +2,39 @@
   header.header
     //- img.feathers(src="~/static/images/common/nav-feathers.svg")
     #feathers
-    .selector
+    .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
     img.bg(src="~/static/images/common/nav-bg.svg")
     a.logo(href="#")
       img(src="~/static/images/common/dudintv-logo.svg")
     nav.nav.flex.justify-between.w-full
-      .first-links
-        nuxt-link.relative(to="scripts")
-          #scripts.anim-selector
-          span.name-selector Scripts
-        nuxt-link.relative(to="articles")
-          #articles.anim-selector
-          span.name-selector Articles
-      .second-links
-        nuxt-link.relative(to="links")
-          #links.anim-selector
-          span.name-selector Links
-        nuxt-link.relative(to="portfolio")
-          #portfolio.anim-selector
-          span.name-selector Portfolio
-        nuxt-link.relative(to="contacts")
-          #contacts.anim-selector
-          span.name-selector Contacts
+      .first-links.flex
+        nuxt-link#scripts.name-selector(to="scripts") Scripts
+        nuxt-link#articles.name-selector(to="articles") Articles
+      .second-links.flex
+        nuxt-link#links.name-selector(to="links") Links
+        nuxt-link#portfolio.name-selector(to="portfolio") Portfolio
+        nuxt-link#contacts.name-selector(to="contacts") Contacts
 </template>
 
 <script>
 import lottie from 'lottie-web'
 
 export default {
+  data: () => ({
+    currentNav: 'scripts',
+    navNames: [
+      'scripts',
+      'articles',
+      'links',
+      'portfolio',
+      'contacts'
+    ]
+  }),
+  watch: {
+    currentNav (newValue) {
+      this.setSelected(newValue)
+    }
+  },
   mounted () {
     lottie.loadAnimation({
       container: document.getElementById('feathers'),
@@ -38,14 +43,41 @@ export default {
       autoplay: true,
       path: '/animations/header-feathers.json'
     })
-    lottie.loadAnimation({
-      container: document.getElementById('scripts'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/selected-menu-item.json'
+    Array.from(document.getElementsByClassName('anim-selector')).forEach(element => {
+      lottie.loadAnimation({
+        container: element,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/animations/selected-menu-item.json'
+      })
     })
-  }
+    this.setPosAnimSelectors()
+    window.onresize = this.setPosAnimSelectors
+    this.setSelected(this.currentNav)
+  },
+  methods: {
+    setPosAnimSelectors () {
+      this.navNames.forEach(name => {
+        const animSelector = document.getElementById(`anim-${name}`)
+        const navLink = document.getElementById(name)
+        animSelector.style.left = `${navLink.getBoundingClientRect().left - 80}px`
+      })
+    },
+    setSelected (theName) {
+      this.navNames.forEach(name => {
+        const animSelector = document.getElementById(`anim-${name}`)
+        const navLink = document.getElementById(name)
+        if (theName === name) {
+          animSelector.style.display = 'block'
+          navLink.classList.add('selected')
+        } else {
+          animSelector.style.display = 'none'
+          navLink.classList.remove('selected')
+        }
+      })
+    }
+  },
 }
 </script>
 
@@ -57,7 +89,7 @@ export default {
   .bg {
     width: 100%;
     position: relative;
-    z-index: 100;
+    z-index: 10;
   }
 
   .logo {
@@ -65,7 +97,7 @@ export default {
     top: 6%;
     left: 3%;
     width: 23.5%;
-    z-index: 200;
+    z-index: 600;
     transition: .2s transform ease;
 
     img {
@@ -82,7 +114,7 @@ export default {
     top: 25%;
     left: 40%;
     width: 50%;
-    z-index: 50;
+    z-index: 200;
 
     a {
       padding: 1rem;
@@ -110,14 +142,17 @@ export default {
 
   .anim-selector {
     position: absolute;
-    top: -200px;
-    left: -80px;
+    top: -120px;
+    left: 500px;
     width: 270px;
     height: 283px;
-    z-index: 5;
+    z-index: 10;
   }
   .name-selector {
     position: relative;
-    z-index: 30;
+    z-index: 300;
+    &.selected {
+      color: white;
+    }
   }
 </style>

@@ -17,5 +17,6 @@ module.exports = {
     'no-console': 'off',
     'quote-props': 'off',
     'no-multi-spaces': 'off',
+    'arrow-parens': 'off',
   }
 }
