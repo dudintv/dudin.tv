@@ -4,7 +4,7 @@
     #feathers
     .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
     img.bg(src="~/static/images/common/nav-bg.svg")
-    a.logo(href="#")
+    a.logo(href="/")
       img(src="~/static/images/common/dudintv-logo.svg")
     nav.nav.flex.justify-between.w-full
       .first-links.flex
@@ -18,6 +18,9 @@
 
 <script>
 import lottie from 'lottie-web'
+import { gsap } from 'gsap'
+
+const tl = gsap.timeline()
 
 export default {
   data: () => ({
@@ -28,7 +31,8 @@ export default {
       'links',
       'portfolio',
       'contacts'
-    ]
+    ],
+    animSelectors: [],
   }),
   watch: {
     currentNav (newValue) {
@@ -44,20 +48,25 @@ export default {
       path: '/animations/header-feathers.json'
     })
     Array.from(document.getElementsByClassName('anim-selector')).forEach(element => {
-      lottie.loadAnimation({
-        container: element,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '/animations/selected-menu-item.json'
-      })
+      this.animSelectors.push(
+        {
+          id: element.id,
+          anim: lottie.loadAnimation({
+            container: element,
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            path: '/animations/selected-menu-item.json'
+          })
+        }
+      )
     })
-    this.setPosAnimSelectors()
-    window.onresize = this.setPosAnimSelectors
+    this.setupPosAllAnimSelectors()
+    window.onresize = this.setupPosAllAnimSelectors
     this.setSelected(this.currentNav)
   },
   methods: {
-    setPosAnimSelectors () {
+    setupPosAllAnimSelectors () {
       this.navNames.forEach(name => {
         const animSelector = document.getElementById(`anim-${name}`)
         const navLink = document.getElementById(name)
@@ -71,12 +80,50 @@ export default {
         if (theName === name) {
           animSelector.style.display = 'block'
           navLink.classList.add('selected')
+          this.playTakeAnim(name)
         } else {
           animSelector.style.display = 'none'
           navLink.classList.remove('selected')
+          this.playTakeoutAnim(name)
         }
       })
-    }
+    },
+    playTakeAnim (name) {
+      const animSelector = this.animSelectors.find((element) => {
+        return element.id === `anim-${name}`
+      }).anim
+
+      const proxy = { frame: 0 }
+      tl.to(proxy, 4, {
+        frame: 200,
+        delay: 0.5,
+        snap: {
+          frame: 1
+        },
+        onUpdate () {
+          animSelector.goToAndStop(Math.round(proxy.frame), true)
+        },
+      })
+    },
+    playTakeoutAnim (name) {
+      const animSelector = this.animSelectors.find((element) => {
+        return element.id === `anim-${name}`
+      }).anim
+
+      if (animSelector.currentFrame > 0) {
+        const proxy = { frame: animSelector.currentFrame }
+        tl.to(proxy, 2, {
+          frame: 300,
+          delay: 0.5,
+          snap: {
+            frame: 1
+          },
+          onUpdate () {
+            animSelector.goToAndStop(Math.round(proxy.frame), true)
+          },
+        })
+      }
+    },
   },
 }
 </script>
