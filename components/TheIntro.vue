@@ -20,13 +20,19 @@ export default {
 <style lang="scss" scoped>
   .intro {
     position: relative;
-    left: 30%;
-    top: -10%;
-    width: 50%;
-    max-width: 600px;
+    left: 20%;
+    top: -4vw;
+    width: 70%;
+    font-size: 2vw;
 
     p {
       padding-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .intro {
+      font-size: 1rem;
     }
   }
 </style>
