@@ -3,7 +3,7 @@
     TheIntro
     TheScriptsLogo
     .flex.justify-around
-      TheScriptsFilter
+      TheScriptsFilter(@filterChanged="updateFilter")
       .flex.items-start
         img(src="~/static/images/common/copy.svg")
         span.mx-2 —
@@ -15,7 +15,7 @@
           i get the latest version!
     section.flex.items-center.my-8
       .scripts-list
-        ScriptItem(v-for="script in scripts" :script="script" :key="script.name")
+        ScriptItem(v-for="script in filteredScripts" :script="script" :key="script.name")
     TheSocNetworks
 </template>
 
@@ -35,6 +35,7 @@ export default {
     TheSocNetworks,
   },
   data: () => ({
+    currentFilter: '',
     scripts: [
       {
         name: 'AE to Vizrt',
@@ -95,7 +96,25 @@ export default {
         thumbnail: '\\images\\thumbnails\\Flex.svg'
       },
     ]
-  })
+  }),
+  computed: {
+    filteredScripts () {
+      let filtered
+      if (this.currentFilter && this.currentFilter !== 'all') {
+        filtered = this.scripts.filter((script) => {
+          return (script.category === this.currentFilter)
+        })
+      } else {
+        filtered = this.scripts
+      }
+      return filtered
+    }
+  },
+  methods: {
+    updateFilter (filterName) {
+      this.currentFilter = filterName
+    }
+  }
 }
 </script>
 

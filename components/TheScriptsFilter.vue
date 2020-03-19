@@ -3,6 +3,7 @@
     .option.px-3.py-1.hover_border-b-4.border-white(
       v-for="option in options"
       :style="gradByName(option)"
+      @click="select(option)"
       ) {{ option }}
 </template>
 
@@ -22,7 +23,10 @@ export default {
     gradByName (name) {
       const gradient = this.$store.state.gradients[name]
       return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`
-    }
+    },
+    select (name) {
+      this.$emit('filterChanged', name)
+    },
   }
 }
 </script>
