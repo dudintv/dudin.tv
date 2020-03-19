@@ -8,7 +8,7 @@
       img(src="~/static/images/common/dudintv-logo.svg")
     nav.nav.flex.justify-between.w-full
       .first-links.flex
-        nuxt-link#scripts.name-selector(to="scripts") Scripts
+        nuxt-link#scripts.name-selector(to="/") Scripts
         nuxt-link#articles.name-selector(to="articles") Articles
       .second-links.flex
         nuxt-link#links.name-selector(to="links") Links
