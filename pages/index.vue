@@ -2,9 +2,9 @@
   .content
     TheIntro
     TheScriptsLogo
-    .flex.justify-around
-      TheScriptsFilter(@filterChanged="updateFilter")
-      .flex.items-start
+    .flex.items-center.justify-around.flex-wrap
+      TheScriptsFilter.mx-4(@filterChanged="updateFilter")
+      .flex.items-start.mx-4.mt-4
         img(src="~/static/images/common/copy.svg")
         span.mx-2 —
         span.leading-tight
