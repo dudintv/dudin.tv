@@ -15,8 +15,7 @@
     "color": "^3.1.2",
     "gsap": "^3.2.4",
     "lottie-web": "^5.6.6",
-    "nuxt": "^2.0.0",
-    "shufflejs": "^5.2.3"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
