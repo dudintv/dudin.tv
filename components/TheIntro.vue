@@ -8,7 +8,9 @@
       | Feel free to (use OR rewrite OR expand AND combine) its!
     p
       | If you need an advice or something custom
-      | you know how to find me ;)
+      | you know how to
+      nuxt-link(to="contacts") &nbsp;find me&nbsp;
+      | ;)
 </template>
 
 <script>
