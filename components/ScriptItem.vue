@@ -1,6 +1,9 @@
 <template lang="pug">
   .script-item
-    a.thumbnail.flex.items-center.justify-center.cursor-pointer(:style="gradByName(script.category)")
+    nuxt-link.thumbnail.flex.items-center.justify-center.cursor-pointer(
+      :to="getPermalink(script)"
+      :style="gradByName(script.category)"
+      )
       img(:src="script.thumbnail")
       .hover
     .header.relative
@@ -43,6 +46,9 @@ export default {
     },
   },
   methods: {
+    getPermalink(script) {
+      return `scripts/${script.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]}`
+    },
     gradByName (name) {
       const gradient = this.$store.state.gradients[name]
       return `background: linear-gradient(10deg, ${gradient[0]}, ${gradient[1]})`

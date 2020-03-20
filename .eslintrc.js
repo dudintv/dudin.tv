@@ -18,5 +18,6 @@ module.exports = {
     'quote-props': 'off',
     'no-multi-spaces': 'off',
     'arrow-parens': 'off',
+    'require-await': 'off',
   }
 }
