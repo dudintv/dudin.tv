@@ -39,9 +39,9 @@ export default {
     TheSocNetworks,
   },
   async asyncData () {
-    const resolve = require.context('~/content/script/', true, /\.md$/)
+    const resolve = require.context('~/content/scripts/', true, /\.md$/)
     const imports = resolve.keys().map(key => {
-      const [, name] = key.match(/\/(.+)\.md$/)
+      // const [, name] = key.match(/\/(.+)\.md$/)
       return resolve(key)
     })
     return {
@@ -87,7 +87,7 @@ export default {
       let filtered
       if (this.currentFilter && this.currentFilter !== 'all') {
         filtered = this.scripts.filter((script) => {
-          return (script.category === this.currentFilter)
+          return (script.attributes.category === this.currentFilter)
         })
       } else {
         filtered = this.scripts

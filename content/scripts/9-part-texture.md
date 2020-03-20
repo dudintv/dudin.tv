@@ -4,6 +4,7 @@ description: Script for stretching texture with saving quality of borders and co
 cover: script-icon-9parttexture.png
 author: Dmitry Dudin
 category: texture
+thumbnail: images/thumbnails/9partTexture.svg
 ---
 
 # 9 part texture

@@ -2,37 +2,37 @@
   .script-item
     nuxt-link.thumbnail.flex.items-center.justify-center.cursor-pointer(
       :to="getPermalink(script)"
-      :style="gradByName(script.category)"
+      :style="gradByName(script.attributes.category)"
       )
-      img(:src="script.thumbnail")
+      img(:src="script.attributes.thumbnail")
       .hover
     .header.relative
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 340 82" class="header-bg">
-        <path :fill="`url(#grad0_${script.category})`" d="M319 0s11 45 0 81c0 0-40-25-183-15C-8 77 9 0 9 0h310z"/>
-        <path :fill="`url(#grad1_${script.category})`" d="M340 0v67s-62-9-169-1C63 73 0 68 0 68V0h340z"/>
+        <path :fill="`url(#grad0_${script.attributes.category})`" d="M319 0s11 45 0 81c0 0-40-25-183-15C-8 77 9 0 9 0h310z"/>
+        <path :fill="`url(#grad1_${script.attributes.category})`" d="M340 0v67s-62-9-169-1C63 73 0 68 0 68V0h340z"/>
         <defs>
-          <linearGradient :id="`grad0_${script.category}`" x1="8" x2="324" y1="0" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0" :stop-color="shadowGradByName(script.category)[0]"/>
-            <stop offset="1" :stop-color="shadowGradByName(script.category)[1]"/>
+          <linearGradient :id="`grad0_${script.attributes.category}`" x1="8" x2="324" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" :stop-color="shadowGradByName(script.attributes.category)[0]"/>
+            <stop offset="1" :stop-color="shadowGradByName(script.attributes.category)[1]"/>
           </linearGradient>
-          <linearGradient :id="`grad1_${script.category}`" x1="0" x2="340" y1="0" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0" :stop-color="darkGradByName(script.category)[0]"/>
-            <stop offset="1" :stop-color="darkGradByName(script.category)[1]"/>
+          <linearGradient :id="`grad1_${script.attributes.category}`" x1="0" x2="340" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" :stop-color="darkGradByName(script.attributes.category)[0]"/>
+            <stop offset="1" :stop-color="darkGradByName(script.attributes.category)[1]"/>
           </linearGradient>
         </defs>
       </svg>
       .title-group.w-full.flex.justify-between.items-end.absolute.top-0.left-0.px-4.py-1
         .title-and-category
-          span.category(:style="colorByName(script.category)") {{ script.category }}
+          span.category(:style="colorByName(script.attributes.category)") {{ script.attributes.category }}
           a(href="#")
-            h3.title {{ script.name }}
+            h3.title {{ script.attributes.title }}
         .codes
           a.code(
-            v-for="(code, index) in script.codes"
+            v-for="(code, index) in script.attributes.codes"
             @click.prevent="copyCode(code)"
             )
-            span.absolute.top-0.pt-5(v-if="script.codes.length > 1") {{ index+1 }}
-      p.description {{ script.description }}
+            span.absolute.top-0.pt-5(v-if="script.attributes.codes.length > 1") {{ index+1 }}
+      p.description {{ script.attributes.description }}
 </template>
 
 <script>
@@ -46,7 +46,7 @@ export default {
     },
   },
   methods: {
-    getPermalink(script) {
+    getPermalink (script) {
       return `scripts/${script.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]}`
     },
     gradByName (name) {

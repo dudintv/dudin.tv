@@ -1,3 +1,5 @@
+import path from 'path'
+import Mode from 'frontmatter-markdown-loader/mode'
 import glob from 'glob'
 
 async function getDynamicPaths (urlFilepathTable) {
@@ -34,7 +36,7 @@ export default {
       { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#9804d0' }
     ]
   },
-  /*>
+  /*
   ** Customize the progress-bar color
   */
   loading: { color: '#243B61' },
@@ -70,11 +72,20 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    // add frontmatter-markdown-loader
+      config.module.rules.push({
+        test: /\.md$/,
+        include: path.resolve(__dirname, 'content'),
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          mode: [Mode.VUE_COMPONENT, Mode.META]
+        }
+      })
     }
   },
 
   generate: {
-    routes:  getDynamicPaths({
+    routes: getDynamicPaths({
       '/posts': 'posts/*.md'
     })
   },
