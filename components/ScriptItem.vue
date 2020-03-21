@@ -46,14 +46,14 @@ export default {
     },
   },
   methods: {
-    scriptName () {
+    slug () {
       return this.script.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]
     },
     permalink () {
-      return `scripts/${this.scriptName()}`
+      return `scripts/${this.slug()}`
     },
     thumbnailUrl () {
-      return `/images/scripts/${this.scriptName()}/thumbnail.svg`
+      return `/images/scripts/${this.slug()}/thumbnail.svg`
     },
     gradByName (name) {
       const gradient = this.$store.state.gradients[name]
