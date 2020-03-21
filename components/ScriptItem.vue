@@ -1,10 +1,10 @@
 <template lang="pug">
   .script-item
     nuxt-link.thumbnail.flex.items-center.justify-center.cursor-pointer(
-      :to="getPermalink(script)"
+      :to="permalink()"
       :style="gradByName(script.attributes.category)"
       )
-      img(:src="script.attributes.thumbnail")
+      img(:src="thumbnailUrl()")
       .hover
     .header.relative
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 340 82" class="header-bg">
@@ -46,8 +46,14 @@ export default {
     },
   },
   methods: {
-    getPermalink (script) {
-      return `scripts/${script.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]}`
+    scriptName () {
+      return this.script.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]
+    },
+    permalink () {
+      return `scripts/${this.scriptName()}`
+    },
+    thumbnailUrl () {
+      return `/images/scripts/${this.scriptName()}/thumbnail.svg`
     },
     gradByName (name) {
       const gradient = this.$store.state.gradients[name]
