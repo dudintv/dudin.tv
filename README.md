@@ -27,7 +27,7 @@ Project created for generating static website by `yarn generate`.
 2. Add thumbnail image to ```static/images/thumbnails/`. SVG format is recomended.
 3. Add rest images to `static/images/scripts/[script-name]/`. Where "\[script-name\]" is exactly the same to markdown filename.
 
-## Markdown & Frontmatter format
+# Markdown & Frontmatter format
 
 Sample frontmatter:
 
@@ -42,19 +42,22 @@ thumbnail: images/thumbnails/9partTexture.svg
 ---
 ```
 
-## Show media files
+<!-- # Media files
 
 1. Put the file to `static/images/scripts/[script-name]/` as `example.png`.
 2. Call with `<media name="example.png">`. Don't need "\[script-name\]" part.
 
 * If put `mp4` file, it will play automatically.
-* If put `YouTube URL` in _name_ parameter, it will be rendered as embeded player of YouTube.
+* If put `YouTube URL` in _name_ parameter, it will be rendered as embeded player of YouTube. -->
 
 # Components
 
 ## InterfaceDescription
 
-You should set __interface image__ as `name` param and __description__ as default slot. In description it's possible to use Markdown! To make it works you shoul insert two empty lines: one just after open `<interface-description image="interface.png">` and second just before `</interface-description>`. 
+You should set __interface image__ as `name` param and __description__ as default slot. 
+
+* In description it's possible to use Markdown! To make it works you shoul insert two empty lines: one just after open `<interface-description image="interface.png">` and second just before `</interface-description>`. 
+* Image is searched into `static/images/scripts/[script-name]/[image-name]`
 
 Sample of using:
 
