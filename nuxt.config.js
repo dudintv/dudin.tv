@@ -84,9 +84,5 @@ export default {
     }
   },
 
-  generate: {
-    routes: getDynamicPaths({
-      '/posts': 'posts/*.md'
-    })
-  },
+  generate: {},
 }
