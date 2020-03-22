@@ -15,7 +15,8 @@
     "color": "^3.1.2",
     "gsap": "^3.2.4",
     "lottie-web": "^5.6.6",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "youtube-player": "^5.5.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
