@@ -84,4 +84,4 @@ Sample:
 # Author & Contacts
 
 Dmitry Dudin
-[facebook.com/dudintv](https://www.facebook.com/dudintv){:target="_blank"}
+<a href="https://www.facebook.com/dudintv" onclick="return ! window.open(this.href);">facebook.com/dudintv</a>
