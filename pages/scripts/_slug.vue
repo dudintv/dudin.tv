@@ -5,6 +5,7 @@
 
 <script>
 import MediaImage from '~/components/media/MediaImage'
+import MediaYoutube from '~/components/media/MediaYoutube'
 import InterfaceDescription from '~/components/scripts/InterfaceDescription'
 
 export default {
@@ -21,6 +22,7 @@ export default {
         components: {
           MediaImage,
           InterfaceDescription,
+          MediaYoutube,
         }
       }
     }).catch((e) => {
