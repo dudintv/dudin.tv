@@ -1,23 +1,31 @@
 <template lang="pug">
   div
-    component(:is="singleScriptComponent")
+    component(:is="markdownContent")
 </template>
 
 <script>
+import MediaImage from '~/components/media/MediaImage'
+import InterfaceDescription from '~/components/scripts/InterfaceDescription'
+
 export default {
-  async asyncData({ params }) {
-    try {
-      console.info(params.slug)
-      let script = await import(`~/content/scripts/${params.slug}.md`)
-      return {
-        title: script.attributes.title,
-        category: script.attributes.category,
-        singleScriptComponent: script.vue.component
-      }
-    } catch (err) {
-      console.debug(err)
-      return false
+  data () {
+    return {
+      slug: '',
+      markdownContent: {},
     }
-  }
-};
+  },
+  created () {
+    this.markdownContent = () => import('~/content/scripts/' + this.$route.params.slug + '.md').then((md) => {
+      return {
+        extends: md.vue.component,
+        components: {
+          MediaImage,
+          InterfaceDescription,
+        }
+      }
+    }).catch((e) => {
+      console.log('ERROR in markdown parsing', e)
+    })
+  },
+}
 </script>
