@@ -3,7 +3,7 @@
     //- img.feathers(src="~/static/images/common/nav-feathers.svg")
     #feathers
     .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
-    img.bg(src="~/static/images/common/nav-bg.svg")
+    img.nav-bg(src="~/static/images/common/nav-bg.svg")
     a.logo(href="/")
       img(src="~/static/images/common/dudintv-logo.svg")
     nav.nav.flex.justify-between.w-full
@@ -133,7 +133,7 @@ export default {
     position: relative;
   }
 
-  .bg {
+  .nav-bg {
     width: 100%;
     position: relative;
     z-index: 10;
