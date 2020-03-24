@@ -20,7 +20,6 @@
           :script="script"
           :key="script.attributes.title"
           )
-    TheSocNetworks
 </template>
 
 <script>
