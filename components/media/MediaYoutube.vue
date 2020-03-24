@@ -15,12 +15,18 @@ export default {
     }
   },
   mounted () {
-    const videoId = this.path.match(/v=(.+)$/)
+    let videoId
+    if (/v=.+$/.test(this.path)) {
+      videoId = this.path.match(/v=(.+)$/)[1]
+    } else {
+      videoId = this.path.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/)[1]
+    }
+    console.log('videoId', videoId)
     if (videoId) {
       YouTubePlayer(
         this.$refs.player,
         {
-          videoId: videoId[1],
+          videoId,
           width: (this.$el).offsetWidth,
           height: (this.$el).offsetHeight,
         }
@@ -32,7 +38,8 @@ export default {
 
 <style scoped>
   .media-youtube {
-    margin: 0 auto;
+    display: block;
+    margin: 6rem auto;
   }
   .youtube-wrapper {
     position: relative;

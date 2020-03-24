@@ -1,5 +1,5 @@
 <template lang="pug">
-  img(:src="src")
+  img.my-4(:src="src" :class="{'transparent-background': transparent}")
 </template>
 
 <script>
@@ -8,6 +8,10 @@ export default {
     name: {
       type: String,
       default: '',
+    },
+    transparent: {
+      type: Boolean,
+      default: false,
     }
   },
   computed: {
@@ -15,8 +19,13 @@ export default {
       return `/images${this.$route.path}/${this.name}`
     }
   },
-  mounted () {
-    console.log('MediaImage created')
-  }
 }
 </script>
+
+<style scoped>
+  .transparent-background {
+    background-image: url(~static/images/common/transparent-background.jpg);
+    background-size: 25px 25px;
+    margin: .5em 0;
+  }
+</style>
