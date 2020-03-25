@@ -16,6 +16,7 @@
     "gsap": "^3.2.4",
     "lottie-web": "^5.6.6",
     "nuxt": "^2.0.0",
+    "vue-code-highlight": "^0.7.4",
     "youtube-player": "^5.5.2"
   },
   "devDependencies": {
