@@ -44,6 +44,7 @@ h1 {
   font-family: Russia;
   font-weight: normal;
   font-size: 2.5rem;
+  line-height: 2.5rem;
   margin-bottom: 1rem;
 }
 
@@ -51,6 +52,7 @@ h2 {
   font-family: Russia;
   font-weight: bold;
   font-size: 2rem;
+  line-height: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -58,6 +60,7 @@ h3 {
   font-family: Russia;
   font-weight: normal;
   font-size: 1.5rem;
+  line-height: 1.5rem;
   margin-bottom: 1rem;
 }
 
