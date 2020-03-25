@@ -3,7 +3,7 @@
     .container.mx-auto
       ScriptHero(:attributes="attributes")
       component(:is="markdownContent")
-      SourceCode(:path="attributes.source")
+      SourceCode(:attributes="attributes" :code="code")
 </template>
 
 <script>
@@ -23,11 +23,18 @@ export default {
       slug: '',
       markdownContent: {},
       attributes: {},
+      code: '',
     }
   },
   created () {
     this.markdownContent = () => import('~/content/scripts/' + this.$route.params.slug + '.md').then((md) => {
       this.attributes = md.attributes
+      const codePath = md.attributes.link.match(/(?<=https:\/\/bitbucket\.org\/).*/)[0]
+      fetch(`https://api.bitbucket.org/2.0/repositories/${codePath}/${this.attributes.file}`)
+        .then((response) => response.text())
+        .then((code) => {
+          this.code = code
+        })
       return {
         extends: md.vue.component,
         components: {
