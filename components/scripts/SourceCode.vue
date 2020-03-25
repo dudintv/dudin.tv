@@ -5,9 +5,9 @@
       details
         summary
           span.title show source code
-          span.tip automatically get the latest version from the repository
+          span.tip automatically gets the latest version from my BitBucket repository
         .code
-          | {{ code }}
+          vue-code-highlight(language="basic") {{ code }}
     a.red-button.home-page.mx-auto(:href="attributes.link" target="_blank")
       <svg class="icon svg-open-new-window" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M16 16H2V2H9V0H2C0.89 0 0 0.9 0 2V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V9H16V16ZM11 0V2H14.59L4.76 11.83L6.17 13.24L16 3.41V7H18V0H11Z" fill="white"/>
@@ -16,7 +16,15 @@
 </template>
 
 <script>
+import { component as VueCodeHighlight } from 'vue-code-highlight'
+import 'vue-code-highlight/themes/prism-tomorrow.css'
+import 'prism-es6/components/prism-markup-templating'
+import 'prism-es6/components/prism-basic'
+
 export default {
+  components: {
+    VueCodeHighlight,
+  },
   props: {
     attributes: {
       type: Object,
@@ -41,14 +49,28 @@ export default {
     border: 1px dashed #405880;
 
     summary {
+      position: relative;
       padding: 1rem;
+      cursor: pointer;
+      text-align: center;
+      padding-bottom: 2rem;
+
+      &:hover {
+        background-color: hsla(0,0%,100%,0.1);
+      }
 
       .title {
         font-size: 1.5rem;
       }
 
       .tip {
+        position: absolute;
+        left: 50%;
+        top: 3rem;
+        transform: translateX(-50%);
         color: rgba(white, 0.5);
+        line-height: 1rem;
+        font-size: .8rem;
       }
     }
 

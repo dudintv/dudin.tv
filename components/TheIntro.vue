@@ -5,7 +5,7 @@
       | I’m a vizrt designer and script developer.
     p
       | I prepared for you Vizrt scripts tested in real projects.
-      | Feel free to (use OR rewrite OR expand AND combine) its!
+      | Feel free to (use OR rewrite OR expand AND combine) them!
     p
       | If you need an advice or something custom
       | you know how to
