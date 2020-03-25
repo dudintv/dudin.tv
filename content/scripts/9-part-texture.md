@@ -2,6 +2,8 @@
 title: 9 part texture
 description: Script for stretching texture with saving quality of borders and corners.
 category: texture
+link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-9parttexture/
+file: 9parttexture.vb
 ---
 
 <interface-description image="interface.png">
