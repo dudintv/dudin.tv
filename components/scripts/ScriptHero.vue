@@ -65,6 +65,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    code: {
+      type: String,
+      default: () => (''),
+    },
   },
   data () {
     return {
@@ -89,7 +93,13 @@ export default {
   },
   methods: {
     copyCode () {
-      console.log('COPY CODE')
+      this.$copyText(this.code).then(function (e) {
+        alert('Code is copied')
+        console.log(e)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
+      })
     },
   },
 }

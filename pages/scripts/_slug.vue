@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     .container.mx-auto
-      ScriptHero(:attributes="attributes")
+      ScriptHero(:attributes="attributes" :code="code")
       component(:is="markdownContent")
       SourceCode(:attributes="attributes" :code="code")
 </template>
