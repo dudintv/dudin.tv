@@ -21,17 +21,17 @@
           </linearGradient>
         </defs>
       </svg>
-      .title-group.w-full.flex.justify-between.items-end.absolute.top-0.left-0.px-4.py-1
+      .title-group.w-full.flex.justify-between.items-center.absolute.top-0.left-0.px-4.py-1
         .title-and-category
           span.category(:style="colorByName(script.attributes.category)") {{ script.attributes.category }}
           a(href="#")
             h3.title {{ script.attributes.title }}
         .codes
           a.code(
-            v-for="(code, index) in script.attributes.codes"
-            @click.prevent="copyCode(code)"
+            v-if="script.attributes.file"
+            @click.prevent="copyCode(script)"
             )
-            span.absolute.top-0.pt-5(v-if="script.attributes.codes.length > 1") {{ index+1 }}
+            //- span.absolute.top-0.pt-5(v-if="script.attributes.codes.length > 1") {{ index+1 }}
       p.description {{ script.attributes.description }}
 </template>
 
@@ -75,8 +75,8 @@ export default {
       const gradient = this.$store.state.gradients[name]
       return `color: ${gradient[0]}`
     },
-    copyCode (code) {
-      console.log('Copy code', code)
+    copyCode (script) {
+      this.$store.dispatch('copyCode', script)
     },
   }
 }

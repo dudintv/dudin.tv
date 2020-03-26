@@ -8,3 +8,24 @@ export const state = () => ({
     texture: ['#C389F0', '#ED7485'],
   }
 })
+
+export const actions = {
+  copyCode (state, script) {
+    const codePath = script.attributes.link.match(/(?<=https:\/\/bitbucket\.org\/).*/)[0]
+    if (codePath && script.attributes.file) {
+      fetch(`https://api.bitbucket.org/2.0/repositories/${codePath}/${script.attributes.file}`)
+        .then((response) => response.text())
+        .then((code) => {
+          navigator.clipboard.writeText(code)
+            .then(() => {
+              alert('Code is copied')
+            })
+            .catch(err => {
+              console.log('Something went wrong', err)
+            })
+        })
+    } else {
+      console.log('There isn\'t script path URL')
+    }
+  }
+}

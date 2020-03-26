@@ -93,13 +93,7 @@ export default {
   },
   methods: {
     copyCode () {
-      this.$copyText(this.code).then(function (e) {
-        alert('Code is copied')
-        console.log(e)
-      }, function (e) {
-        alert('Can not copy')
-        console.log(e)
-      })
+      this.$store.dispatch('copyCode', { attributes: this.attributes })
     },
   },
 }
