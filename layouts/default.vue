@@ -50,10 +50,11 @@ h1 {
 
 h2 {
   font-family: Russia;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 2rem;
   line-height: 2rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 h3 {
@@ -65,7 +66,7 @@ h3 {
 }
 
 /* headers after paragraphs */
-p + h2, p + h3 {
+p + h2, p + h3, ul + h2, ul + h3 {
   margin-top: 2rem;
 }
 
@@ -86,6 +87,29 @@ a {
 
 p {
   margin-bottom: 1rem;
+}
+
+ul > li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+details {
+  background: linear-gradient(95.16deg, #0F336F 0%, #112545 100%);
+  border: 1px dashed #405880;
+  padding: 2rem 2rem 0;
+  margin-bottom: 1rem;
+
+  summary {
+    position: relative;
+    margin: -2rem -2rem 0;
+    padding: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: hsla(0, 0%, 100%, .05);
+    }
+  }
 }
 
 /* ************************************************** */

@@ -1,8 +1,8 @@
 <template lang="pug">
   .cource-code
-    h2 Source code
     .bg
-      details
+      h2 Source code
+      details(v-if="code")
         summary
           span.title show source code
           span.tip automatically gets the latest version from my BitBucket repository
@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .bg {
     background: #1E2E49;
     padding: 2rem;
@@ -47,6 +47,7 @@ export default {
   details {
     background: linear-gradient(95.16deg, #0F336F 0%, #112545 100%);
     border: 1px dashed #405880;
+    padding: 0;
 
     summary {
       position: relative;
@@ -54,6 +55,7 @@ export default {
       cursor: pointer;
       text-align: center;
       padding-bottom: 2rem;
+      margin: 0;
 
       &:hover {
         background-color: hsla(0,0%,100%,0.1);

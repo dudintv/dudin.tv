@@ -120,8 +120,9 @@ export default {
 
     .thumbnail-image {
       position: absolute;
-      top: 11rem;
-      left: 5rem;
+      top: 14rem;
+      left: 12rem;
+      transform: translateY(-50%) translateX(-50%);
     }
   }
 
