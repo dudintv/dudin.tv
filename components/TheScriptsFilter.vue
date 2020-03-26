@@ -1,9 +1,10 @@
 <template lang="pug">
   #scripts-filter.flex.items-start.cursor-pointer.text-white.font-bold
-    .option.px-3.py-1.hover_border-b-4.border-white(
+    .option.px-3.py-1(
       v-for="option in options"
       :style="gradByName(option)"
       @click="select(option)"
+      :class="{selected: (option===selectedOption)}"
       ) {{ option }}
 </template>
 
@@ -17,7 +18,8 @@ export default {
       'logic',
       'position',
       'texture',
-    ]
+    ],
+    selectedOption: 'all'
   }),
   methods: {
     gradByName (name) {
@@ -25,12 +27,35 @@ export default {
       return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`
     },
     select (name) {
+      this.selectedOption = name
       this.$emit('filterChanged', name)
     },
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .option {
+    position: relative;
 
+    &::after {
+      content: '';
+      width: 100%;
+      height: 4px;
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      transition: background-color 1s ease;
+    }
+
+    &:hover::after {
+      background-color: white;
+      transition: background-color .2s ease;
+    }
+
+    &.selected::after {
+      background-color: white;
+    }
+  }
 </style>
