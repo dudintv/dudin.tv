@@ -83,6 +83,23 @@ pre, code {
 a {
   color: #78BEFF;
   text-decoration: none;
+  position: relative;
+
+  &.a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 1px;
+    background-color: #78BEFF;
+    transition: width .6s ease;
+  }
+
+  &.a:hover::after {
+    width: 100%;
+    transition: width .3s ease;
+  }
 }
 
 p {

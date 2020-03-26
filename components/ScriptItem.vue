@@ -21,7 +21,7 @@
           </linearGradient>
         </defs>
       </svg>
-      .title-group.w-full.flex.justify-between.items-center.absolute.top-0.left-0.px-4.py-1
+      .title-group.w-full.flex.justify-between.items-center.absolute.top-0.left-0.px-6.py-1
         .title-and-category
           span.category(:style="colorByName(script.attributes.category)") {{ script.attributes.category }}
           a(href="#")
@@ -142,7 +142,7 @@ export default {
     }
   }
   .description {
-    padding: 5px 20px 20px 20px;
+    padding: 5px 30px 10px;
     line-height: 1.4em;
   }
 </style>

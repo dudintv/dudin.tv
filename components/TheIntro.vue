@@ -9,7 +9,7 @@
     p
       | If you need an advice or something custom
       | you know how to
-      nuxt-link(to="contacts") &nbsp;find me&nbsp;
+      nuxt-link.a(to="contacts") &nbsp;find me&nbsp;
       | ;)
 </template>
 

@@ -107,7 +107,7 @@ export default {
     margin: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, 355px);
-    grid-gap: 2px;
+    grid-gap: .5rem;
     justify-content: center;
     width: 100%;
     max-width: 1500px;
