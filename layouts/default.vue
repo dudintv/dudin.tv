@@ -1,7 +1,7 @@
 <template lang="pug">
-  div
+  div.nuxt-layout
     TheNav
-    nuxt
+    nuxt.nuxt-page
     TheSocNetworks
 </template>
 
@@ -189,5 +189,9 @@ details {
       left: 7px;
     }
   }
+}
+
+.nuxt-page {
+  min-height: 50vh;
 }
 </style>
