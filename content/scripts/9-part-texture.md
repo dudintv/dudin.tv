@@ -20,7 +20,7 @@ __Magnifier__ corrects size to shrink or stretch this texture. E.g. that way you
 
 </interface-description>
 
-<media-youtube path="https://www.youtube.com/embed/AbJf5V1j-Ko" />
+<media-youtube url="https://www.youtube.com/embed/AbJf5V1j-Ko" />
 
 ## Theory
 

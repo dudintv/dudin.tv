@@ -9,26 +9,37 @@ import YouTubePlayer from 'youtube-player'
 
 export default {
   props: {
-    path: {
+    url: {
       type: String,
       required: true
+    },
+    width: {
+      type: Number,
+      default: 0
     }
   },
   mounted () {
     let videoId
-    if (/v=.+$/.test(this.path)) {
-      videoId = this.path.match(/v=(.+)$/)[1]
+    if (/v=.+$/.test(this.url)) {
+      videoId = this.url.match(/v=(.+)$/)[1]
     } else {
-      videoId = this.path.match(/(?:youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?/\s]{11})/)[1]
+      videoId = this.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)[1]
     }
-    console.log('videoId', videoId)
+    let videoWidth, videoHeight
+    if (this.width > 0) {
+      videoWidth = this.width
+      videoHeight = this.width * 9 / 16
+    } else {
+      videoWidth = (this.$el).offsetWidth
+      videoHeight = (this.$el).offsetHeight
+    }
     if (videoId) {
       YouTubePlayer(
         this.$refs.player,
         {
           videoId,
-          width: (this.$el).offsetWidth,
-          height: (this.$el).offsetHeight,
+          width: videoWidth,
+          height: videoHeight,
         }
       )
     }
@@ -39,7 +50,6 @@ export default {
 <style scoped>
   .media-youtube {
     display: block;
-    margin: 6rem auto;
   }
   .youtube-wrapper {
     position: relative;
