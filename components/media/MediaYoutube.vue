@@ -7,22 +7,6 @@
 <script>
 import YouTubePlayer from 'youtube-player'
 
-const debounce = (action, time) => {
-  let timer
-  return (...args) => {
-    clearTimeout(timer)
-    timer = setTimeout(() => action(...args), time)
-  }
-}
-
-const youtubeWidthChanged = debounce((vThis) => {
-  const youtubePlayer = document.getElementById(vThis.videoId)
-  if (youtubePlayer) {
-    youtubePlayer.setAttribute('width', vThis.videoWidth)
-    youtubePlayer.setAttribute('height', vThis.videoHeight)
-  }
-}, 500)
-
 export default {
   props: {
     url: {
@@ -34,29 +18,24 @@ export default {
       default: 0
     }
   },
+  data () {
+    return {
+      debounceTimer: null,
+    }
+  },
   computed: {
     videoId () {
-      let id
       if (/v=.+$/.test(this.url)) {
-        id = this.url.match(/v=(.+)$/)[1]
+        return this.url.match(/v=(.+)$/)[1]
       } else {
-        id = this.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)[1]
+        return this.url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)[1]
       }
-      return id
     },
     videoWidth () {
-      if (this.width > 0) {
-        return this.width
-      } else {
-        return (this.$el).offsetWidth
-      }
+      return this.width > 0 ? this.width : (this.$el).offsetWidth
     },
     videoHeight () {
-      if (this.width > 0) {
-        return this.width * 9 / 16
-      } else {
-        return (this.$el).offsetHeight
-      }
+      return this.width > 0 ? this.width * 9 / 16 : (this.$el).offsetHeight
     },
   },
   watch: {
@@ -81,8 +60,15 @@ export default {
       }
     },
     changeYoutubeSize () {
-      youtubeWidthChanged(this)
-    },
+      clearTimeout(this.debounceTimer)
+      this.debounceTimer = setTimeout(() => {
+        const youtubePlayer = document.getElementById(this.videoId)
+        if (youtubePlayer) {
+          youtubePlayer.setAttribute('width', this.videoWidth)
+          youtubePlayer.setAttribute('height', this.videoHeight)
+        }
+      }, 500)
+    }
   },
 }
 </script>
