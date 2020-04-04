@@ -29,16 +29,16 @@
         p
           | The hardest thing here was preparation 3dsMax models from designers to working Vizrt objects. Especially making fake reflection.
 
-    h1.text-center.my-16 ... and my last projects
-    .project-items.flex.flex-col.items-center
-      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4")
-        small 2019-2020
-        h3 Stadium Zenit Arena
-        p Set agument reality Vizrt graphics for a big stadium.
-      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
-        small June 2019
-        h3 MuzTV Awards
-        p Set Vizrt graphics for a long screen with incredible resolution 37760&nbsp;&times;&nbsp;140 pixels!
+    //- h1.text-center.my-16 ... and my last projects
+    //- .project-items.flex.flex-col.items-center
+    //-   ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4")
+    //-     small 2019-2020
+    //-     h3 Stadium Zenit Arena
+    //-     p Set agument reality Vizrt graphics for a big stadium.
+    //-   ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
+    //-     small June 2019
+    //-     h3 MuzTV Awards
+    //-     p Set Vizrt graphics for a long screen with incredible resolution 37760&nbsp;&times;&nbsp;140 pixels!
 </template>
 
 <script>

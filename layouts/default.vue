@@ -40,6 +40,11 @@ html, body {
   color: #D8DEE8;
 }
 
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 h1 {
   font-family: Russia;
   font-weight: normal;

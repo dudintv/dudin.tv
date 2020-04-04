@@ -20,5 +20,6 @@ module.exports = {
     'arrow-parens': 'off',
     'require-await': 'off',
     'no-useless-escape': 'off',
+    'css-semicolonexpected': 'off',
   }
 }

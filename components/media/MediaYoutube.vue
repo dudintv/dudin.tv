@@ -45,6 +45,9 @@ export default {
   },
   mounted () {
     this.loadYoutube()
+    setTimeout(() => {
+      this.changeYoutubeSize()
+    }, 1000)
   },
   methods: {
     loadYoutube () {
@@ -67,7 +70,7 @@ export default {
           youtubePlayer.setAttribute('width', this.videoWidth)
           youtubePlayer.setAttribute('height', this.videoHeight)
         }
-      }, 500)
+      }, 200)
     }
   },
 }
