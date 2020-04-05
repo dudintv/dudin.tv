@@ -2,7 +2,7 @@
   .contacts.conatiner.mx-auto
     #contacts-bg
     .content
-      .name
+      h3.name Dmitry Dudin
       .contact.facebook
         img(src="~/static/images/icons/facebook.png" width="32" height="32")
         a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
