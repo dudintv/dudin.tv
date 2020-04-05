@@ -122,6 +122,15 @@ details {
   padding: 2rem 2rem 0;
   margin-bottom: 1rem;
 
+  &[open] {
+    padding-bottom: 20px;
+
+    summary {
+      margin-bottom: 20px;
+      background-color: hsla(0, 0%, 100%, .03);
+    }
+  }
+
   summary {
     position: relative;
     margin: -2rem -2rem 0;
