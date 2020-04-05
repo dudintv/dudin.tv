@@ -49,7 +49,7 @@ export default {
       loop: true,
       autoplay: true,
       path: '/animations/project-flag-right.json'
-    })
+    }).setSpeed(2)
   },
   methods: {
     windowSizeChanged () {

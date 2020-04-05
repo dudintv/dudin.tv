@@ -55,7 +55,7 @@ export default {
       loop: true,
       autoplay: true,
       path: `/animations/${animationFile}`
-    })
+    }).setSpeed(2)
   },
   methods: {
     windowSizeChanged () {
