@@ -10,7 +10,7 @@
       .details
         p.md--my-8 I use VizArtist, VizTrio, Director (VizContentPilot) and Multiplay for creating lowerthirds, fullscreen graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with scripts.
 
-    h1.text-center.mb-8 Here is my portfolio ...
+    h1.text-center.mb-16 Here is my portfolio ...
     .portfolio-items.flex.flex-col.items-center
       PortfolioItem(youtube="https://youtu.be/4xH6bjEoEq8")
         small Portfolio
@@ -29,16 +29,16 @@
         p
           | The hardest thing here was preparation 3dsMax models from designers to working Vizrt objects. Especially making fake reflection.
 
-    //- h1.text-center.my-16 ... and my last projects
-    //- .project-items.flex.flex-col.items-center
-    //-   ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4")
-    //-     small 2019-2020
-    //-     h3 Stadium Zenit Arena
-    //-     p Set agument reality Vizrt graphics for a big stadium.
-    //-   ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
-    //-     small June 2019
-    //-     h3 MuzTV Awards
-    //-     p Set Vizrt graphics for a long screen with incredible resolution 37760&nbsp;&times;&nbsp;140 pixels!
+    h1.text-center.mt-16.mb-32 ... and my last projects
+    .project-items.flex.flex-col.items-center
+      ProjectItem(youtube="https://youtu.be/kfqtSZtMHbw")
+        small 2019-2020
+        h3 Stadium Zenit Arena
+        p Set agument reality Vizrt graphics for a enormous stadium.
+      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
+        small June 2019
+        h3 MuzTV Awards
+        p Set Vizrt graphics for a long screen with incredible resolution 37760&nbsp;&times;&nbsp;140 pixels!
 </template>
 
 <script>
