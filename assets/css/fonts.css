@@ -1,9 +1,9 @@
 @font-face {
   font-family: JetBrainsMono;
   src:
-    url("~/static/fonts/JetBrainsMono-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("~/static/fonts/JetBrainsMono-Regular.woff") format("woff"), /* Modern Browsers */
-    url("~/static/fonts/JetBrainsMono-Regular.woff2") format("woff2"); /* Modern Browsers */
+    url("~static/fonts/JetBrainsMono-Regular.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("~static/fonts/JetBrainsMono-Regular.woff") format("woff"), /* Modern Browsers */
+    url("~static/fonts/JetBrainsMono-Regular.woff2") format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
@@ -11,10 +11,10 @@
 @font-face {
   font-family: Russia;
   src:
-    url("~/static/fonts/russia-medium.otf") format("opentype"), /* Open Type Font */
-    url("~/static/fonts/russia-medium.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("~/static/fonts/russia-medium.woff") format("woff"), /* Modern Browsers */
-    url("~/static/fonts/russia-medium.woff2") format("woff2"); /* Modern Browsers */
+    url("~static/fonts/russia-medium.otf") format("opentype"), /* Open Type Font */
+    url("~static/fonts/russia-medium.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("~static/fonts/russia-medium.woff") format("woff"), /* Modern Browsers */
+    url("~static/fonts/russia-medium.woff2") format("woff2"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
@@ -22,10 +22,10 @@
 @font-face {
   font-family: Russia;
   src:
-    url("~/static/fonts/russia-bold.otf") format("opentype"), /* Open Type Font */
-    url("~/static/fonts/russia-bold.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("~/static/fonts/russia-bold.woff") format("woff"), /* Modern Browsers */
-    url("~/static/fonts/russia-bold.woff2") format("woff2"); /* Modern Browsers */
+    url("~static/fonts/russia-bold.otf") format("opentype"), /* Open Type Font */
+    url("~static/fonts/russia-bold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("~static/fonts/russia-bold.woff") format("woff"), /* Modern Browsers */
+    url("~static/fonts/russia-bold.woff2") format("woff2"); /* Modern Browsers */
   font-weight: bold;
   font-style: normal;
 }

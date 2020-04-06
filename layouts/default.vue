@@ -94,6 +94,8 @@ img + h2, img + h3 {
 
 pre, code {
   font-family: JetBrainsMono;
+code, pre, code[class*="language-"], pre[class*="language-"] {
+  font-family: JetBrainsMono !important;
   font-weight: normal;
 }
 
