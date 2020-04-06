@@ -73,6 +73,7 @@ h3 {
 /* headers after paragraphs */
 p + h2, p + h3,
 ul + h2, ul + h3,
+pre + h2, pre + h3,
 details + h2, details + h3 {
   margin-top: 2rem;
 }
@@ -92,8 +93,13 @@ img + h2, img + h3 {
   margin-top: 4rem;
 }
 
-pre, code {
-  font-family: JetBrainsMono;
+code {
+  background-color: #2d2d2d;
+  padding: 0.2rem;
+  overflow: auto;
+  line-height: 1rem;
+}
+
 code, pre, code[class*="language-"], pre[class*="language-"] {
   font-family: JetBrainsMono !important;
   font-weight: normal;
@@ -135,7 +141,9 @@ ol {
 
   li {
     padding-left: 60px;
+    padding-bottom: 20px;
     position: relative;
+    min-height: 50px;
   }
 
   li:before {
@@ -151,7 +159,7 @@ ol {
     height: 40px;
     transition: background-color .2s linear;
     position: absolute;
-    top: 0;
+    top: -5px;
     left: 0;
   }
 

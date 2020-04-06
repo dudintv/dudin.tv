@@ -1,11 +1,10 @@
 <template lang="pug">
-  div
-    .container.mx-auto
-      h1
-        | {{ attributes.title }}
-        span.icons
-          img.icon(v-for="icon in icons" :src="`/images/icons/${icon}.png`")
-      component(:is="markdownContent")
+  section.article.container.mx-auto
+    h1
+      | {{ attributes.title }}
+      span.icons
+        img.icon(v-for="icon in icons" :src="`/images/icons/${icon}.png`")
+    component(:is="markdownContent" v-highlight)
 </template>
 
 <script>
@@ -33,7 +32,7 @@ export default {
         components: {
           MediaImage,
           MediaYoutube,
-        }
+        },
       }
     }).catch((e) => {
       console.log('ERROR in markdown parsing', e)
@@ -43,6 +42,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .article {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+
   .icons {
     @apply relative inline-flex mb-8;
     top: 2px;
