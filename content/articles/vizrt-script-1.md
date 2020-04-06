@@ -43,7 +43,7 @@ The basic entity of programming. Variable is a link to certain area of data. You
 Side of variable location around "=" is important. Example: ```x = y + z```. If it located on the right from "=" (```y``` and ```z```), it converted into the values. If it located on the left from "=" (```x```), it used for storing new value.
 
 Typical expression contains a left side variable, "=" sign and right side of expression. Compiler first calculates value in the right side, then put the value to the left side variable. This is the reason why the left part can contains only one variable — it must be a place for data storing. But in the right part of expression can contains any expression.
-```vb
+```basic
 angle = 360
 new_angle = angle + 10
 ```
@@ -94,7 +94,7 @@ You can always change the data type by system functions as needed: ```CInt(var),
 Key benefits of any scripts is the branching — this is ability to choose what to do along condition. In vizrt-script this realized by a construction ```If [condition] Then [do #1] Else [do #2] End If```. Where instead ```condition``` must be conditional value (boolean type). If you need only [do #1]—block than "Else [do #2]" you can drop out (don't write it).
 
 Simple example from practice:
-```vb
+```basic
 Dim temperature As Double = 17
 Dim output As String
 
@@ -116,18 +116,18 @@ Variable "output" is equal to the string "0". Because 0 not greater than 0. Thus
 ## 3. Array
 
 Frequently needed to store a list some data. For example, set of chart values. Creating unique variables for each value is cumbersome and extremely inconvinient for further processing. 
-```vb
+```basic
 Dim value1 As Double
 Dim value2 As Double
 Dim value3 As Double
 ...
 ```
 or like this, more compact, but it's bad yet:
-```vb
+```basic
 Dim value1, value2, value3, ... As Double
 ```
 Simplest and convinient way is declare a variable as array data.
-```vb
+```basic
 Dim values As Array[Double]
 ```
 * Pay attention, I declare data type of array elements simultaneously. To get or write the value in a specific cell of the array, you need to refer to its index ```values[3]```.
@@ -148,7 +148,7 @@ Loop is a repeated part of code while the condition is true. There are three syn
 
 In ```start``` sets some default value for variable-counter. It increments by 1 with each repetition until value reach to ```end``` value. This loop will end at ```end```.
 
-```vb
+```basic
 For i=0 to 10
 	array[i] = i
 Next
@@ -158,7 +158,7 @@ Note, loop may be infinite! It's very bad within vizrt-script. Infinity loop blo
 
 Most popular using of the loop is a array traversal. For example, lets calculate the arithmetic average in an array of numbers:
 
-```vb
+```basic
 Dim sum, medium As Double
 Dim values As Array[Double]
 
@@ -203,7 +203,7 @@ Also, both constrinction can receive some input data. For exmaple, ```Sub fn(val
 
 Lets create a function for convertion number to string by "temperature rule". Because we need returning value we have to use ```Function```.
 
-```vb
+```basic
 Function ConvertToTextTemp(input As Double) As String
 	If input > 0 Then
 		ConvertToTextTemp = "+" & CStr(input)
@@ -223,7 +223,7 @@ Note:
 * I used system subroutine ```println``` for printing text string into the console. This subroutine is very usefull for finding errors in code (debug). _You can copy and paste this code and try to rut it. Don't forget to look into the console ;)_
 
 __Subroutine__ (that haven't return value) is defined and used like a function. Only you don't need to define return data type and don't return.
-```vb
+```basic
 Sub PrintTemp(input As Double)
 	If input > 0 Then
 		println("+" & CStr(input))
@@ -252,7 +252,7 @@ Some properties can have a status "read only". It can be readed but not changed.
 * by the way, the variable "this" refers to current container where script placed
 
 Some functions of object returns other object. For example, lets get a "Omo" plugin on the current container and change counter of visible sub-object:
-```vb
+```basic
 Dim pi_omo As PluginInstance
 pi_omo = this.GetFunctionPluginInstance("Omo")
 pi_omo.SetParameterInteger("vis_con", 3)
@@ -275,7 +275,7 @@ Callback function is a function that is called automatically by external event. 
 
 Of cource, you can call callback functions by hand if it need. For example, there is ```OnInit()```  function where must be placed start assigns. This code will be launched automatically just after start the script and after scene loading. If I need to set variables to defaults I can call ```OnInit()``` where I want in my code. I do that usually when I want to refresh links to container and properties from script interface. Any changing of interface calls callback function ```OnParameterChanged()```. I just put ```OnInit()``` into the ```OnParameterChanged()```:
 
-```vb
+```basic
 Sub OnInit()
 	scale = GetParameterDouble("scale")
 	target = GetParameterContainer("target")
@@ -292,7 +292,7 @@ The most popular callback function (event) is the event of render frame tick —
 
 Example of using ```OnExecPerField```: there is 360 degreee rotation for some count frames (50 is about second).
 
-```vb
+```basic
 Dim angle As Double = 0
 Dim step As Double = 360.0/50.0
 
@@ -312,7 +312,7 @@ If add this script to any container, it will start to rotating counterclock-wise
 If your render have 60 fps, it will rotation little faster.
 
 One more example with ```OnExecPerField()```. Try to understand what it does?
-```vb
+```basic
 Dim step As Double = 100.0/50.0
 
 Sub OnExecPerField()

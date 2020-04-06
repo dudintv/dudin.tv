@@ -34,7 +34,7 @@ There are three things you have to know:
 
 Creating and using typical variable:
 
-```XML
+```xml
 <def var="s">xyz</def>
 <var>s</var>
 ```
@@ -42,7 +42,7 @@ Creating and using typical variable:
 By ```<var>``` you get value of variable. 
 Also, there is a list of ready useful system variables:
 
-```XML
+```xml
 <var>channel</var>   <!-- name of current channel -->
 <var>profile</var>   <!-- name of current profile -->
 <var>element</var>   <!-- path to current data-element -->
@@ -58,7 +58,7 @@ And, if you want to get a part of VDOM tree use ```<ref>```:
 #### Bonus variable: ```<time>```
 There is a special variable. This is the current time by format — ```<time>%c</time>```
 
-```XML
+```xml
 <log>Time: <time utc="yes">%H:%M:%S:%ff</time></log> <!-- Time: 12:00:00:00 -->
 <log>Now: <time>%Y %m %d %H:%M:%S</time></log> <!-- Now: 2019 01 01 12:00:00 -->
 ```
@@ -71,7 +71,7 @@ Useful in practice commands is ```<forked_exec>``` and ```<viz>```. ```<forked_e
 
 Simple example with two commands send to "LowerThird" channel:
 
-```XML
+```xml
 <forked_exec>
 	<entry name="execution_group">LowerThird</entry>
 	<viz>RENDERER GET</viz>
@@ -85,7 +85,7 @@ Simple example with two commands send to "LowerThird" channel:
 
 If you want to send commands to defined Program channel you can use system variable ```<var>channel</var```. And, you can write several commands into one ```<viz>``` tag divided by "new line":
 
-```XML
+```xml
 <forked_exec>
 	<entry name="execution_group"><var>channel</var></entry>
 	<viz>
@@ -101,7 +101,7 @@ If you don't want wait a response of command you can add parameter "no_responce"
 
 If you have TextEdit with ControlName parameter = "123" you can get the content by ```<ref>```:
 
-```XML
+```xml
 <ref><var>element</var>/data/123</ref>
 ```
 
@@ -109,7 +109,7 @@ There is the system standart variable ```<var>element</var>```. This is the path
 
 There is a __full working example__:
 
-```XML
+```xml
 <forked_exec>
 	<entry name="execution_group"><var>channel</var></entry>
 	<viz no_response="yes">GLOBAL*MAP SET_STRING_ELEMENT Surname <ref><var>element</var>/data/surname</ref></viz>

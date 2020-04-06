@@ -32,7 +32,7 @@ There are three different design slides in different styles. Note how them corre
 2. Create action channel in Take director. Name it like "jump".
 3. Create two action keys at 0 and 1.5 second with commands:
 
-```
+```r
 #1 at 0 sec:
 RENDERER*STAGE*DIRECTOR*Takeout CONTINUE;
 THIS_SCENE*STAGE*DIRECTOR*Takeout SHOW 0;
@@ -40,7 +40,7 @@ THIS_SCENE*STAGE*DIRECTOR*Takeout SHOW 0;
 
 Why I start and stop one director? :) This hacking give me 1) convenience to play Take in Artist and 2) automatically takeout other scene in Engine mode and reset Takeout director in self scene.
 
-```
+```r
 #2 at 1.5 sec:
 RENDERER SET_OBJECT THIS_SCENE;
 RENDERER*FRONT_LAYER SET_OBJECT ;
@@ -63,7 +63,7 @@ Only three commands:
 
 ------------
 
-```
+```r
 SCENE*COMMON/SCRIPTS/LoadJumpScene*SCRIPT INVOKE Load News/Videowall/Slide1
 RENDERER*FRONT_LAYER*TREE*$object*FUNCTION*ControlObject*in SET ON 1 SET 111\02 SET 222\03 SET 333
 RENDERER*FRONT_LAYER*STAGE*DIRECTOR*Take START
@@ -78,7 +78,7 @@ Now you just can copy the commands to "take" section in EL. Of course with chang
 
 Full EL script for my example:
 
-```
+```xml
 <forked_exec>
 	<entry name="execution_group"><var>channel</var></entry>
 	<viz>
@@ -93,7 +93,7 @@ Full EL script for my example:
 
 As you can see I use some script trick instead of command to load scene directly.
 
-```
+```r
 SCENE*COMMON/SCRIPTS/LoadJumpScene*SCRIPT INVOKE Load News/Videowall/Slide1
 ```
 
