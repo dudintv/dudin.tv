@@ -24,7 +24,7 @@
       .title-group.w-full.flex.justify-between.items-center.absolute.top-0.left-0.px-6.py-1
         .title-and-category
           span.category(:style="colorByName(script.attributes.category)") {{ script.attributes.category }}
-          a(href="#")
+          nuxt-link(:to="permalink()")
             h3.title {{ script.attributes.title }}
         .codes
           a.code(
