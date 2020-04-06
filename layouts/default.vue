@@ -71,8 +71,20 @@ h3 {
 }
 
 /* headers after paragraphs */
-p + h2, p + h3, ul + h2, ul + h3 {
+p + h2, p + h3,
+ul + h2, ul + h3,
+details + h2, details + h3 {
   margin-top: 2rem;
+}
+
+hr + h2, hr + h3 {
+  margin-top: 4rem;
+}
+
+hr {
+  border: 1px solid rgba(255,255,255,.2);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* headers after images */
@@ -114,6 +126,36 @@ p {
 ul > li {
   list-style: disc;
   list-style-position: inside;
+}
+
+ol {
+  counter-reset: olCounter;
+
+  li {
+    padding-left: 60px;
+    position: relative;
+  }
+
+  li:before {
+    counter-increment: olCounter;
+    content:counter(olCounter);
+    color: #78BEFF;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #78BEFF;
+    border-radius: 50%;
+    line-height: 37px;
+    width: 40px;
+    height: 40px;
+    transition: background-color .2s linear;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  li:hover:before {
+    background-color: black;
+  }
 }
 
 details {
