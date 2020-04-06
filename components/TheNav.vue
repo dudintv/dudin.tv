@@ -9,11 +9,11 @@
     nav.nav.flex.justify-between.w-full
       .first-links.flex
         nuxt-link#scripts.name-selector(to="/") Scripts
-        nuxt-link#articles.name-selector(to="articles") Articles
+        nuxt-link#articles.name-selector(to="/articles") Articles
       .second-links.flex
-        nuxt-link#links.name-selector(to="links") Links
-        nuxt-link#portfolio.name-selector(to="portfolio") Portfolio
-        nuxt-link#contacts.name-selector(to="contacts") Contacts
+        nuxt-link#links.name-selector(to="/links") Links
+        nuxt-link#portfolio.name-selector(to="/portfolio") Portfolio
+        nuxt-link#contacts.name-selector(to="/contacts") Contacts
 </template>
 
 <script>
