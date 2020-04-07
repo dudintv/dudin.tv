@@ -5,7 +5,7 @@
       .icons
         img.icon(v-for="icon in icons" :src="`/images/icons/${icon}.png`")
       nuxt-link(:to="permalink()")
-        h2.title.text-left.mb-2 {{ article.attributes.title }}
+        h2.title.text-left.my-2 {{ article.attributes.title }}
     p.description.mb-0 {{ article.attributes.description }}
     small: nuxt-link(:to="permalink()") read more ...
 </template>

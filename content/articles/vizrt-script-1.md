@@ -18,11 +18,11 @@ Learning any programming language contains three components:
 
 1. Form of data storage — variables, arrays, objects
 2. Logical constructions — branches, loops, functions
-3. Syntax — rules of code writing so that compiler understands it ([Wikipedia](https://en.wikipedia.org/wiki/Compiler){:target="_blank"})
+3. Syntax — rules of code writing so that compiler understands it <a href="https://en.wikipedia.org/wiki/Compiler" target="_blank">Wikipedia</a>
 
 Data storage form and logical constructions are common for most of programming languages. They have difference only in syntax. It's easy to learn during working because any mistakes are marked automatically by compiler.
 
-_If you are newbie in programming I strongly recommend you to watch a free online cource ["CS 50" from Harvard](https://www.youtube.com/playlist?list=PLhQjrBD2T382eX9-tF75Wa4lmlC7sxNDH){:target="_blank"}. The main idea you should endure is that the computer does exactly what you tell to do. Without auto thinking out, without auto assumptions, without auto finishing! You are fully responsible for what script does. In best case computer will only promt the line where is most likely an error._
+_If you are newbie in programming I strongly recommend you to watch a free online cource ["CS 50" from Harvard](https://www.youtube.com/playlist?list=PLhQjrBD2T382eX9-tF75Wa4lmlC7sxNDH). The main idea you should endure is that the computer does exactly what you tell to do. Without auto thinking out, without auto assumptions, without auto finishing! You are fully responsible for what script does. In best case computer will only promt the line where is most likely an error._
 
 Good news! There are only 7 concepts that need to be remembered and understood for the beginning. All the rest is a combination of them and syntactic features.
 
@@ -33,8 +33,6 @@ Good news! There are only 7 concepts that need to be remembered and understood f
 5. Function
 6. Object
 7. Callback function
-
-<br/>
 
 ## 1. Variable
 
@@ -71,6 +69,8 @@ Boolean | __Dim enable As Boolean__ <br/> Boolean variable represent only "true"
 
 #### Complex variables:
 
+Variable | Description
+--- | ---
 Vertex | __Dim pos As Vertex__ <br/> Tripple set of double-values. Perfect suit for store coordintes in 3D space: position, rotation, scaling. Vertex have access to separate axes x, y, z: ```pos.x```, ```pos.y```, ```pos.z```.
 Array | __Dim arr As Array[Double]__ <br/> Collection(list) of data in some single type. Adding new element: ```arr.Push(3,14159)```. Geting first element: ```arr[0]```
 Stringmap | __Dim map As Stringmap__ <br/> Named universe collection of Variant data type. You can store there any data type. Access to each element is by string. For example ```map["age"] = 100``` (integer) or ```map["name"] = "Dmitry"``` (string). If the element not exists it will be created.
@@ -323,8 +323,6 @@ End Sub
 <details><summary>Show answer</summary>
 	It's just simple effect of blinking. Object reveals in a flash and smootthly hides in 50 frames (by alpha).
 </details>
-
---------------------------------------
 
 ## Homework
 

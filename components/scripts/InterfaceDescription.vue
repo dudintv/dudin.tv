@@ -49,6 +49,8 @@ export default {
 <style lang="scss" scoped>
   .interface-description {
     position: relative;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
   .head-image, .tail-image {

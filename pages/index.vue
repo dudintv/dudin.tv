@@ -24,9 +24,9 @@
 
 <script>
 import TheIntro from '~/components/TheIntro'
-import TheScriptsLogo from '~/components/TheScriptsLogo'
-import TheScriptsFilter from '~/components/TheScriptsFilter'
-import ScriptItem from '~/components/ScriptItem'
+import TheScriptsLogo from '~/components/scripts/TheScriptsLogo'
+import TheScriptsFilter from '~/components/scripts/TheScriptsFilter'
+import ScriptItem from '~/components/scripts/ScriptItem'
 import TheSocNetworks from '~/components/TheSocNetworks'
 
 export default {

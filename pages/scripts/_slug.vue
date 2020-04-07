@@ -1,6 +1,5 @@
 <template lang="pug">
-  div
-    .container.mx-auto
+  .script-content.container.mx-auto
       ScriptHero(:attributes="attributes" :code="code")
       component(:is="markdownContent")
       SourceCode(:attributes="attributes" :code="code")
@@ -53,3 +52,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  .script-content {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+</style>

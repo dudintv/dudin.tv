@@ -1,7 +1,7 @@
 <template lang="pug">
   .cource-code
     .bg
-      h2 Source code
+      h2.my-2 Source code
       details(v-if="code")
         summary
           span.title show source code
@@ -69,6 +69,7 @@ export default {
         position: absolute;
         left: 50%;
         top: 3rem;
+        width: 90%;
         transform: translateX(-50%);
         color: rgba(white, 0.5);
         line-height: 1rem;

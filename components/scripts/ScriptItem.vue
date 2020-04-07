@@ -25,7 +25,7 @@
         .title-and-category
           span.category(:style="colorByName(script.attributes.category)") {{ script.attributes.category }}
           nuxt-link(:to="permalink()")
-            h3.title {{ script.attributes.title }}
+            h3.my-0.title {{ script.attributes.title }}
         .codes
           a.code(
             v-if="script.attributes.file"

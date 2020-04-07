@@ -99,9 +99,7 @@ SCENE*COMMON/SCRIPTS/LoadJumpScene*SCRIPT INVOKE Load News/Videowall/Slide1
 
 I have prepared a script for smart loading. This script looking for free scene into the engine pool. If it have found it's good. If it didn't — load or create copy of the scene. At the exit script loading free copy of scene in front layer.
 
-<details><summary>Expand script</summary>
-{% include script-home-page.html path="vizrt/vizartist-script/src/master/dudin-jumping-scene" scriptname="jumping-scene.vb" %}
-</details>
+[Jumping scene script](/scripts/jumping-scene)
 
 You need copy this script to scene script in new scene. Save the scene to some common folder for store cross-projects items. For example I saved it as _COMMON/SCRIPTS/LoadJumpScene_.
 

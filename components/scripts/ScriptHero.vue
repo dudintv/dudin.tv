@@ -103,7 +103,7 @@ export default {
   .script-hero {
     display: flex;
     padding-right: 1rem;
-    margin-bottom: -5rem;
+    margin-bottom: -10rem;
   }
 
   .thumbnail {

@@ -58,7 +58,8 @@ h2 {
   font-weight: normal;
   font-size: 2rem;
   line-height: 2rem;
-  margin-bottom: 1rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -67,19 +68,8 @@ h3 {
   font-weight: normal;
   font-size: 1.5rem;
   line-height: 1.5rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
-}
-
-/* headers after paragraphs */
-p + h2, p + h3,
-ul + h2, ul + h3,
-pre + h2, pre + h3,
-details + h2, details + h3 {
-  margin-top: 2rem;
-}
-
-hr + h2, hr + h3 {
-  margin-top: 4rem;
 }
 
 hr {
@@ -88,14 +78,10 @@ hr {
   margin-bottom: 2rem;
 }
 
-/* headers after images */
-img + h2, img + h3 {
-  margin-top: 4rem;
-}
-
 code {
   background-color: #2d2d2d;
-  padding: 0.2rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   overflow: auto;
   line-height: 1rem;
 }
@@ -131,9 +117,24 @@ p {
   margin-bottom: 1rem;
 }
 
-ul > li {
-  list-style: disc;
-  list-style-position: inside;
+ul {
+  li {
+    // list-style: disc;
+    // list-style-position: outside;
+    list-style: none;
+    padding-bottom: .5rem;
+  }
+
+  li:before {
+    content: "\2022";
+    font-size: 1.5rem;
+    line-height: 1rem;
+    font-weight: bold;
+    color: #78BEFF;
+    display: inline-block;
+    width: 1.2rem;
+    margin-left: -1.2rem;
+  }
 }
 
 ol {
@@ -192,6 +193,25 @@ details {
     &:hover {
       background-color: hsla(0, 0%, 100%, .05);
     }
+  }
+}
+
+table {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  th {
+    text-align: left;
+    font-weight: normal;
+    color: hsla(0, 0%, 100%, .5);
+    border-bottom: 1px solid #405880;
+    padding-bottom: .5rem;
+  }
+
+  td {
+    padding-top: .5rem;
+    padding-right: 1rem;
+    vertical-align: top;
   }
 }
 
