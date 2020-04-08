@@ -1,5 +1,5 @@
 <template lang="pug">
-  .media-youtube
+  .media-youtube.my-4
     .youtube-wrapper
       .youtube-player(ref="player" :id="videoId")
 </template>

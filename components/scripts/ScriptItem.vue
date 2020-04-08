@@ -21,7 +21,7 @@
           </linearGradient>
         </defs>
       </svg>
-      .title-group.w-full.flex.justify-between.items-center.absolute.top-0.left-0.px-6.py-1
+      .title-group.w-full.flex.justify-between.items-end.absolute.top-0.left-0.px-6.py-1
         .title-and-category
           span.category(:style="colorByName(script.attributes.category)") {{ script.attributes.category }}
           nuxt-link(:to="permalink()")
@@ -30,8 +30,7 @@
           a.code(
             v-if="script.attributes.file"
             @click.prevent="copyCode(script)"
-            )
-            //- span.absolute.top-0.pt-5(v-if="script.attributes.codes.length > 1") {{ index+1 }}
+            ) &nbsp;
       p.description {{ script.attributes.description }}
 </template>
 
@@ -136,7 +135,7 @@ export default {
     width: 24px;
     height: 28px;
     background: url(/images/common/copy.svg);
-    opacity: 0.8;
+    opacity: 0.5;
     &:hover {
       opacity: 1;
     }

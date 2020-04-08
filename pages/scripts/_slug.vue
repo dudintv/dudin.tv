@@ -8,6 +8,7 @@
 <script>
 import MediaImage from '~/components/media/MediaImage'
 import MediaYoutube from '~/components/media/MediaYoutube'
+import MediaFile from '~/components/media/MediaFile'
 import InterfaceDescription from '~/components/scripts/InterfaceDescription'
 import ScriptHero from '~/components/scripts/ScriptHero'
 import SourceCode from '~/components/scripts/SourceCode'
@@ -41,9 +42,10 @@ export default {
       return {
         extends: md.vue.component,
         components: {
-          MediaImage,
           InterfaceDescription,
+          MediaImage,
           MediaYoutube,
+          MediaFile,
         }
       }
     }).catch((e) => {
