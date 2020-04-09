@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  h3 {
+    @apply mt-1 mb-2;
+  }
+
   .item-content {
     @apply relative mx-auto;
     max-width: 1200px;

@@ -75,6 +75,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  h3 {
+    @apply mt-1 mb-2;
+  }
+
   .item-content {
     @apply mx-auto my-16 w-full;
     width: 90vw;
