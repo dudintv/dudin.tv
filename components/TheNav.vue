@@ -6,7 +6,7 @@
     img.nav-bg(src="~/static/images/common/nav-bg.svg")
     a.logo(href="/")
       img(src="~/static/images/common/dudintv-logo.svg")
-    nav.nav.flex.justify-between.w-full
+    nav.nav.flex.justify-between.w-full(@click="clickNav")
       .first-links.flex
         nuxt-link#scripts.name-selector(to="/") Scripts
         nuxt-link#articles.name-selector(to="/articles") Articles
@@ -20,7 +20,7 @@
 import lottie from 'lottie-web'
 import { gsap } from 'gsap'
 
-const tl = gsap.timeline()
+// const tl = gsap.timeline()
 
 export default {
   data: () => ({
@@ -47,25 +47,31 @@ export default {
       autoplay: true,
       path: '/animations/header-feathers.json'
     })
-    Array.from(document.getElementsByClassName('anim-selector')).forEach(element => {
-      this.animSelectors.push(
-        {
-          id: element.id,
-          anim: lottie.loadAnimation({
-            container: element,
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            path: '/animations/selected-menu-item.json'
-          })
-        }
-      )
-    })
+    Array.from(document.getElementsByClassName('anim-selector'))
+      .forEach(element => {
+        this.animSelectors.push(
+          {
+            id: element.id,
+            anim: lottie.loadAnimation({
+              container: element,
+              renderer: 'svg',
+              loop: false,
+              autoplay: false,
+              path: '/animations/selected-menu-item.json'
+            })
+          }
+        )
+      })
     this.setupPosAllAnimSelectors()
     window.onresize = this.setupPosAllAnimSelectors
     this.setSelected(this.currentNav)
   },
   methods: {
+    clickNav (obj) {
+      if (obj.target.id) {
+        this.currentNav = obj.target.id
+      }
+    },
     setupPosAllAnimSelectors () {
       this.navNames.forEach(name => {
         const animSelector = document.getElementById(`anim-${name}`)
@@ -94,9 +100,10 @@ export default {
       }).anim
 
       const proxy = { frame: 0 }
+      const tl = gsap.timeline()
       tl.to(proxy, 4, {
         frame: 200,
-        delay: 0.5,
+        delay: 0.1,
         snap: {
           frame: 1
         },
@@ -112,15 +119,17 @@ export default {
 
       if (animSelector.currentFrame > 0) {
         const proxy = { frame: animSelector.currentFrame }
+        const tl = gsap.timeline()
         tl.to(proxy, 2, {
           frame: 300,
           delay: 0.5,
           snap: {
             frame: 1
           },
-          onUpdate () {
+          onUpdate: () => {
             animSelector.goToAndStop(Math.round(proxy.frame), true)
           },
+          onComplete: () => { proxy.frame = 0 },
         })
       }
     },
