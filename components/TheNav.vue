@@ -18,9 +18,7 @@
 
 <script>
 import lottie from 'lottie-web'
-import { gsap } from 'gsap'
-
-// const tl = gsap.timeline()
+// import { gsap } from 'gsap'
 
 export default {
   data: () => ({
@@ -49,19 +47,26 @@ export default {
     })
     Array.from(document.getElementsByClassName('anim-selector'))
       .forEach(element => {
+        const lottieAnim = lottie.loadAnimation({
+          container: element,
+          name: element.id,
+          renderer: 'svg',
+          loop: false,
+          autoplay: false,
+          path: '/animations/selected-menu-item.json',
+        })
+        lottieAnim.addEventListener('complete', function (anim) {
+          if (lottieAnim.firstFrame + lottieAnim.currentFrame >= 300) { lottieAnim.currentFrame = -100 }
+        })
         this.animSelectors.push(
           {
             id: element.id,
-            anim: lottie.loadAnimation({
-              container: element,
-              renderer: 'svg',
-              loop: false,
-              autoplay: false,
-              path: '/animations/selected-menu-item.json'
-            })
+            anim: lottieAnim
           }
         )
       })
+    this.currentNav = this.$nuxt.$route.name
+    if (this.currentNav === 'index') { this.currentNav = 'scripts' }
     this.setupPosAllAnimSelectors()
     window.onresize = this.setupPosAllAnimSelectors
     this.setSelected(this.currentNav)
@@ -81,14 +86,11 @@ export default {
     },
     setSelected (theName) {
       this.navNames.forEach(name => {
-        const animSelector = document.getElementById(`anim-${name}`)
         const navLink = document.getElementById(name)
         if (theName === name) {
-          animSelector.style.display = 'block'
           navLink.classList.add('selected')
           this.playTakeAnim(name)
         } else {
-          animSelector.style.display = 'none'
           navLink.classList.remove('selected')
           this.playTakeoutAnim(name)
         }
@@ -98,39 +100,21 @@ export default {
       const animSelector = this.animSelectors.find((element) => {
         return element.id === `anim-${name}`
       }).anim
-
-      const proxy = { frame: 0 }
-      const tl = gsap.timeline()
-      tl.to(proxy, 4, {
-        frame: 200,
-        delay: 0.1,
-        snap: {
-          frame: 1
-        },
-        onUpdate () {
-          animSelector.goToAndStop(Math.round(proxy.frame), true)
-        },
-      })
+      if (animSelector.isLoaded) {
+        animSelector.playSegments([0, 200], true)
+      } else {
+        animSelector.addEventListener('data_ready', function () {
+          animSelector.playSegments([0, 200], true)
+        })
+      }
     },
     playTakeoutAnim (name) {
       const animSelector = this.animSelectors.find((element) => {
         return element.id === `anim-${name}`
       }).anim
 
-      if (animSelector.currentFrame > 0) {
-        const proxy = { frame: animSelector.currentFrame }
-        const tl = gsap.timeline()
-        tl.to(proxy, 2, {
-          frame: 300,
-          delay: 0.5,
-          snap: {
-            frame: 1
-          },
-          onUpdate: () => {
-            animSelector.goToAndStop(Math.round(proxy.frame), true)
-          },
-          onComplete: () => { proxy.frame = 0 },
-        })
+      if (animSelector.currentFrame > 0 && animSelector.currentFrame < 300) {
+        animSelector.playSegments([animSelector.currentFrame, 302], true)
       }
     },
   },
