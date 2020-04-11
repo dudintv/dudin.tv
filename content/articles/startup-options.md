@@ -1,5 +1,5 @@
 ---
-title: "VizArtist startup options"
+title: "Startup options"
 description: "To run several VizArtist instances with different configs, or automatically load particular scene when VizEngine is started, you need this options."
 date: 2019-01-15 12:00:00 +0300
 tags: artist vtw

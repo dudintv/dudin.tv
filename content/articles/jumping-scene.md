@@ -17,7 +17,7 @@ You have to think only about duration of diappearing. It must be less then some 
 
 I made 0.5 sec for the preview. Take a look how it works (no sound ;)):
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fEwqgMe_xX8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<media-youtube url="https://www.youtube.com/embed/fEwqgMe_xX8" />
 
 There are three different design slides in different styles. Note how them correctly combines while transition. Especially how combines the same style slides.
 
@@ -96,13 +96,13 @@ As you can see I use some script trick instead of command to load scene directly
 ```r
 SCENE*COMMON/SCRIPTS/LoadJumpScene*SCRIPT INVOKE Load News/Videowall/Slide1
 ```
+<!-- 
+I have prepared a script for smart loading. This script looking for free scene into the engine pool. If it have found it's good. If it didn't — load or create copy of the scene. At the exit script loading free copy of scene in front layer. -->
 
-I have prepared a script for smart loading. This script looking for free scene into the engine pool. If it have found it's good. If it didn't — load or create copy of the scene. At the exit script loading free copy of scene in front layer.
+<!-- [Jumping scene script](/scripts/jumping-scene) -->
 
-[Jumping scene script](/scripts/jumping-scene)
-
-You need copy this script to scene script in new scene. Save the scene to some common folder for store cross-projects items. For example I saved it as _COMMON/SCRIPTS/LoadJumpScene_.
+<!-- You need copy this script to scene script in new scene. Save the scene to some common folder for store cross-projects items. For example I saved it as _COMMON/SCRIPTS/LoadJumpScene_. -->
 
 ## Known Issue
 
-Main disadvantage "jumping" scenes is front layer busy. You can use back layer for background. If you want to add some "front" graphics — you can't.
+Main disadvantage "jumping" scenes is busy front layer. You can use back layer for background. If you want to add some "front" graphics — you can't.
