@@ -44,17 +44,17 @@ category: texture
 To insert code use three backslash "`" symbols:
 
 ```
-\`\`\`
+```
 code
-\`\`\`
+```
 ```
 
 To highlight different languages you can use "languagle tag". Working examples:
 
 ```
-\```xml — for Execution logic
-\```basic — for VizArtist scripts
-\```r — for console commands
+```xml — for Execution logic
+```basic — for VizArtist scripts
+```r — for console commands
 ```
 
 * If put `mp4` file, it will play automatically.
