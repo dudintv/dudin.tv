@@ -39,10 +39,23 @@ category: texture
 ---
 ```
 
-<!-- # Media files
+## Code highlighter
 
-1. Put the file to `static/images/scripts/[script-name]/` as `example.png`.
-2. Call with `<media name="example.png">`. Don't need "\[script-name\]" part.
+To insert code use three backslash "`" symbols:
+
+```
+\`\`\`
+code
+\`\`\`
+```
+
+To highlight different languages you can use "languagle tag". Working examples:
+
+```
+\```xml — for Execution logic
+\```basic — for VizArtist scripts
+\```r — for console commands
+```
 
 * If put `mp4` file, it will play automatically.
 * If put `YouTube URL` in _name_ parameter, it will be rendered as embeded player of YouTube. -->
@@ -79,6 +92,16 @@ Sample:
 
 ```
 <media-image name="image.png" />
+```
+
+## MediaYoutube
+
+Use it to embed YouTube video by link or video-id.
+
+Sample:
+
+```
+<media-youtube url="https://www.youtube.com/embed/fEwqgMe_xX8" />
 ```
 
 # Author & Contacts
