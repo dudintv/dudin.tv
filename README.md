@@ -49,9 +49,9 @@ category: texture
 To insert code use three backslash "`" symbols:
 
 ```
-\```
-code
-\```
+  ```basic
+  code
+  ```
 ```
 
 To highlight different languages you can use "languagle tag". Working examples:
