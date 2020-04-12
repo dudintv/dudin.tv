@@ -21,11 +21,16 @@ Project created for generating static website by `yarn generate`.
 
 # Directory/File structure
 
-## Add script
+## Add a new script
 
 1. Create new markdown file to under `/content/scripts/`
 2. Add thumbnail image to ```static/images/thumbnails/`. SVG format is recomended.
 3. Add rest images to `static/images/scripts/[script-name]/`. Where "\[script-name\]" is exactly the same to markdown filename.
+
+## Add a new article
+
+1. Create new markdown file to under `/content/articles/`
+2. Add images & files to `static/images/articles/[article-name]/`. Where "\[article-name\]" is exactly the same to markdown filename.
 
 # Markdown & Frontmatter format
 
@@ -44,9 +49,9 @@ category: texture
 To insert code use three backslash "`" symbols:
 
 ```
-```
+\```
 code
-```
+\```
 ```
 
 To highlight different languages you can use "languagle tag". Working examples:
