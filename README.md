@@ -27,14 +27,7 @@ Project created for generating static website by `yarn generate`.
 2. Add thumbnail image to ```static/images/thumbnails/`. SVG format is recomended.
 3. Add rest images to `static/images/scripts/[script-name]/`. Where "\[script-name\]" is exactly the same to markdown filename.
 
-## Add a new article
-
-1. Create new markdown file to under `/content/articles/`
-2. Add images & files to `static/images/articles/[article-name]/`. Where "\[article-name\]" is exactly the same to markdown filename.
-
-# Markdown & Frontmatter format
-
-Sample frontmatter:
+Sample frontmatter for Script:
 
 ```
 ---
@@ -44,15 +37,32 @@ category: texture
 ---
 ```
 
-## Code highlighter
+## Add a new article
 
-To insert code use three backslash "`" symbols:
+1. Create new markdown file to under `/content/articles/`
+2. Add images & files to `static/images/articles/[article-name]/`. Where "\[article-name\]" is exactly the same to markdown filename.
 
+Sample frontmatter for Article:
 ```
-  ```basic
-  code
-  ```
+---
+title:  "Execution Logic. Part 1"
+description: "Creating custom logic for custom vizrt template."
+date: 2017-11-12 12:00:00 +0300
+tags: vcp vtw
+---
 ```
+
+List of possible tags:
+* artist
+* trio
+* vcp
+* vtw
+* multiplay
+* excel
+
+# Code highlighter
+
+Wrap code by three backslash symbols "```".
 
 To highlight different languages you can use "languagle tag". Working examples:
 
