@@ -52,6 +52,8 @@ tags: vcp vtw
 ---
 ```
 
+Use "date" only to control order article.
+
 List of possible tags:
 * artist
 * trio
@@ -113,10 +115,12 @@ Sample:
 
 Use it to embed YouTube video by link or video-id.
 
-Sample:
+Working samples:
 
 ```
 <media-youtube url="https://www.youtube.com/embed/fEwqgMe_xX8" />
+<media-youtube url="https://www.youtube.com/watch?v=fEwqgMe_xX8" />
+<media-youtube url="fEwqgMe_xX8" />
 ```
 
 # Author & Contacts
