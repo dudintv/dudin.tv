@@ -74,9 +74,6 @@ To highlight different languages you can use "languagle tag". Working examples:
 ```r — for console commands
 ```
 
-* If put `mp4` file, it will play automatically.
-* If put `YouTube URL` in _name_ parameter, it will be rendered as embeded player of YouTube. -->
-
 # Components
 
 ## InterfaceDescription
@@ -121,6 +118,18 @@ Working samples:
 <media-youtube url="https://www.youtube.com/embed/fEwqgMe_xX8" />
 <media-youtube url="https://www.youtube.com/watch?v=fEwqgMe_xX8" />
 <media-youtube url="fEwqgMe_xX8" />
+```
+
+## MediaFile
+
+Use it to render beautiful link to download file. File will be looking in to corresponding path:
+* __File.via__ for __xxx__ script should be stored in __/images/scripts/xxx/File.via__
+* __File.via__ for __yyy__ article should be stored in __/images/articles/yyy/File.via__
+
+Example:
+
+```
+<media-file name="FlexExamples.via" />
 ```
 
 # Author & Contacts
