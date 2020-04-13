@@ -51,6 +51,7 @@ h1 {
   font-size: 2.5rem;
   line-height: 2.5rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 h2 {

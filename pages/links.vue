@@ -2,19 +2,19 @@
   .links-page.conatiner.mx-auto
     #links-bg
     .content
-      h1 Vizrt lessons
+      h2.text-left Vizrt lessons
       p
         | Official, by Vizrt —&nbsp;
         a(href="http://vizuniversity.learnupon.com" target="_blank") vizuniversity.learnupon.com
         br
         | tutsGFX —&nbsp;
         a(href="http://tutsgfx.com/free-vizrt-training" target="_blank") tutsgfx.com/free-vizrt-training
-      h1.mt-8 Vizrt scripts
+      h2.text-left.mt-8 Vizrt scripts
       p
         a(href="http://erizos.tv/scripts" target="_blank") erizos.tv/scripts
         br
         a(href="http://viztoolkit.com" target="_blank") viztoolkit.com
-      h1.mt-8 Vizrt tools
+      h2.text-left.mt-8 Vizrt tools
       p
         a(href="https://idonix.com/graphics/viz-script-notepadplusplus?fbclid=IwAR0HiX_9Z-TkM5fAKYg4tqpVzUarByCZqlLeJ7ysaNpTfpCbfTfuIVwEsSw" target="_blank") IDONIX Notepad++ conector for scripting
         br
