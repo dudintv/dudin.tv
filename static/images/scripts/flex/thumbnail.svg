@@ -1,23 +1,26 @@
 <svg width="224" height="120" viewBox="0 0 224 120" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.5" y="0.5" width="223" height="119" fill="white" fill-opacity="0.27" stroke="#2B7609" stroke-dasharray="6 6"/>
-<rect x="142" y="30" width="40" height="60" fill="url(#paint0_angular)"/>
-<rect x="92" y="30" width="40" height="60" fill="url(#paint1_angular)"/>
-<rect x="42" y="30" width="40" height="60" fill="url(#paint2_angular)"/>
+<rect x="142" y="30" width="40" height="60" fill="url(#paint0_linear)"/>
+<rect x="92" y="30" width="40" height="60" fill="url(#paint1_linear)"/>
+<rect x="42" y="30" width="40" height="60" fill="url(#paint2_linear)"/>
 <defs>
-<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(162 60) rotate(90) scale(30 20)">
+<linearGradient id="paint0_linear" x1="142" y1="30" x2="186.838" y2="33.8643" gradientUnits="userSpaceOnUse">
 <stop stop-color="#20A760"/>
-<stop offset="0.489583" stop-color="#03ABC2"/>
+<stop offset="0.1875" stop-color="#238A98"/>
+<stop offset="0.828125" stop-color="#03ABC2"/>
 <stop offset="1" stop-color="#048B45"/>
-</radialGradient>
-<radialGradient id="paint1_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(112 60) rotate(90) scale(30 20)">
+</linearGradient>
+<linearGradient id="paint1_linear" x1="92" y1="30" x2="136.838" y2="33.8643" gradientUnits="userSpaceOnUse">
 <stop stop-color="#20A760"/>
-<stop offset="0.489583" stop-color="#03ABC2"/>
+<stop offset="0.1875" stop-color="#238A98"/>
+<stop offset="0.828125" stop-color="#03ABC2"/>
 <stop offset="1" stop-color="#048B45"/>
-</radialGradient>
-<radialGradient id="paint2_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(62 60) rotate(90) scale(30 20)">
+</linearGradient>
+<linearGradient id="paint2_linear" x1="42" y1="30" x2="86.838" y2="33.8643" gradientUnits="userSpaceOnUse">
 <stop stop-color="#20A760"/>
-<stop offset="0.489583" stop-color="#03ABC2"/>
+<stop offset="0.1875" stop-color="#238A98"/>
+<stop offset="0.828125" stop-color="#03ABC2"/>
 <stop offset="1" stop-color="#048B45"/>
-</radialGradient>
+</linearGradient>
 </defs>
 </svg>
