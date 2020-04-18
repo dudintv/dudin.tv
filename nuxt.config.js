@@ -88,4 +88,8 @@ export default {
   },
 
   generate: {},
+
+  purgeCSS: {
+    whitelistPatterns: [/^page/],
+  }
 }
