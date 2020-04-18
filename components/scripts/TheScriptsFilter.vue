@@ -14,8 +14,8 @@ export default {
     options: [
       'all',
       'animation',
-      'link',
-      'logic',
+      // 'link',
+      // 'logic',
       'position',
       'texture',
     ],
