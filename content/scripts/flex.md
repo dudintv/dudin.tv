@@ -70,7 +70,7 @@ If items have animations with changing size, you can get unexpected behaviour. I
 
 Both options are good and can be usefull. You can select what you need.
 
-## Unobvious usingapproaches
+## Unobvious using approaches
 
 Feel free to experiment with this script.
 
