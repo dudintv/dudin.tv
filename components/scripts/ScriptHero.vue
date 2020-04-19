@@ -18,7 +18,7 @@
         span.scripts Scripts >&nbsp;
         span.category(:style="{color: gradColorBegin}") {{ attributes.category }}
       .title.flex
-        h1.title-text
+        h1.title-text.text-left
           | {{ attributes.title }}
         a.red-button.copy-code(@click="copyCode")
           <svg class="icon svg-copy-icon" width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -20,11 +20,11 @@ There are two types of Axis System Definition in 3D world. They are called as "r
 
 <details><summary>How to discover side of axis?</summary>
 Just look at your palms and count your fingers:
-<ul>
-<li>1. Thumb — X</li>
-<li>2. Index — Y</li>
-<li>3. Middle — Z</li>
-</ul>
+<ol>
+<li>Thumb — X</li>
+<li>Index — Y</li>
+<li>Middle — Z</li>
+</ol>
 <media-image name="axes-system-definition.png" />
 </details>
 

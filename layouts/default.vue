@@ -135,11 +135,15 @@ ul {
     display: inline-block;
     width: 1.2rem;
     margin-left: -1.2rem;
+    position: relative;
+    top: .2rem;
   }
 }
 
 ol {
   counter-reset: olCounter;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 
   li {
     padding-left: 60px;
@@ -279,6 +283,6 @@ table {
 }
 
 .nuxt-page {
-  min-height: 50vh;
+  min-height: 80vh;
 }
 </style>
