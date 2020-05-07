@@ -6,7 +6,21 @@ link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-autofollow/
 file: autofollow.vb
 ---
 
-<interface-description image="autofollow-ui.png" />
+<interface-description image="autofollow-ui.png">
+
+### Interface description
+
+__Follow axis__ defines which axis will be controlled in order to position this container.
+
+__Direction__ contols which aling will be applied. By left edge, by center, by right edge.
+
+__X-pos if self empty__ or __Y-pos if self empty__ define the position when this container is empty and has zero bounding box. Usefull to avoid blinking effect.
+
+__X-pos default__ or __Y-pos default__ define the position of this container when target containers are gone. I mean, when the target has zero bounding box (disappear).
+
+__Container 1__, __Container 2__, ... define observed target containers which will be followed by this container. You can change the count inside the script by changin the ```quantity_of_container``` variable in the beginning of the script.
+
+</interface-description>
 
 If you have tried to use standard Autofollow plugin you already know its limits.
 

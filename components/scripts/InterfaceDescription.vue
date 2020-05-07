@@ -87,9 +87,10 @@ export default {
   .description {
     grid-area: description;
     background: linear-gradient(130deg, #375A95 0%, #244273 100%);
-    padding: 2rem 4rem;
+    padding: 1rem 2rem;
     display: flex;
     align-items: center;
+    flex-shrink: 1;
   }
 
   @media (max-width: 1024px) {

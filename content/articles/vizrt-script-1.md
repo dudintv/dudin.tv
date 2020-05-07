@@ -120,33 +120,32 @@ Frequently needed to store a list some data. For example, set of chart values. C
 Dim value1 As Double
 Dim value2 As Double
 Dim value3 As Double
-...
 ```
 or like this, more compact, but it's bad yet:
 ```basic
-Dim value1, value2, value3, ... As Double
+Dim value1, value2, value3 As Double
 ```
-Simplest and convinient way is declare a variable as array data.
+The simplest and convinient way is declare a variable as array data.
 ```basic
 Dim values As Array[Double]
 ```
-* Pay attention, I declare data type of array elements simultaneously. To get or write the value in a specific cell of the array, you need to refer to its index ```values[3]```.
-* Attention! Index isn't a serial number! __The index determines the offset from the beginning of the array!__ For getting the first value you need to refer zero index ```values[0]```.
+* To get or write the value in a specific cell of the array, you need to refer to its index ```values[3]```.
+* Index isn't a serial number! __The index determines the offset from the beginning of the array!__ For getting the first value you need to refer zero index ```values[0]```. Because ```[0]``` is a zero shifting from the beginning.
 
 Question for self-test. What is the minimum number of elements the array should contain so that the script does not generate an error with ```values[3]```?
 <details><summary>Show answer</summary>
 <code>values[3]</code> — this is fourth element of array. That means array must contain 4 elements at least.
 </details>
 
-Bonus. You can get element not only from the beginning of the array, but from the end! To take the last element of the array, specify "-1" ```values[-1]```.
+Sweety bonus. You can get element not only from the beginning of the array, but from the end! To take the last element of the array, specify "-1" ```values[-1]```. It's much easier and human-readable than ```values[values.ubound]```.
 
-To experience all the benefits of arrays, let's explore the loops.
+To get experience all the benefits of arrays, let's explore the loops.
 
 ## 4. Loop
 
-Loop is a repeated part of code while the condition is true. There are three syntax styles of loop in vizrt-scripts. Now we take only the most practical variant ```For [start] to [end] [loop something] Next```.
+Loop is a repeated part of code while the condition is true. There are three syntax styles of loop in vizrt-scripts. Now we take only the most practical variant ```For [start] to [end] [do something many times] Next```.
 
-In ```start``` sets some default value for variable-counter. It increments by 1 with each repetition until value reach to ```end``` value. This loop will end at ```end```.
+In ```start``` sets some default value for variable-counter. It increments by 1 with each repetition until value reach to ```end``` value.
 
 ```basic
 For i=0 to 10
@@ -154,7 +153,20 @@ For i=0 to 10
 Next
 ```
 
-Note, loop may be infinite! It's very bad within vizrt-script. Infinity loop blocks whole system. If VizEngine (VizArtist) see this, it just emergency shutdowns whole the script until you restart it by hand or scene will be reloaded. So, please analize a condidion carefully. Have condition the end?
+Another kind of loop is "do while loop" syntax.
+
+```basic
+Dim i As Integer = 1
+
+Do While i < 100
+	i = i * i + 1
+	println("i = " & i)
+Loop
+```
+
+```For Next``` is more convinient for arrays. ```Do While Loop``` more usefull when you don't know how long it will work.
+
+Note, any loop may be infinite! It's a very bad thing within vizrt-script. Infinity loop blocks whole system! If VizEngine (VizArtist) catch this, it just emergency shutdowns the script until you restart it by hand or scene will be reloaded. So, please analize a condidion carefully. Have the condition any end value?
 
 Most popular using of the loop is a array traversal. For example, lets calculate the arithmetic average in an array of numbers:
 
@@ -169,31 +181,36 @@ Next
 medium = sum/values.size
 ```
 
-Exercise: write the script of finding minimum and maximum values into array.
+Exercise: write the script to find the minimum and the maximum values among array values.
 
 <details><summary>Show answer</summary>
-{% highlight vb %}
-Dim min, max As Double
-Dim values As Array[Double]
 
+```basic
+Dim values As Array[Double]
+' fill up the "values"...
+
+Dim min, max As Double
 min = values[0]
 max = values[0]
-For i=1 to values.size-1
+For i=1 to values.ubound
 	If values[i] < min Then min = values[i]
 	If values[i] > max Then max = values[i]
 Next
-{% endhighlight %}
+```
 
-Note:
-<li>there is one-line-"If"-syntax. In this case "End If" is not writing.</li>
-<li>loop starts from second element of array ```For i=1```, because we already considered the first element before the loop.</li>
+### Note:
+
+* I used one-line "If" syntax. In this case "End If" is not obliged.
+* loop starts from second element of array ```For i=1```, because we already considered the first element before the loop.
+
 </details>
 
 ## 5. Function and subroutine
 
 Function or subroutine is a named set of commands you can call from any place of the script. It's convinient for two cases:
 1. When you need to cut off a duplicating piece of code.
-2. For convinient, when you want to make script more human readable and structured code.
+2. For comfort, when you want to make script more human readable and structured code.
+3. To split code into separated actions which you can run independently.
 
 Function or subroutines are similar to variables. By name of variable we get access to the data, we can read or rewrite. By name of function we call the code.
 
@@ -236,22 +253,24 @@ PrintTemp(17)
 PrintTemp(-3)
 ```
 
-The differences of syntax "Sub":
+### The differences between "Sub" and "Function":
+
 * instead "Function" is writed "Sub"
-* do not write returning data type and nothing to return
-* all I need I doing inside a subroutine
+* "Sub" returns nothing — so, returned type specified only in "Function"
+* if I want to affect to containers or the scene I write it inside a "Sub". If I want to calculate something and use returned value inside the script I use "Function"
 
 ## 6. Object
 
 Object is the way to controlling of data and fuctions more like in real life. We intuitively define each object in the life some properties and abilities to do something. For example, some dog have: 5 year old, pink color, etc... Thus, programming "objects" just reflects reality. It's like a list or array, but with different data types and functions. For example, object "Container" contains properties "Name", "Active"(visibility), "Count of sub-containers", etc... "Container" also has functions "Create new sub-container", "Get first sub-object", etc... All possible variables and functions are in the documentation! Please feel free to look there! ;)
 
-__Access to all properties and functions of object gets by dot character "." — for example ```container.name```. You can call sub-object and sub-properties consistently through points  ``this.alpha.value```__
+__Access to all properties and functions of object gets by dot character "." — for example ```container.name```. You can call sub-object and sub-properties consistently through points  ```this.alpha.value```__
 
 Some properties can have a status "read only". It can be readed but not changed. All other properties you can read and rewrite. For example, we can get name of container ```println(this.name)``` or rename it ```this.name = "new_name"```. But we can't change directly "Count sub-containers" property. The property will changed if we change real count of sub-containers.
 
 * by the way, the variable "this" refers to current container where script placed
 
 Some functions of object returns other object. For example, lets get a "Omo" plugin on the current container and change counter of visible sub-object:
+
 ```basic
 Dim pi_omo As PluginInstance
 pi_omo = this.GetFunctionPluginInstance("Omo")
@@ -267,9 +286,11 @@ There is not possible to create yourown new type object. :( We can say that all 
 <a name="callback"></a>
 ## 7. Callback function (Event)
 
-_This isn't basic thing. But using of events is very often into the vizrt-scripts and you must to know them from the beginning._
+_This isn't basic thing. But using of events we met very often into the vizrt scripts and you should know them from the beginning._
 
 Callback function is a function that is called automatically by external event. VizEngine tries to find in your script the appropriate function in the event moment. If VizEngine find it then calling it. Therefore, format of callback functions is so strong. You can't change name of function and order input data. But there is a litle convinient. Full list of all possible callback function is right at hand. Thus, you don't need you remember them.
+
+### List of avaliable callbacks
 
 <media-image name="EventList.png" />
 
@@ -304,16 +325,16 @@ End Sub
 ```
 
 Note:
-* I use short form of increment ```angle += step```. Of cource I could write ```angle = angle + step```. But the short form is more understandable and shorter ;) I've told to the program "Please increase angle by step" — ```angle += step```.
-* I add float dots into dividing ```360.0/50.0```. I did this specially to avoiding [integer division errors](https://stackoverflow.com/questions/7286681/why-does-integer-division-code-give-the-wrong-answer/39286090). I clarify to compiler that it's must not simplyfy here and, please, divide them as rational numbers (as float, not integer).
-* I checking non strict equality ~~```if angle == 360```~~. I check it with some margin in case of calculation accuracy error ```if angle >= 360```. This way I guarantee reliability the script.
+* I used short form of increment ```angle += step```. Of cource I could write ```angle = angle + step```. But the short form is more understandable and shorter ;) I've told to the program "Please increase angle by step" — ```angle += step```.
+* I added float dots into dividing ```360.0/50.0```. I did this specially to avoiding [integer division errors](https://stackoverflow.com/questions/7286681/why-does-integer-division-code-give-the-wrong-answer/39286090). I clarify to compiler that it's must not simplyfy here and, please, divide them as rational numbers (as float, not integer).
+* I didn't check strict equality ```if angle == 360```! I have to check it with some margin in case of calculation accuracy error ```if angle >= 360```. This way I guarantee reliability the script. And, it's the "best practice".
 
 If add this script to any container, it will start to rotating counterclock-wise one turn by one second approximatelly.
 If your render have 60 fps, it will rotation little faster.
 
 One more example with ```OnExecPerField()```. Try to understand what it does?
 ```basic
-Dim step As Double = 100.0/50.0
+Dim step As Double = 2.0
 
 Sub OnExecPerField()
 	this.alpha.value -= step
@@ -321,7 +342,7 @@ Sub OnExecPerField()
 End Sub
 ```
 <details><summary>Show answer</summary>
-	It's just simple effect of blinking. Object reveals in a flash and smootthly hides in 50 frames (by alpha).
+	It's just simple effect of blinking. Object reveals in a flash and smoothly hides in 50 frames (by alpha).
 </details>
 
 ## Homework

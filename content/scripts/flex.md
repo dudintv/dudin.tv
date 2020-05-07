@@ -6,14 +6,32 @@ link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-flex/
 file: flex.vb
 ---
 
-<interface-description image="flex-ui.png" />
+<interface-description image="flex-ui.png">
 
-Do you know about “flexbox” in HTML5/CSS2? This is flexible box layout for convenient auto-placing of containers into a gabarit of the certain container. Take a look at [explanation of the idea for web](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+### Interface description
+
+The script uses bounding box from __Gabarit container__ to build a space/field for child containers.
+
+It's possible to switch between X and Y as main axis by __Axis__ param.
+
+__Size of children__ helps you to control how will be calculated the gabarits of items. "Whole container" just consider gabarits of each item-container. But, "first sub-container" allows you to control this size manually thought the gabarit of the first child container of each item-container. With the second option, the animation can be more smoothly and more controllable. For example, you even can animate this "first sub-container".
+
+__Justify__ works like in HTML/CSS flex.
+
+__Align__ works along secondary axis. If you select X as the first axis, the second will be Y.
+
+__Shift of gap__ and __Magnetic gap__ allow you to control aesthetic factors of appearance. How items looks when items count is few or many.
+
+__Min gap__ is like thershold for minimal gaps. If gap sholud be less the value it becomes to zero! It allows avoid very tiny gaps between items what can looks like cracks. 
+
+</interface-description>
+
+Do you know about “flexbox” in HTML5/CSS3? This is flexible box layout for convenient auto-placing of containers into a gabarit of the certain container. Take a look at [explanation of the idea for web](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
 Let me introduce several features I’ve implemented for convenient usage in onair graphics: “justify-content” and “align-items”. This script can be helpful in many situations.
 
 ## All possible variants
-_I’ve marked my two often used options._
+_I’ve marked my two often used options by blue strokes._
 
 X axis:
 <media-image name="flex-variants-x.png" />

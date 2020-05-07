@@ -1,6 +1,6 @@
 ---
 title: Anims to directors
-description: Script for spread animation into directors
+description: Spread animations into directors by child containers names.
 category: animation
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-animation/dudin-arrange-animations/
 file: dudin-arrange-animations.vb

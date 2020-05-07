@@ -6,7 +6,19 @@ link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-transform/du
 file: dudin-arrange-lines.vb
 ---
 
-<interface-description image="arrange-line-ui.png" />
+<interface-description image="arrange-line-ui.png">
+
+### Interface description
+
+__Max count in line__ define the maximum count of items in each line. Less is possible, more is not.
+
+__Distance X__ and __Distance Y__ define distance between centers of items by X and Y axis.
+
+__Randomize__ helps to add randomly to items position and make more life like composition.
+
+__Sort__ allows you to auto sort apearing elements. "By tree" takes standart order just exactly as in scene tree. "By name" sorts by name of item names. And, "By text" sorts by text of certain containers inside each items, for that you should specify name of that containers in __Text container path__ param. Of cource, you can __Reverse__ the order of sorting.
+
+</interface-description>
 
 The script works like a built-in "Grid" plugin. Unlike Grid, this script useful for real composition with uncertain count items, which have to be nicely aligned in several lines.
 

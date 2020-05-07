@@ -24,7 +24,7 @@ There are three different design slides in different styles. Note how them corre
 ## Why I don't use Transition Logic
 
 1. I want every new graphic must appears on the front.
-2. Universality. I can smoothly appear new graphic on top of any scene;)
+2. Universality. I can smoothly appear new graphics on top of any scene;)
 
 ## How to cook jumping scene
 
@@ -105,4 +105,4 @@ I have prepared a script for smart loading. This script looking for free scene i
 
 ## Known Issue
 
-Main disadvantage "jumping" scenes is busy front layer. You can use back layer for background. If you want to add some "front" graphics — you can't.
+Main disadvantage "jumping" scenes is busy front layer. You can use back layer for background. But you can't use front layer.
