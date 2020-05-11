@@ -71,11 +71,11 @@ export default {
     return {
       title: this.attributes.title,
       meta: [
-        { hid: 'url', name: 'og:url', content: this.ogPageUrl },
-        { hid: 'type', name: 'og:type', content: 'article' },
-        { hid: 'title', name: 'og:title', content: this.attributes.title },
-        { hid: 'description', name: 'og:description', content: this.attributes.description },
-        { hid: 'image', name: 'og:image', content: this.ogImagePath }
+        { hid: 'url', property: 'og:url', content: this.ogPageUrl },
+        { hid: 'type', property: 'og:type', content: 'article' },
+        { hid: 'title', property: 'og:title', content: this.attributes.title },
+        { hid: 'description', property: 'og:description', content: this.attributes.description },
+        { hid: 'image', property: 'og:image', content: this.ogImagePath }
       ]
     }
   },
