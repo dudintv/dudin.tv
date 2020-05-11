@@ -71,11 +71,13 @@ export default {
     return {
       title: this.attributes.title,
       meta: [
+        { hid: 'site_name', property: 'og:site_name', content: 'dudin.tv' },
         { hid: 'url', property: 'og:url', content: this.ogPageUrl },
         { hid: 'type', property: 'og:type', content: 'article' },
         { hid: 'title', property: 'og:title', content: this.attributes.title },
         { hid: 'description', property: 'og:description', content: this.attributes.description },
-        { hid: 'image', property: 'og:image', content: this.ogImagePath }
+        { hid: 'image', property: 'og:image', content: this.ogImagePath },
+        { hid: 'image:alt', property: 'og:image:alt', content: `"${this.attributes.title}" script from Dmitry Dudin` }
       ]
     }
   },

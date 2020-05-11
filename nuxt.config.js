@@ -28,11 +28,13 @@ export default async () => {
         { name: 'msapplication-TileColor', content: '#603cba' },
         { name: 'theme-color', content: '#ffffff' },
 
+        { hid: 'site_name', property: 'og:site_name', content: 'dudin.tv' },
         { hid: 'url', property: 'og:url', content: 'https://dudin.tv' },
         { hid: 'type', property: 'og:type', content: 'website' },
-        { hid: 'title', property: 'og:title', content: 'Vizrt scripts' },
+        { hid: 'title', property: 'og:title', content: 'Vizrt scripts from Dmitry Dudin' },
         { hid: 'description', property: 'og:description', content: 'Many scripts to build smart scenes' },
-        { hid: 'image', property: 'og:image', content: 'https://dudin.tv/common/opengraph.jpg' }
+        { hid: 'image', property: 'og:image', content: 'https://dudin.tv/common/opengraph.jpg' },
+        { hid: 'image:alt', property: 'og:image:alt', content: 'Vizrt scripts from Dmitry Dudin' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
