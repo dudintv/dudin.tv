@@ -32,8 +32,8 @@
     h1.text-center.mt-16.mb-32 ... and my last project
     .project-items.flex.flex-col.items-center
       ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4")
-        small 2019-2020
-        h3 Stadium Zenit Arena
+        small 2019
+        h3 MuzTV Awards 2019
         p Set agument reality Vizrt graphics for a enormous stadium.
       //- ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
       //-   small June 2019

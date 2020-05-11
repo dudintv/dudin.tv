@@ -1,5 +1,5 @@
 ---
-title: Autofollow
+title: Autofollow 2.0
 description: Alternative of standart plugin. Can follow to several targets.
 category: position
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-autofollow/

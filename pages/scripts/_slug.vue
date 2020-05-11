@@ -1,8 +1,8 @@
 <template lang="pug">
   .script-content.container.mx-auto
-      ScriptHero(:attributes="attributes" :code="code")
-      component(:is="markdownContent")
-      SourceCode(:attributes="attributes" :code="code")
+    ScriptHero(:attributes="attributes" :code="code")
+    component(:is="markdownContent")
+    SourceCode(:attributes="attributes" :code="code")
 </template>
 
 <script>
@@ -20,10 +20,16 @@ export default {
   },
   data () {
     return {
-      slug: '',
       markdownContent: {},
       attributes: {},
       code: '',
+    }
+  },
+  computed: {
+    pageUrl () {
+      // const domain = this.$store.state.site.domain
+      // return `https://${domain}/${this.$route.path}`
+      return `https://dudin.tv${this.$route.path}`
     }
   },
   created () {
@@ -51,6 +57,18 @@ export default {
     }).catch((e) => {
       console.log('ERROR in markdown parsing', e)
     })
+  },
+  head () {
+    return {
+      title: this.attributes.title,
+      meta: [
+        { hid: 'url', name: 'og:url', content: this.pageUrl },
+        { hid: 'type', name: 'og:type', content: 'article' },
+        { hid: 'title', name: 'og:title', content: this.attributes.title },
+        { hid: 'description', name: 'og:description', content: this.attributes.description },
+        { hid: 'image', name: 'og:image', content: `https://dudin.tv/scripts/${this.$route.params.slug}/opengraph.jpg` }
+      ]
+    }
   },
 }
 </script>

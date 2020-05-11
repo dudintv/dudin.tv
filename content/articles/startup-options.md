@@ -14,7 +14,7 @@ tags: artist vtw
 3. Check out the format. It must be ```"<path to engine>" <startup options #1> <startup options #2>```. Every option separates by space. For example: <br/> ```"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y```
 4. Add your option through space. _Or delete existing one._ For example: <br/> ```"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y  -g videowall.cfg```
 
-Every one option starts with minus sign "-". If the option have a parameter, it writes after the option definition through space.
+Each option starts with minus sign "-". If the option have a parameter, it writes after the option definition through space.
 
 ## VizArtist / VizEngine
 
