@@ -26,10 +26,19 @@ export default {
     }
   },
   computed: {
-    pageUrl () {
-      // const domain = this.$store.state.site.domain
-      // return `https://${domain}/${this.$route.path}`
-      return `https://dudin.tv${this.$route.path}`
+    ogPageUrl () {
+      if (process.env.NODE_ENV === 'development') {
+        return window.location.href
+      } else {
+        return `https://dudin.tv${this.$route.path}`
+      }
+    },
+    ogImagePath () {
+      if (process.env.NODE_ENV === 'development') {
+        return `${window.origin}/images/scripts/${this.$route.params.slug}/opengraph.jpg`
+      } else {
+        return `https://dudin.tv/images/scripts/${this.$route.params.slug}/opengraph.jpg`
+      }
     }
   },
   created () {
@@ -62,11 +71,11 @@ export default {
     return {
       title: this.attributes.title,
       meta: [
-        { hid: 'url', name: 'og:url', content: this.pageUrl },
+        { hid: 'url', name: 'og:url', content: this.ogPageUrl },
         { hid: 'type', name: 'og:type', content: 'article' },
         { hid: 'title', name: 'og:title', content: this.attributes.title },
         { hid: 'description', name: 'og:description', content: this.attributes.description },
-        { hid: 'image', name: 'og:image', content: `https://dudin.tv/scripts/${this.$route.params.slug}/opengraph.jpg` }
+        { hid: 'image', name: 'og:image', content: this.ogImagePath }
       ]
     }
   },
