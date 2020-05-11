@@ -24,9 +24,15 @@ export default async () => {
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Vizrt scripts and article from Dmitry Dudin' },
+        { hid: 'description', name: 'description', content: 'Vizrt scripts and articles from Dmitry Dudin' },
         { name: 'msapplication-TileColor', content: '#603cba' },
-        { name: 'theme-color', content: '#ffffff' }
+        { name: 'theme-color', content: '#ffffff' },
+
+        { hid: 'url', name: 'og:url', content: 'https://dudin.tv' },
+        { hid: 'type', name: 'og:type', content: 'website' },
+        { hid: 'title', name: 'og:title', content: 'Vizrt scripts' },
+        { hid: 'description', name: 'og:description', content: 'Many scripts to build smart scenes' },
+        { hid: 'image', name: 'og:image', content: 'https://dudin.tv/common/opengraph.jpg' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -52,7 +58,8 @@ export default async () => {
     ** Plugins to load before mounting the App
     */
     plugins: [
-      '~plugins/vue-code-highlight.js'
+      '~plugins/vue-code-highlight.js',
+      { src: '~plugins/google-analytics.js', mode: 'client' }
     ],
     /*
     ** Nuxt.js dev-modules
