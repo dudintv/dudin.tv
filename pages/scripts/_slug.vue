@@ -35,9 +35,9 @@ export default {
     },
     ogImagePath () {
       if (process.env.NODE_ENV === 'development') {
-        return `${window.origin}/images/scripts/${this.$route.params.slug}/opengraph.jpg`
+        return `${window.origin}/images/scripts/${this.$route.params.slug}/opengraph.svg`
       } else {
-        return `https://dudin.tv/images/scripts/${this.$route.params.slug}/opengraph.jpg`
+        return `https://dudin.tv/images/scripts/${this.$route.params.slug}/opengraph.svg`
       }
     }
   },
@@ -71,14 +71,16 @@ export default {
     return {
       title: this.attributes.title,
       meta: [
-        { hid: 'site_name', property: 'og:site_name', content: 'dudin.tv' },
-        { hid: 'url', property: 'og:url', content: this.ogPageUrl },
-        { hid: 'type', property: 'og:type', content: 'article' },
-        { hid: 'type', property: 'article:author', content: 'Dmitry Dudin' },
-        { hid: 'title', property: 'og:title', content: this.attributes.title },
-        { hid: 'description', property: 'og:description', content: this.attributes.description },
-        { hid: 'image', property: 'og:image', content: this.ogImagePath },
-        { hid: 'image:alt', property: 'og:image:alt', content: `"${this.attributes.title}" script from Dmitry Dudin` },
+        { hid: 'og:site_name', property: 'og:site_name', content: 'dudin.tv' },
+        { hid: 'og:url', property: 'og:url', content: this.ogPageUrl },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { hid: 'og:type', property: 'article:author', content: 'Dmitry Dudin' },
+        { hid: 'og:title', property: 'og:title', content: this.attributes.title },
+        { hid: 'og:description', property: 'og:description', content: this.attributes.description },
+        { hid: 'og:image', property: 'og:image', content: this.ogImagePath },
+        { hid: 'og:image:alt', property: 'og:image:alt', content: `"${this.attributes.title}" script from Dmitry Dudin` },
+        { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
+        { hid: 'og:image:height', property: 'og:image:height', content: '627' },
         { hid: 'fb:app_id', property: 'fb:app_id', content: '2634632720190560' },
       ]
     }

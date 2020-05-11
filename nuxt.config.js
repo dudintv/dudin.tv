@@ -28,13 +28,14 @@ export default async () => {
         { name: 'msapplication-TileColor', content: '#603cba' },
         { name: 'theme-color', content: '#ffffff' },
 
-        { hid: 'site_name', property: 'og:site_name', content: 'dudin.tv' },
-        { hid: 'url', property: 'og:url', content: 'https://dudin.tv' },
-        { hid: 'type', property: 'og:type', content: 'website' },
-        { hid: 'title', property: 'og:title', content: 'Vizrt scripts from Dmitry Dudin' },
-        { hid: 'description', property: 'og:description', content: 'Many scripts to build smart scenes' },
-        { hid: 'image', property: 'og:image', content: 'https://dudin.tv/common/opengraph.jpg' },
-        { hid: 'image:alt', property: 'og:image:alt', content: 'Vizrt scripts from Dmitry Dudin' }
+        { hid: 'og:site_name', property: 'og:site_name', content: 'dudin.tv' },
+        { hid: 'og:url', property: 'og:url', content: 'https://dudin.tv' },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
+        { hid: 'og:title', property: 'og:title', content: 'Vizrt scripts from Dmitry Dudin' },
+        { hid: 'og:description', property: 'og:description', content: 'Many scripts to build smart scenes' },
+        { hid: 'og:image', property: 'og:image', content: 'https://dudin.tv/common/opengraph.jpg' },
+        { hid: 'og:image:alt', property: 'og:image:alt', content: 'Vizrt scripts from Dmitry Dudin' },
+        { hid: 'fb:app_id', property: 'fb:app_id', content: '2634632720190560' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
