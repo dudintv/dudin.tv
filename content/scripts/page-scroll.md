@@ -1,12 +1,12 @@
 ---
-title: Autoscroll
+title: Page Scroll
 description: Scrolling content within a gabarit. Like webpage in browser window.
 category: position
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-autoscroll/
 file: autoscroll.vb
 ---
 
-<interface-description image="autoscroll-ui.png">
+<interface-description image="pagescroll-ui.png">
 
 ### Interface description
 
