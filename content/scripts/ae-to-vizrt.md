@@ -5,18 +5,18 @@ category: animation
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-animation/ae-to-vizrt/
 ---
 
-I know about standard feature of Vizrt of importing \*.aep projects. But also, I know that it's sometimes gives ugly or inconvenient result. I've workarounded this by manual scripts. Of course, manual way isn't handy. But you get full control what there happens!
+I know about the standard feature of Vizrt of importing \*.aep projects. But also, I know that it sometimes gives an ugly or inconvenient result. I've workaround this by manual scripts. Of course, the manual way isn't handy. But you get full control of what there happens!
 
 There are three scripts.
 
-* First script is for storing (layer or camera) keyframe data from Adobe After Effects to *.txt file.
+* the First script is for storing (layer or camera) keyframe data from Adobe After Effects to *.txt file.
 * Two another are for re-store animation data from *.txt to Vizrt scene:
   * for container
-  * for camera (free or targeting)
+  * for a camera (free or targeting)
 
 ## Little theory
 
-There are two types of Axis System Definition in 3D world. They are called as "right-handed" and "left-handed".
+There are two types of Axis System Definition in the 3D world. They are called as "right-handed" and "left-handed".
 
 <details><summary>How to discover side of axis?</summary>
 Just look at your palms and count your fingers:
@@ -28,7 +28,7 @@ Just look at your palms and count your fingers:
 <media-image name="axes-system-definition.png" />
 </details>
 
-There are several types of rotation orders. And, type by default also is OK.
+There are several types of rotation orders. And, the type by default also is OK.
 
 <media-image name="vizrt-axes-oerder.png" />
 
@@ -43,7 +43,7 @@ My scripts are based on saving of coordinates from AE. So, you need to know:
 
 ## Algorithm to copy of animation from AE to Vizrt
 
-> My scripts is very manual way to transfer animation, but it's convenient to control what exactly you want to transfer.
+> My scripts are very manual way to transfer animation, but it's convenient to control what exactly you want to transfer.
 
 Firstly, open your composition in AE ;)
 
@@ -85,10 +85,10 @@ Animation data is ready now!
 
 ### 3. Import animation to vizrt scene
 
-Drop an import script to a container — either for layer or for camera. "Compile & run" it. 
+Drop an import script to a container — either for layer or for the camera. "Compile & run" it. 
 
 1. Click on "Create sub-containers". _(only for the first time)_
-2. Select file with data. Write name of the layer. _(only for begininning or if filename was changed)_
+2. Select file with data. Write the name of the layer. _(only for the first try or if the filename was changed)_
 3. Push "Import animation" on the script.
 
 <media-image name="vizrt-ui-layer-script.png" />
@@ -101,21 +101,21 @@ There must be one additional sub-container "xxx_rotation" because you can use or
 
 #### More about camera animation
 
-We can't animation vizrt-camera with target. Thus, the script animate two sub-containers and you have to manually link them to your camera.
+We can't animation vizrt-camera with a target. Thus, the script animate two sub-containers and you have to manually link them to your camera.
 
 <media-image name="vizrt-cam-tree.png" />
 
 ### 4a. Either setting up vizrt STATIC camera ...
 
-> If you doesn't have any camera in AE composition, you have to create one for synchronize field of view between AE and Vizrt.
+> If you don't have any camera in AE composition, you have to create one for synchronizing field of view between AE and Vizrt.
 
-As you could see, the objects move in wrong directions. It is happening because (1) a camera in AE have another direction and (2) the zero point located in the top left corner. Lets correct it!
+As you could see, the objects move in the wrong directions. It is happening because (1) a camera in AE have another direction and (2) the zero points located in the top left corner. Let's correct it!
 
-* You have to rotate the camera or root-container 180 degree on the X-axis:
+* You have to rotate the camera or root-container 180 degrees on the X-axis:
 
 <media-image name="camera-rotation.png" />
 
-* Consider angle of view. AE vertical angle of camera is the "Zoom" of "Lens" in vizrt scene.
+* Consider the angle of view. AE vertical angle of the camera is the "Zoom" of "Lens" in vizrt scene.
 
 Set "Measure film size" to the "Vertically" and copy the "Angle of view".
 
@@ -127,13 +127,13 @@ Paste the value to the "Zoom" in your scene:
 
 ### 4b. ... or import camera animation to vizrt scene
 
-You can use one of two camera types — one-node and two-node. One-node is kind of "free camera". Two-node is camera with target point. Target ("Point of Interest") is added as extra parameter in a layer:
+You can use one of two camera types — one-node and two-node. One-node is a kind of "free camera". Two-node is a camera with target point. Target ("Point of Interest") is added as an extra parameter in a layer:
 
 <media-image name="ae-type-cam.png" />
 
 When you import animation you have to consider the camera type.
 
-For __one-node camera__ you enought have only one container and just drop it into both tracking dropzones:
+For __one-node camera__ you enough have only one container and just drop it into both tracking dropzones:
 
 <media-image name="vizrt-one-node-cam.png" />
 
@@ -145,7 +145,7 @@ Don't forget to set __Twist__ to 180 before set "Direction tracking"!
 
 ### 5. Rotate containers
 
-Rotate your objects as you need — face sides to the camera. Most likely it would be 180 degree on the X-axis. _It's need because in vizrt object is created with face to another direction in the space compared with AE._
+Rotate your objects as you need — face sides to the camera. Most likely it would be 180 degrees on the X-axis. _It's need because in vizrt object is created with face to another direction in the space compared with AE._
 
 ### Download example AE file [ae-to-vizrt-test-cc2019.aep](/assets/scripts/vizartist/ae-to-vizrt/ae-to-vizrt-test-cc2019.aep)
 ### Download example Vizrt scene [ae-to-vizrt-test.via](/assets/scripts/vizartist/ae-to-vizrt/ae-to-vizrt-test.via)

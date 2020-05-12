@@ -5,15 +5,15 @@ date: 2017-11-12 12:00:00 +0300
 tags: vcp vtw
 ---
 
-> "Execution Logic" allows create custom Pilot templates. It does not cancel scripts in Pilot templates for interface logic.
+> "Execution Logic" allows creating custom Pilot templates. It does not cancel scripts in Pilot templates for interface logic.
 
-Previous to Execution Logic we was using implemented script block into Viz Template Wizard for sending custom commands to VizENgine. We used to use "Live Update" option. It was generating a lot of problem. Every "Live Update" template was generating extra load on a computer. When you opened or run bunch of templates it was turning into big extra problem with computer memory and сonsequently interface latency. 
+Previous to Execution Logic we were using implemented script block into Viz Template Wizard for sending custom commands to VizENgine. We used to use the "Live Update" option. It was generating a lot of problems. Every "Live Update" template was generating extra load on a computer. When you opened or run a bunch of templates it was turning into a big extra problem with computer memory and сonsequently interface latency. 
 
 <media-image name="el-cover.png" />
 
-"EL" allows put control logic to MSE as backend service. And it's allow use several VizPilot safely because each Pilot not control VizEngine directly anymore. Pilot sends commands to MSE, and MSE decides what to do.
+"EL" allows put control logic to MSE as backend service. And it allows use several VizPilot safely because each Pilot does not control VizEngine directly anymore. Pilot sends commands to MSE, and MSE decides what to do.
 
-EL is really different from ordinary programming languages like visual basic. EL is like traditional logic of scripting into XML form. Lets compare __how to create and fill a variable__:
+EL is really different from ordinary programming languages like visual basic. EL is like traditional logic of scripting into XML form. Let's compare __how to create and fill a variable__:
 
 |Visual Basic | Execution Logic|
 |---|---|
@@ -21,7 +21,7 @@ EL is really different from ordinary programming languages like visual basic. EL
 
 It's so unusual... isn't it? :)
 
-From Pilot 5.7 knowing EL has become must-have if you would like to create custom templates. For beginning we need to know only basic elements and debug instruments.
+From Pilot 5.7 knowing EL has become must-have if you would like to create custom templates. For the beginning we need to know only basic elements and debug instruments.
 
 ## Basic stuff of Execution Logic
 
@@ -39,7 +39,7 @@ Creating and using typical variable:
 <var>s</var>
 ```
 
-By ```<var>``` you get value of variable. 
+By ```<var>``` you get the value of the variable. 
 Also, there is a list of ready useful system variables:
 
 ```xml
@@ -53,7 +53,7 @@ Also, there is a list of ready useful system variables:
 And, if you want to get a part of VDOM tree use ```<ref>```:
 ```<ref>/custom_logic/take</ref>``` takes piece of VDOM tree contains custom logic of "take".
 
-> ```<var>``` just returns value of variable. ```<ref>``` returns and integrates part of tree.
+> ```<var>``` just returns value of variable. ```<ref>``` returns and integrates part of the tree.
 
 #### Bonus variable: ```<time>```
 There is a special variable. This is the current time by format — ```<time>%c</time>```
@@ -67,9 +67,9 @@ List of all options you can find in MSE documentation.
 
 ### 2. Send commands to VizEngine
 
-Useful in practice commands is ```<forked_exec>``` and ```<viz>```. ```<forked_exec>``` define area where you can choose channel of Pilot profile and send commands to this profile. And ```<viz>``` contains viz-command(s).
+Useful in practice commands is ```<forked_exec>``` and ```<viz>```. ```<forked_exec>``` define the area where you can choose a channel of Pilot profile and send commands to this profile. And ```<viz>``` contains viz-command(s).
 
-Simple example with two commands send to "LowerThird" channel:
+A simple example with two commands send to "LowerThird" channel:
 
 ```xml
 <forked_exec>
@@ -95,7 +95,7 @@ If you want to send commands to defined Program channel you can use system varia
 </forked_exec>
 ```
 
-If you don't want wait a response of command you can add parameter "no_responce" ```<viz no_responce="yes">```. This command runs little bit faster but you can get some bugs if you start using it with no reason. "no_responce" commands runs not consistently! Second command don't wait finished first.
+If you don't want to wait a response of command you can add the parameter "no_responce" ```<viz no_responce="yes">```. This command runs a little bit faster but you can get some bugs if you start using it with no reason. "no_responce" commands run not consistently! The second command don't wait finished first.
 
 ### 3. Get data from template
 
@@ -105,7 +105,7 @@ If you have TextEdit with ControlName parameter = "123" you can get the content 
 <ref><var>element</var>/data/123</ref>
 ```
 
-There is the system standart variable ```<var>element</var>```. This is the path to current data-element into VDOM xml. We dig to data by ```/data/123```. And we are getting content of this part VDOM xml by ```<ref>```.
+There is the system standard variable ```<var>element</var>```. This is the path to current data-element into VDOM XML. We dig to data by ```/data/123```. And we are getting content of this part VDOM XML by ```<ref>```.
 
 There is a __full working example__:
 
@@ -115,7 +115,7 @@ There is a __full working example__:
 	<viz no_response="yes">GLOBAL*MAP SET_STRING_ELEMENT Surname <ref><var>element</var>/data/surname</ref></viz>
 </forked_exec>
 ```
-We have change the global variable into the VizEngine which is in current Program channel in VizPilot ;)
+We've changed the global variable into the VizEngine which is in current Program channel in VizPilot ;)
 
 ## Debug Execution Logic
 
@@ -126,11 +126,11 @@ You can debug only by printing strings into consoles.
 
 ### Update checking
 
-Sometimes you need to be sure that new logic was updatet in MSE.
+Sometimes you need to be sure that new logic was updated in MSE.
 
-1. Launch VizPilot and open playlist with template for checking.
+1. Launch VizPilot and open playlist with the template for checking.
 2. Enter ```http://localhost:8580/app/vdomconfig/vdomconfig.html``` in a browser. Where ```localhost``` is the MSE host.
-3. Dig down to ```external/master_templates/#####```. Where ##### is number your template. Obviuosly you won't know it, just go throung all of existing elements.
+3. Dig down to ```external/master_templates/#####```. Where ##### is number your template. Obviously you won't know it, just go through all of the existing elements.
 4. Look ```commands``` section. There are all your actual EL commands. Just check it visually.
 
 <media-image name="mse-master-templates.png" />
@@ -139,8 +139,7 @@ Sometimes you need to be sure that new logic was updatet in MSE.
 -------------------
 <br/>
 
-_This information in enough for begin. You have know how to control Engine by template data._
-<br/>
+_This information is enough to begin. You have known how to control Engine by template data._<br/>
 <br/>
 
 -------------------

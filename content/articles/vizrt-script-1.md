@@ -8,11 +8,11 @@ tags: artist
 Why do we need scripts in VizArtist?
 All the more so we have got a lot of ready plugins.
 
-> I like scripting because it enables to get non-existed functionality or remake existing with new options. You can significantly speed up your work, including creating complex structures, keyframes, etc. You can automize processes of getting and processing of data within a scene. Also you can import coordinates of camera and objects from AE. The right way to create interactive elements is to use a script.
+> I like scripting because it enables to get non-existed functionality or remake existing with new options. You can significantly speed up your work, including creating complex structures, keyframes, etc. You can automize processes of getting and processing of data within a scene. Also, you can import coordinates of camera and objects from AE. The right way to create interactive elements is to use a script.
 
-Script is a typical program. The only difference is in the level of abstraction. In classical languages we operate with primitive data type like link, number, character. In scripts it's more convenient — high level objects are already existing for use. For example, in vizrt-scripts we work with containers and plugins, scenes and the engine. It's enough to assign a new position for camera to make it to go over with natural consequences like view change.
+The script is a typical program. The only difference is in the level of abstraction. In classical languages, we operate with primitive data type like link, number, character. In scripts it's more convenient — high-level objects are already existing for use. For example, in vizrt-scripts, we work with containers and plugins, scenes and the engine. It's enough to assign a new position for the camera to make it to go over with natural consequences like view change.
 
-Script is like a program. It works as an automate taking input data and giving result during a process. Input data can be anything like current container, position, mouse click or button pushing... A result is also anything like changing of a parameter, creating or deleting anything. _Of course, script can return nothing. But why would we write it?_
+The script is like a program. It works as an automate taking input data and giving result during a process. Input data can be anything like current container, position, mouse click or button-pushing... A result is also anything like changing of a parameter, creating or deleting anything. _Of course, a script can return nothing. But why would we write it?_
 
 Learning any programming language contains three components:
 
@@ -20,9 +20,9 @@ Learning any programming language contains three components:
 2. Logical constructions — branches, loops, functions
 3. Syntax — rules of code writing so that compiler understands it <a href="https://en.wikipedia.org/wiki/Compiler" target="_blank">Wikipedia</a>
 
-Data storage form and logical constructions are common for most of programming languages. They have difference only in syntax. It's easy to learn during working because any mistakes are marked automatically by compiler.
+Data storage form and logical constructions are common for most programming languages. They have difference only in syntax. It's easy to learn during working because any mistakes are marked automatically by the compiler.
 
-_If you are newbie in programming I strongly recommend you to watch a free online cource ["CS 50" from Harvard](https://www.youtube.com/playlist?list=PLhQjrBD2T382eX9-tF75Wa4lmlC7sxNDH). The main idea you should endure is that the computer does exactly what you tell to do. Without auto thinking out, without auto assumptions, without auto finishing! You are fully responsible for what script does. In best case computer will only promt the line where is most likely an error._
+_If you are a newbie in programming I strongly recommend you to watch a free online course ["CS 50" from Harvard](https://www.youtube.com/playlist?list=PLhQjrBD2T382eX9-tF75Wa4lmlC7sxNDH). The main idea you should endure is that the computer does exactly what you tell to do. Without auto thinking out, without auto assumptions, without auto finishing! You are fully responsible for what script does. In the best case, the computer will only prompt the line where is most likely an error._
 
 Good news! There are only 7 concepts that need to be remembered and understood for the beginning. All the rest is a combination of them and syntactic features.
 
@@ -36,11 +36,11 @@ Good news! There are only 7 concepts that need to be remembered and understood f
 
 ## 1. Variable
 
-The basic entity of programming. Variable is a link to certain area of data. You can get by the name of a variable: a simple number, a text string, an array values or object (about arrays and objects a bit later)...
+The basic entity of programming. Variable is a link to a certain area of data. You can get by the name of a variable: a simple number, a text string, an array value or object (about arrays and objects a bit later)...
 
-Side of variable location around "=" is important. Example: ```x = y + z```. If it located on the right from "=" (```y``` and ```z```), it converted into the values. If it located on the left from "=" (```x```), it used for storing new value.
+Side of the variable location around "=" is important. Example: ```x = y + z```. If it located on the right from "=" (```y``` and ```z```), it converted into the values. If it located on the left from "=" (```x```), it used for storing new value.
 
-Typical expression contains a left side variable, "=" sign and right side of expression. Compiler first calculates value in the right side, then put the value to the left side variable. This is the reason why the left part can contains only one variable — it must be a place for data storing. But in the right part of expression can contains any expression.
+A typical expression contains a left side variable, "=" sign and right side of an expression. The compiler first calculates value in the right side, then put the value to the left side variable. This is the reason why the left part can contain only one variable — it must be a place for data storing. But in the right part of expression can contain any expression.
 ```basic
 angle = 360
 new_angle = angle + 10
@@ -50,11 +50,11 @@ _The variable **new_angle** will have got 370. ```angle + 10``` -> ```360 + 10``
 We can conditionally divide the variables into pre-existing and custom:
 
 1. If you need pre-existing system variable — go to the documentation and find out how to name it. Just call it by name in the script.
-2. You can create yourown variables. Then you can use them wherever you want. But it can be used within the sctipt where it was declared. 
+2. You can create your own variables. Then you can use them wherever you want. But it can be used within the script where it was declared. 
 
 ```Dim s As String``` — this is creating (declaring) of the string variable.
 
-Vizrt-script is strongly typed language. It's mean that all variables must be links to particular type of data. No possible to declare variable without type ~~```Dim var```~~. If you want to create universal variable you can declare special type "Variant" ```Dim var As Variant```. But the best way is to specify a particular data type! Thus you forbid to compiler put text to number variable. But if you want to convert type you can do it anytime by system functions like ```var = CInt("42")``` (we got number 42 from string "42").
+Vizrt-script is typed programming language. It's mean that all variables must be links to a particular type of data. No possible to declare a variable without type ~~```Dim var```~~. If you want to create a universal variable you can declare special type "Variant" ```Dim var As Variant```. But the best way is to specify a particular data type! Thus you forbid to compiler put text to a number variable. But if you want to convert type you can do it anytime by system functions like ```var = CInt("42")``` (we got number 42 from string "42").
 
 ### Variable types
 
@@ -91,7 +91,7 @@ You can always change the data type by system functions as needed: ```CInt(var),
 
 ## 2. Branching
 
-Key benefits of any scripts is the branching — this is ability to choose what to do along condition. In vizrt-script this realized by a construction ```If [condition] Then [do #1] Else [do #2] End If```. Where instead ```condition``` must be conditional value (boolean type). If you need only [do #1]—block than "Else [do #2]" you can drop out (don't write it).
+Key benefits of any scripts are the branching — this is the ability to choose what to do along with a condition. In vizrt-script this realized by a construction ```If [condition] Then [do #1] Else [do #2] End If```. Where instead ```condition``` must be a conditional value (boolean type). If you need only [do #1]—block than "Else [do #2]" you can drop out (don't write it).
 
 Simple example from practice:
 ```basic
@@ -105,17 +105,17 @@ Else
 End If
 ```
 
-With the standard conversion of the number into a string the symbol "+" will not be added as expected. How to reveal the number with "+" sign if temperature above zero? "If else" help us. If temperature greater than zero we get merging "+" with number. If not than it's nothing to add.
+With the standard conversion of the number into a string, the symbol "+" will not be added as expected. How to reveal the number with a "+" sign if the temperature above zero? "If else" help us. If a temperature greater than zero we get merging "+" with a number. If not then it's nothing to add.
 
-Question for self-test. Which do we get "output" if temperature will be equal 0?
+Question for self-test. Which do we get "output" if the temperature will be equal 0?
 
 <details><summary>Show the answer</summary>
-Variable "output" is equal to the string "0". Because 0 not greater than 0. Thus, we passed by "true" branch and run only "false" part where we add nothing. 0 is not a negative number, so there isn't minus sign. Good.
+Variable "output" is equal to the string "0". Because 0 is not greater than 0. Thus, we passed by the "true" branch and run only "false" part where we add nothing. 0 is not a negative number, so there isn't a minus sign. Good.
 </details>
 
 ## 3. Array
 
-Frequently needed to store a list some data. For example, set of chart values. Creating unique variables for each value is cumbersome and extremely inconvinient for further processing. 
+Frequently needed to store a list of some data. For example, a set of chart values. Creating unique variables for each value is cumbersome and extremely inconvenient for further processing. 
 ```basic
 Dim value1 As Double
 Dim value2 As Double
@@ -137,15 +137,15 @@ Question for self-test. What is the minimum number of elements the array should 
 <code>values[3]</code> — this is fourth element of array. That means array must contain 4 elements at least.
 </details>
 
-Sweety bonus. You can get element not only from the beginning of the array, but from the end! To take the last element of the array, specify "-1" ```values[-1]```. It's much easier and human-readable than ```values[values.ubound]```.
+Sweety bonus. You can get element not only from the beginning of the array but from the end! To take the last element of the array, specify "-1" ```values[-1]```. It's much easier and human-readable than ```values[values.ubound]```.
 
 To get experience all the benefits of arrays, let's explore the loops.
 
 ## 4. Loop
 
-Loop is a repeated part of code while the condition is true. There are three syntax styles of loop in vizrt-scripts. Now we take only the most practical variant ```For [start] to [end] [do something many times] Next```.
+Loop is a repeated part of code while the condition is true. There are three syntax styles of a loop in vizrt-scripts. Now we take only the most practical variant ```For [start] to [end] [do something many times] Next```.
 
-In ```start``` sets some default value for variable-counter. It increments by 1 with each repetition until value reach to ```end``` value.
+In ```start``` sets some default value for variable-counter. It increments by 1 with each repetition until value reaches to ```end``` value.
 
 ```basic
 For i=0 to 10
@@ -164,11 +164,11 @@ Do While i < 100
 Loop
 ```
 
-```For Next``` is more convinient for arrays. ```Do While Loop``` more usefull when you don't know how long it will work.
+```For Next``` is more convenient for arrays. ```Do While Loop``` more useful when you don't know how long it will work.
 
-Note, any loop may be infinite! It's a very bad thing within vizrt-script. Infinity loop blocks whole system! If VizEngine (VizArtist) catch this, it just emergency shutdowns the script until you restart it by hand or scene will be reloaded. So, please analize a condidion carefully. Have the condition any end value?
+Note, any loop may be infinite! It's a very bad thing within vizrt-script. Infinity loop blocks the whole system! If VizEngine (VizArtist) catch this, it just emergency shutdowns the script until you restart it by hand or scene will be reloaded. So, please analyze a condition carefully. Have the condition any end value?
 
-Most popular using of the loop is a array traversal. For example, lets calculate the arithmetic average in an array of numbers:
+Most popular using of the loop is an array traversal. For example, let's calculate the arithmetic average in an array of numbers:
 
 ```basic
 Dim sum, medium As Double
@@ -235,11 +235,11 @@ println(ConvertToTextTemp(-3))
 ```
 
 Note:
-* the line of function defining have the data type of returning value
-* to return the value, just assing the output value to the function name
-* I used system subroutine ```println``` for printing text string into the console. This subroutine is very usefull for finding errors in code (debug). _You can copy and paste this code and try to rut it. Don't forget to look into the console ;)_
+* the line of function defining has the data type of returning value
+* to return the value, just assign the output value to the function name
+* I used system subroutine ```println``` for printing text string into the console. This subroutine is very useful for finding errors in code (debug). _You can copy and paste this code and try to rut it. Don't forget to look into the console ;)_
 
-__Subroutine__ (that haven't return value) is defined and used like a function. Only you don't need to define return data type and don't return.
+__Subroutine__ (that haven't return value) is defined and used as a function. Only you don't need to define the return data type and don't return.
 ```basic
 Sub PrintTemp(input As Double)
 	If input > 0 Then
@@ -255,21 +255,21 @@ PrintTemp(-3)
 
 ### The differences between "Sub" and "Function":
 
-* instead "Function" is writed "Sub"
+* instead "Function" is written "Sub"
 * "Sub" returns nothing — so, returned type specified only in "Function"
 * if I want to affect to containers or the scene I write it inside a "Sub". If I want to calculate something and use returned value inside the script I use "Function"
 
 ## 6. Object
 
-Object is the way to controlling of data and fuctions more like in real life. We intuitively define each object in the life some properties and abilities to do something. For example, some dog have: 5 year old, pink color, etc... Thus, programming "objects" just reflects reality. It's like a list or array, but with different data types and functions. For example, object "Container" contains properties "Name", "Active"(visibility), "Count of sub-containers", etc... "Container" also has functions "Create new sub-container", "Get first sub-object", etc... All possible variables and functions are in the documentation! Please feel free to look there! ;)
+The object is the way to controlling data and functions more like in real life. We intuitively define each object in the life some properties and abilities to do something. For example, some dog has 5-year-old, pink colour, etc... Thus, programming "objects" just reflects reality. It's like a list or array, but with different data types and functions. For example, object "Container" contains properties "Name", "Active"(visibility), "Count of sub-containers", etc... "Container" also has functions "Create new sub-container", "Get first sub-object", etc... All possible variables and functions are in the documentation! Please feel free to look there! ;)
 
-__Access to all properties and functions of object gets by dot character "." — for example ```container.name```. You can call sub-object and sub-properties consistently through points  ```this.alpha.value```__
+__Access to all properties and functions of an object gets by dot character "." — for example ```container.name```. You can call sub-object and sub-properties consistently through points  ```this.alpha.value```__
 
-Some properties can have a status "read only". It can be readed but not changed. All other properties you can read and rewrite. For example, we can get name of container ```println(this.name)``` or rename it ```this.name = "new_name"```. But we can't change directly "Count sub-containers" property. The property will changed if we change real count of sub-containers.
+Some properties can have the status "read only". It can be read but not changed. All other properties you can read and rewrite. For example, we can get the name of container ```println(this.name)``` or rename it ```this.name = "new_name"```. But we can't change directly "Count sub-containers" property. The property will be changed if we change the real count of sub-containers.
 
-* by the way, the variable "this" refers to current container where script placed
+* by the way, the variable "this" refers to the current container where script placed
 
-Some functions of object returns other object. For example, lets get a "Omo" plugin on the current container and change counter of visible sub-object:
+Some functions of the object return another object. For example, let's get an "Omo" plugin on the current container and change counter of visible sub-object:
 
 ```basic
 Dim pi_omo As PluginInstance
@@ -278,23 +278,23 @@ pi_omo.SetParameterInteger("vis_con", 3)
 ```
 
 Note:
-* pi_omo variable is unusual datatype like Double or String. PluginInstance is object that repesents a plugin. You can find all possible objects in documentation. There is written certain datatype of function return.
-* because PluginInstance is the uviversal datatype of any plugins, it haven't directly acccess to "vis_con" properties. Unfirtunatelly it's not possible to write ~~```pi_omo.vis_con = 3```~~. Therefore, it lets use build-in function of setting up the parameter of integer type ```SetParameterInteger("vis_con", 3)```. The order of the input values is in the documentation.
+* pi_omo variable is unusual datatype like Double or String. PluginInstance objects that represent a plugin. You can find all possible objects in the documentation. There is written certain datatype of function return.
+* because PluginInstance is the universal datatype of any plugins, it hasn't directly access to "vis_con" properties. Unfortunately, it's not possible to write ~~```pi_omo.vis_con = 3```~~. Therefore, it lets use build-in function of setting up the parameter of integer type ```SetParameterInteger("vis_con", 3)```. The order of the input values is in the documentation.
 
-There is not possible to create yourown new type object. :( We can say that all object reflects some existing entity of VizEngine or scene. But you can create your own structures! Structure is the same as an object... but it have only properties, without functions. Details and examples later (or take a look in the documentation). _The need for structures is really rare in scripts._
+There is not possible to create your own new type object. :( We can say that all object reflects some existing entity of VizEngine or scene. But you can create your own structures! The structure is the same as an object... but it has only properties, without functions. Details and examples later (or take a look in the documentation). _The need for structures is really rare in scripts._
 
 <a name="callback"></a>
 ## 7. Callback function (Event)
 
-_This isn't basic thing. But using of events we met very often into the vizrt scripts and you should know them from the beginning._
+_This isn't a basic thing. But using of events we met very often into the vizrt scripts and you should know them from the beginning._
 
-Callback function is a function that is called automatically by external event. VizEngine tries to find in your script the appropriate function in the event moment. If VizEngine find it then calling it. Therefore, format of callback functions is so strong. You can't change name of function and order input data. But there is a litle convinient. Full list of all possible callback function is right at hand. Thus, you don't need you remember them.
+The callback function is a function that is called automatically by an external event. VizEngine tries to find in your script the appropriate function in the event moment. If VizEngine finds it then calling it. Therefore, the format of callback functions is so strong. You can't change the name of function and order input data. But there is a little convenient. Full list of all possible callback function is right at hand. Thus, you don't need you to remember them.
 
 ### List of avaliable callbacks
 
 <media-image name="EventList.png" />
 
-Of cource, you can call callback functions by hand if it need. For example, there is ```OnInit()```  function where must be placed start assigns. This code will be launched automatically just after start the script and after scene loading. If I need to set variables to defaults I can call ```OnInit()``` where I want in my code. I do that usually when I want to refresh links to container and properties from script interface. Any changing of interface calls callback function ```OnParameterChanged()```. I just put ```OnInit()``` into the ```OnParameterChanged()```:
+Of course, you can call callback functions by hand if it needs. For example, there is ```OnInit()```  function where must be placed start assigns. This code will be launched automatically just after starting the script and after scene loading. If I need to set variables to defaults I can call ```OnInit()``` where I want in my code. I do that usually when I want to refresh links to container and properties from the script interface. Any changing of interface calls callback function ```OnParameterChanged()```. I just put ```OnInit()``` into the ```OnParameterChanged()```:
 
 ```basic
 Sub OnInit()
@@ -307,11 +307,11 @@ sub OnParameterChanged(parameterName As String)
 End Sub
 ```
 
-So, the initializing happens very rare and only when it need. ;)
+So, the initializing happens very rare and only when it needs. ;)
 
-The most popular callback function (event) is the event of render frame tick — ```OnExecPerField```. The function automatically are calling in each frame. Warning! _Do not accurate timer based on the OnExecPerField function._ Even in the best performance computer FPS isn't equal 50 always. But for most common applications is enough. :)
+The most popular callback function (event) in the event of render frame tick — ```OnExecPerField```. The function automatically is calling in each frame. Warning! _Do, not accurate timer based on the OnExecPerField function._ Even in the best performance computer, FPS isn't equal to 50 always. But for most common applications is enough. :)
 
-Example of using ```OnExecPerField```: there is 360 degreee rotation for some count frames (50 is about second).
+Example of using ```OnExecPerField```: there is 360 degrees rotation for some count frames (50 is about second).
 
 ```basic
 Dim angle As Double = 0
@@ -325,12 +325,12 @@ End Sub
 ```
 
 Note:
-* I used short form of increment ```angle += step```. Of cource I could write ```angle = angle + step```. But the short form is more understandable and shorter ;) I've told to the program "Please increase angle by step" — ```angle += step```.
-* I added float dots into dividing ```360.0/50.0```. I did this specially to avoiding [integer division errors](https://stackoverflow.com/questions/7286681/why-does-integer-division-code-give-the-wrong-answer/39286090). I clarify to compiler that it's must not simplyfy here and, please, divide them as rational numbers (as float, not integer).
+* I used short form of increment ```angle += step```. Of course, I could write ```angle = angle + step```. But the short form is more understandable and shorter ;) I've told to the program "Please increase angle by step" — ```angle += step```.
+* I added float dots into dividing ```360.0/50.0```. I did this especially to avoiding [integer division errors](https://stackoverflow.com/questions/7286681/why-does-integer-division-code-give-the-wrong-answer/39286090). I clarify to the compiler that it's must not simplify here and, please, divide them as rational numbers (as float, not integer).
 * I didn't check strict equality ```if angle == 360```! I have to check it with some margin in case of calculation accuracy error ```if angle >= 360```. This way I guarantee reliability the script. And, it's the "best practice".
 
-If add this script to any container, it will start to rotating counterclock-wise one turn by one second approximatelly.
-If your render have 60 fps, it will rotation little faster.
+If add this script to any container, it will start to rotate counterclockwise one turn by one-second approximately.
+If your render has 60 fps, it will rotation little faster.
 
 One more example with ```OnExecPerField()```. Try to understand what it does?
 ```basic
@@ -342,13 +342,13 @@ Sub OnExecPerField()
 End Sub
 ```
 <details><summary>Show answer</summary>
-	It's just simple effect of blinking. Object reveals in a flash and smoothly hides in 50 frames (by alpha).
+	It's just a simple effect of blinking. Object reveals in a flash and smoothly hides in 50 frames (by alpha).
 </details>
 
 ## Homework
 
-1. Rewrite the script of rotations for ability to drop it to dozen object and it wouldn't have a similar angle of rotation. _Hint: random number gets by system function Random(360), where "360" is maximum value, and minimum is zero always._
+1. Rewrite the script of rotations for the ability to drop it to dozen object and it wouldn't have a similar angle of rotation. _Hint: random number gets by system function Random(360), where "360" is the maximum value, and the minimum is zero always._
 
-2. Write a script that will shake the current container by rotation. For example 10 degree to and fro. Make it with easy changing shaking degree as a default setting. Additional task: add extra shaking by position.
+2. Write a script that will shake the current container by rotation. For example, 10 degrees to and fro. Make it with easy changing shaking degree as a default setting. Additional task: add extra shaking by position.
 
-3. __More difficult task__ You will have to look in documentation;) Write a script for "infinity" shifting of looped texture on current container. _Hint: the whole loop of the texture is 10 only if texture scale is 1._
+3. __More difficult task__ You will have to look in documentation;) Write a script for "infinity" shifting of looped texture on the current container. _Hint: the whole loop of the texture is 10 only if the texture scale is 1._

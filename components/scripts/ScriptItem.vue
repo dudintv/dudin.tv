@@ -118,6 +118,10 @@ export default {
       }
     }
   }
+  .category {
+    font-size: .8rem;
+    font-weight: bold;
+  }
   .title {
     line-height: 0.8em;
     color: white;

@@ -5,11 +5,11 @@ date:   2013-06-06 12:00:00 +0300
 tags: artist
 ---
 
-One of common cases of using vizrt is videowall. Often the outputs have non standart proportion. Videowall in TV studio is a custom product constructed from several panels or blocks. So if you need to create a graphic for videowall you have to organize workflow of creating graphic templates.
+One of the common cases of using vizrt is videowall. Often the outputs have non-standart proportion. Videowall in TV studio is a custom product constructed from several panels or blocks. So if you need to create a graphic for videowall you have to organize the workflow of creating graphic templates.
 
-Main parameter of proportion in vizrt is "Aspect". For example 16:9 = 1.777(7)
+The main parameter of proportion in vizrt is "Aspect". For example 16:9 = 1.777(7)
 
-For example: composite videowall with 6 standart 16:9 panels, three columns and two rows.
+For example composite videowall with 6 standard 16:9 panels, three columns and two rows.
 
 16:9 | 16:9 | 16:9
 16:9 | 16:9 | 16:9
@@ -32,14 +32,14 @@ Creating scene in new config Artist:
 
 <media-image name="custom-resolution-vizartist-create-scene.png" />
 
-## Using custom scene with standart license Engine
+## Using custom scene with standard license Engine
 
 In onair we use standart VizEngine and VizTrio for videowall:
 
 <media-image name="custom-resolution-in-viztrio.png" />
 <media-image name="custom-resolution-in-vizengine.png" />
 
-This Engines are configured with standart aspect 1.777(7) because 16:9. Our scene doesn't work properly if scenes have setting "Camera Aspect = Config." We must change aspect in scene to "User" with certain number.
+These Engines are configured with standard aspect 1.777(7) because of 16:9. Our scene doesn't work properly if scenes have set "Camera Aspect = Config." We must change aspect in the scene to "User" with a certain number.
 
 <media-image name="custom-resolution-in-scene.png" />
 
