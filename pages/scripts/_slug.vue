@@ -34,11 +34,8 @@ export default {
       }
     },
     ogImagePath () {
-      if (process.env.NODE_ENV === 'development') {
-        return `${window.origin}/images/scripts/${this.$route.params.slug}/opengraph.svg`
-      } else {
-        return `https://dudin.tv/images/scripts/${this.$route.params.slug}/opengraph.svg`
-      }
+      const domain = process.env.NODE_ENV === 'development' ? window.origin : 'https://dudin.tv'
+      return `${domain}/images/scripts/${this.$route.params.slug}/opengraph.png`
     }
   },
   created () {
