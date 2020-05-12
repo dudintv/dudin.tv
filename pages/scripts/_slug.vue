@@ -30,7 +30,7 @@ export default {
       if (process.env.NODE_ENV === 'development') {
         return window.location.href
       } else {
-        return `https://dudin.tv${this.$route.path}`
+        return `https://dudin.tv${this.$route.path}/`
       }
     },
     ogImagePath () {
