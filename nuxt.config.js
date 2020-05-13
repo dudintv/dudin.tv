@@ -106,7 +106,11 @@ export default async () => {
     },
 
     purgeCSS: {
-      whitelistPatterns: [/^page/],
+      // whitelistPatterns: [/.*/], // keep all
+      whitelistPatterns: [
+        /^page/,
+        /^language/, /token/, /keyword/, /function/, /operator/, /number/, /string/, /punctuation/, // // keep Prism style
+      ], // keep page transition styles
     }
   }
 }
