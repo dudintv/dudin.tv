@@ -38,8 +38,8 @@ There are:
 * creating scroll keyframes by hand or by action key
 * setup _start_ and _duration_ by parameter. Convenient when you want to control duration from vcp-template
 
-Animation from "0" to "100" and changing size of items:
+Animation from "0" to "100" and changing size of background:
 
-<media-youtube url="https://www.youtube.com/embed/IH3uij2rtTs" />
+<media-youtube url="https://youtu.be/dCnMv6wVTK4" />
 
-Just add the WindowMask to content and you got the pretty result.
+Apply WindowMask or TargetMask on content to make "window" effect.

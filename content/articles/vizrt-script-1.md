@@ -18,7 +18,9 @@ Learning any programming language contains three components:
 
 1. Form of data storage — variables, arrays, objects
 2. Logical constructions — branches, loops, functions
-3. Syntax — rules of code writing so that compiler understands it <a href="https://en.wikipedia.org/wiki/Compiler" target="_blank">Wikipedia</a>
+3. Syntax — rules of code writing to make compiler understands it <a href="https://en.wikipedia.org/wiki/Compiler" target="_blank">Wikipedia</a>
+
+<media-image name="ProgrammingMindMap.png" />
 
 Data storage form and logical constructions are common for most programming languages. They have difference only in syntax. It's easy to learn during working because any mistakes are marked automatically by the compiler.
 
@@ -62,7 +64,7 @@ Vizrt-script is typed programming language. It's mean that all variables must be
 
 Type | Description
 --- | ---
-Integer | __Dim i As Integer__ <br/> integer number (no floating point), represents integer from −2,147,483,648 to 2,147,483,647. Suit for counters and something which can be only integer. <br/> <media-image name="Integer.svg" />
+Integer | __Dim i As Integer__ <br/> integer number (no floating point), represents integer from −2,147,483,648 to 2,147,483,647. Suit for counters and something which can be only integer. <br/> <media-image name="Integer.png" />
 Double | __Dim f As Double__ <br/> Rational floating point number declaring in memory as an integer (_fraction_) multyplied by 10 in some degree (_exponent_). Thus, float number can cover a huge range of numbers from 10<sup>−308</sup> to 10<sup>308</sup>. For example, ```f = 3,1415926535``` <br/> <media-image name="Double.png" /> Float variable takes 64 bits.
 String | __Dim s As String__ <br/> Text. Any chars, line breaks, etc in any encoding ```s = "String\nText"```
 Boolean | __Dim enable As Boolean__ <br/> Boolean variable represent only "true" or "false" ```enable = true```.
