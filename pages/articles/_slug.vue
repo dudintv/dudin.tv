@@ -1,8 +1,9 @@
 <template lang="pug">
   section.article.container.mx-auto
-    h1
-      | {{ attributes.title }}
-      span.icons
+    header.flex.justify-center
+      h1
+        | {{ attributes.title }}
+      span.icons(v-if="icons")
         img.icon(v-for="icon in icons" :src="`/images/icons/${icon}.png`")
     component(:is="markdownContent" v-highlight)
 </template>

@@ -90,6 +90,7 @@ code {
 code, pre, code[class*="language-"], pre[class*="language-"] {
   font-family: JetBrainsMono !important;
   font-weight: normal;
+  font-variant-ligatures: none;
 }
 
 a {

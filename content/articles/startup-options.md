@@ -7,18 +7,21 @@ tags: artist vtw
 
 > If you want to have several configs of VizArtist, or automatically load a particular scene when VizEngine is loaded, startup options can help you.
 
+Default oprions:
+<media-image name="startup-option-default.png" />
+
 ## How to set up a startup option
 
 1. Right mouse click on a shrotcut of the Artist / Engine / TemplateWizard (VTW)
-2. Find "object" string field
-3. Check out the format. It must be ```"<path to engine>" <startup options #1> <startup options #2>```. Every option separates by space. For example: <br/> ```"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y```
+2. Find string field "Target"
+3. Check out the format. It must be ```"<path to engine>" <startup options #1> <startup options #2>```. Every option is separated by space. For example: <br/> ```"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y```
 4. Add your option through space. _Or delete existing one._ For example: <br/> ```"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y  -g videowall.cfg```
 
-Each option starts with the minus sign "-". If the option has a parameter, it writes after the option definition through space.
+Each option starts with the minus sign "-". If the option has a parameter, it writes after the option definition separated by space.
 
-## VizArtist / VizEngine
+## Examples
 
-### Load VizEngine with another config
+### Load VizArtist / VizEngine with another config
 
 This is the most popular option.
 
@@ -26,7 +29,15 @@ This is the most popular option.
 
 For example, ```-g other.cfg```.
 
-### Load VizEngine with a particular scene
+<media-image name="startup-option-g.png" />
+
+### Load VizArtist / VizEngine connected to different GraphicHub
+
+```-db Admin:VizDb@VizDbServer/localhost:19396``` — sign in another "DataBase" (Viz Graphic Hub) with Admin:VizDb credentials.
+
+<media-image name="startup-option-db.png" />
+
+### Load VizArtist / VizEngine with a particular scene
 
 ```-o <full path to the scene>``` — automatically load and start particular scene just after loading VizEngine. If you add this option to VizArtist shortcut its turn out the VizEngine.
 

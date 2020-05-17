@@ -18,7 +18,6 @@
 
 <script>
 import lottie from 'lottie-web'
-// import { gsap } from 'gsap'
 
 export default {
   data: () => ({
@@ -38,8 +37,10 @@ export default {
     }
   },
   mounted () {
+    const feather = document.getElementById('feathers')
     lottie.loadAnimation({
-      container: document.getElementById('feathers'),
+      container: feather,
+      name: feather.id,
       renderer: 'svg',
       loop: true,
       autoplay: true,
