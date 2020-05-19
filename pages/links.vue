@@ -1,6 +1,7 @@
 <template lang="pug">
   .links-page.conatiner.mx-auto
-    #links-bg
+    #links-bg-container
+      #links-bg
     .content
       h2.text-left Vizrt lessons
       p
@@ -52,10 +53,32 @@ export default {
     margin-bottom: -10%;
   }
 
-  #links-bg {
+  #links-bg-container {
     position: absolute;
-    top: 5vw;
     width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  #links-bg {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    #links-bg {
+      width: 180%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    #links-bg {
+      width: 200%;
+    }
   }
 
   .content {
