@@ -10,7 +10,7 @@ file: dudin-arrange-animations.vb
 
 __Root container__ allow you put this script on any container and control point another container as "root" for the script. By default (if this param is empty) it works with current container "this".
 
-You can control __Where to place__ ainmation within "root container".
+You can control __Where to place__ all ainmation within "root container".
 
 __Offset director__ useful to shift each directors with __Start__ offset and __Step__ of increment. If you want inverse you can point negative __Step__.
 

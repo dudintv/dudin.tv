@@ -15,7 +15,7 @@
 
     .content
       .scripts-and-category
-        span.scripts Scripts >&nbsp;
+        span.scripts scripts >&nbsp;
         span.category(:style="{color: gradColorBegin}") {{ attributes.category }}
       .title.flex
         h1.title-text.text-left
@@ -123,12 +123,27 @@ export default {
   @media (max-width: 1024px) {
     .script-hero {
       flex-direction: column;
-      padding: 0 2rem;
+      padding: 0 4rem 0 1rem;
       margin-bottom: 1rem;
     }
 
     .thumbnail {
       top: -9rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .script-hero {
+      padding: 0 0rem;
+    }
+
+    .thumbnail {
+      top: -6rem;
+      left: -2rem;
+    }
+
+    .tip {
+      display: none;
     }
   }
 
