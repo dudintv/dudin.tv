@@ -3,7 +3,8 @@
     //- img.feathers(src="~/static/images/common/nav-feathers.svg")
     #feathers
     .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
-    img.nav-bg(src="~/static/images/common/nav-bg.svg")
+    #nav-bg-container
+      img#nav-bg(src="~/static/images/common/nav-bg.svg")
     a.logo(href="/")
       img(src="~/static/images/common/dudintv-logo.svg")
     nav.nav.flex.justify-between.w-full(@click="clickNav")
@@ -169,10 +170,15 @@ export default {
 <style lang="scss" scoped>
   .header {
     position: relative;
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
 
-  .nav-bg {
+  #nav-bg-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #nav-bg {
     width: 100%;
     position: relative;
     z-index: 10;
@@ -305,7 +311,7 @@ export default {
       display: block;
     }
 
-    .nav-bg {
+    #nav-bg {
       width: 200%;
       max-width: 200%;
     }
