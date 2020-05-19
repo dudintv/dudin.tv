@@ -119,6 +119,14 @@ p {
   margin-bottom: 1rem;
 }
 
+blockquote {
+  border-left: 3px solid #78BEFF;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1rem 0.3rem 2rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
 ul {
   li {
     // list-style: disc;

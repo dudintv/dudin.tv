@@ -1,11 +1,12 @@
 <template lang="pug">
   .portfolio-item.w-full.pt-2.pb-12
     .item-content(:class="mediaQueryClasses")
-      .bg(ref="bg" :class="mediaQueryClasses")
+      //- .bg-container
+      //-   .bg(ref="bg" :class="mediaQueryClasses")
       .content(:class="mediaQueryClasses")
         MediaYoutube.z-10(:url="youtube" :width="youtubeWidth")
         .description(:class="mediaQueryClasses")
-          .flag(ref="flag" :class="mediaQueryClasses")
+          .flag(ref="flag" :class="mediaQueryClasses" :style="flagStyle")
           .text(ref="text" :class="mediaQueryClasses")
             slot
 </template>
@@ -28,6 +29,7 @@ export default {
     return {
       youtubeWidth: 650,
       mediaQueryClasses: '',
+      flagStyle: ''
     }
   },
   mounted () {
@@ -36,13 +38,13 @@ export default {
       this.windowSizeChanged()
     })
 
-    lottie.loadAnimation({
-      container: this.$refs.bg,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/portfolio-bg.json'
-    })
+    // lottie.loadAnimation({
+    //   container: this.$refs.bg,
+    //   renderer: 'svg',
+    //   loop: true,
+    //   autoplay: true,
+    //   path: '/animations/portfolio-bg.json'
+    // })
     lottie.loadAnimation({
       container: this.$refs.flag,
       renderer: 'svg',
@@ -56,12 +58,15 @@ export default {
       if (document.body.clientWidth < 900) {
         this.youtubeWidth = 0.8 * document.body.clientWidth
         this.mediaQueryClasses = 'upto-900'
+        this.flagStyle = 'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px'
       } else if (document.body.clientWidth < 1240) {
         this.youtubeWidth = 500
         this.mediaQueryClasses = 'upto-1240'
+        this.flagWidthStyle = ''
       } else { // document.body.clientWidth > 1240
         this.youtubeWidth = 650
         this.mediaQueryClasses = ''
+        this.flagWidthStyle = ''
       }
     }
   }
@@ -76,15 +81,20 @@ export default {
   .item-content {
     @apply relative mx-auto;
     max-width: 1200px;
-    left: 30px;
+    // left: 30px;
 
-    &.upto-1240, &.upto-900 {
-      left: 0;
-    }
+    // &.upto-1240, &.upto-900 {
+    //   left: 0;
+    // }
 
     &.upto-900 {
       @apply mb-24;
     }
+  }
+
+  .bg-container {
+    width: 100vw;
+    overflow: hidden;
   }
 
   .bg {
@@ -92,6 +102,7 @@ export default {
     margin: -6rem;
     transform: translateX(-5%);
     width: 140%;
+    overflow: hidden;
 
     &.upto-900 {
       width: 150%;
@@ -104,17 +115,16 @@ export default {
     @apply relative flex items-center justify-center pl-16;
 
     &.upto-900 {
-      @apply flex-col p-0;
-      width: 100%;
+      @apply flex-col p-0 w-full;
     }
   }
 
   .description {
-    @apply relative;
+    @apply relative w-full;
 
-    &.upto-900 {
-      @apply w-full;
-    }
+    // &.upto-900 {
+    //   overflow: hidden;
+    // }
   }
 
   .flag {
@@ -130,10 +140,9 @@ export default {
     &.upto-900 {
       @apply absolute;
       top: auto;
-      bottom: 0;
-      width: 130%;
-      transform: translateY(50px);
-      bottom: -90%;
+      width: 170%;
+      // transform: translateY(50px);
+      bottom: -47vw;
     }
   }
 
@@ -153,6 +162,7 @@ export default {
     &.upto-900 {
       @apply relative mx-auto;
       top: 30px;
+      width: 90vw;
     }
   }
 </style>

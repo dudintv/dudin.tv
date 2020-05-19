@@ -2,7 +2,8 @@
   header.header
     //- img.feathers(src="~/static/images/common/nav-feathers.svg")
     #feathers
-    .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
+    #anim-selectors-container
+      .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
     #nav-bg-container
       img#nav-bg(src="~/static/images/common/nav-bg.svg")
     a.logo(href="/")
@@ -277,6 +278,13 @@ export default {
       font-size: 2rem;
       color: white;
     }
+  }
+
+  #anim-selectors-container {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    height: 200px;
   }
 
   .anim-selector {
