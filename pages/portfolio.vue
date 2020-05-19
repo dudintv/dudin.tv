@@ -1,14 +1,14 @@
 <template lang="pug">
   .portfolio
-    //- .hero.container.mx-auto.w-4_5.xl--w-3_5.mb-24
-    //-   .personal.flex.items-start.md--items-center.flex-col.md--flex-row
-    //-     img.w-48.mx-auto.md--mx-0(src="~/static/images/common/dudin-vizrt-certificate.png")
-    //-     p.my-8.md--mx-8
-    //-       | I have experience with Vizrt from&nbsp;2007
-    //-       br
-    //-       | and I have Vizrt Certified Pro Viz Artist Designer
-    //-   .details
-    //-     p.md--my-8 I use VizArtist, VizTrio, Director (VizContentPilot) and Multiplay for creating lowerthirds, fullscreen graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with scripts.
+    .hero.container.mx-auto.w-4_5.xl--w-3_5.mb-24
+      .personal.flex.items-start.md--items-center.flex-col.md--flex-row
+        img.w-48.mx-auto.md--mx-0(src="~/static/images/common/dudin-vizrt-certificate.png")
+        p.my-8.md--mx-8
+          | I have experience with Vizrt from&nbsp;2007
+          br
+          | and I have Vizrt Certified Pro Viz Artist Designer
+      .details
+        p.md--my-8 I use VizArtist, VizTrio, Director (VizContentPilot) and Multiplay for creating lowerthirds, fullscreen graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with scripts.
 
     h1.text-center.mb-16 Here is my portfolio ...
     .portfolio-items.flex.flex-col.items-center
@@ -21,13 +21,13 @@
           | Russia 24&nbsp;(News&nbsp;Channel)
           | Podmoskovie&nbsp;360
           | Russia&nbsp;1
-      //- PortfolioItem(youtube="https://youtu.be/ltCWN7sajx4")
-      //-   small Portfolio
-      //-   h3 Virtual Studios
-      //-   p
-      //-     | Three virtual studios for the best TV virtual studio in Russia. There was a lot of fakes and&nbsp;scripts&nbsp;;)
-      //-   p
-      //-     | The hardest thing here was preparation 3dsMax models from designers to working Vizrt objects. Especially making fake reflection.
+      PortfolioItem(youtube="https://youtu.be/ltCWN7sajx4")
+        small Portfolio
+        h3 Virtual Studios
+        p
+          | Three virtual studios for the best TV virtual studio in Russia. There was a lot of fakes and&nbsp;scripts&nbsp;;)
+        p
+          | The hardest thing here was preparation 3dsMax models from designers to working Vizrt objects. Especially making fake reflection.
 
     //- h1.text-center.mt-16.mb-32 ... and my last project
     //- .project-items.flex.flex-col.items-center
