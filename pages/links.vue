@@ -52,10 +52,18 @@ export default {
     margin-bottom: -10%;
   }
 
-  .content {
+  #links-bg {
     position: absolute;
+    top: 5vw;
+    width: 100%;
+  }
+
+  .content {
+    // position: absolute;
+    top: 5vw;
     display: flex;
     flex-direction: column;
     z-index: 100;
+    padding: 0 1rem;
   }
 </style>

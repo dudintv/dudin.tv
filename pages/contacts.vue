@@ -1,6 +1,7 @@
 <template lang="pug">
-  .contacts.conatiner.mx-auto
-    #contacts-bg
+  .contacts.mx-auto
+    #contacts-bg-container
+      #contacts-bg
     .content
       h3.name Dmitry Dudin
       .contact.facebook
@@ -41,12 +42,39 @@ export default {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: -20%;
-    margin-bottom: -10%;
+    margin-top: -10vw;
+    margin-bottom: -10vw;
+  }
+
+  #contacts-bg-container {
+    position: absolute;
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  #contacts-bg {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+  }
+
+  @media (max-width: 700px) {
+    #contacts-bg {
+      width: 180%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    #contacts-bg {
+      width: 200%;
+    }
   }
 
   .content {
-    position: absolute;
     display: flex;
     flex-direction: column;
     z-index: 100;

@@ -223,7 +223,7 @@ export default {
     display: none;
     position: absolute;
     top: 15vw;
-    right: 15vw;
+    right: 5vw;
     z-index: 900;
 
     &:hover {

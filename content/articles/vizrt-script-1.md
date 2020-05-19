@@ -5,8 +5,13 @@ date: 2019-01-04 12:00:00 +0300
 tags: artist
 ---
 
-Why do we need scripts in VizArtist?
-All the more so we have got a lot of ready plugins.
+Learn more: <br/>
+<a href="https://vizuniversity.learnupon.com/store/491253-viz-artist-introduction-to-scripting" target="_blank">"Viz Artist Introduction to Scripting" free cource on Viz University</a>
+
+-------
+
+Why do we need scripts in VizArtist? <br/>
+All the more so we have got a lot of ready plugins...
 
 > I like scripting because it enables to get non-existed functionality or remake existing with new options. You can significantly speed up your work, including creating complex structures, keyframes, etc. You can automize processes of getting and processing of data within a scene. Also, you can import coordinates of camera and objects from AE. The right way to create interactive elements is to use a script.
 
@@ -18,7 +23,7 @@ Learning any programming language contains three components:
 
 1. Form of data storage — variables, arrays, objects
 2. Logical constructions — branches, loops, functions
-3. Syntax — rules of code writing to make compiler understands it <a href="https://en.wikipedia.org/wiki/Compiler" target="_blank">Wikipedia</a>
+3. Syntax — rules of code writing to make compiler understands it <a href="https://en.wikipedia.org/wiki/Compiler" target="_blank">Wikipedia</a>. In VizArtist we use language which is called "Viz 3 Script".
 
 <media-image name="ProgrammingMindMap.png" />
 
