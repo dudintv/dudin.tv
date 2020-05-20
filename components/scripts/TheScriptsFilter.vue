@@ -1,5 +1,5 @@
 <template lang="pug">
-  #scripts-filter.flex.items-start.cursor-pointer.text-white.font-bold
+  #scripts-filter.flex.flex-wrap.items-start.cursor-pointer.text-white.font-bold
     .option.px-3.py-1(
       v-for="option in options"
       :style="gradByName(option)"

@@ -26,15 +26,19 @@ export default {
     top: -4vw;
     width: 70%;
     font-size: 2vw;
-
-    p {
-      padding-bottom: 1.5rem;
-    }
   }
 
   @media (max-width: 920px) {
     .intro {
       font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .intro {
+      font-size: 1rem;
+      left: 11%;
+      width: 80%;
     }
   }
 </style>

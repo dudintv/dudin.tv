@@ -58,12 +58,16 @@ export default {
   }
   .links {
     // top: 30px;
+    a {
+      width: 52px;
+    }
   }
   .ellipse-shadow {
     width: 500px;
     height: 50px;
     position: absolute;
-    left: calc(50% - 250px);
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 10px;
   }
 </style>
