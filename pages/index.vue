@@ -98,7 +98,7 @@ export default {
     updateFilter (filterName) {
       this.currentFilter = filterName
     },
-  }
+  },
 }
 </script>
 
