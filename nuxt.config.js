@@ -33,7 +33,7 @@ export default async () => {
         { hid: 'og:type', property: 'og:type', content: 'website' },
         { hid: 'og:title', property: 'og:title', content: 'Vizrt scripts from Dmitry Dudin' },
         { hid: 'og:description', property: 'og:description', content: 'Many scripts to build smart scenes' },
-        { hid: 'og:image', property: 'og:image', content: 'https://dudin.tv/common/opengraph.jpg' },
+        { hid: 'og:image', property: 'og:image', content: 'https://dudin.tv/images/common/opengraph.jpg' },
         { hid: 'og:image:alt', property: 'og:image:alt', content: 'Vizrt scripts from Dmitry Dudin' },
         { hid: 'fb:app_id', property: 'fb:app_id', content: '2634632720190560' },
       ],
