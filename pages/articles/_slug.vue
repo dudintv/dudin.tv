@@ -49,12 +49,13 @@ export default {
   }
 
   .icons {
-    @apply relative inline-flex mb-8;
+    @apply relative inline-flex content-center flex-wrap mb-8 pr-4;
     top: 2px;
   }
 
   .icon {
-    @apply ml-4;
+    @apply ml-4 mt-2;
     width: 32px;
+    height: 32px;
   }
 </style>

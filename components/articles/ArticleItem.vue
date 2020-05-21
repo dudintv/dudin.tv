@@ -51,6 +51,7 @@ export default {
   .icon {
     @apply mx-1;
     width: 32px;
+    height: 32px;
   }
 
   .title {
