@@ -24,7 +24,7 @@ export default async () => {
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Vizrt scripts and articles from Dmitry Dudin' },
+        { hid: 'description', name: 'description', content: 'Vizrt scripts and articles by Dmitry Dudin' },
         { name: 'msapplication-TileColor', content: '#603cba' },
         { name: 'theme-color', content: '#ffffff' },
 
