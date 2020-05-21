@@ -16,7 +16,7 @@
         nuxt-link#links.name-selector(to="/links") Links
         nuxt-link#portfolio.name-selector(to="/portfolio") Portfolio
         nuxt-link#contacts.name-selector(to="/contacts") Contacts
-    #menu-burger(@click="toggleShowMobileMenu")
+    #menu-burger(@click="toggleShowMobileMenu" style="width: 96px; height: 96px;")
     #menu-mobile(@click="showMobileMenu = false")
       #menu-leaf
       #menu-mobile-links
@@ -233,6 +233,7 @@ export default {
     right: 5vw;
     z-index: 900;
     width: 96px;
+    height: 96px;
 
     &:hover {
       transform: scale(1.2);
