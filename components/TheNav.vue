@@ -232,6 +232,7 @@ export default {
     top: 15vw;
     right: 5vw;
     z-index: 900;
+    width: 96px;
 
     &:hover {
       transform: scale(1.2);

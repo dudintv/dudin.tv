@@ -1,8 +1,9 @@
 <template lang="pug">
-  .portfolio-item.w-full.mb-16
+  .portfolio-item
     .item-content.relative(:class="mediaQueryClasses")
-      img.bg(v-if="!reverse" src="~/static/images/common/project-bg-left.svg" :class="mediaQueryClassesWithReverse")
-      img.bg(v-if="reverse" src="~/static/images/common/project-bg-right.svg" :class="mediaQueryClassesWithReverse")
+      .bg-container
+        img.bg(v-if="!reverse" src="~/static/images/common/project-bg-left.svg" :class="mediaQueryClassesWithReverse")
+        img.bg(v-if="reverse" src="~/static/images/common/project-bg-right.svg" :class="mediaQueryClassesWithReverse")
       .content(:class="mediaQueryClassesWithReverse")
         .description.relative(:class="mediaQueryClasses")
           .flag(ref="flag" :class="mediaQueryClassesWithReverse")
@@ -75,6 +76,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .portfolio-item.w-full.mb-16 {
+    @apply w-full mb-2;
+  }
+
   h3 {
     @apply mt-1 mb-2;
   }
@@ -110,6 +115,11 @@ export default {
         transform: translateX(-20%) translateY(50%);
       }
     }
+  }
+
+  .bg-container {
+    @apply absolute w-full overflow-hidden;
+    height: 120%;
   }
 
   .content {
@@ -161,6 +171,24 @@ export default {
     }
   }
 
+  @media (max-width: 550px) {
+    .flag.upto-900 {
+      top: -180px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .flag.upto-900 {
+      top: -140px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    .flag.upto-900 {
+      top: -100px;
+    }
+  }
+
   .text {
     @apply relative ml-auto pl-40 pr-8;
     margin-bottom: 5vw;
@@ -186,10 +214,6 @@ export default {
       padding-left: 25vw;
       padding-right: 25vw;
       top: 0;
-    }
-
-    &.reverse {
-
     }
   }
 </style>
