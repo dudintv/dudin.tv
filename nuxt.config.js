@@ -31,7 +31,7 @@ export default async () => {
         { hid: 'og:site_name', property: 'og:site_name', content: 'dudin.tv' },
         { hid: 'og:url', property: 'og:url', content: 'https://dudin.tv' },
         { hid: 'og:type', property: 'og:type', content: 'website' },
-        { hid: 'og:title', property: 'og:title', content: 'Vizrt scripts from Dmitry Dudin' },
+        { hid: 'og:title', property: 'og:title', content: 'Vizrt scripts by Dmitry Dudin' },
         { hid: 'og:description', property: 'og:description', content: 'Many scripts to build smart scenes' },
         { hid: 'og:image', property: 'og:image', content: 'https://dudin.tv/images/common/opengraph.jpg' },
         { hid: 'og:image:alt', property: 'og:image:alt', content: 'Vizrt scripts from Dmitry Dudin' },
