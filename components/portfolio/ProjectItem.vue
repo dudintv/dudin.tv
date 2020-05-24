@@ -85,7 +85,7 @@ export default {
   }
 
   .item-content {
-    @apply mx-auto my-16 w-full;
+    @apply mx-auto mt-16 w-full;
     width: 90vw;
     max-width: 1200px;
 
@@ -98,6 +98,7 @@ export default {
     @apply absolute z-0 top-0 bottom-0 left-0 right-0 mx-auto;
     width: 80%;
     transform: translateY(-20%);
+    top: 120px;
 
     &.upto-1240 {
       transform: translateY(-30%);
@@ -119,7 +120,9 @@ export default {
 
   .bg-container {
     @apply absolute w-full overflow-hidden;
-    height: 120%;
+    height: 150%;
+    padding-top: 50px;
+    top: -100px;
   }
 
   .content {

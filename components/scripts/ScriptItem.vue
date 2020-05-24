@@ -31,6 +31,7 @@
             v-if="script.attributes.file"
             @click.prevent="copyCode(script)"
             ) &nbsp;
+          nuxt-link.no-code(v-else :to="permalink()") scripts<br/>inside
       p.description {{ script.attributes.description }}
 </template>
 
@@ -96,6 +97,7 @@ export default {
       background-color: rgb(52, 81, 128);
     }
   }
+
   .thumbnail {
     position: relative;
     width: 355px;
@@ -118,14 +120,17 @@ export default {
       }
     }
   }
+
   .category {
     font-size: .8rem;
     font-weight: bold;
   }
+
   .title {
     line-height: 0.8em;
     color: white;
   }
+
   .code {
     cursor: pointer;
     color: white;
@@ -144,6 +149,21 @@ export default {
       opacity: 1;
     }
   }
+
+  .no-code {
+    display: block;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 0rem 0.3rem 0.2rem 0.3rem;
+    line-height: 0.8rem;
+    font-size: 0.8rem;
+    color: white;
+
+    &:hover {
+      border-color: white;
+    }
+  }
+
   .description {
     padding: 5px 30px 10px;
     line-height: 1.4em;

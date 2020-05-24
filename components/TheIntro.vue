@@ -4,9 +4,8 @@
       | Hi, my name is Dmitry Dudin and
       | I’m a vizrt designer and script developer.
     p
-      | I prepared for you Vizrt scripts tested in real projects.
-      | Feel free to (use OR rewrite OR expand AND combine) them!
-    p
+      | I've prepared for you Vizrt scripts used and tested in real projects.
+      | Feel free to [use <i>OR</i> rewrite <i>OR</i> expand <i>AND</i> combine] them!
       | If you need an advice or something custom
       | you know how to
       nuxt-link.a(to="contacts") &nbsp;find me&nbsp;
@@ -25,7 +24,7 @@ export default {
     left: 20%;
     top: -4vw;
     width: 70%;
-    font-size: 2vw;
+    font-size: 1.2rem;
   }
 
   @media (max-width: 920px) {

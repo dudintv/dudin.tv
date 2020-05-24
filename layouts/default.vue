@@ -3,9 +3,12 @@
     TheNav
     nuxt.nuxt-page
     TheSocNetworks
+    #copy-code
 </template>
 
 <script>
+import lottie from 'lottie-web'
+
 import TheNav from '~/components/TheNav'
 import TheSocNetworks from '~/components/TheSocNetworks'
 
@@ -13,6 +16,20 @@ export default {
   components: {
     TheNav,
     TheSocNetworks,
+  },
+  mounted () {
+    const animation = lottie.loadAnimation({
+      container: document.getElementById('copy-code'),
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: '/animations/copy-code.json'
+    })
+    animation.addEventListener('complete', () => {
+      console.log('animation = ', animation)
+      animation.wrapper.style = 'display: none'
+    })
+    this.$store.commit('saveCopyCodeAnim', animation)
   }
 }
 </script>
@@ -85,6 +102,10 @@ code {
   padding-bottom: 0.2rem;
   overflow: auto;
   line-height: 1rem;
+  max-width: 100%;
+  // display: inline-flex;
+  overflow-inline: scroll;
+  overflow-wrap: break-word;
 }
 
 code, pre, code[class*="language-"], pre[class*="language-"] {
@@ -122,7 +143,7 @@ p {
 blockquote {
   border-left: 3px solid #78BEFF;
   background-color: rgba(255, 255, 255, 0.05);
-  padding: 1rem 1rem 0.3rem 2rem;
+  padding: 1rem 1rem 0.3rem 1.5rem;
   margin-bottom: 1rem;
   font-style: italic;
 }
@@ -146,6 +167,12 @@ ul {
     margin-left: -1.2rem;
     position: relative;
     top: .2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  ul {
+    margin-left: 1.1rem;
   }
 }
 
@@ -227,6 +254,42 @@ table {
     padding-right: 1rem;
     vertical-align: top;
   }
+}
+
+@media (max-width: 600px) {
+  table {
+    display: block;
+    max-width: 100%;
+
+    tr {
+      padding-bottom: 2rem;
+    }
+
+    td {
+      padding-right: 0;
+    }
+
+    tbody, tr, th, td {
+      display: block;
+      max-width: 100%;
+    }
+
+    thead {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+/* ************************************************** */
+
+#copy-code {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5000;
+  display: none;
 }
 
 /* ************************************************** */

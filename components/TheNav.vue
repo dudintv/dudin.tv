@@ -51,14 +51,17 @@ export default {
     showMobileMenu (newValue) {
       const menuMobile = document.getElementById('menu-mobile')
       const menuMobileLinks = document.getElementById('menu-mobile-links')
+      const body = document.body || document.getElementsByTagName('body')[0]
       if (newValue) {
         menuMobile.style.display = 'block'
         menuMobileLinks.classList.add('show')
         this.animMenuLeaf.playSegments([0, 50], true)
+        body.style = 'overflow:hidden'
       } else {
         setTimeout(() => { menuMobile.style.display = 'none' }, 500)
         menuMobileLinks.classList.remove('show')
         this.animMenuLeaf.playSegments([this.animMenuLeaf.currentFrame, 100], true)
+        body.style = 'overflow:auto'
       }
     }
   },
@@ -190,7 +193,7 @@ export default {
     top: 6%;
     left: 3%;
     width: 23.5%;
-    z-index: 2000;
+    z-index: 11000;
     transition: .2s transform ease;
 
     img {
@@ -246,9 +249,10 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 10000;
     display: none;
     background-color: rgba(0,0,0,0.6);
+    overscroll-behavior: contain;
   }
 
   #menu-leaf {

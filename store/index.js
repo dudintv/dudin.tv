@@ -6,11 +6,20 @@ export const state = () => ({
     logic: ['#C45ADD', '#7F4EF4'],
     position: ['#2DCFE6', '#B6E78C'],
     texture: ['#C389F0', '#ED7485'],
-  }
+  },
+  copyCodeAnim: {},
 })
 
+export const strict = false
+
+export const mutations = {
+  saveCopyCodeAnim (state, newCopyCodeAnim) {
+    state.copyCodeAnim = newCopyCodeAnim
+  }
+}
+
 export const actions = {
-  copyCode (state, script) {
+  copyCode ({ state }, script) {
     const codePath = script.attributes.link.match(/(?<=https:\/\/bitbucket\.org\/).*/)[0]
     if (codePath && script.attributes.file) {
       fetch(`https://api.bitbucket.org/2.0/repositories/${codePath}/${script.attributes.file}`)
@@ -18,9 +27,13 @@ export const actions = {
         .then((code) => {
           navigator.clipboard.writeText(code)
             .then(() => {
-              alert('Code is copied')
+              // alert('Code is copied')
+              state.copyCodeAnim.wrapper.style = 'display: block'
+              state.copyCodeAnim.goToAndStop(0, true)
+              state.copyCodeAnim.play()
             })
             .catch(err => {
+              alert('ERROR: I couldn\'t get code from BitBucket repository.')
               console.log('Something went wrong', err)
             })
         })

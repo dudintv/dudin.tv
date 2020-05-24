@@ -1,5 +1,5 @@
 <template lang="pug">
-  #scripts-filter.flex.flex-wrap.items-start.cursor-pointer.text-white.font-bold
+  #scripts-filter.flex.flex-wrap.items-start.cursor-pointer.text-white.font-bold.py-4
     .option.px-3.py-1(
       v-for="option in options"
       :style="gradByName(option)"
@@ -37,6 +37,7 @@ export default {
 <style lang="scss" scoped>
   .option {
     position: relative;
+    margin-top: .7rem;
 
     &::after {
       content: '';
