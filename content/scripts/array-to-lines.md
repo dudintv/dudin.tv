@@ -43,4 +43,4 @@ Nice to combine with Omo plugin! ;)
 
 _Note: This script doesn't consider bounding boxes of a container, there is only containers arrangement by values of offsets._
 
-For flexible single line layout, I recommend using another my script [Flex](/scripts/vizartist/flex/)
+For flexible single line layout, I recommend using another my script [Flex](/scripts/flex-box/)

@@ -57,7 +57,8 @@ Flex is used in onair graphics as auto-stack. For example, for:
 You can also combine Flex with scripts and plugins:
 
 * nested Flex into another Flex — horizontal and vertical ones
-* combine with [my script "Autoscroll"](/scripts/autoscroll/) — use Flex for containers stacking and use Autoscroll for a convenient scroll of content
+<!-- * combine with [my script "Autoscroll"](/scripts/autoscroll/) — use Flex for containers stacking and use Autoscroll for a convenient scroll of content -->
+* combine with my script "Autoscroll" — use Flex for containers stacking and use Autoscroll for a convenient scroll of content
 * of course, feel free to use any standard plugins :)
 
 ## Esthetic options
