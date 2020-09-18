@@ -8,7 +8,7 @@ file: dudin-parser-excel.vb
 
 I used this script into this mega tutorial:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IMbZqzIA-58" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<media-youtube url="https://www.youtube.com/watch?v=IMbZqzIA-58" />
 
 You can use the script in three modes: 
 
