@@ -1,7 +1,7 @@
 ---
 title: Multi Follow
 description: Alternative of standart Autofollow plugin. Can smart follows to several targets.
-category: position
+category: transformation
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-autofollow/
 file: autofollow.vb
 ---

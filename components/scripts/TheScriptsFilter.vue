@@ -15,8 +15,8 @@ export default {
       'all',
       'animation',
       'link',
-      // 'logic',
-      'position',
+      'logic',
+      'transformation',
       'texture',
     ],
     selectedOption: 'all'

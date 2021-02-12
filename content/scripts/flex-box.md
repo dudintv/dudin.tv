@@ -1,7 +1,7 @@
 ---
 title: Flex Box
 description: Automatic alignment of containers within a certain area. Like CSS FlexBox in Web.
-category: position
+category: transformation
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-flex/
 file: flex.vb
 ---

@@ -1,7 +1,7 @@
 ---
 title: Page Scroll
 description: Scrolling content within a gabarit. Like webpage in browser window.
-category: position
+category: transformation
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-autoscroll/
 file: autoscroll.vb
 ---
