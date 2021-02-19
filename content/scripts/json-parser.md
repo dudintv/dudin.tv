@@ -46,3 +46,13 @@ If you want only one value — you can define __JSON path__ and __SHM output nam
 </interface-description>
 
 ## How to use
+
+In this beta version you can retrieve information from JSON virtual object by JSON path string.
+
+Example for one value:
+
+```
+Dim c_parser As Container = Scene.FincContainer("json_parser")
+Dim posX as Double = (Double)c_parser.Script.GetValueOfCurrentByPath("steps[1].points[2].positionX")
+```
+
