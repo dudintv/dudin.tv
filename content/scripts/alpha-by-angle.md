@@ -6,6 +6,8 @@ link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-alpha/dudin-
 file: dudin-alpha-by-angle.vb
 ---
 
+<media-youtube url="https://youtu.be/cTl82V1Yprs" />
+
 <interface-description image="alpha-by-angle-interface.png">
 
 ### Interface description
