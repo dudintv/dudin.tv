@@ -1,5 +1,5 @@
 ---
-title: Plugin omo
+title: Plugin Omo
 description: Works like regular Omo plugin. But it switches plugins active.
 category: logic
 link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-omo/dudin-omo-plugins/
