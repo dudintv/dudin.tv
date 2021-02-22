@@ -52,7 +52,8 @@ In this beta version you can retrieve information from JSON virtual object by JS
 Example for one value:
 
 ```
-Dim c_parser As Container = Scene.FincContainer("json_parser")
+Dim c_parser As Container = Scene.FindContainer("json_parser")
 Dim posX as Double = (Double)c_parser.Script.GetValueOfCurrentByPath("steps[1].points[2].positionX")
 ```
 
+<br />

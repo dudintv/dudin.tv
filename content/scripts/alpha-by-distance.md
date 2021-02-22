@@ -6,6 +6,8 @@ link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-alpha/dudin-
 file: dudin-alpha-by-distance.vb
 ---
 
+<media-youtube url="https://youtu.be/aNGZUmgxU3w" />
+
 <interface-description image="alpha-by-distance-interface.png">
 
 ### Interface description
