@@ -8,9 +8,9 @@
           br
           | and I have Vizrt Certified Pro Viz Artist Designer
       .details
-        p.md--my-8 I use VizArtist, VizTrio, Director (VizContentPilot) and Multiplay for creating lowerthirds, fullscreen graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with scripts.
+        p.md--my-8 I use VizArtist, VizTrio, Director (VizContentPilot) and Multiplay for creating Lowerthirds, Fullscreen, Virtual and Agument Reality graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with scripts.
 
-    h1.text-center.mb-16 Here is my portfolio ...
+    h1.text-center.mb-16 Here is my old portfolio ...
     .portfolio-items.flex.flex-col.items-center
       PortfolioItem(youtube="https://youtu.be/4xH6bjEoEq8")
         small Portfolio
@@ -29,17 +29,18 @@
         p
           | The hardest thing here was preparation 3dsMax models from designers to working Vizrt objects. Especially making fake reflection.
 
-    h1.text-center.mt-16.mb-32 ... and my last project
+    h1.text-center.mt-16.mb-32 ... and my last projects
     .project-items.flex.flex-col.items-center
-      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4")
+      ProjectItem(youtube="https://youtu.be/SQBmVyAr9pU")
+        small 2020
+        h3 Election 2020
+        p Set of Lower Thirds and Agument Reality Vizrt graphics for Local Election company in Bosnia and Herzegovina in 2020.
+
+      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
         small 2019
         h3 MuzTV Awards 2019
-        p Set agument reality Vizrt graphics for a enormous stadium.
+        p Set of Agument Reality Vizrt graphics for a enormous stadium.
 
-      //- ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
-      //-   small June 2019
-      //-   h3 MuzTV Awards
-      //-   p Set Vizrt graphics for a long screen with incredible resolution 37760&nbsp;&times;&nbsp;140 pixels!
 </template>
 
 <script>
