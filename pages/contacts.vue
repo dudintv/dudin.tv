@@ -14,7 +14,7 @@
         img(src="~/static/images/icons/telegram.png" width="32" height="32")
         a(href="http://t.me/dudintv" target="_blank") @dudintv
       .contact.phone
-        img(src="~/static/images/icons/viber_and_watsapp.png" width="44" height="32")
+        //- img(src="~/static/images/icons/viber_and_watsapp.png" width="44" height="32")
         .phone-number +31 6 189 765 18
         .realm Amsterdam, NL
 </template>
