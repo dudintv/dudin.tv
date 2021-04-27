@@ -1,6 +1,10 @@
 # dudin.tv
 
+https://dudin.tv
+
 > Pre-rendered website with my Vizrt scripts and articles.
+
+![dudin.tv presentation](https://github.com/dudintv/vizmarket/raw/master/static/images/for-github-readme/dudin.tv-presentation.gif)
 
 ## Build Setup
 
