@@ -6,11 +6,23 @@
         p.my-8.md--mx-8
           | I have experience with Vizrt from&nbsp;2007
           br
-          | and I have Vizrt Certified Pro Viz Artist Designer
+          | and I'm a <a href="https://www.vizrt.com/community/viz-university/certified-professionals/dmitry-dudin">Vizrt Certified Pro Viz Artist Designer</a>
       .details
         p.md--my-8 I use VizArtist, VizTrio, Director (VizContentPilot) and Multiplay for creating Lowerthirds, Fullscreen, Virtual and Agument Reality graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with scripts.
 
-    h1.text-center.mb-16 Here is my old portfolio ...
+    h1.text-center.mt-16.mb-32 My last projects
+    .project-items.flex.flex-col.items-center
+      ProjectItem(youtube="https://youtu.be/SQBmVyAr9pU")
+        small 2020
+        h3 Election 2020
+        p Set of Lower Thirds and Agument Reality Vizrt graphics for Local Election company in Bosnia and Herzegovina in 2020.
+
+      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
+        small 2019
+        h3 MuzTV Awards 2019
+        p Set of Agument Reality Vizrt graphics for a enormous stadium.
+
+    h1.text-center.mt-32.mb-16 My ancient portfolio
     .portfolio-items.flex.flex-col.items-center
       PortfolioItem(youtube="https://youtu.be/4xH6bjEoEq8")
         small Portfolio
@@ -28,18 +40,6 @@
           | Three virtual studios for the best TV virtual studio in Russia. There was a lot of fakes and&nbsp;scripts&nbsp;;)
         p
           | The hardest thing here was preparation 3dsMax models from designers to working Vizrt objects. Especially making fake reflection.
-
-    h1.text-center.mt-16.mb-32 ... and my last projects
-    .project-items.flex.flex-col.items-center
-      ProjectItem(youtube="https://youtu.be/SQBmVyAr9pU")
-        small 2020
-        h3 Election 2020
-        p Set of Lower Thirds and Agument Reality Vizrt graphics for Local Election company in Bosnia and Herzegovina in 2020.
-
-      ProjectItem(youtube="https://youtu.be/tFViRnyZ2F4" reverse)
-        small 2019
-        h3 MuzTV Awards 2019
-        p Set of Agument Reality Vizrt graphics for a enormous stadium.
 
 </template>
 
