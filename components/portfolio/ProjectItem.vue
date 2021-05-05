@@ -9,21 +9,34 @@
           .flag(ref="flag" :class="mediaQueryClassesWithReverse")
           .text(:class="mediaQueryClassesWithReverse")
             slot
-        MediaYoutube.z-10(:url="youtube" :width="youtubeWidth")
+        MediaImage.z-10(v-if="image" :name="imagePath" :isFullPath="true" :width="650")
+        MediaYoutube.z-10(v-if="youtube" :url="youtube" :width="youtubeWidth")
 </template>
 
 <script>
 import lottie from 'lottie-web'
+import MediaImage from '~/components/media/MediaImage'
 import MediaYoutube from '~/components/media/MediaYoutube'
 
 export default {
   components: {
+    MediaImage,
     MediaYoutube,
   },
   props: {
-    youtube: {
+    id: {
       type: String,
       required: true,
+    },
+    youtube: {
+      type: String,
+      default: '',
+      required: false,
+    },
+    image: {
+      type: String,
+      default: '',
+      required: false,
     },
     reverse: {
       type: Boolean,
@@ -40,6 +53,9 @@ export default {
     mediaQueryClassesWithReverse () {
       const reverse = this.reverse ? 'reverse' : ''
       return `${reverse} ${this.mediaQueryClasses}`
+    },
+    imagePath () {
+      return `/images/projects/${this.id}/${this.image}`
     }
   },
   mounted () {
@@ -76,8 +92,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .portfolio-item.w-full.mb-16 {
+  .portfolio-item {
     @apply w-full mb-2;
+  }
+
+  @media (max-width: 900px) {
+    .portfolio-item {
+      @apply mb-8;
+    }
   }
 
   h3 {
@@ -149,7 +171,7 @@ export default {
 
     &.reverse {
       left: 0;
-      top: -180px;
+      top: -160px;
     }
 
     &.upto-1240 {
@@ -158,7 +180,7 @@ export default {
 
       &.reverse {
         left: 0;
-        top: -145px;
+        top: -100px;
       }
     }
 
@@ -194,7 +216,7 @@ export default {
 
   .text {
     @apply relative ml-auto pl-40 pr-8;
-    margin-bottom: 5vw;
+    margin-bottom: 3vw;
     top: -30px;
 
     &.reverse {

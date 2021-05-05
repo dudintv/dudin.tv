@@ -1,6 +1,6 @@
 <template lang="pug">
-  section.case.container.mx-auto
-    header.flex.justify-center
+  section.project.container.mx-auto
+    header.flex.justify-center.mb-8
       h1
         | {{ attributes.title }}
     component(:is="markdownContent")
@@ -8,6 +8,7 @@
 
 <script>
 import MediaImage from '~/components/media/MediaImage'
+import MediaVimeo from '~/components/media/MediaVimeo'
 import MediaYoutube from '~/components/media/MediaYoutube'
 
 export default {
@@ -21,7 +22,7 @@ export default {
     }
   },
   created () {
-    this.markdownContent = () => import('~/content/cases/' + this.$route.params.slug + '.md').then((md) => {
+    this.markdownContent = () => import('~/content/projects/' + this.$route.params.slug + '.md').then((md) => {
       this.attributes = md.attributes
       const date = new Date(md.attributes.date)
       this.date = date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -29,6 +30,7 @@ export default {
         extends: md.vue.component,
         components: {
           MediaImage,
+          MediaVimeo,
           MediaYoutube,
         },
       }
@@ -40,7 +42,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .case {
+  .project {
     padding-left: 5vw;
     padding-right: 5vw;
   }

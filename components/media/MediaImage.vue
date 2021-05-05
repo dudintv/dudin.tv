@@ -1,5 +1,5 @@
 <template lang="pug">
-  img.my-4(:src="src" :class="{'transparent-background': transparent}")
+  img.my-4(:src="imageSrc" :class="{'transparent-background': transparent}" :style="imageStyle" :width="imageWidth")
 </template>
 
 <script>
@@ -12,11 +12,30 @@ export default {
     transparent: {
       type: Boolean,
       default: false,
-    }
+    },
+    isFullPath: {
+      type: Boolean,
+      default: false,
+    },
+    center: {
+      type: Boolean,
+      default: false,
+    },
+    width: {
+      type: Number,
+      default: 0,
+      require: false,
+    },
   },
   computed: {
-    src () {
-      return `/images${this.$route.path}/${this.name}`
+    imageSrc () {
+      return this.isFullPath ? this.name : `/images${this.$route.path}/${this.name}`
+    },
+    imageWidth () {
+      return this.width > 0 ? this.width : false
+    },
+    imageStyle () {
+      return this.center ? 'margin-left: auto; margin-right: auto;' : ''
     }
   },
 }
