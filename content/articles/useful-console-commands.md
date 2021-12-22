@@ -21,6 +21,7 @@ Start another director:
 There is not only "START" command. The full list:
 
 ```
+SHOW 0 (show the first frame)
 START
 CONTINUE
 STOP
