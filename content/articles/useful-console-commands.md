@@ -11,7 +11,7 @@ tags: artist
 
 Start the same director (e.g. make a loop):
 
-``` THIS_DRECTOR START ```
+``` THIS_DIRECTOR START ```
 
 Start another director:
 
