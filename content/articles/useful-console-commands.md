@@ -21,14 +21,22 @@ Start another director:
 There is not only "START" command. The full list:
 
 ```
-SHOW 0 (show the first frame)
 START
 CONTINUE
 STOP
 
+```
+
+```SHOW 0``` to show the first frame, instead of "0" you can put any value in seconds OR name of the tag with "$".
+
+For example: `SHOW $tagname`
+
+```
 START REVERSE
 CONTINUE REVERSE
 ```
+
+
 
 ## Control parameter
 
