@@ -2,7 +2,7 @@
 title: Plugin Omo
 description: Works like regular Omo plugin. But it switches plugins active.
 category: logic
-link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-omo/dudin-omo-plugins/
+path: dudin-omo/dudin-omo-plugins
 file: dudin-omo-plugins.vb
 ---
 

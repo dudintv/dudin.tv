@@ -41,9 +41,8 @@ export default {
   created () {
     this.markdownContent = () => import('~/content/scripts/' + this.$route.params.slug + '.md').then((md) => {
       this.attributes = md.attributes
-      const codePath = md.attributes.link.match(/(?<=https:\/\/bitbucket\.org\/).*/)[0]
-      if (codePath && this.attributes.file) {
-        fetch(`https://api.bitbucket.org/2.0/repositories/${codePath}/${this.attributes.file}`)
+      if (this.attributes.path && this.attributes.file) {
+        fetch(`https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${this.attributes.path}/${this.attributes.file}`)
           .then((response) => response.text())
           .then((code) => {
             this.code = code

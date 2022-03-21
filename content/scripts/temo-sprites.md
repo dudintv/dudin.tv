@@ -2,7 +2,7 @@
 title: Sprites (Temo for Viz4)
 description: Analogue of original Vizrt Temo plugin, only for Viz4 fusion material. Work as a traditional sprites pleer.
 category: texture
-link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-texture/dudin-temo-sprite/
+path: dudin-texture/dudin-temo-sprite
 file: dudin-temo-sprite.vb
 viz4: true
 ---

@@ -2,7 +2,7 @@
 title: Random rotation
 description: Provide smoothly random container position. Better than “heartbeat” plugin.
 category: transformation
-link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-transform/dudin-random-rotation/
+path: dudin-transform/dudin-random-rotation
 file: dudin-random-rotation.vb
 ---
 

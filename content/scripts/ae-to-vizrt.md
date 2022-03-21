@@ -2,7 +2,7 @@
 title: AE to Vizrt
 description: Scripts for manual transfering animation from Adobe After Effects to Vizrt.
 category: animation
-link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-animation/ae-to-vizrt/
+path: dudin-animation/ae-to-vizrt
 ---
 
 I know about the standard feature of Vizrt of importing \*.aep projects. But also, I know that it sometimes gives an ugly or inconvenient result. I've workaround this by manual scripts. Of course, the manual way isn't handy. But you get full control of what there happens!

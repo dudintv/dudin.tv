@@ -20,9 +20,8 @@ export const mutations = {
 
 export const actions = {
   copyCode ({ state }, script) {
-    const codePath = script.attributes.link.match(/(?<=https:\/\/bitbucket\.org\/).*/)[0]
-    if (codePath && script.attributes.file) {
-      fetch(`https://api.bitbucket.org/2.0/repositories/${codePath}/${script.attributes.file}`)
+    if (script.attributes.path && script.attributes.file) {
+      fetch(`https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${script.attributes.path}/${script.attributes.file}`)
         .then((response) => response.text())
         .then((code) => {
           navigator.clipboard.writeText(code)

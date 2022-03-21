@@ -2,7 +2,7 @@
 title: Array to lines
 description: Script for aesthetic arrangements of containers in lines
 category: transformation
-link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-transform/dudin-arrange/dudin-arrange-lines/
+path: dudin-transform/dudin-arrange/dudin-arrange-lines
 file: dudin-arrange-lines.vb
 ---
 

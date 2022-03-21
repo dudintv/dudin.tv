@@ -2,7 +2,7 @@
 title: Excel parser
 description: Get and distribute data from Excel by DataReader plugin from DataPool.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-parser/dudin-parser-excel/
+path: dudin-parser/dudin-parser-excel
 file: dudin-parser-excel.vb
 ---
 
