@@ -1,7 +1,6 @@
 <template lang="pug">
   .content
     TheIntro
-    TheScriptsLogo
     .flex.items-center.justify-around.flex-wrap
       TheScriptsFilter.mx-4(@filterChanged="updateFilter")
       .flex.items-start.mx-4.mt-4
@@ -20,6 +19,7 @@
           :script="script"
           :key="script.attributes.title"
           )
+    TheScriptsLogo
 </template>
 
 <script>
