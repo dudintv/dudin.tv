@@ -112,6 +112,7 @@ code, pre, code[class*="language-"], pre[class*="language-"] {
   font-family: JetBrainsMono !important;
   font-weight: normal;
   font-variant-ligatures: none;
+  font-size: 0.8rem;
 }
 
 a {
