@@ -2,7 +2,7 @@
 title: Alpha by distance
 description: Controls alpha value corresponding the distance from the current camera to the object.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-alpha/dudin-alpha-by-distance/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-alpha/dudin-alpha-by-distance/
 file: dudin-alpha-by-distance.vb
 ---
 

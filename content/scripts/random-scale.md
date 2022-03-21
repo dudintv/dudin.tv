@@ -2,7 +2,7 @@
 title: Random scale
 description: Provide smoothly random container scaling. Better than “heartbeat” plugin.
 category: transformation
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-transform/dudin-random-scale/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-transform/dudin-random-scale/
 file: dudin-random-scale.vb
 ---
 

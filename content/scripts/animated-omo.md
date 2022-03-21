@@ -2,7 +2,7 @@
 title: Animated Omo
 description: Select container with animation of position, rotation, scaling and/or alpha. Absolute and relative.
 category: animation
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-omo/dudin-omo-animated/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-omo/dudin-omo-animated/
 file: dudin-omo.vb
 ---
 

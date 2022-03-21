@@ -2,7 +2,7 @@
 title: AE to Vizrt
 description: Scripts for manual transfering animation from Adobe After Effects to Vizrt.
 category: animation
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-animation/ae-to-vizrt/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-animation/ae-to-vizrt/
 ---
 
 I know about the standard feature of Vizrt of importing \*.aep projects. But also, I know that it sometimes gives an ugly or inconvenient result. I've workaround this by manual scripts. Of course, the manual way isn't handy. But you get full control of what there happens!
@@ -85,7 +85,7 @@ Animation data is ready now!
 
 ### 3. Import animation to vizrt scene
 
-Drop an import script to a container — either for layer or for the camera. "Compile & run" it. 
+Drop an import script to a container — either for layer or for the camera. "Compile & run" it.
 
 1. Click on "Create sub-containers". _(only for the first time)_
 2. Select file with data. Write the name of the layer. _(only for the first try or if the filename was changed)_

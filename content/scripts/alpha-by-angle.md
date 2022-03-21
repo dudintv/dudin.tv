@@ -2,7 +2,7 @@
 title: Alpha by angle
 description: Controls alpha value by the angle between central ray from current camera and local axis of the object.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-alpha/dudin-alpha-by-angle/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-alpha/dudin-alpha-by-angle/
 file: dudin-alpha-by-angle.vb
 ---
 

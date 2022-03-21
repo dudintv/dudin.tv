@@ -2,7 +2,7 @@
 title: JSON parser (beta)
 description: Parse JSON string and provide functions for data retrieving by object path like in JavaScript object.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-parser/dudin-parser-json/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-parser/dudin-parser-json/
 file: dudin-parser-json.vb
 ---
 

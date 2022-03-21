@@ -2,7 +2,7 @@
 title: Sprites (Temo for Viz4)
 description: Analogue of original Vizrt Temo plugin, only for Viz4 fusion material. Work as a traditional sprites pleer.
 category: texture
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-texture/dudin-temo-sprite/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-texture/dudin-temo-sprite/
 file: dudin-temo-sprite.vb
 viz4: true
 ---
@@ -19,7 +19,7 @@ __Selection mode__ gives classic __number__ mode where you change the index of t
 
 __Main axis__ works only with __number__ mode. It changes the direction of the calculation order. "X" is the classic one.
 
-__Show tile number__ works only with __number__ mode. It is a cell selector. 
+__Show tile number__ works only with __number__ mode. It is a cell selector.
 
 __Crop X / Crop Y__ define how much we cut each cell in the percentage of the size.
 
@@ -29,7 +29,7 @@ __Lock crop__ allows you conveniently change crop X and Y by one number.
 
 I've created this script as an analogue of original Vizrt build-in plugin "Temo". But only for Viz4 fusion material. It implements the classic "sprite" technique for graphics engines.
 
-Disclaimer: 
+Disclaimer:
 This script changes texture scaling and position via "SendCommand" function. I know that it isn't a good way, but for the current VizArtist 4.2 version, it's a single option to do this, unfortunately. If Vizrt developers will allow changing these parameters via normal script object — I'll upgrade my script this accordingly.
 
 I did not repeat only the standard behaviour of Temo. Also, I implement a few my improving ideas:

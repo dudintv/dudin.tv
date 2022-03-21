@@ -2,7 +2,7 @@
 title: Time Omo
 description: Works like regular Omo plugin. But it switches by the current time. You can define many periods.
 category: logic
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-omo/dudin-omo-bytime/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-omo/dudin-omo-bytime/
 file: dudin-omo-bytime.vb
 ---
 

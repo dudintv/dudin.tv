@@ -2,7 +2,7 @@
 title: Page Scroll
 description: Scrolling content within a gabarit. Like webpage in browser window.
 category: transformation
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-autoscroll/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-autoscroll/
 file: autoscroll.vb
 ---
 
@@ -14,7 +14,7 @@ The script uses the bounding box from __Gabarit container__ to build "screen" ar
 
 __X padding__ and __Y padding__ gives you a handle to control gaps between area and content.
 
-__Min scale__ and __Max scale__ control max and min possible scaling of content. 
+__Min scale__ and __Max scale__ control max and min possible scaling of content.
 
 You can animate __Scroll percent__ from 0% to 100% to scroll content within the area. This parameter is considered only with "By percent" option in the next parameters.
 

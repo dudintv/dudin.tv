@@ -2,7 +2,7 @@
 title: Bg (advanced)
 description: Alternative to original TextBg. Change size without changing position. Works with childs.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-bg/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-bg/
 file: bg.vb
 ---
 

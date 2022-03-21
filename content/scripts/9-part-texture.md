@@ -2,7 +2,7 @@
 title: 9 part texture
 description: Script for stretching texture with saving quality of borders and corners.
 category: texture
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-texture/dudin-9parttexture/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-texture/dudin-9parttexture/
 file: 9parttexture.vb
 ---
 
@@ -58,7 +58,7 @@ This way you can create a glow, shadow and frame effects, etc:
 
 ## Practice
 
-I wrote the script to provide solution "9 part texture" in vizrt. 
+I wrote the script to provide solution "9 part texture" in vizrt.
 
 How to use it:
 

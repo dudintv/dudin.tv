@@ -2,7 +2,7 @@
 title: Random position
 description: Provide smoothly random container position.
 category: transformation
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-transform/dudin-random-move/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-transform/dudin-random-move/
 file: dudin-random-move.vb
 ---
 

@@ -2,7 +2,7 @@
 title: Tree link
 description: Copy and link part of scene tree. The target sub-tree will be controlled by source sub-tree.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-link/dudin-link-tree/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-link/dudin-link-tree/
 file: dudin-link-tree.vb
 ---
 

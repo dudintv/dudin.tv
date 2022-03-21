@@ -2,7 +2,7 @@
 title: Excel parser
 description: Get and distribute data from Excel by DataReader plugin from DataPool.
 category: link
-link: https://bitbucket.org/vizrt/vizartist-script/src/master/dudin-parser/dudin-parser-excel/
+link: https://bitbucket.org/vizrt/vizartist-script-backup/src/master/dudin-parser/dudin-parser-excel/
 file: dudin-parser-excel.vb
 ---
 
@@ -10,7 +10,7 @@ I used this script into this mega tutorial:
 
 <media-youtube url="https://www.youtube.com/watch?v=IMbZqzIA-58" />
 
-You can use the script in three modes: 
+You can use the script in three modes:
 
 1. Single value
 2. All table
