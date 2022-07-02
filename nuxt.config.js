@@ -2,7 +2,7 @@ import path from 'path'
 import Mode from 'frontmatter-markdown-loader/mode'
 import glob from 'glob'
 
-async function getDynamicPaths (urlFilepathTable) {
+function getDynamicPaths(urlFilepathTable) {
   return [].concat(
     ...Object.keys(urlFilepathTable).map(url => {
       const filepathGlob = urlFilepathTable[url]
@@ -17,100 +17,145 @@ export default async () => {
   return {
     // mode: 'universal',
     /*
-    ** Headers of the page
-    */
+     ** Headers of the page
+     */
     head: {
       title: 'dudin.tv',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Vizrt scripts and articles by Dmitry Dudin' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Vizrt scripts and articles by Dmitry Dudin',
+        },
         { name: 'msapplication-TileColor', content: '#603cba' },
         { name: 'theme-color', content: '#ffffff' },
 
         { hid: 'og:site_name', property: 'og:site_name', content: 'dudin.tv' },
         { hid: 'og:url', property: 'og:url', content: 'https://dudin.tv' },
         { hid: 'og:type', property: 'og:type', content: 'website' },
-        { hid: 'og:title', property: 'og:title', content: 'Vizrt scripts by Dmitry Dudin' },
-        { hid: 'og:description', property: 'og:description', content: 'Many scripts to build smart scenes' },
-        { hid: 'og:image', property: 'og:image', content: 'https://dudin.tv/images/common/opengraph.jpg' },
-        { hid: 'og:image:alt', property: 'og:image:alt', content: 'Vizrt scripts from Dmitry Dudin' },
-        { hid: 'fb:app_id', property: 'fb:app_id', content: '2634632720190560' },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Vizrt scripts by Dmitry Dudin',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Many scripts to build smart scenes',
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: 'https://dudin.tv/images/common/opengraph.jpg',
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: 'Vizrt scripts from Dmitry Dudin',
+        },
+        {
+          hid: 'fb:app_id',
+          property: 'fb:app_id',
+          content: '2634632720190560',
+        },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png' },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicons/favicon-32x32.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicons/favicon-16x16.png',
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/favicons/apple-touch-icon.png',
+        },
         { rel: 'manifest', href: '/favicons/site.webmanifest' },
-        { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#9804d0' }
-      ]
+        {
+          rel: 'mask-icon',
+          href: '/favicons/safari-pinned-tab.svg',
+          color: '#9804d0',
+        },
+      ],
     },
     /*
-    ** Customize the progress-bar color
-    */
+     ** Customize the progress-bar color
+     */
     loading: { color: '#243B61' },
     /*
-    ** Global CSS
-    */
-    css: [
-      '~assets/css/fonts',
-      '~assets/css/main',
-    ],
+     ** Global CSS
+     */
+    css: ['~assets/css/fonts', '~assets/css/main'],
     /*
-    ** Plugins to load before mounting the App
-    */
+     ** Plugins to load before mounting the App
+     */
     plugins: [
       '~plugins/vue-code-highlight.js',
-      { src: '~plugins/google-analytics.js', mode: 'client' }
+      { src: '~plugins/google-analytics.js', mode: 'client' },
     ],
     /*
-    ** Nuxt.js dev-modules
-    */
+     ** Nuxt.js dev-modules
+     */
     buildModules: [
       // Doc: https://github.com/nuxt-community/eslint-module
       '@nuxtjs/eslint-module',
       // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-      '@nuxtjs/tailwindcss'
+      '@nuxtjs/tailwindcss',
     ],
     /*
-    ** Nuxt.js modules
-    */
-    modules: [
-    ],
+     ** Nuxt.js modules
+     */
+    modules: [],
     /*
-    ** Build configuration
-    */
+     ** Build configuration
+     */
     build: {
       /*
-      ** You can extend webpack config here
-      */
-      extend (config, ctx) {
-      // add frontmatter-markdown-loader
+       ** You can extend webpack config here
+       */
+      extend(config, ctx) {
+        // add frontmatter-markdown-loader
         config.module.rules.push({
           test: /\.md$/,
           include: path.resolve(__dirname, 'content'),
           loader: 'frontmatter-markdown-loader',
           options: {
-            mode: [Mode.VUE_COMPONENT, Mode.META]
-          }
+            mode: [Mode.VUE_COMPONENT, Mode.META],
+          },
         })
-      }
+      },
     },
 
     generate: {
       routes: await getDynamicPaths({
         '/scripts': 'scripts/*.md',
         '/articles': 'articles/*.md',
-      })
+      }),
     },
 
     purgeCSS: {
       // whitelistPatterns: [/.*/], // keep all
       whitelistPatterns: [
         /^page/,
-        /^language/, /token/, /keyword/, /function/, /operator/, /number/, /string/, /punctuation/, // // keep Prism style
+        /^language/,
+        /token/,
+        /keyword/,
+        /function/,
+        /operator/,
+        /number/,
+        /string/,
+        /punctuation/, // // keep Prism style
       ], // keep page transition styles
-    }
+    },
   }
 }
