@@ -216,7 +216,7 @@ export default {
       padding: 1rem;
 
       &:hover {
-        background-color: hsla(0,0,1,0.1);
+      background-color: hsla(0, 0%, 100%, 0.1);
       }
     }
   }
