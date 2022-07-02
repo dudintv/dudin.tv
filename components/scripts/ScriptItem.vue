@@ -51,53 +51,68 @@ export default {
     },
   },
   methods: {
-    slug () {
-      return this.script.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]
+    slug() {
+      return this.script.meta.resourcePath
+        .split('\\')
+        .pop()
+        .split('/')
+        .pop()
+        .split('.')[0]
     },
-    permalink () {
+    permalink() {
       return `scripts/${this.slug()}`
     },
-    thumbnailUrl () {
+    thumbnailUrl() {
       return `/images/scripts/${this.slug()}/thumbnail.svg`
     },
-    gradByName (name) {
+    gradByName(name) {
       const gradient = this.$store.state.gradients[name]
       return `background: linear-gradient(10deg, ${gradient[0]}, ${gradient[1]})`
     },
-    darkGradByName (name) {
+    darkGradByName(name) {
       const gradient = this.$store.state.gradients[name]
-      const start = Color(gradient[0]).darken(0.6).desaturate(0.5).hex()
-      const end   = Color(gradient[1]).darken(0.6).desaturate(0.5).hex()
+      const start = Color(gradient[0])
+        .darken(0.6)
+        .desaturate(0.5)
+        .hex()
+      const end = Color(gradient[1])
+        .darken(0.6)
+        .desaturate(0.5)
+        .hex()
       return [start, end]
     },
-    shadowGradByName (name) {
+    shadowGradByName(name) {
       const gradient = this.$store.state.gradients[name]
-      const start = Color(gradient[0]).darken(0.8).hex()
-      const end   = Color(gradient[1]).darken(0.8).hex()
+      const start = Color(gradient[0])
+        .darken(0.8)
+        .hex()
+      const end = Color(gradient[1])
+        .darken(0.8)
+        .hex()
       return [start, end]
     },
-    colorByName (name) {
+    colorByName(name) {
       const gradient = this.$store.state.gradients[name]
       return `color: ${gradient[0]}`
     },
-    copyCode (script) {
+    copyCode(script) {
       this.$store.dispatch('copyCode', script)
     },
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .script-item {
-  background-color: #455C82;
+  background-color: #455c82;
   max-width: 355px;
-  box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.2s ease-in-out;
   z-index: 10;
-  transition: background-color .1s linear;
+  transition: background-color 0.1s linear;
 
   &:hover {
-    box-shadow: 0 7px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 7px 30px rgba(0, 0, 0, 0.4);
     z-index: 100;
     background-color: rgb(52, 81, 128);
   }
@@ -116,7 +131,7 @@ export default {
     height: 100%;
     z-index: 50;
     background-color: hsla(0, 100%, 100%, 0);
-    transition: background-color .1s linear;
+    transition: background-color 0.1s linear;
   }
 
   &:hover {
@@ -127,7 +142,7 @@ export default {
 }
 
 .category {
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: bold;
 }
 
@@ -157,7 +172,7 @@ export default {
 
 .no-code {
   display: block;
-  border: 3px solid rgba(255,255,255,0.2);
+  border: 3px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   padding: 0rem 0.3rem 0.2rem 0.3rem;
   line-height: 0.8rem;

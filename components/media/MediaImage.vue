@@ -28,23 +28,25 @@ export default {
     },
   },
   computed: {
-    imageSrc () {
-      return this.isFullPath ? this.name : `/images${this.$route.path}/${this.name}`
+    imageSrc() {
+      return this.isFullPath
+        ? this.name
+        : `/images${this.$route.path}/${this.name}`
     },
-    imageWidth () {
+    imageWidth() {
       return this.width > 0 ? this.width : false
     },
-    imageStyle () {
+    imageStyle() {
       return this.center ? 'margin-left: auto; margin-right: auto;' : ''
-    }
+    },
   },
 }
 </script>
 
 <style scoped>
-  .transparent-background {
-    background-image: url(~static/images/common/transparent-background.jpg);
-    background-size: 25px 25px;
-    margin: .5em 0;
-  }
+.transparent-background {
+  background-image: url(~static/images/common/transparent-background.jpg);
+  background-size: 25px 25px;
+  margin: 0.5em 0;
+}
 </style>

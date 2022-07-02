@@ -37,92 +37,94 @@ export default {
     image: {
       type: String,
       default: '',
-    }
+    },
   },
   computed: {
-    src () {
+    src() {
       return `/images${this.$route.path}/${this.image}`
-    }
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.interface-description {
+  position: relative;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  width: 100vw;
+  padding: 0 2rem;
+}
+
+.interface-description-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.head-image,
+.tail-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 4rem;
+}
+
+.head-svg,
+.tail-svg {
+  height: 100%;
+}
+
+.content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'interface description';
+  justify-content: center;
+  position: relative;
+  z-index: 20;
+}
+
+.interface {
+  grid-area: interface;
+  background: linear-gradient(to right, #7c7c7c 0%, #5a5a5a 100%);
+  padding: 2rem 0 2rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.description {
+  grid-area: description;
+  background: linear-gradient(130deg, #375a95 0%, #244273 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 20rem;
+}
+
+@media (max-width: 1200px) {
   .interface-description {
-    position: relative;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-    width: 100vw;
-    padding: 0 2rem;
+    padding: 0 0rem;
   }
+}
 
-  .interface-description-container {
-    max-width: 1500px;
-    margin: 0 auto;
-  }
-
-  .head-image, .tail-image {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0 4rem;
-  }
-
-  .head-svg, .tail-svg {
-    height: 100%;
-  }
-
+@media (max-width: 1024px) {
   .content {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "interface description";
-    justify-content: center;
-    position: relative;
-    z-index: 20;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'interface'
+      'description';
   }
 
   .interface {
-    grid-area: interface;
-    background: linear-gradient(to right, #7C7C7C 0%, #5A5A5A 100%);
-    padding: 2rem 0 2rem 2rem;
-    display: flex;
-    justify-content: flex-end;
+    padding: 2rem 2rem 0 2rem;
+    justify-content: center;
     align-items: center;
   }
-
-  .description {
-    grid-area: description;
-    background: linear-gradient(130deg, #375A95 0%, #244273 100%);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    flex-shrink: 1;
-    min-width: 20rem;
-  }
-
-  @media (max-width: 1200px) {
-    .interface-description {
-      padding: 0 0rem;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    .content {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto 1fr;
-      grid-template-areas:
-        "interface"
-        "description";
-    }
-
-    .interface {
-      padding: 2rem 2rem 0 2rem;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+}
 </style>

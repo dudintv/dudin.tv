@@ -11,52 +11,45 @@
 <script>
 export default {
   data: () => ({
-    options: [
-      'all',
-      'animation',
-      'link',
-      'logic',
-      'transformation',
-      'texture',
-    ],
-    selectedOption: 'all'
+    options: ['all', 'animation', 'link', 'logic', 'transformation', 'texture'],
+    selectedOption: 'all',
   }),
   methods: {
-    gradByName (name) {
+    gradByName(name) {
       const gradient = this.$store.state.gradients[name]
       return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`
     },
-    select (name) {
+    select(name) {
       this.selectedOption = name
       this.$emit('filterChanged', name)
     },
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .option {
-    position: relative;
-    margin-top: .7rem;
+.option {
+  position: relative;
+  margin-top: 0.7rem;
 
-    &::after {
-      content: '';
-      width: 100%;
-      height: 4px;
-      background-color: transparent;
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      transition: background-color 1s ease;
-    }
-
-    &:hover::after {
-      background-color: white;
-      transition: background-color .2s ease;
-    }
-
-    &.selected::after {
-      background-color: white;
-    }
+  &::after {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: background-color 1s ease;
   }
+
+  &:hover::after {
+    background-color: white;
+    transition: background-color 0.2s ease;
+  }
+
+  &.selected::after {
+    background-color: white;
+  }
+}
 </style>

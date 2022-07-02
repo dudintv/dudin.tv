@@ -16,45 +16,54 @@ export default {
     article: {
       type: Object,
       required: true,
-    }
+    },
   },
   computed: {
-    icons () {
+    icons() {
       return this.article.attributes.tags.split(' ')
     },
-    date () {
+    date() {
       const date = new Date(this.article.attributes.date)
-      return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
-    }
+      return date.toLocaleDateString('en-GB', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    },
   },
   methods: {
-    slug () {
-      return this.article.meta.resourcePath.split('\\').pop().split('/').pop().split('.')[0]
+    slug() {
+      return this.article.meta.resourcePath
+        .split('\\')
+        .pop()
+        .split('/')
+        .pop()
+        .split('.')[0]
     },
-    permalink () {
+    permalink() {
       return `/articles/${this.slug()}`
     },
-  }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .date {
-    color: rgba(255,255,255,0.5);
-  }
+.date {
+  color: rgba(255, 255, 255, 0.5);
+}
 
-  .icons {
-    @apply flex absolute left-0 pr-2;
-    transform: translateX(-100%);
-  }
+.icons {
+  @apply flex absolute left-0 pr-2;
+  transform: translateX(-100%);
+}
 
-  .icon {
-    @apply mx-1;
-    width: 32px;
-    height: 32px;
-  }
+.icon {
+  @apply mx-1;
+  width: 32px;
+  height: 32px;
+}
 
-  .title {
-    color: #78BEFF;
-  }
+.title {
+  color: #78beff;
+}
 </style>

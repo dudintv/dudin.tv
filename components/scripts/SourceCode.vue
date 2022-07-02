@@ -32,54 +32,54 @@ export default {
     },
     code: {
       type: String,
-      default: () => (''),
+      default: () => '',
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-  .bg {
-    background: #1E2E49;
-    padding: 2rem;
-  }
+.bg {
+  background: #1e2e49;
+  padding: 2rem;
+}
 
-  details {
-    background: linear-gradient(95.16deg, #0F336F 0%, #112545 100%);
-    border: 1px dashed #405880;
-    padding: 0;
-    margin-bottom: 0.3rem;
+details {
+  background: linear-gradient(95.16deg, #0f336f 0%, #112545 100%);
+  border: 1px dashed #405880;
+  padding: 0;
+  margin-bottom: 0.3rem;
 
-    summary {
-      position: relative;
-      padding: 1rem;
-      cursor: pointer;
-      text-align: center;
-      margin: 0;
-
-      &:hover {
-        background-color: hsla(0,0%,100%,0.1);
-      }
-
-      .title {
-        font-size: 1.5rem;
-        line-height: 0.5em;
-      }
-    }
-
-    .code {
-      padding: 1rem;
-    }
-  }
-
-  .tip {
-    display: block;
-    color: rgba(white, 0.5);
-    width: 100%;
+  summary {
+    position: relative;
+    padding: 1rem;
+    cursor: pointer;
     text-align: center;
+    margin: 0;
+
+    &:hover {
+      background-color: hsla(0, 0%, 100%, 0.1);
+    }
+
+    .title {
+      font-size: 1.5rem;
+      line-height: 0.5em;
+    }
   }
 
-  .home-page {
-    transform: translateY(-50%);
+  .code {
+    padding: 1rem;
   }
+}
+
+.tip {
+  display: block;
+  color: rgba(white, 0.5);
+  width: 100%;
+  text-align: center;
+}
+
+.home-page {
+  transform: translateY(-50%);
+}
 </style>

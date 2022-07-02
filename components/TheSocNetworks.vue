@@ -21,53 +21,64 @@ export default {
     facebook_hover: false,
     linkedin_hover: false,
   }),
-  mounted () {
-    this.youtube  = this.loadLottie('youtube')
+  mounted() {
+    this.youtube = this.loadLottie('youtube')
     this.facebook = this.loadLottie('facebook')
     this.linkedin = this.loadLottie('linkedin')
   },
   methods: {
-    loadLottie (name) {
+    loadLottie(name) {
       const animation = lottie.loadAnimation({
         container: document.getElementById(name),
         renderer: 'svg',
         loop: true,
         autoplay: false,
-        path: `/animations/dudintv-${name}.json`
+        path: `/animations/dudintv-${name}.json`,
       })
       animation.addEventListener('loopComplete', () => {
-        if (!this[`${name}_hover`]) { animation.stop() }
+        if (!this[`${name}_hover`]) {
+          animation.stop()
+        }
       })
       return animation
     },
-    hover (name) {
+    hover(name) {
       this[name].play()
       this[`${name}_hover`] = true
     },
-    leave (name) {
+    leave(name) {
       this[`${name}_hover`] = false
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .social-networks {
-    height: 300px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.052698) 17.71%, rgba(0, 0, 0, 0.196154) 34.9%, rgba(0, 0, 0, 0.5) 68.75%, rgba(0, 0, 0, 0.137363) 83.33%, rgba(0, 0, 0, 0.05) 90.62%, rgba(0, 0, 0, 0) 100%);
+.social-networks {
+  height: 300px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.052698) 17.71%,
+    rgba(0, 0, 0, 0.196154) 34.9%,
+    rgba(0, 0, 0, 0.5) 68.75%,
+    rgba(0, 0, 0, 0.137363) 83.33%,
+    rgba(0, 0, 0, 0.05) 90.62%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.links {
+  // top: 30px;
+  a {
+    width: 52px;
   }
-  .links {
-    // top: 30px;
-    a {
-      width: 52px;
-    }
-  }
-  .ellipse-shadow {
-    width: 500px;
-    height: 50px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 10px;
-  }
+}
+.ellipse-shadow {
+  width: 500px;
+  height: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+}
 </style>

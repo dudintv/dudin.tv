@@ -7,20 +7,15 @@
 </template>
 
 <script>
-
 export default {
   props: {
     url: {
       type: String,
-      required: true
+      required: true,
     },
-    // width: {
-    //   type: Number,
-    //   default: 0
-    // }
   },
   computed: {
-    videoId () {
+    videoId() {
       // https://vimeo.com/530075847
       if (/vimeo.com\/\d+$/.test(this.url)) {
         return this.url.match(/vimeo.com\/(\d+)$/)[1]
@@ -30,7 +25,7 @@ export default {
         return ''
       }
     },
-    videoUrl () {
+    videoUrl() {
       return `https://player.vimeo.com/video/${this.videoId}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`
     },
   },
@@ -38,7 +33,7 @@ export default {
 </script>
 
 <style scoped>
-  .media-vimeo {
-    display: block;
-  }
+.media-vimeo {
+  display: block;
+}
 </style>
