@@ -4,6 +4,7 @@ description: Alternative of standart Autofollow plugin. Can smart follows to sev
 category: transformation
 path: dudin-autofollow
 file: autofollow.vb
+toys: [MultiFollow]
 ---
 
 <interface-description image="autofollow-ui.png">

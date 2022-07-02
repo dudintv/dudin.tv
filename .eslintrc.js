@@ -18,5 +18,6 @@ module.exports = {
     'no-useless-escape': 'off',
     'css-semicolonexpected': 'off',
     'space-before-function-paren': 'off',
+    'unicorn/number-literal-case': 'off',
   },
 }

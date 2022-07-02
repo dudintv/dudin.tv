@@ -18,7 +18,7 @@ export default {
     ScriptHero,
     SourceCode,
   },
-  data () {
+  data() {
     return {
       markdownContent: {},
       attributes: {},
@@ -26,46 +26,63 @@ export default {
     }
   },
   computed: {
-    ogPageUrl () {
+    ogPageUrl() {
       if (process.env.NODE_ENV === 'development') {
         return window.location.href
       } else {
         return `https://dudin.tv${this.$route.path}/`
       }
     },
-    ogImagePath () {
-      const domain = process.env.NODE_ENV === 'development' ? window.origin : 'https://dudin.tv'
+    ogImagePath() {
+      const domain =
+        process.env.NODE_ENV === 'development'
+          ? window.origin
+          : 'https://dudin.tv'
       return `${domain}/images/scripts/${this.$route.params.slug}/opengraph.png`
-    }
+    },
   },
-  created () {
-    this.markdownContent = () => import('~/content/scripts/' + this.$route.params.slug + '.md').then((md) => {
-      this.attributes = md.attributes
-      if (this.attributes.path && this.attributes.file) {
-        fetch(`https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${this.attributes.path}/${this.attributes.file}`)
-          .then((response) => response.text())
-          .then((code) => {
-            this.code = code
-          })
-      } else {
-        this.code = ''
-      }
-      return {
-        extends: md.vue.component,
-        components: {
-          InterfaceDescription,
-          MediaImage,
-          MediaYoutube,
-          MediaFile,
-        }
-      }
-    }).catch((e) => {
-      console.log('ERROR in markdown parsing', e)
-    })
+  created() {
+    this.markdownContent = () =>
+      import('~/content/scripts/' + this.$route.params.slug + '.md')
+        .then(async md => {
+          this.attributes = md.attributes
+          if (this.attributes.path && this.attributes.file) {
+            fetch(
+              `https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${this.attributes.path}/${this.attributes.file}`
+            )
+              .then(response => response.text())
+              .then(code => {
+                this.code = code
+              })
+          } else {
+            this.code = ''
+          }
+
+          const toyComponents =
+            (await this.attributes.toys?.reduce(async (acc, toy) => {
+              const ToyComponent = await import('~/components/toys/' + toy)
+              return { ...acc, [toy]: ToyComponent.default }
+            }, {})) || {}
+
+          return {
+            extends: md.vue.component,
+            components: {
+              InterfaceDescription,
+              MediaImage,
+              MediaYoutube,
+              MediaFile,
+              ...toyComponents,
+            },
+          }
+        })
+        .catch(e => {
+          console.log('ERROR in markdown parsing', e)
+        })
   },
-  head () {
+  head() {
     return {
       title: this.attributes.title,
+      // prettier-ignore
       meta: [
         { hid: 'og:site_name', property: 'og:site_name', content: 'dudin.tv' },
         { hid: 'og:url', property: 'og:url', content: this.ogPageUrl },
@@ -85,8 +102,8 @@ export default {
 </script>
 
 <style scoped>
-  .script-content {
-    padding-left: 5vw;
-    padding-right: 5vw;
-  }
+.script-content {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
 </style>
