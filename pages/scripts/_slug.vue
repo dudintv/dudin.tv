@@ -13,6 +13,9 @@ import InterfaceDescription from '~/components/scripts/InterfaceDescription'
 import ScriptHero from '~/components/scripts/ScriptHero'
 import SourceCode from '~/components/scripts/SourceCode'
 
+import MultiFollow from '~/components/toys/MultiFollow'
+const toyComponents = { MultiFollow }
+
 export default {
   components: {
     ScriptHero,
@@ -58,11 +61,11 @@ export default {
             this.code = ''
           }
 
-          const toyComponents =
-            (await this.attributes.toys?.reduce(async (acc, toy) => {
-              const ToyComponent = await import('~/components/toys/' + toy)
-              return { ...acc, [toy]: ToyComponent.default }
-            }, {})) || {}
+          // const toyComponents =
+          //   (await this.attributes.toys?.reduce(async (acc, toy) => {
+          //     const ToyComponent = await import('~/components/toys/' + toy)
+          //     return { ...acc, [toy]: ToyComponent.default }
+          //   }, {})) || {}
 
           return {
             extends: md.vue.component,

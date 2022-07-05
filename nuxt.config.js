@@ -123,7 +123,7 @@ export default async () => {
       /*
        ** You can extend webpack config here
        */
-      extend(config, ctx) {
+      extend(config, _ctx) {
         // add frontmatter-markdown-loader
         config.module.rules.push({
           test: /\.md$/,
