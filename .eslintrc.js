@@ -20,4 +20,12 @@ module.exports = {
     'space-before-function-paren': 'off',
     'unicorn/number-literal-case': 'off',
   },
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        'vue/comment-directive': 'off',
+      },
+    },
+  ],
 }
