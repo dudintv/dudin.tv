@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import * as dat from 'lil-gui'
-import { DragControls } from 'three/examples/jsm/controls/DragControls'
+// import * as dat from 'lil-gui'
+// import { DragControls } from 'three/examples/jsm/controls/DragControls'
 
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 export default {
   data() {
@@ -53,8 +53,8 @@ export default {
       sourceRect2.position.y = -0.3
       scene.add(sourceRect1)
       scene.add(sourceRect2)
-      gui.add(sourceRect1.position, 'x', -3, 3)
-      gui.add(sourceRect2.position, 'x', -3, 3)
+      // gui.add(sourceRect1.position, 'x', -3, 3)
+      // gui.add(sourceRect2.position, 'x', -3, 3)
 
       const targetGeometry = new THREE.BoxGeometry(1.2, 1.2, 0.04)
       const targetMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff })
@@ -65,12 +65,12 @@ export default {
       camera.position.z = 3
       scene.add(camera)
 
-      const controls = new DragControls(
-        [sourceRect1, sourceRect2],
-        camera,
-        renderer.domElement
-      )
-      console.log('controls =', controls)
+      // const controls = new DragControls(
+      //   [sourceRect1, sourceRect2],
+      //   camera,
+      //   renderer.domElement
+      // )
+      // console.log('controls =', controls)
 
       const tick = () => {
         const bbox1 = new THREE.Box3().setFromObject(sourceRect1)
