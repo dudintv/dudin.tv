@@ -5,19 +5,20 @@
 </template>
 
 <script>
-// import * as dat from 'lil-gui'
 // import { DragControls } from 'three/examples/jsm/controls/DragControls'
-
-// const gui = new dat.GUI()
 
 export default {
   data() {
     return {
       isThreejsLoaded: false,
+      isGuiLoaded: false,
     }
   },
   watch: {
     isThreejsLoaded() {
+      this.startThreejs()
+    },
+    isGuiLoaded() {
       this.startThreejs()
     },
   },
@@ -26,11 +27,13 @@ export default {
   },
   methods: {
     startThreejs() {
-      if (!window.THREE) {
+      if (!window.THREE || !window.lil) {
         return
       }
 
       const THREE = window.THREE
+      const GUI = new window.lil.GUI()
+
       const scene = new THREE.Scene()
 
       const canvas = this.$refs.canvas
@@ -53,8 +56,8 @@ export default {
       sourceRect2.position.y = -0.3
       scene.add(sourceRect1)
       scene.add(sourceRect2)
-      // gui.add(sourceRect1.position, 'x', -3, 3)
-      // gui.add(sourceRect2.position, 'x', -3, 3)
+      GUI.add(sourceRect1.position, 'x', -3, 3)
+      GUI.add(sourceRect2.position, 'x', -3, 3)
 
       const targetGeometry = new THREE.BoxGeometry(1.2, 1.2, 0.04)
       const targetMaterial = new THREE.MeshBasicMaterial({ color: 0x00aaff })
@@ -98,6 +101,17 @@ export default {
           callback: () => {
             console.log('------------> THREE IS LOADED ;)')
             this.isThreejsLoaded = true
+          },
+        },
+        {
+          hid: 'GUI',
+          src: 'https://cdn.jsdelivr.net/npm/lil-gui@0.16',
+          type: 'module',
+          defer: true,
+          // Changed after script load
+          callback: () => {
+            console.log('------------> GUI IS LOADED ;)')
+            this.isGuiLoaded = true
           },
         },
       ],
