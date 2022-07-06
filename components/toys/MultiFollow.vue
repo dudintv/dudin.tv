@@ -11,11 +11,15 @@ export default {
   data() {
     return {
       isThreejsLoaded: false,
+      isDragControlsLoaded: false,
       isGuiLoaded: false,
     }
   },
   watch: {
     isThreejsLoaded() {
+      this.startThreejs()
+    },
+    isDragControlsLoaded() {
       this.startThreejs()
     },
     isGuiLoaded() {
@@ -27,7 +31,7 @@ export default {
   },
   methods: {
     startThreejs() {
-      if (!window.THREE || !window.lil) {
+      if (!window.THREE || !window.THREE.DragControls || !window.lil) {
         return
       }
 
@@ -68,12 +72,12 @@ export default {
       camera.position.z = 3
       scene.add(camera)
 
-      // const controls = new DragControls(
-      //   [sourceRect1, sourceRect2],
-      //   camera,
-      //   renderer.domElement
-      // )
-      // console.log('controls =', controls)
+      const controls = new THREE.DragControls(
+        [sourceRect1, sourceRect2],
+        camera,
+        renderer.domElement
+      )
+      console.log('controls =', controls)
 
       const tick = () => {
         const bbox1 = new THREE.Box3().setFromObject(sourceRect1)
@@ -95,20 +99,26 @@ export default {
         {
           hid: 'threejs',
           src: 'https://unpkg.com/three@0.142.0/build/three.js',
-          type: 'module',
-          defer: true,
-          // Changed after script load
+          async: false,
           callback: () => {
             console.log('------------> THREE IS LOADED ;)')
             this.isThreejsLoaded = true
+
+            const script = document.createElement('script')
+            script.onload = () => {
+              console.log('------------> DragControls IS LOADED ;)')
+              this.isDragControlsLoaded = true
+            }
+            script.src =
+              'https://unpkg.com/three@0.142.0/examples/js/controls/DragControls.js'
+            script.async = false
+            document.body.appendChild(script)
           },
         },
         {
           hid: 'GUI',
           src: 'https://cdn.jsdelivr.net/npm/lil-gui@0.16',
-          type: 'module',
           defer: true,
-          // Changed after script load
           callback: () => {
             console.log('------------> GUI IS LOADED ;)')
             this.isGuiLoaded = true
