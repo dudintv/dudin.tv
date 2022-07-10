@@ -13,12 +13,11 @@ export default class Camera {
   setInstance() {
     const THREE = self.THREE
     this.instance = new THREE.PerspectiveCamera(
-      35,
+      50,
       this.sizes.width / this.sizes.height,
       0.1,
       100
     )
-    console.log('Camera instance =', this.instance)
     this.instance.position.z = 3
     this.scene.add(this.instance)
   }

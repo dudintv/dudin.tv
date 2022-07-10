@@ -11,19 +11,6 @@ export default class World {
 
     this.items = {}
 
-    // this.resources = this.toy.resources
-    // this.resources.on('ready', () => {
-    //   this.environment = new Environment()
-    // })
-
-    // Test mesh
-    // const THREE = self.THREE
-    // const testMesh = new THREE.Mesh(
-    //   new THREE.BoxGeometry(1, 1, 1),
-    //   new THREE.MeshStandardMaterial()
-    // )
-    // this.scene.add(testMesh)
-
     const THREE = window.THREE
     const geometry = new THREE.BoxGeometry(3, 0.4, 0.04)
     const material = new THREE.MeshBasicMaterial({ color: 0x00aa88 })
@@ -35,9 +22,9 @@ export default class World {
     this.scene.add(this.items.sourceRect2)
 
     if (this.debug.active) {
-      // this.debugFolder = this.debug.ui.addFolder('fox')
-      this.debug.ui.add(this.items.sourceRect1.position, 'x', -3, 3)
-      this.debug.ui.add(this.items.sourceRect2.position, 'x', -3, 3)
+      this.debugFolder = this.debug.ui.addFolder('fox')
+      this.debugFolder.add(this.items.sourceRect1.position, 'x', -3, 3)
+      this.debugFolder.add(this.items.sourceRect2.position, 'x', -3, 3)
     }
 
     const targetGeometry = new THREE.BoxGeometry(1.2, 1.2, 0.04)
@@ -45,7 +32,6 @@ export default class World {
     this.items.targetRect = new THREE.Mesh(targetGeometry, targetMaterial)
     this.scene.add(this.items.targetRect)
 
-    console.log('this.camera =', this.camera)
     const controls = new THREE.DragControls(
       [this.items.sourceRect1, this.items.sourceRect2],
       this.camera.instance,
