@@ -42,6 +42,14 @@ export default class Scene {
     })
   }
 
+  add(obj) {
+    this.scene.add(obj)
+  }
+
+  onUpdate(action) {
+    this.actionOnUpdate = action
+  }
+
   resize() {
     this.camera.resize()
     this.renderer.resize()
@@ -50,5 +58,6 @@ export default class Scene {
   update() {
     this.renderer.update()
     this.world.update()
+    this.actionOnUpdate()
   }
 }

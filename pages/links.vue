@@ -1,5 +1,5 @@
 <template lang="pug">
-  .links-page.conatiner.mx-auto
+  .links-page.container.mx-auto
     #links-bg-container
       #links-bg
     .content
@@ -29,64 +29,66 @@
 import lottie from 'lottie-web'
 
 export default {
-  mounted () {
-    lottie.loadAnimation({
-      container: document.getElementById('links-bg'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/bg-rock.json',
-      speed: 500,
-    }).setSpeed(3)
-  }
+  mounted() {
+    lottie
+      .loadAnimation({
+        container: document.getElementById('links-bg'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/animations/bg-rock.json',
+        speed: 500,
+      })
+      .setSpeed(3)
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-  .links-page {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: -10%;
-    margin-bottom: -10%;
-  }
+.links-page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: -10%;
+  margin-bottom: -10%;
+}
 
-  #links-bg-container {
-    position: absolute;
-    width: 100%;
-    max-width: 1000px;
-    overflow: hidden;
-    z-index: 0;
-  }
+#links-bg-container {
+  position: absolute;
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  z-index: 0;
+}
 
+#links-bg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+}
+
+@media (max-width: 700px) {
   #links-bg {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 100%;
+    width: 180%;
   }
+}
 
-  @media (max-width: 700px) {
-    #links-bg {
-      width: 180%;
-    }
+@media (max-width: 400px) {
+  #links-bg {
+    width: 200%;
   }
+}
 
-  @media (max-width: 400px) {
-    #links-bg {
-      width: 200%;
-    }
-  }
-
-  .content {
-    // position: absolute;
-    top: 5vw;
-    display: flex;
-    flex-direction: column;
-    z-index: 100;
-    padding: 0 1rem;
-  }
+.content {
+  // position: absolute;
+  top: 5vw;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  padding: 0 1rem;
+}
 </style>
