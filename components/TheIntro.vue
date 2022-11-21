@@ -1,15 +1,20 @@
 <template lang="pug">
-  .intro
-    p
-      | Hi, my name is Dmitry Dudin and
-      | I’m a vizrt designer and script developer.
-    p
-      | I've prepared for you Vizrt scripts used and tested in real projects.
-      | Feel free to [use <i>OR</i> rewrite <i>OR</i> expand <i>AND</i> combine] them!
-      | If you need an advice or something custom
-      | you know how to
-      nuxt-link.a(to="contacts") &nbsp;find me&nbsp;
-      | ;)
+.intro
+  p
+    | Hi, my name is Dmitry Dudin and
+    | I’m a real-time designer and script wrihter.
+  p
+    | I've prepared for you Vizrt scripts used and tested in real projects.
+    | Feel free to
+    |
+    code [use OR rewrite OR expand AND combine]
+    |
+    | them!
+  p
+    | If you need an advice or something custom
+    | you know how to
+    nuxt-link.a(to="contacts") &nbsp;find me&nbsp;
+    | ;)
 </template>
 
 <script>
@@ -23,6 +28,10 @@ export default {}
   top: -4vw;
   width: 70%;
   font-size: 1.2rem;
+
+  code {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 920px) {
