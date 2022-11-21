@@ -7,11 +7,11 @@
         img(src="~/static/images/common/copy.svg")
         span.mx-2 —
         span.leading-tight
-          | one-click copying code.
+          strong Copy code in one-click.
           br
-          i Be sure, you always
+          i This button gets the latest version
           br
-          i get the latest version!
+          i from my GitHub repo!
     section.flex.items-center.my-8
       .scripts-list
         ScriptItem(
@@ -37,14 +37,14 @@ export default {
     ScriptItem,
     TheSocNetworks,
   },
-  async asyncData () {
+  async asyncData() {
     const resolve = require.context('~/content/scripts/', true, /\.md$/)
-    const imports = resolve.keys().map(key => {
+    const imports = resolve.keys().map((key) => {
       // const [, name] = key.match(/\/(.+)\.md$/)
       return resolve(key)
     })
     return {
-      scripts: imports
+      scripts: imports,
     }
   },
   data: () => ({
@@ -82,20 +82,20 @@ export default {
     // ]
   }),
   computed: {
-    filteredScripts () {
+    filteredScripts() {
       let filtered
       if (this.currentFilter && this.currentFilter !== 'all') {
         filtered = this.scripts.filter((script) => {
-          return (script.attributes.category === this.currentFilter)
+          return script.attributes.category === this.currentFilter
         })
       } else {
         filtered = this.scripts
       }
       return filtered
-    }
+    },
   },
   methods: {
-    updateFilter (filterName) {
+    updateFilter(filterName) {
       this.currentFilter = filterName
     },
   },
@@ -103,13 +103,13 @@ export default {
 </script>
 
 <style>
-  .scripts-list {
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 355px);
-    grid-gap: .5rem;
-    justify-content: center;
-    width: 100%;
-    max-width: 1500px;
-  }
+.scripts-list {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 355px);
+  grid-gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1500px;
+}
 </style>
