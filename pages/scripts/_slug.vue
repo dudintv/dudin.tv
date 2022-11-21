@@ -10,6 +10,7 @@ import MediaImage from '~/components/media/MediaImage'
 import MediaYoutube from '~/components/media/MediaYoutube'
 import MediaFile from '~/components/media/MediaFile'
 import InterfaceDescription from '~/components/scripts/InterfaceDescription'
+import WideWidthContainer from '~/components/scripts/WideWidthContainer'
 import ScriptHero from '~/components/scripts/ScriptHero'
 import SourceCode from '~/components/scripts/SourceCode'
 
@@ -47,14 +48,14 @@ export default {
   created() {
     this.markdownContent = () =>
       import('~/content/scripts/' + this.$route.params.slug + '.md')
-        .then(async md => {
+        .then(async (md) => {
           this.attributes = md.attributes
           if (this.attributes.path && this.attributes.file) {
             fetch(
               `https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${this.attributes.path}/${this.attributes.file}`
             )
-              .then(response => response.text())
-              .then(code => {
+              .then((response) => response.text())
+              .then((code) => {
                 this.code = code
               })
           } else {
@@ -71,6 +72,7 @@ export default {
             extends: md.vue.component,
             components: {
               InterfaceDescription,
+              WideWidthContainer,
               MediaImage,
               MediaYoutube,
               MediaFile,
@@ -78,7 +80,7 @@ export default {
             },
           }
         })
-        .catch(e => {
+        .catch((e) => {
           console.log('ERROR in markdown parsing', e)
         })
   },
@@ -98,7 +100,7 @@ export default {
         { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
         { hid: 'og:image:height', property: 'og:image:height', content: '627' },
         { hid: 'fb:app_id', property: 'fb:app_id', content: '2634632720190560' },
-      ]
+      ],
     }
   },
 }

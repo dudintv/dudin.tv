@@ -10,19 +10,19 @@ file: flex.vb
 
 ### Interface description
 
-The script uses a bounding box from __Gabarit container__ to build a space/field for child containers.
+The script uses a bounding box from **Size container** to build a space/field for child containers.
 
-It's possible to switch between X and Y as the main axis by __Axis__ param.
+It's possible to switch between X and Y as the main axis by **Axis** param.
 
-__Size of children__ helps you to control how will be calculated the bounding boxes of items. "Whole container" just consider bounding boxes of each item-container. But, "first sub-container" allows you to control this size manually through the dimensions of the first child container of each item-container. With the second option, the animation can be more smoothly and more controllable. You even can animate this "first sub-container".
+**Size of children** helps you to control how will be calculated the bounding boxes of items. "Whole container" just consider bounding boxes of each item-container. But, "first sub-container" allows you to control this size manually through the dimensions of the first child container of each item-container. With the second option, the animation can be more smoothly and more controllable. You even can animate this "first sub-container".
 
-__Justify__ works like in HTML/CSS flex.
+**Justify** works like in HTML/CSS flex.
 
-__Align__ works along the secondary axis. If you select X as the first axis, the second will be Y.
+**Align** works along the secondary axis. If you select X as the first axis, the second will be Y.
 
-__Shift of gap__ and __Magnetic gap__ allow you to control aesthetic factors of appearance. How items look when items count is few or many.
+**Shift of gap** and **Magnetic gap** allow you to control aesthetic factors of appearance. How items look when items count is few or many.
 
-__Min gap__ is like a threshold for minimal gaps. If the gap should be less the value it becomes to zero! It allows avoiding very tiny gaps between items what can look like cracks.
+**Min gap** is like a threshold for minimal gaps. If the gap should be less the value it becomes to zero! It allows avoiding very tiny gaps between items what can look like cracks.
 
 </interface-description>
 
@@ -31,6 +31,7 @@ Do you know about “flexbox” in HTML5/CSS3? This is a flexible box layout for
 Let me introduce several features I’ve implemented for convenient usage in onair graphics: “justify-content” and “align-items”. This script can be helpful in many situations.
 
 ## All possible variants
+
 _I’ve marked my two often used options by blue strokes._
 
 X axis:
@@ -49,17 +50,17 @@ The first idea for using a flex is a simplification of containers positioning wi
 
 Flex is used in onair graphics as auto-stack. For example, for:
 
-* set of portraits or infographic bars
-* enlarging one element and auto moving away from others
-* stack of messages in a corner
-* set of lowerthirds in a corner
+- set of portraits or infographics bars
+- enlarging one element and auto moving away from others
+- stack of messages in a corner
+- set of lowerthirds in a corner
 
 You can also combine Flex with scripts and plugins:
 
-* nested Flex into another Flex — horizontal and vertical ones
+- nested Flex into another Flex — horizontal and vertical ones
 <!-- * combine with [my script "Autoscroll"](/scripts/autoscroll/) — use Flex for containers stacking and use Autoscroll for a convenient scroll of content -->
-* combine with my script "Autoscroll" — use Flex for containers stacking and use Autoscroll for a convenient scroll of content
-* of course, feel free to use any standard plugins :)
+- combine with my script "Autoscroll" — use Flex for containers stacking and use Autoscroll for a convenient scroll of content
+- of course, feel free to use any standard plugins :)
 
 ## Esthetic options
 
@@ -67,21 +68,35 @@ You can also combine Flex with scripts and plugins:
 
 For esthetic reasons, I’ve added a special parameter for correction of distribution within a certain area. Imagine that you have fullscreen graphics with several portraits. It’s possible to show 1 to 5 items. You set “justify-content” in “space around” and get a nice result for 1, 4 or 5 visible items. However, in the case of 2 (or 3) portraits, there will be too much space between them. With correct logic 2 (or 3) items will have equal distance between themselves and area borders. That doesn’t look good. That’s why I’ve implemented the “magnetic” feature for pulling effect when a number of child containers is small.
 
-Compare 0, 50, 100 values of magnetic with 3 items:
+Compare 0, 50, 100 values of magnetic with 3 and 5 items:
 
-<media-image name="snap_flex3_0.png" />
-<media-image name="snap_flex3_50.png" />
-<media-image name="snap_flex3_100.png" />
+<WideWidthContainer>
+  <div style="display: flex; justify-content: center;">
+  <media-image name="snap_flex3_0.png" style="max-width: 45vw" />
+  <div style="width: 1vw;">&nbsp;</div>
+  <media-image name="snap_flex5_0.png" style="max-width: 45vw" />
+  </div>
+</WideWidthContainer>
 
-And with 5 items:
+<WideWidthContainer>
+  <div style="display: flex; justify-content: center;">
+  <media-image name="snap_flex3_50.png" style="max-width: 45vw" />
+  <div style="width: 1vw;">&nbsp;</div>
+  <media-image name="snap_flex5_50.png" style="max-width: 45vw" />
+  </div>
+</WideWidthContainer>
 
-<media-image name="snap_flex5_0.png" />
-<media-image name="snap_flex5_50.png" />
-<media-image name="snap_flex5_100.png" />
+<WideWidthContainer>
+  <div style="display: flex; justify-content: center;">
+  <media-image name="snap_flex3_100.png" style="max-width: 45vw" />
+  <div style="width: 1vw;">&nbsp;</div>
+  <media-image name="snap_flex5_100.png" style="max-width: 45vw" />
+  </div>
+</WideWidthContainer>
 
 ### Source of item size
 
-If items have animations with changing size, you can get unexpected behaviour. Items could start jiggling. If you don’t want this effect, you can limit the source for calculating an item’s bounding box by first sub-container. This first sub-container can be invisible (but active) and static for stable positioning. Or you can softly animate this container in order to reach nice revealing animation.
+If items have animations with changing size, you can get unexpected behavior. Items could start jiggling. If you don’t want this effect, you can limit the source for calculating an item’s bounding box by first sub-container. This first sub-container can be invisible (but active) and static for stable positioning. Or you can softly animate this container in order to reach nice revealing animation.
 
 <media-image name="flex-tree.png" />
 
@@ -105,6 +120,6 @@ You can nest one flex inside another ;)
 
 <media-youtube url="https://www.youtube.com/embed/8_F3VpzpOQo" />
 
-### Download example scenes <media-file name="FlexExamples.via" /> and try.
+### Example scene <media-file name="FlexExamples.via" />
 
-
+It contains an old version of the script, please update the code in the scene by "Copy script" button.
