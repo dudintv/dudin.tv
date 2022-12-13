@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from 'lottie-web/build/player/lottie'
 
 export default {
   data: () => ({
@@ -22,35 +22,35 @@ export default {
     linkedin_hover: false,
   }),
   mounted() {
-    this.youtube = this.loadLottie("youtube");
-    this.facebook = this.loadLottie("facebook");
-    this.linkedin = this.loadLottie("linkedin");
+    this.youtube = this.loadLottie('youtube')
+    this.facebook = this.loadLottie('facebook')
+    this.linkedin = this.loadLottie('linkedin')
   },
   methods: {
     loadLottie(name) {
       const animation = lottie.loadAnimation({
         container: document.getElementById(name),
-        renderer: "svg",
+        renderer: 'svg',
         loop: true,
         autoplay: false,
         path: `/animations/dudintv-${name}.json`,
-      });
-      animation.addEventListener("loopComplete", () => {
+      })
+      animation.addEventListener('loopComplete', () => {
         if (!this[`${name}_hover`]) {
-          animation.stop();
+          animation.stop()
         }
-      });
-      return animation;
+      })
+      return animation
     },
     hover(name) {
-      this[name].play();
-      this[`${name}_hover`] = true;
+      this[name].play()
+      this[`${name}_hover`] = true
     },
     leave(name) {
-      this[`${name}_hover`] = false;
+      this[`${name}_hover`] = false
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

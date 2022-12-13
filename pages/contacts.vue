@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import lottie from 'lottie-web'
+import lottie from 'lottie-web/build/player/lottie'
 
 const turnipPlayer = ref(null)
 const bg = ref(null)

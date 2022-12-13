@@ -26,29 +26,29 @@
 </template>
 
 <script setup>
-import lottie from "lottie-web";
+import lottie from 'lottie-web/build/player/lottie'
 
-const rockPlayer = ref({});
-const bg = ref(null);
+const rockPlayer = ref({})
+const bg = ref(null)
 
 watch(bg, () => {
-  if (!bg.value) return;
+  if (!bg.value) return
 
   rockPlayer.value = lottie
     .loadAnimation({
       container: bg.value,
-      renderer: "svg",
+      renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: "/animations/bg-rock.json",
+      path: '/animations/bg-rock.json',
       speed: 500,
     })
-    .setSpeed(3);
-});
+    .setSpeed(3)
+})
 
 onUnmounted(() => {
-  rockPlayer.value?.destroy?.();
-});
+  rockPlayer.value?.destroy?.()
+})
 </script>
 
 <style lang="scss" scoped>

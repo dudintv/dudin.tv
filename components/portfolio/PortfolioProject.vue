@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from 'lottie-web/build/player/lottie'
 
 export default {
   props: {
@@ -24,12 +24,12 @@ export default {
     },
     youtube: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
     image: {
       type: String,
-      default: "",
+      default: '',
       required: false,
     },
     reverse: {
@@ -40,51 +40,53 @@ export default {
   data() {
     return {
       youtubeWidth: 650,
-      mediaQueryClasses: "",
-    };
+      mediaQueryClasses: '',
+    }
   },
   computed: {
     mediaQueryClassesWithReverse() {
-      const reverse = this.reverse ? "reverse" : "";
-      return `${reverse} ${this.mediaQueryClasses}`;
+      const reverse = this.reverse ? 'reverse' : ''
+      return `${reverse} ${this.mediaQueryClasses}`
     },
     imagePath() {
-      return `/images${this.id}/${this.image}`;
+      return `/images${this.id}/${this.image}`
     },
   },
   mounted() {
     this.$nextTick(() => {
-      window.addEventListener("resize", this.windowSizeChanged);
-      this.windowSizeChanged();
-    });
+      window.addEventListener('resize', this.windowSizeChanged)
+      this.windowSizeChanged()
+    })
 
-    const animationFile = this.reverse ? "project-flag-right.json" : "project-flag-left.json";
+    const animationFile = this.reverse
+      ? 'project-flag-right.json'
+      : 'project-flag-left.json'
 
     lottie
       .loadAnimation({
         container: this.$refs.flag,
-        renderer: "svg",
+        renderer: 'svg',
         loop: true,
         autoplay: true,
         path: `/animations/${animationFile}`,
       })
-      .setSpeed(2);
+      .setSpeed(2)
   },
   methods: {
     windowSizeChanged() {
       if (document.body.clientWidth < 900) {
-        this.youtubeWidth = 0.8 * document.body.clientWidth;
-        this.mediaQueryClasses = "upto-900";
+        this.youtubeWidth = 0.8 * document.body.clientWidth
+        this.mediaQueryClasses = 'upto-900'
       } else if (document.body.clientWidth < 1240) {
-        this.youtubeWidth = 500;
-        this.mediaQueryClasses = "upto-1240";
+        this.youtubeWidth = 500
+        this.mediaQueryClasses = 'upto-1240'
       } else {
-        this.youtubeWidth = 650;
-        this.mediaQueryClasses = "";
+        this.youtubeWidth = 650
+        this.mediaQueryClasses = ''
       }
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

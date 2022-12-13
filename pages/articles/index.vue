@@ -6,28 +6,30 @@
 </template>
 
 <script setup>
-import lottie from "lottie-web";
+import lottie from 'lottie-web/build/player/lottie'
 
-const articles = (await queryContent("/articles").only(["_path", "date", "title", "description", "tags"]).find()).sort(
-  (a1, a2) => {
-    const data1 = new Date(a1.date);
-    const data2 = new Date(a2.date);
-    return data1 < data2 ? 1 : -1;
-  },
-);
+const articles = (
+  await queryContent('/articles')
+    .only(['_path', 'date', 'title', 'description', 'tags'])
+    .find()
+).sort((a1, a2) => {
+  const data1 = new Date(a1.date)
+  const data2 = new Date(a2.date)
+  return data1 < data2 ? 1 : -1
+})
 
 onMounted(() => {
   lottie
     .loadAnimation({
-      container: document.getElementById("articles-bg"),
-      renderer: "svg",
+      container: document.getElementById('articles-bg'),
+      renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: "/animations/bg-rock.json",
+      path: '/animations/bg-rock.json',
       speed: 500,
     })
-    .setSpeed(2);
-});
+    .setSpeed(2)
+})
 </script>
 
 <style lang="scss" scoped>

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from 'lottie-web/build/player/lottie'
 
 export default {
   // components: {
@@ -27,15 +27,15 @@ export default {
   data() {
     return {
       youtubeWidth: 650,
-      mediaQueryClasses: "",
-      flagStyle: "",
-    };
+      mediaQueryClasses: '',
+      flagStyle: '',
+    }
   },
   mounted() {
     this.$nextTick(() => {
-      window.addEventListener("resize", this.windowSizeChanged);
-      this.windowSizeChanged();
-    });
+      window.addEventListener('resize', this.windowSizeChanged)
+      this.windowSizeChanged()
+    })
 
     // lottie.loadAnimation({
     //   container: this.$refs.bg,
@@ -47,32 +47,33 @@ export default {
     lottie
       .loadAnimation({
         container: this.$refs.flag,
-        renderer: "svg",
+        renderer: 'svg',
         loop: true,
         autoplay: true,
-        path: "/animations/project-flag-right.json",
+        path: '/animations/project-flag-right.json',
       })
-      .setSpeed(2);
+      .setSpeed(2)
   },
   methods: {
     windowSizeChanged() {
       if (document.body.clientWidth < 900) {
-        this.youtubeWidth = 0.8 * document.body.clientWidth;
-        this.mediaQueryClasses = "upto-900";
-        this.flagStyle = "width: " + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + "px";
+        this.youtubeWidth = 0.8 * document.body.clientWidth
+        this.mediaQueryClasses = 'upto-900'
+        this.flagStyle =
+          'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px'
       } else if (document.body.clientWidth < 1240) {
-        this.youtubeWidth = 500;
-        this.mediaQueryClasses = "upto-1240";
-        this.flagStyle = "";
+        this.youtubeWidth = 500
+        this.mediaQueryClasses = 'upto-1240'
+        this.flagStyle = ''
       } else {
         // document.body.clientWidth > 1240
-        this.youtubeWidth = 650;
-        this.mediaQueryClasses = "";
-        this.flagStyle = "";
+        this.youtubeWidth = 650
+        this.mediaQueryClasses = ''
+        this.flagStyle = ''
       }
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

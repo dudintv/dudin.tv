@@ -7,26 +7,26 @@ div
 </template>
 
 <script setup>
-import lottie from "lottie-web";
+import lottie from 'lottie-web/build/player/lottie'
 
-const store = useStore();
+const store = useStore()
 
-const copyCode = ref();
-const animation = ref();
+const copyCode = ref()
+const animation = ref()
 
 onMounted(() => {
   animation.value = lottie.loadAnimation({
     container: copyCode.value,
-    renderer: "svg",
+    renderer: 'svg',
     loop: false,
     autoplay: false,
-    path: "/animations/copy-code.json",
-  });
-  animation.value.addEventListener("complete", () => {
-    animation.value.wrapper.style = "display: none";
-  });
-  store.copyCodeAnim = animation.value;
-});
+    path: '/animations/copy-code.json',
+  })
+  animation.value.addEventListener('complete', () => {
+    animation.value.wrapper.style = 'display: none'
+  })
+  store.copyCodeAnim = animation.value
+})
 </script>
 
 <style lang="scss">
@@ -38,7 +38,8 @@ onMounted(() => {
 }
 
 html {
-  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans',
+    'Helvetica Neue', Arial, sans-serif;
   font-size: 18px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -113,8 +114,8 @@ pre {
 
 code,
 pre,
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   font-family: JetBrainsMono !important;
   font-weight: normal;
   font-variant-ligatures: none;
@@ -127,7 +128,7 @@ a {
   position: relative;
 
   &.a::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     bottom: -2px;
@@ -164,7 +165,7 @@ ul {
   }
 
   li:before {
-    content: "\2022";
+    content: '\2022';
     font-size: 1.5rem;
     line-height: 1rem;
     font-weight: bold;
@@ -312,19 +313,27 @@ table {
   width: fit-content;
   height: fit-content;
   color: white;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(53, 6, 6, 0.15) 100%),
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(53, 6, 6, 0.15) 100%
+    ),
     linear-gradient(101.31deg, #6c3392 0%, #79071c 100%);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.5s ease;
 
   &:after {
     position: absolute;
-    content: "";
+    content: '';
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.27) 0%, rgba(53, 6, 6, 0.15) 100%),
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.27) 0%,
+        rgba(53, 6, 6, 0.15) 100%
+      ),
       linear-gradient(101.31deg, #782ea9 0%, #960a24 100%);
     transition: opacity 0.2s ease-out;
     z-index: 2;
