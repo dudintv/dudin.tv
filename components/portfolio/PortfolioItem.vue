@@ -12,7 +12,7 @@
 </template>
 
 <script>
-// import lottie from 'lottie-web'
+const nuxtApp = useNuxtApp()
 
 export default {
   // components: {
@@ -44,7 +44,8 @@ export default {
     //   autoplay: true,
     //   path: '/animations/portfolio-bg.json'
     // })
-    lottie
+
+    nuxtApp.lottie
       .loadAnimation({
         container: this.$refs.flag,
         renderer: 'svg',

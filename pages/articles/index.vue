@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-// import lottie from 'lottie-web'
+const nuxtApp = useNuxtApp()
 
 const articles = (
   await queryContent('/articles')
@@ -19,7 +19,7 @@ const articles = (
 })
 
 onMounted(() => {
-  lottie
+  nuxtApp.lottie
     .loadAnimation({
       container: document.getElementById('articles-bg'),
       renderer: 'svg',

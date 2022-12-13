@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-// import lottie from 'lottie-web'
+const nuxtApp = useNuxtApp()
 
 const turnipPlayer = ref(null)
 const bg = ref(null)
@@ -27,7 +27,7 @@ const bg = ref(null)
 watch(bg, () => {
   if (!bg.value) return
 
-  turnipPlayer.value = lottie.loadAnimation({
+  turnipPlayer.value = nuxtApp.lottie.loadAnimation({
     container: bg.value,
     renderer: 'svg',
     loop: true,

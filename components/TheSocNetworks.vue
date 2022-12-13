@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// import lottie from 'lottie-web'
 const nuxtApp = useNuxtApp()
 
 export default {
@@ -29,7 +28,7 @@ export default {
   },
   methods: {
     loadLottie(name) {
-      const animation = nuxtApp.$lottie.loadAnimation({
+      const animation = nuxtApp.lottie.loadAnimation({
         container: document.getElementById(name),
         renderer: 'svg',
         loop: true,
