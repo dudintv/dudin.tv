@@ -5,13 +5,13 @@
   .content
     h3.name Dmitry Dudin
     .contact.facebook
-      img(src="/icons/facebook.png" width="32" height="32")
+      img(src="/images/icons/facebook.png" width="32" height="32")
       a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
     .contact.linkedin
-      img(src="/icons/linkedin.png" width="32" height="32")
+      img(src="/images/icons/linkedin.png" width="32" height="32")
       a(href="https://www.linkedin.com/in/dudintv" target="_blank") linkedin.com/in/dudintv
     .contact.telegram
-      img(src="/icons/telegram.png" width="32" height="32")
+      img(src="/images/icons/telegram.png" width="32" height="32")
       a(href="http://t.me/dudintv" target="_blank") @dudintv
     .contact.phone
       .phone-number +31 6 189 765 18
@@ -19,26 +19,26 @@
 </template>
 
 <script setup>
-import lottie from "lottie-web";
+import lottie from 'lottie-web'
 
-const turnipPlayer = ref(null);
-const bg = ref(null);
+const turnipPlayer = ref(null)
+const bg = ref(null)
 
 watch(bg, () => {
-  if (!bg.value) return;
+  if (!bg.value) return
 
   turnipPlayer.value = lottie.loadAnimation({
     container: bg.value,
-    renderer: "svg",
+    renderer: 'svg',
     loop: true,
     autoplay: true,
-    path: "/animations/bg-turnip.json",
-  });
-});
+    path: '/animations/bg-turnip.json',
+  })
+})
 
 onBeforeUnmount(() => {
-  turnipPlayer.value?.destroy?.();
-});
+  turnipPlayer.value?.destroy?.()
+})
 </script>
 
 <style lang="scss" scoped>
