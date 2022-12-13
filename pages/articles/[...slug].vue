@@ -11,40 +11,8 @@ section.article.container.mx-auto
 
 <script setup>
 function tagNames(tagsString) {
-  return tagsString.split(" ");
+  return tagsString.split(' ')
 }
-
-// export default {
-//   data() {
-//     return {
-//       slug: "",
-//       markdownContent: {},
-//       attributes: {},
-//       icons: [],
-//       date: "",
-//     };
-//   },
-//   created() {
-//     this.markdownContent = () =>
-//       import("~/content/articles/" + this.$route.params.slug + ".md")
-//         .then((md) => {
-//           this.attributes = md.attributes;
-//           this.icons = md.attributes.tags.split(" ");
-//           const date = new Date(md.attributes.date);
-//           this.date = date.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
-//           return {
-//             extends: md.vue.component,
-//             components: {
-//               MediaImage,
-//               MediaYoutube,
-//             },
-//           };
-//         })
-//         .catch((e) => {
-//           console.log("ERROR in markdown parsing", e);
-//         });
-//   },
-// };
 </script>
 
 <style lang="scss" scoped>
