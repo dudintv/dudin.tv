@@ -5,13 +5,13 @@
   .content
     h3.name Dmitry Dudin
     .contact.facebook
-      img(src="@/images/icons/facebook.png" width="32" height="32")
+      img(src="/images/icons/facebook.png" width="32" height="32")
       a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
     .contact.linkedin
-      img(src="@/images/icons/linkedin.png" width="32" height="32")
+      img(src="/images/icons/linkedin.png" width="32" height="32")
       a(href="https://www.linkedin.com/in/dudintv" target="_blank") linkedin.com/in/dudintv
     .contact.telegram
-      img(src="@/images/icons/telegram.png" width="32" height="32")
+      img(src="/images/icons/telegram.png" width="32" height="32")
       a(href="http://t.me/dudintv" target="_blank") @dudintv
     .contact.phone
       .phone-number +31 6 189 765 18
