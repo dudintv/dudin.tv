@@ -27,7 +27,7 @@ header.header
 </template>
 
 <script setup>
-import lottie from 'lottie-web/build/player/lottie'
+// import lottie from 'lottie-web'
 const route = useRoute()
 
 const currentNav = ref('scripts')

@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import lottie from 'lottie-web/build/player/lottie'
+// import lottie from 'lottie-web'
 
 const articles = (
   await queryContent('/articles')

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import lottie from 'lottie-web/build/player/lottie'
+// import lottie from 'lottie-web'
 
 export default {
   // components: {

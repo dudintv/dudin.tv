@@ -109,5 +109,5 @@ export default defineNuxtConfig({
   // experimental: {
   //   payloadExtraction: false,
   // },
-  // plugins: [{ src: '@/plugins/lottie', mode: 'client' }],
+  plugins: [{ src: '@/plugins/lottie', mode: 'client' }],
 })

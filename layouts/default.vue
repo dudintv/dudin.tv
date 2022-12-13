@@ -7,7 +7,7 @@ div
 </template>
 
 <script setup>
-import lottie from 'lottie-web/build/player/lottie'
+// import lottie from 'lottie-web'
 
 const store = useStore()
 
