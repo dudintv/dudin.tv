@@ -105,7 +105,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['store'],
   },
-  experimental: {
-    payloadExtraction: false,
-  },
+  // experimental: {
+  //   payloadExtraction: false,
+  // },
 })
