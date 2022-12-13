@@ -6,16 +6,24 @@ path: dudin-link/dudin-link-tree
 file: dudin-link-tree.vb
 ---
 
-<interface-description image="tree-link.png">
+::interface-description{image="tree-link.png" }
 
 ### Interface description
 
-__Source__ and __Target__ define "from" container and "to" container.
+**Source** and **Target** define "from" container and "to" container.
 
-You can define what the script should do when you push __Make copy__: __Disable text link__, __Disable Autofollow__, __Delete animation__. It helps to avoid flickering.
+You can define what the script should do when you push **Make copy**: **Disable text link**, **Disable Autofollow**, **Delete animation**. It helps to avoid flickering.
 
-Button __Make copy__ erases everything in __Target__ container and copy __Source__ container content into __Target__ container.
+Button **Make copy** erases everything in **Target** container and copy **Source** container content into **Target** container.
 
-There are checkboxes to provide neat synchronization control. What you want to sync, and what you don't want: __Sync active__, __Sync position__, __Sync rotation__, __Sync scale__, __Sync alpha__, __Sync text__, __Sync rectangle__.
+There are checkboxes to provide neat synchronization control. What you want to sync, and what you don't want:
 
-</interface-description>
+- active
+- position x, y, z
+- rotation x, y, z
+- scale x, y, z
+- alpha
+- text
+- rectangle (width and height)
+
+::

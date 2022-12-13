@@ -1,0 +1,54 @@
+<template lang="pug">
+.article-item.mb-16
+  span.date {{ displayDate }}
+  .title
+    .icons
+      img.icon(v-for="icon in icons" :src="`/icons/${icon}.png`")
+    nuxt-link(:to="article._path")
+      h2.title.text-left.my-2 {{ article.title }}
+  p.description.mb-0 {{ article.description }}
+  small: nuxt-link(:to="article._path") read more ...
+</template>
+
+<script setup>
+const props = defineProps({
+  article: {
+    type: Object,
+    required: true,
+  },
+});
+
+const icons = computed(() => {
+  return props.article.tags.split(" ");
+});
+
+const displayDate = computed(() => {
+  const date = new Date(props.article.date);
+  return date.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+});
+</script>
+
+<style lang="scss" scoped>
+.date {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.icons {
+  @apply flex absolute left-0 pr-2;
+  transform: translateX(-100%);
+}
+
+.icon {
+  @apply mx-1;
+  width: 32px;
+  height: 32px;
+}
+
+.title {
+  color: #78beff;
+}
+</style>

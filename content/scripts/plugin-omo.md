@@ -6,15 +6,14 @@ path: dudin-omo/dudin-omo-plugins
 file: dudin-omo-plugins.vb
 ---
 
-
-<interface-description image="plugin-omo-interface.png">
+::interface-description{image="plugin-omo-interface.png"}
 
 ### Interface description
 
-__Plugin name__ should contain internal name of functional plugin.
+**Plugin name** should contain internal name of functional plugin.
 
-__VIsible number__ works like in classic Omo.
+**VIsible number** works like in classic Omo.
 
-</interface-description>
+::
 
-This script works like the vizrt original Omo plugin but only turns active states of speciefic pulings of child containers.
+This script works like the vizrt original Omo plugin but only turns active states of specific pulings of child containers.

@@ -1,104 +1,42 @@
 <template lang="pug">
-  .content
-    TheIntro
-    .flex.items-center.justify-around.flex-wrap
-      TheScriptsFilter.mx-4(@filterChanged="updateFilter")
-      .flex.items-start.mx-4.mt-4
-        img(src="~/static/images/common/copy.svg")
-        span.mx-2 —
-        span.leading-tight
-          strong Copy code in one-click.
-          br
-          i This button gets the latest version
-          br
-          i from my GitHub repo!
-    section.flex.items-center.my-8
-      .scripts-list
-        ScriptItem(
-          v-for="script in filteredScripts"
-          :script="script"
-          :key="script.attributes.title"
-          )
-    TheScriptsLogo
+.content
+  TheIntro
+  .flex.items-center.justify-around.flex-wrap
+    ScriptsTheScriptsFilter.mx-4(@filterChanged="updateFilter")
+    .flex.items-start.mx-4.mt-4
+      img(src="/images/common/copy.svg")
+      span.mx-2 —
+      span.leading-tight
+        strong Copy code in one-click.
+        br
+        i This button gets the latest version
+        br
+        i from my GitHub repo!
+  section.flex.items-center.my-8
+    .scripts-list
+      ScriptsScriptItem(
+        v-for="script in filteredScripts"
+        :script="script"
+        :key="script.title"
+        )
 </template>
 
-<script>
-import TheIntro from '~/components/TheIntro'
-import TheScriptsLogo from '~/components/scripts/TheScriptsLogo'
-import TheScriptsFilter from '~/components/scripts/TheScriptsFilter'
-import ScriptItem from '~/components/scripts/ScriptItem'
-import TheSocNetworks from '~/components/TheSocNetworks'
+<script setup>
+const currentFilter = ref("");
 
-export default {
-  components: {
-    TheIntro,
-    TheScriptsLogo,
-    TheScriptsFilter,
-    ScriptItem,
-    TheSocNetworks,
-  },
-  async asyncData() {
-    const resolve = require.context('~/content/scripts/', true, /\.md$/)
-    const imports = resolve.keys().map((key) => {
-      // const [, name] = key.match(/\/(.+)\.md$/)
-      return resolve(key)
-    })
-    return {
-      scripts: imports,
-    }
-  },
-  data: () => ({
-    currentFilter: '',
-    // scripts: [
-    //   {
-    //     name: 'AE to Vizrt',
-    //     category: 'animation',
-    //     description: 'For manual transfer animation from AE layers to Vizrt’s containers.',
-    //     codes: [
-    //       'global',
-    //       'element',
-    //       'buffer'
-    //     ],
-    //     thumbnail: '\\images\\thumbnails\\AEtoVizrt.svg'
-    //   },
-    //   {
-    //     name: '9 part texture',
-    //     category: 'texture',
-    //     description: 'Script for stretching texture with saving size and quality of borders. It’s usefull for frames and shadows.',
-    //     codes: [
-    //       'global',
-    //     ],
-    //     thumbnail: '\\images\\thumbnails\\9partTexture.svg'
-    //   },
-    //   {
-    //     name: 'Flex',
-    //     category: 'position',
-    //     description: 'Automatic aestetic placement of containers within certain area. Inspired by HTML/CSS flex.',
-    //     codes: [
-    //       'global',
-    //     ],
-    //     thumbnail: '\\images\\thumbnails\\Flex.svg'
-    //   },
-    // ]
-  }),
-  computed: {
-    filteredScripts() {
-      let filtered
-      if (this.currentFilter && this.currentFilter !== 'all') {
-        filtered = this.scripts.filter((script) => {
-          return script.attributes.category === this.currentFilter
-        })
-      } else {
-        filtered = this.scripts
-      }
-      return filtered
-    },
-  },
-  methods: {
-    updateFilter(filterName) {
-      this.currentFilter = filterName
-    },
-  },
+const scripts = (await queryContent("/scripts").find()).sort((a1, a2) => {
+  const data1 = new Date(a1.date);
+  const data2 = new Date(a2.date);
+  return data1 < data2 ? 1 : -1;
+});
+
+const filteredScripts = computed(() => {
+  if (!currentFilter.value || currentFilter.value === "all") return scripts;
+  return scripts.filter((script) => script.category === currentFilter.value);
+});
+
+function updateFilter(filterName) {
+  currentFilter.value = filterName;
 }
 </script>
 

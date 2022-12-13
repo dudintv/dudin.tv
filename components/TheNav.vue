@@ -1,176 +1,159 @@
 <template lang="pug">
-  header.header
-    //- img.feathers(src="~/static/images/common/nav-feathers.svg")
-    #feathers
-    #anim-selectors-container
-      .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
-    #nav-bg-container
-      img#nav-bg(src="~/static/images/common/nav-bg.svg")
-    a.logo(href="/")
-      img(src="~/static/images/common/dudintv-logo.svg")
-    nav.nav.flex.justify-between.w-full(@click="clickNav")
-      .first-links.flex
-        nuxt-link#scripts.name-selector(to="/") Scripts
-        nuxt-link#articles.name-selector(to="/articles") Articles
-      .second-links.flex
-        nuxt-link#links.name-selector(to="/links") Links
-        nuxt-link#portfolio.name-selector(to="/portfolio") Portfolio
-        nuxt-link#contacts.name-selector(to="/contacts") Contacts
-    #menu-burger(@click="toggleShowMobileMenu" style="width: 96px; height: 96px;")
-    #menu-mobile(@click="showMobileMenu = false")
-      #menu-leaf
-      #menu-mobile-links
-        nuxt-link(to="/") Scripts
-        nuxt-link(to="/articles") Articles
-        nuxt-link(to="/links") Links
-        nuxt-link(to="/portfolio") Portfolio
-        nuxt-link(to="/contacts") Contacts
+header.header
+  //- img.feathers(src="~/public/images/common/nav-feathers.svg")
+  #feathers
+  #anim-selectors-container
+    .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
+  #nav-bg-container
+    img#nav-bg(src="/common/nav-bg.svg")
+  a.logo(href="/")
+    img(src="/common/dudintv-logo.svg")
+  nav.nav.flex.justify-between.w-full(@click="clickNav")
+    .first-links.flex
+      NuxtLink#scripts.name-selector(to="/") Scripts
+      NuxtLink#articles.name-selector(to="/articles") Articles
+    .second-links.flex
+      NuxtLink#links.name-selector(to="/links") Links
+      NuxtLink#portfolio.name-selector(to="/portfolio") Portfolio
+      NuxtLink#contacts.name-selector(to="/contacts") Contacts
+  #menu-burger(@click="toggleMobileMenu" style="width: 96px; height: 96px;")
+  #menu-mobile(@click="hasMobileMenu = false")
+    #menu-leaf
+    #menu-mobile-links
+      NuxtLink(to="/") Scripts
+      NuxtLink(to="/articles") Articles
+      NuxtLink(to="/links") Links
+      NuxtLink(to="/portfolio") Portfolio
+      NuxtLink(to="/contacts") Contacts
 </template>
 
-<script>
-import lottie from 'lottie-web'
+<script setup>
+import lottie from "lottie-web";
+const route = useRoute();
 
-export default {
-  data: () => ({
-    currentNav: 'scripts',
-    navNames: ['scripts', 'articles', 'links', 'portfolio', 'contacts'],
-    animSelectors: [],
-    showMobileMenu: false,
-    animMenuLeaf: {},
-  }),
-  watch: {
-    currentNav(newValue) {
-      this.setSelected(newValue)
-    },
-    showMobileMenu(newValue) {
-      const menuMobile = document.getElementById('menu-mobile')
-      const menuMobileLinks = document.getElementById('menu-mobile-links')
-      const body = document.body || document.getElementsByTagName('body')[0]
-      if (newValue) {
-        menuMobile.style.display = 'block'
-        menuMobileLinks.classList.add('show')
-        this.animMenuLeaf.playSegments([0, 50], true)
-        body.style = 'overflow:hidden'
-      } else {
-        setTimeout(() => {
-          menuMobile.style.display = 'none'
-        }, 500)
-        menuMobileLinks.classList.remove('show')
-        this.animMenuLeaf.playSegments(
-          [this.animMenuLeaf.currentFrame, 100],
-          true
-        )
-        body.style = 'overflow:auto'
-      }
-    },
-  },
-  mounted() {
-    lottie.loadAnimation({
-      container: document.getElementById('menu-burger'),
-      name: 'menu-burger',
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/menu-burger.json',
-    })
-    this.animMenuLeaf = lottie.loadAnimation({
-      container: document.getElementById('menu-leaf'),
-      name: 'menu-leaf',
-      renderer: 'svg',
+const currentNav = ref("scripts");
+const navNames = ["scripts", "articles", "links", "portfolio", "contacts"];
+const animSelectors = ref([]);
+const hasMobileMenu = ref(false);
+const animMenuLeaf = ref({});
+
+onMounted(() => {
+  lottie.loadAnimation({
+    container: document.getElementById("menu-burger"),
+    name: "menu-burger",
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "/animations/menu-burger.json",
+  });
+
+  const feather = document.getElementById("feathers");
+  lottie.loadAnimation({
+    container: feather,
+    name: feather.id,
+    renderer: "svg",
+    loop: true,
+    autoplay: true,
+    path: "/animations/header-feathers.json",
+  });
+  Array.from(document.getElementsByClassName("anim-selector")).forEach((element) => {
+    const lottieAnim = lottie.loadAnimation({
+      container: element,
+      name: element.id,
+      renderer: "svg",
       loop: false,
       autoplay: false,
-      path: '/animations/menu-leaf.json',
-    })
-
-    const feather = document.getElementById('feathers')
-    lottie.loadAnimation({
-      container: feather,
-      name: feather.id,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: '/animations/header-feathers.json',
-    })
-    Array.from(document.getElementsByClassName('anim-selector')).forEach(
-      element => {
-        const lottieAnim = lottie.loadAnimation({
-          container: element,
-          name: element.id,
-          renderer: 'svg',
-          loop: false,
-          autoplay: false,
-          path: '/animations/selected-menu-item.json',
-        })
-        lottieAnim.addEventListener('complete', function(anim) {
-          if (lottieAnim.firstFrame + lottieAnim.currentFrame >= 300) {
-            lottieAnim.currentFrame = -100
-          }
-        })
-        this.animSelectors.push({
-          id: element.id,
-          anim: lottieAnim,
-        })
+      path: "/animations/selected-menu-item.json",
+    });
+    lottieAnim.addEventListener("complete", function (anim) {
+      if (lottieAnim.firstFrame + lottieAnim.currentFrame >= 300) {
+        lottieAnim.currentFrame = -100;
       }
-    )
-    this.currentNav = this.$nuxt.$route.name
-    if (this.currentNav === 'index') {
-      this.currentNav = 'scripts'
+    });
+    animSelectors.value.push({
+      id: element.id,
+      anim: lottieAnim,
+    });
+  });
+  currentNav.value = route.name;
+  if (currentNav.value === "index") {
+    currentNav.value = "scripts";
+  }
+  setupPosAllAnimSelectors();
+  window.onresize = setupPosAllAnimSelectors;
+  setSelected(currentNav.value);
+});
+
+watch(currentNav, (newValue) => {
+  setSelected(newValue);
+});
+
+watch(hasMobileMenu, (newValue) => {
+  const menuMobile = document.getElementById("menu-mobile");
+  const menuMobileLinks = document.getElementById("menu-mobile-links");
+  const body = document.body || document.getElementsByTagName("body")[0];
+  if (newValue) {
+    menuMobile.style.display = "block";
+    menuMobileLinks.classList.add("show");
+    animMenuLeaf.value.playSegments([0, 50], true);
+    body.style = "overflow:hidden";
+  } else {
+    setTimeout(() => {
+      menuMobile.style.display = "none";
+    }, 500);
+    menuMobileLinks.classList.remove("show");
+    animMenuLeaf.value.playSegments([animMenuLeaf.value.currentFrame, 100], true);
+    body.style = "overflow:auto";
+  }
+});
+
+function clickNav(obj) {
+  if (obj.target.id) {
+    currentNav.value = obj.target.id;
+  }
+}
+function setupPosAllAnimSelectors() {
+  navNames.forEach((name) => {
+    const animSelector = document.getElementById(`anim-${name}`);
+    const navLink = document.getElementById(name);
+    animSelector.style.left = `${navLink.getBoundingClientRect().left - 80}px`;
+  });
+}
+function setSelected(theName) {
+  navNames.forEach((name) => {
+    const navLink = document.getElementById(name);
+    if (theName === name) {
+      navLink.classList.add("selected");
+      playTakeAnim(name);
+    } else {
+      navLink.classList.remove("selected");
+      playTakeoutAnim(name);
     }
-    this.setupPosAllAnimSelectors()
-    window.onresize = this.setupPosAllAnimSelectors
-    this.setSelected(this.currentNav)
-  },
-  methods: {
-    clickNav(obj) {
-      if (obj.target.id) {
-        this.currentNav = obj.target.id
-      }
-    },
-    setupPosAllAnimSelectors() {
-      this.navNames.forEach(name => {
-        const animSelector = document.getElementById(`anim-${name}`)
-        const navLink = document.getElementById(name)
-        animSelector.style.left = `${navLink.getBoundingClientRect().left -
-          80}px`
-      })
-    },
-    setSelected(theName) {
-      this.navNames.forEach(name => {
-        const navLink = document.getElementById(name)
-        if (theName === name) {
-          navLink.classList.add('selected')
-          this.playTakeAnim(name)
-        } else {
-          navLink.classList.remove('selected')
-          this.playTakeoutAnim(name)
-        }
-      })
-    },
-    playTakeAnim(name) {
-      const animSelector = this.animSelectors.find(element => {
-        return element.id === `anim-${name}`
-      }).anim
-      if (animSelector.isLoaded) {
-        animSelector.playSegments([0, 200], true)
-      } else {
-        animSelector.addEventListener('data_ready', function() {
-          animSelector.playSegments([0, 200], true)
-        })
-      }
-    },
-    playTakeoutAnim(name) {
-      const animSelector = this.animSelectors.find(element => {
-        return element.id === `anim-${name}`
-      }).anim
+  });
+}
+function playTakeAnim(name) {
+  const animSelector = animSelectors.value.find((element) => {
+    return element.id === `anim-${name}`;
+  }).anim;
+  if (animSelector.isLoaded) {
+    animSelector.playSegments([0, 200], true);
+  } else {
+    animSelector.addEventListener("data_ready", function () {
+      animSelector.playSegments([0, 200], true);
+    });
+  }
+}
+function playTakeoutAnim(name) {
+  const animSelector = animSelectors.value.find((element) => {
+    return element.id === `anim-${name}`;
+  }).anim;
 
-      if (animSelector.currentFrame > 0 && animSelector.currentFrame < 300) {
-        animSelector.playSegments([animSelector.currentFrame, 302], true)
-      }
-    },
-    toggleShowMobileMenu() {
-      this.showMobileMenu = !this.showMobileMenu
-    },
-  },
+  if (animSelector.currentFrame > 0 && animSelector.currentFrame < 300) {
+    animSelector.playSegments([animSelector.currentFrame, 302], true);
+  }
+}
+function toggleMobileMenu() {
+  hasMobileMenu.value = !hasMobileMenu.value;
 }
 </script>
 

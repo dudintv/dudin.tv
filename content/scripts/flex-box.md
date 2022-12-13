@@ -6,7 +6,7 @@ path: dudin-flex
 file: flex.vb
 ---
 
-<interface-description image="flex-ui.png">
+::interface-description{image="flex-ui.png"}
 
 ### Interface description
 
@@ -24,7 +24,7 @@ It's possible to switch between X and Y as the main axis by **Axis** param.
 
 **Min gap** is like a threshold for minimal gaps. If the gap should be less the value it becomes to zero! It allows avoiding very tiny gaps between items what can look like cracks.
 
-</interface-description>
+::
 
 Do you know about “flexbox” in HTML5/CSS3? This is a flexible box layout for convenient auto-placing of containers into a bounding box of the certain container. Take a look at [explanation of the idea for web](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
@@ -35,12 +35,12 @@ Let me introduce several features I’ve implemented for convenient usage in ona
 _I’ve marked my two often used options by blue strokes._
 
 X axis:
-<media-image name="flex-variants-x.png" />
+:media-image{name="flex-variants-x.png"}
 
 The marked variant is very useful for portraits with different height when you need only top alignment among all pictures (and no requirement for bottoms to be aligned).
 
 Y axis:
-<media-image name="flex-variants-y.png" />
+:media-image{name="flex-variants-y.png"}
 
 The marked central variant is useful for fast centring of any logo with a sign.
 
@@ -70,37 +70,28 @@ For esthetic reasons, I’ve added a special parameter for correction of distrib
 
 Compare 0, 50, 100 values of magnetic with 3 and 5 items:
 
-<WideWidthContainer>
-  <div style="display: flex; justify-content: center;">
-  <media-image name="snap_flex3_0.png" style="max-width: 45vw" />
-  <div style="width: 1vw;">&nbsp;</div>
-  <media-image name="snap_flex5_0.png" style="max-width: 45vw" />
-  </div>
-</WideWidthContainer>
+::WideWidthContainer
+:media-image{name="snap_flex3_0.png" style="max-width: 45vw"}
+:media-image{name="snap_flex5_0.png" style="max-width: 45vw"}
+::
 
-<WideWidthContainer>
-  <div style="display: flex; justify-content: center;">
-  <media-image name="snap_flex3_50.png" style="max-width: 45vw" />
-  <div style="width: 1vw;">&nbsp;</div>
-  <media-image name="snap_flex5_50.png" style="max-width: 45vw" />
-  </div>
-</WideWidthContainer>
+::WideWidthContainer
+:media-image{name="snap_flex3_50.png" style="max-width: 45vw"}
+:media-image{name="snap_flex5_50.png" style="max-width: 45vw"}
+::
 
-<WideWidthContainer>
-  <div style="display: flex; justify-content: center;">
-  <media-image name="snap_flex3_100.png" style="max-width: 45vw" />
-  <div style="width: 1vw;">&nbsp;</div>
-  <media-image name="snap_flex5_100.png" style="max-width: 45vw" />
-  </div>
-</WideWidthContainer>
+::WideWidthContainer
+:media-image{name="snap_flex3_100.png" style="max-width: 45vw"}
+:media-image{name="snap_flex5_100.png" style="max-width: 45vw"}
+::
 
 ### Source of item size
 
 If items have animations with changing size, you can get unexpected behavior. Items could start jiggling. If you don’t want this effect, you can limit the source for calculating an item’s bounding box by first sub-container. This first sub-container can be invisible (but active) and static for stable positioning. Or you can softly animate this container in order to reach nice revealing animation.
 
-<media-image name="flex-tree.png" />
+:media-image{name="flex-tree.png"}
 
-<media-youtube url="https://www.youtube.com/embed/J473ItRQu7I" />
+:media-youtube{url="https://www.youtube.com/embed/J473ItRQu7I"}
 
 Both options are good and can be useful. You can select what you need.
 
@@ -112,14 +103,16 @@ Feel free to experiment with this script.
 
 You can change the size of items separately:
 
-<media-youtube url="https://www.youtube.com/embed/Fhdh3x5sCoE" />
+:media-youtube{url="https://www.youtube.com/embed/Fhdh3x5sCoE"}
 
 ### Nested flex
 
 You can nest one flex inside another ;)
 
-<media-youtube url="https://www.youtube.com/embed/8_F3VpzpOQo" />
+:media-youtube{url="https://www.youtube.com/embed/8_F3VpzpOQo"}
 
-### Example scene <media-file name="FlexExamples.via" />
+### Example scene
+
+:media-file{name="FlexExamples.via"}
 
 It contains an old version of the script, please update the code in the scene by "Copy script" button.

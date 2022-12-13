@@ -12,24 +12,24 @@ The first reason was my desire to control the left side corner of the bg rectang
 
 After that, I was wondering to improve this script to watch the maximum size of children which could be in a different position and TextBg provides bg only for common size. I was needed in independent measurement.
 
-<interface-description image="bg-interface.png">
+:interface-description{image="bg-interface.png"}
 
 ### Interface description
 
-__Source container__ works like in original TextBg. It defines the source of the size.
+**Source container** works like in original TextBg. It defines the source of the size.
 
-__How to change bg size__ allow you to choose the way to change visible size. By transformation scaling or geometry settings ("width" and "height").
+**How to change bg size** allow you to choose the way to change visible size. By transformation scaling or geometry settings ("width" and "height").
 
-Choose this script __Get size from__ 1) source container 2) maximum of children or 3) child by index
+Choose this script **Get size from** 1) source container 2) maximum of children or 3) child by index
 
-You can define multiplication and padding for each axis separately by __Mult X/Y/Z__ and __Add X/Y/Z__.
+You can define multiplication and padding for each axis separately by **Mult X/Y/Z** and **Add X/Y/Z**.
 
-Also, you can setup minimum size for each axis by __Min BG X/Y/Z-axis mode__. You can define min by number value or by the specific container.
+Also, you can setup minimum size for each axis by **Min BG X/Y/Z-axis mode**. You can define min by number value or by the specific container.
 
-Set __Hide bg if source coutainer__ if you want to hide container if its size very small. You can define this threshold value by __Zero-size of source container__.
+Set **Hide bg if source container** if you want to hide container if its size very small. You can define this threshold value by **Zero-size of source container**.
 
-One of the main advantages is the animated transition. You can control __Animation inersion__. Value "1" disable all animation, but value "10" gives you very slow insertion effect.
+One of the main advantages is the animated transition. You can control **Animation inertia**. Value "1" disable all animation, but value "10" gives you very slow insertion effect.
 
-By default, positioning is disabled, unlike in original TextBg. It allows you to control the position of bg. But if you want you can turn on __Autofollow by X/Y axis__ with some __X/Y shift__
+By default, positioning is disabled, unlike in original TextBg. It allows you to control the position of bg. But if you want you can turn on **Autofollow by X/Y axis** with some **X/Y shift**
 
-</interface-description>
+::

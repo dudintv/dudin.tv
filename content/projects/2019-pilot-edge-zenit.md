@@ -13,4 +13,4 @@ Make a control interface, where an operator can load API data from a Football Da
 
 I've written a new custom Vue.js directive in order to allow the Vue application to be connected to the Pilot Edge template.
 
-<media-image name="zenit-template.png" center />
+:media-image{name="zenit-template.png" center}

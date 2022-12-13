@@ -6,15 +6,15 @@ path: dudin-animation/dudin-arrange-animations
 file: dudin-arrange-animations.vb
 ---
 
-<interface-description image="interface.png">
+::interface-description{image="interface.png"}
 
-__Root container__ allow you put this script on any container and control point another container as "root" for the script. By default (if this param is empty) it works with current container "this".
+**Root container** allow you put this script on any container and control point another container as "root" for the script. By default (if this param is empty) it works with current container "this".
 
-You can control __Where to place__ all ainmation within "root container".
+You can control **Where to place** all animation within "root container".
 
-__Offset director__ useful to shift each directors with __Start__ offset and __Step__ of increment. If you want inverse you can point negative __Step__.
+**Offset director** useful to shift each directors with **Start** offset and **Step** of increment. If you want inverse you can point negative **Step**.
 
-</interface-description>
+::
 
 You can collect or spread your animation into certain directors. There is the option of how to move animations:
 
@@ -26,8 +26,8 @@ You can collect or spread your animation into certain directors. There is the op
 
 If you have that tree:
 
-<media-image name="example-tree.png" />
+:media-image{name="example-tree.png"}
 
 Option "By childs name" gives you that result:
 
-<media-image name="example-stage.png" />
+:media-image{name="example-stage.png"}

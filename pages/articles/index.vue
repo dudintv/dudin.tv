@@ -1,57 +1,47 @@
 <template lang="pug">
-  .articles-page
-    #articles-bg
-    .articles-list
-      ArticleItem(v-for="article in articles" :article="article" :key="article.attributes.title")
+.articles-page
+  #articles-bg
+  .articles-list
+    ArticlesItem(v-for="article in articles" :article="article" :key="article.title")
 </template>
 
-<script>
-import lottie from 'lottie-web'
+<script setup>
+import lottie from "lottie-web";
 
-import ArticleItem from '~/components/articles/ArticleItem'
+const articles = (await queryContent("/articles").only(["_path", "date", "title", "description", "tags"]).find()).sort(
+  (a1, a2) => {
+    const data1 = new Date(a1.date);
+    const data2 = new Date(a2.date);
+    return data1 < data2 ? 1 : -1;
+  },
+);
 
-export default {
-  components: {
-    ArticleItem,
-  },
-  async asyncData () {
-    const resolve = require.context('~/content/articles/', true, /\.md$/)
-    const imports = resolve.keys().map(key => {
-      return resolve(key)
-    }).sort((a1, a2) => {
-      const data1 = new Date(a1.attributes.date)
-      const data2 = new Date(a2.attributes.date)
-      return data1 < data2 ? 1 : -1
-    })
-    return {
-      articles: imports
-    }
-  },
-  mounted () {
-    lottie.loadAnimation({
-      container: document.getElementById('articles-bg'),
-      renderer: 'svg',
+onMounted(() => {
+  lottie
+    .loadAnimation({
+      container: document.getElementById("articles-bg"),
+      renderer: "svg",
       loop: true,
       autoplay: true,
-      path: '/animations/bg-rock.json',
+      path: "/animations/bg-rock.json",
       speed: 500,
-    }).setSpeed(2)
-  },
-}
+    })
+    .setSpeed(2);
+});
 </script>
 
 <style lang="scss" scoped>
-  .articles-page {
-    @apply relative flex justify-center items-center w-full pl-24 pr-4;
-  }
+.articles-page {
+  @apply relative flex justify-center items-center w-full pl-24 pr-4;
+}
 
-  #articles-bg {
-    @apply absolute z-0;
-    top: -15vw;
-  }
+#articles-bg {
+  @apply absolute z-0;
+  top: -15vw;
+}
 
-  .articles-list {
-    @apply relative flex flex-col z-10;
-    max-width: 600px;
-  }
+.articles-list {
+  @apply relative flex flex-col z-10;
+  max-width: 600px;
+}
 </style>

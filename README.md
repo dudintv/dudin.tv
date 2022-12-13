@@ -1,142 +1,42 @@
-# dudin.tv
+# Nuxt 3 Minimal Starter
 
-https://dudin.tv
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-> Pre-rendered website with my Vizrt scripts and articles.
+## Setup
 
-![dudin.tv presentation](https://github.com/dudintv/dudin.tv/raw/master/static/images/for-github-readme/dudin.tv-presentation.gif)
+Make sure to install the dependencies:
 
-## Build Setup
+```bash
+# yarn
+yarn install
 
-``` bash
-# install dependencies
-$ yarn install
+# npm
+npm install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# generate static project
-$ yarn generate
+# pnpm
+pnpm install --shamefully-hoist
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Development Server
 
-Project created for generating static website by `yarn generate`.
+Start the development server on http://localhost:3000
 
-# Directory/File structure
-
-## Add a new script
-
-1. Create new markdown file to under `/content/scripts/`
-2. Add thumbnail image to ```static/images/thumbnails/`. SVG format is recomended.
-3. Add rest images to `static/images/scripts/[script-name]/`. Where "\[script-name\]" is exactly the same to markdown filename.
-
-Sample frontmatter for Script:
-
-```
----
-title: 9 part texture
-description: Script for stretching texture with saving quality of borders and corners.
-category: texture
----
+```bash
+npm run dev
 ```
 
-## Add a new article
+## Production
 
-1. Create new markdown file to under `/content/articles/`
-2. Add images & files to `static/images/articles/[article-name]/`. Where "\[article-name\]" is exactly the same to markdown filename.
+Build the application for production:
 
-Sample frontmatter for Article:
-```
----
-title:  "Execution Logic. Part 1"
-description: "Creating custom logic for custom vizrt template."
-date: 2017-11-12 12:00:00 +0300
-tags: vcp vtw
----
+```bash
+npm run build
 ```
 
-Use "date" only to control order article.
+Locally preview production build:
 
-List of possible tags:
-* artist
-* trio
-* vcp
-* vtw
-* multiplay
-* excel
-
-# Code highlighter
-
-Wrap code by three backslash symbols "```".
-
-To highlight different languages you can use "languagle tag". Working examples:
-
-```
-```xml — for Execution logic
-```basic — for VizArtist scripts
-```r — for console commands
+```bash
+npm run preview
 ```
 
-# Components
-
-## InterfaceDescription
-
-You should set __interface image__ as `name` param and __description__ as default slot. 
-
-* In description it's possible to use Markdown! To make it works you shoul insert two empty lines: one just after open `<interface-description image="interface.png">` and second just before `</interface-description>`. 
-* Image is searched into `static/images/scripts/[script-name]/[image-name]`
-
-Sample of using:
-
-```
-<interface-description image="interface.png">
-
-# HEADER
-
-Simple plain text
-
-</interface-description>
-```
-
-## MediaImage
-
-Use it for insert an image.
-
-* Set image name in "name" param. If name is "image.png" and you insert into a script with name "my-script.md" — MediaImage look for the image in `static/images/scripts/my-script/image.png`.
-* Don't forget to add "/", it's stricly obligatory!
-
-Sample:
-
-```
-<media-image name="image.png" />
-```
-
-## MediaYoutube
-
-Use it to embed YouTube video by link or video-id.
-
-Working samples:
-
-```
-<media-youtube url="https://www.youtube.com/embed/fEwqgMe_xX8" />
-<media-youtube url="https://www.youtube.com/watch?v=fEwqgMe_xX8" />
-<media-youtube url="fEwqgMe_xX8" />
-```
-
-## MediaFile
-
-Use it to render beautiful link to download file. File will be looking in to corresponding path:
-* __File.via__ for __xxx__ script should be stored in __/images/scripts/xxx/File.via__
-* __File.via__ for __yyy__ article should be stored in __/images/articles/yyy/File.via__
-
-Example:
-
-```
-<media-file name="FlexExamples.via" />
-```
-
-# Author & Contacts
-
-Dmitry Dudin
-<a href="https://www.facebook.com/dudintv" onclick="return ! window.open(this.href);">facebook.com/dudintv</a>
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

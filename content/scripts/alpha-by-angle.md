@@ -6,28 +6,28 @@ path: dudin-alpha/dudin-alpha-by-angle
 file: dudin-alpha-by-angle.vb
 ---
 
-<media-youtube url="https://youtu.be/cTl82V1Yprs" />
+:media-youtube{url="https://youtu.be/cTl82V1Yprs"}
 
-<interface-description image="alpha-by-angle-interface.png">
+::interface-description{image="alpha-by-angle-interface.png"}
 
 ### Interface description
 
-__Direction axis__ allow you to choose the main axis of the object
+**Direction axis** allow you to choose the main axis of the object
 
-__Visible angle__ defines maximun angle where Alpha value will be 100.0
+**Visible angle** defines maximum angle where Alpha value will be 100.0
 
-__Invisible angle__ defines minimum angle where Alpha value will be 0.0
+**Invisible angle** defines minimum angle where Alpha value will be 0.0
 
-__Mode__ is switcher of function of transition from 0 to 100 between __Invisible angle__ and __Visible angle__. __Linear__ is just plain function. __Smooth__ works with besier handler.
+**Mode** is switcher of function of transition from 0 to 100 between **Invisible angle** and **Visible angle**. **Linear** is just plain function. **Smooth** works with besier handler.
 
-__Easy near power__ is besier smoothness of 0.0 value
+**Easy near power** is besier smoothness of 0.0 value
 
-__Easy far power__ is besier smoothness of 100.0 value
+**Easy far power** is besier smoothness of 100.0 value
 
-__Inverse__ obviously flips 100.0 and 0.0 values
+**Inverse** obviously flips 100.0 and 0.0 values
 
 </interface-description>
 
 This script is useful for simple rectangles with sprites. To avoid sharp disappearing on 90 degrees, and mipmap flickering on degrees near 90.
 
-<media-image name="trees-alpha-by-angles.png" />
+::

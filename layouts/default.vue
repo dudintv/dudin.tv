@@ -1,37 +1,32 @@
 <template lang="pug">
-  div.nuxt-layout
-    TheNav
-    nuxt.nuxt-page
-    TheSocNetworks
-    #copy-code
+div
+  TheNav
+  slot
+  TheSocNetworks
+  #copy-code(ref="copyCode")
 </template>
 
-<script>
-import lottie from 'lottie-web'
+<script setup>
+import lottie from "lottie-web";
 
-import TheNav from '~/components/TheNav'
-import TheSocNetworks from '~/components/TheSocNetworks'
+const store = useStore();
 
-export default {
-  components: {
-    TheNav,
-    TheSocNetworks,
-  },
-  mounted() {
-    const animation = lottie.loadAnimation({
-      container: document.getElementById('copy-code'),
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      path: '/animations/copy-code.json',
-    })
-    animation.addEventListener('complete', () => {
-      console.log('animation = ', animation)
-      animation.wrapper.style = 'display: none'
-    })
-    this.$store.commit('saveCopyCodeAnim', animation)
-  },
-}
+const copyCode = ref();
+const animation = ref();
+
+onMounted(() => {
+  animation.value = lottie.loadAnimation({
+    container: copyCode.value,
+    renderer: "svg",
+    loop: false,
+    autoplay: false,
+    path: "/animations/copy-code.json",
+  });
+  animation.value.addEventListener("complete", () => {
+    animation.value.wrapper.style = "display: none";
+  });
+  store.copyCodeAnim = animation.value;
+});
 </script>
 
 <style lang="scss">
@@ -43,8 +38,7 @@ export default {
 }
 
 html {
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans',
-    'Helvetica Neue', Arial, sans-serif;
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   font-size: 18px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -100,20 +94,27 @@ hr {
 
 code {
   background-color: #2d2d2d;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  padding: 0.2rem;
   overflow: auto;
   line-height: 1rem;
   max-width: 100%;
   // display: inline-flex;
   overflow-inline: scroll;
   overflow-wrap: break-word;
+  border-radius: 0.2rem;
+}
+
+pre {
+  code {
+    display: block;
+    padding: 0.6rem;
+  }
 }
 
 code,
 pre,
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   font-family: JetBrainsMono !important;
   font-weight: normal;
   font-variant-ligatures: none;
@@ -126,7 +127,7 @@ a {
   position: relative;
 
   &.a::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: -2px;
@@ -163,7 +164,7 @@ ul {
   }
 
   li:before {
-    content: '\2022';
+    content: "\2022";
     font-size: 1.5rem;
     line-height: 1rem;
     font-weight: bold;
@@ -311,27 +312,19 @@ table {
   width: fit-content;
   height: fit-content;
   color: white;
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(53, 6, 6, 0.15) 100%
-    ),
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(53, 6, 6, 0.15) 100%),
     linear-gradient(101.31deg, #6c3392 0%, #79071c 100%);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.5s ease;
 
   &:after {
     position: absolute;
-    content: '';
+    content: "";
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.27) 0%,
-        rgba(53, 6, 6, 0.15) 100%
-      ),
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.27) 0%, rgba(53, 6, 6, 0.15) 100%),
       linear-gradient(101.31deg, #782ea9 0%, #960a24 100%);
     transition: opacity 0.2s ease-out;
     z-index: 2;

@@ -2,7 +2,7 @@
 .intro
   p
     | Hi, my name is Dmitry Dudin and
-    | I’m a real-time designer and script wrihter.
+    | I’m a real-time designer and script writher.
   p
     | I've prepared for you Vizrt scripts used and tested in real projects.
     | Feel free to
@@ -15,10 +15,10 @@
     | you know how to
     nuxt-link.a(to="contacts") &nbsp;find me&nbsp;
     | ;)
-</template>
+  </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style lang="scss" scoped>

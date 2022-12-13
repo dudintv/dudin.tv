@@ -1,16 +1,16 @@
 <template lang="pug">
-  .social-networks.relative.flex.justify-center.items-end
-    img.ellipse-shadow(src="~/static/images/common/ellipse-shadow.svg")
-    .content.flex.flex-col.justify-center.items-center
-      .links.w-full.flex.justify-center.items-center.relative
-        a#youtube.cursor-pointer(href="https://www.youtube.com/channel/UCNAcWv6Eybjq7BCz7JHkxiw" target="_blank" @mouseover="hover('youtube')" @mouseleave="leave('youtube')")
-        a#facebook.cursor-pointer.mx-4(href="https://www.facebook.com/dudintv" target="_blank" @mouseover="hover('facebook')" @mouseleave="leave('facebook')")
-        a#linkedin.cursor-pointer(href="https://www.linkedin.com/in/dudintv" target="_blank" @mouseover="hover('linkedin')" @mouseleave="leave('linkedin')")
-      span.mt-2.mb-10.font-bold dudin.tv
+.social-networks.relative.flex.justify-center.items-end
+  img.ellipse-shadow(src="/common/ellipse-shadow.svg")
+  .content.flex.flex-col.justify-center.items-center
+    .links.w-full.flex.justify-center.items-center.relative
+      a#youtube.cursor-pointer(href="https://www.youtube.com/channel/UCNAcWv6Eybjq7BCz7JHkxiw" target="_blank" @mouseover="hover('youtube')" @mouseleave="leave('youtube')")
+      a#facebook.cursor-pointer.mx-4(href="https://www.facebook.com/dudintv" target="_blank" @mouseover="hover('facebook')" @mouseleave="leave('facebook')")
+      a#linkedin.cursor-pointer(href="https://www.linkedin.com/in/dudintv" target="_blank" @mouseover="hover('linkedin')" @mouseleave="leave('linkedin')")
+    span.mt-2.mb-10.font-bold dudin.tv
 </template>
 
 <script>
-import lottie from 'lottie-web'
+import lottie from "lottie-web";
 
 export default {
   data: () => ({
@@ -22,35 +22,35 @@ export default {
     linkedin_hover: false,
   }),
   mounted() {
-    this.youtube = this.loadLottie('youtube')
-    this.facebook = this.loadLottie('facebook')
-    this.linkedin = this.loadLottie('linkedin')
+    this.youtube = this.loadLottie("youtube");
+    this.facebook = this.loadLottie("facebook");
+    this.linkedin = this.loadLottie("linkedin");
   },
   methods: {
     loadLottie(name) {
       const animation = lottie.loadAnimation({
         container: document.getElementById(name),
-        renderer: 'svg',
+        renderer: "svg",
         loop: true,
         autoplay: false,
         path: `/animations/dudintv-${name}.json`,
-      })
-      animation.addEventListener('loopComplete', () => {
+      });
+      animation.addEventListener("loopComplete", () => {
         if (!this[`${name}_hover`]) {
-          animation.stop()
+          animation.stop();
         }
-      })
-      return animation
+      });
+      return animation;
     },
     hover(name) {
-      this[name].play()
-      this[`${name}_hover`] = true
+      this[name].play();
+      this[`${name}_hover`] = true;
     },
     leave(name) {
-      this[`${name}_hover`] = false
+      this[`${name}_hover`] = false;
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -68,7 +68,6 @@ export default {
   );
 }
 .links {
-  // top: 30px;
   a {
     width: 52px;
   }

@@ -7,9 +7,9 @@ file: autofollow.vb
 # toys: [MultiFollow]
 ---
 
-<MultiFollow />
+<!-- <MultiFollow /> -->
 
-<interface-description image="autofollow-ui.png">
+::interface-description{image="autofollow-ui.png"}
 
 ### Interface description
 
@@ -23,11 +23,11 @@ file: autofollow.vb
 
 **Container 1**, **Container 2**, ... define observed target containers which will be followed by this container. You can change the count inside the script by changing the `quantity_of_container` variable at the beginning of the script.
 
-</interface-description>
+::
 
 If you have tried to use standard Autofollow plugin you already know its limits.
 
-<media-image name="autofollow-plugin.png" />
+:media-image{name="autofollow-plugin.png"}
 
 What I do not like in standard Autofollow:
 
@@ -37,13 +37,13 @@ What I do not like in standard Autofollow:
 - Stays in the previous position when the target container gets invisible. I need some defined position in this case.
 - Does not consider invisible object by scaling! If an object is hidden - it’s ok. But if Object is scaled to 0 — it stays active and visible for standard Autofollow.
 - For the reason above I can’t autofollow to several containers. I want to consider only visible (by visually) objects. If an object is smaller than a pixel I want to mark it as invisible and exclude from autofollow.
-- Only sharp autofollow, without any inertion. I want to see the natural move of following as it looks pretty nice on the screen.
+- Only sharp autofollow, without any inertia. I want to see the natural move of following as it looks pretty nice on the screen.
 - Always consider the self size. I want to autofollow only pivot point for independent animation of appearing.
 
 Compare standard and my Autofollow:
 
-<media-youtube url="https://www.youtube.com/embed/au4bwUw4Vwg" />
+:media-youtube{url="https://www.youtube.com/embed/au4bwUw4Vwg"}
 
 To change observing containers count, overwrite this setting:
 
-<media-image name="autofollow-change-count.png" />
+:media-image{name="autofollow-change-count.png"}

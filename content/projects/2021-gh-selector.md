@@ -12,10 +12,10 @@ My client needed to have an ability to select custom geometries from Vizrt Graph
 
 ## Idea
 
-I've decided to make an universal Graphic Hub items selector (geom, images, etc). I used Javascipt and Vue.js framework in order to make easy supportable tool for my client.
+I've decided to make an universal Graphic Hub items selector (geom, images, etc). I used Javascript and Vue.js framework in order to make easy supportable tool for my client.
 
 ## Result
 
-I've made a Vue.js component which can connect to Graphic Hub REST derectly, retrieve all information and represent in simple and convenient interface.
+I've made a Vue.js component which can connect to Graphic Hub REST directly, retrieve all information and represent in simple and convenient interface.
 
-<media-image name="gh-selector-interface.png" center />
+:media-image{name="gh-selector-interface.png" center}

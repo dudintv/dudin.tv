@@ -6,13 +6,12 @@ path: dudin-transform/dudin-random-move
 file: dudin-random-move.vb
 ---
 
-
-<interface-description image="random-position-interface.png">
+::interface-description{image="random-position-interface.png"}
 
 ### Interface description
 
-__Position X/Y/Z__ defines range of moving. Each axis works separatelly.
+**Position X/Y/Z** defines range of moving. Each axis works separately.
 
-__Position Speed__ defines the speed for all axis. If ranges of axises are different the cycles will be different.
+**Position Speed** defines the speed for all axis. If ranges of axises are different the cycles will be different.
 
-</interface-description>
+::

@@ -1,5 +1,5 @@
 ---
-title: "Jumping scene for seamless graphic"
+title: "Jumping scene for seamless graphics"
 description: "Jumping scene useful for unpredictable seamless graphic flow."
 date: 2018-10-10 12:00:00 +0300
 tags: artist vcp
@@ -17,7 +17,7 @@ You have to think only about the duration of disappearing. It must be less than 
 
 I made 0.5 sec for the preview. Take a look how it works (no sound ;)):
 
-<media-youtube url="https://www.youtube.com/embed/fEwqgMe_xX8" />
+:media-youtube{url="https://www.youtube.com/embed/fEwqgMe_xX8"}
 
 There are three different design slides in different styles. Note how they correctly combine while transition. Especially how combines the same style slides.
 
@@ -46,21 +46,22 @@ RENDERER SET_OBJECT THIS_SCENE;
 RENDERER*FRONT_LAYER SET_OBJECT ;
 ```
 
-These commands make the "jump" effect. It creates copy to middle layer (push out the previous scene) and erase itself from the front layer. 
+These commands make the "jump" effect. It creates copy to middle layer (push out the previous scene) and erase itself from the front layer.
 Done.
 
-<media-image name="jumping-scene-stage-take-action-keys.png" />
+:media-image{name="jumping-scene-stage-take-action-keys.png"}
 
 ## Prepare VCP template
 
 Next, you need to create vcp template for this scene. We start as usual, create a new template by Wizard in Template Wizard. Make interface as you want. And we have to use "execution logic" for our custom commands.
 
 Only three commands:
+
 1. Load scene (or copy) to the front layer.
 2. Load controls values into the scene.
 3. Start the Take director.
 
-------------
+---
 
 ```r
 SCENE*COMMON/SCRIPTS/LoadJumpScene*SCRIPT INVOKE Load News/Videowall/Slide1
@@ -68,12 +69,12 @@ RENDERER*FRONT_LAYER*TREE*$object*FUNCTION*ControlObject*in SET ON 1 SET 111\02 
 RENDERER*FRONT_LAYER*STAGE*DIRECTOR*Take START
 ```
 
-If you are familiar with Execution Logic you understand what to do with these commands. If not I can recommend you head to documentation but I know they're not so good for understanding. I will prepare a lesson about "EL"... <!-- [TODO: need lesson about Execution Logic] -->
+If you are familiar with Execution Logic you understand what to do with these commands. If not I can recommend you head to documentation but I know they're not so good for understanding. [Learn EL](/articles/execution-logic-1)
 
 Now you just can copy the commands to "take" section in EL. Of course with changing paths and content for ControlObject. Extra:
 
-* "\0" — this is one separation symbol. We have to use it to separate several data contents. Control ids are "1", "2" and "3" in my example.
-* You need insert control data from the template. It's ```<ref><var>element</var>/data/1</ref>``` for element with parameter ControlObjectName = "1".
+- "\0" — this is one separation symbol. We have to use it to separate several data contents. Control ids are "1", "2" and "3" in my example.
+- You need insert control data from the template. It's `<ref><var>element</var>/data/1</ref>` for element with parameter ControlObjectName = "1".
 
 Full EL script for my example:
 
@@ -95,7 +96,8 @@ As you can see I use some script trick instead of command to load the scene dire
 ```r
 SCENE*COMMON/SCRIPTS/LoadJumpScene*SCRIPT INVOKE Load News/Videowall/Slide1
 ```
-<!-- 
+
+<!--
 I have prepared a script for smart loading. This script looking for free scene into the engine pool. If it have found it's good. If it didn't — load or create copy of the scene. At the exit script loading free copy of scene in front layer. -->
 
 <!-- [Jumping scene script](/scripts/jumping-scene) -->

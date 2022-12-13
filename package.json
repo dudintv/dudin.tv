@@ -1,37 +1,26 @@
 {
-  "name": "dudin.tv",
-  "version": "1.0.0",
-  "description": "Personal website with my Vizrt scripts and articles",
-  "author": "Dmitry Dudin",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate --fail-on-error",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
-  },
-  "dependencies": {
-    "color": "^3.1.2",
-    "gsap": "^3.2.4",
-    "lil-gui": "^0.16.1",
-    "lottie-web": "^5.6.6",
-    "nuxt": "^2.0.0",
-    "three": "^0.142.0",
-    "vue-code-highlight": "^0.7.4",
-    "youtube-player": "^5.5.2"
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^2.0.0",
-    "@nuxtjs/eslint-module": "^1.0.0",
-    "@nuxtjs/tailwindcss": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
-    "frontmatter-markdown-loader": "^3.2.1",
-    "pug": "^2.0.4",
-    "pug-plain-loader": "^1.0.0",
-    "sass": "^1.45.1",
-    "sass-loader": "^8.0.2"
+    "@nuxt/content": "^2.2.2",
+    "autoprefixer": "^10.4.13",
+    "nuxt": "3.0.0",
+    "postcss": "^8.4.19",
+    "pug": "^3.0.2",
+    "sass": "^1.56.1",
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "color": "^4.2.3",
+    "lottie-web": "^5.9.6",
+    "shiki-es": "^0.11.1",
+    "youtube-player": "^5.5.2"
   }
 }

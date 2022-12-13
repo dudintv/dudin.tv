@@ -6,13 +6,12 @@ path: dudin-transform/dudin-random-rotation
 file: dudin-random-rotation.vb
 ---
 
-
-<interface-description image="random-rotation-interface.png">
+::interface-description{image="random-rotation-interface.png"}
 
 ### Interface description
 
-__Rotaion X/Y/Z__ defines the range for each axis. Each axis works separatelly.
+**Rotation X/Y/Z** defines the range for each axis. Each axis works separately.
 
-__Rotation Speed__ defines the speed for all axis. If ranges of axises are different the cycles will be different.
+**Rotation Speed** defines the speed for all axis. If ranges of axises are different the cycles will be different.
 
-</interface-description>
+::
