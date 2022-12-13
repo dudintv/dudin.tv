@@ -5,7 +5,7 @@
   .content
     h3.name Dmitry Dudin
     .contact.facebook
-      img(src="/images/icons/facebook.png" width="32" height="32")
+      img(:src="`/images/icons/facebook.png`" width="32" height="32")
       a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
     .contact.linkedin
       img(src="/images/icons/linkedin.png" width="32" height="32")
