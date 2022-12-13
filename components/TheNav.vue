@@ -28,6 +28,7 @@ header.header
 
 <script setup>
 // import lottie from 'lottie-web'
+const nuxtApp = useNuxtApp()
 const route = useRoute()
 
 const currentNav = ref('scripts')
@@ -37,7 +38,8 @@ const hasMobileMenu = ref(false)
 const animMenuLeaf = ref({})
 
 onMounted(() => {
-  lottie.loadAnimation({
+  console.log('nuxtApp.$lottie =', nuxtApp.$lottie())
+  nuxtApp.$lottie().loadAnimation({
     container: document.getElementById('menu-burger'),
     name: 'menu-burger',
     renderer: 'svg',
@@ -47,7 +49,7 @@ onMounted(() => {
   })
 
   const feather = document.getElementById('feathers')
-  lottie.loadAnimation({
+  nuxtApp.$lottie().loadAnimation({
     container: feather,
     name: feather.id,
     renderer: 'svg',
@@ -57,7 +59,7 @@ onMounted(() => {
   })
   Array.from(document.getElementsByClassName('anim-selector')).forEach(
     (element) => {
-      const lottieAnim = lottie.loadAnimation({
+      const lottieAnim = nuxtApp.$lottie().loadAnimation({
         container: element,
         name: element.id,
         renderer: 'svg',

@@ -27,6 +27,7 @@
 
 <script setup>
 // import lottie from 'lottie-web'
+const nuxtApp = useNuxtApp()
 
 const rockPlayer = ref({})
 const bg = ref(null)
@@ -34,7 +35,8 @@ const bg = ref(null)
 watch(bg, () => {
   if (!bg.value) return
 
-  rockPlayer.value = lottie
+  rockPlayer.value = nuxtApp
+    .$lottie()
     .loadAnimation({
       container: bg.value,
       renderer: 'svg',

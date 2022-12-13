@@ -8,6 +8,7 @@ div
 
 <script setup>
 // import lottie from 'lottie-web'
+const nuxtApp = useNuxtApp()
 
 const store = useStore()
 
@@ -15,7 +16,7 @@ const copyCode = ref()
 const animation = ref()
 
 onMounted(() => {
-  animation.value = lottie.loadAnimation({
+  animation.value = nuxtApp.$lottie().loadAnimation({
     container: copyCode.value,
     renderer: 'svg',
     loop: false,
