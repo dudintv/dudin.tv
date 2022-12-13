@@ -14,55 +14,54 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
-});
+})
 
-const root = ref(null);
-const player = ref(null);
+const root = ref(null)
+const player = ref(null)
 
 function videoWidth() {
-  return props.width > 0 ? props.width : root.value?.offsetWidth;
+  return props.width > 0 ? props.width : root.value?.offsetWidth
 }
 function videoHeight() {
-  return props.width > 0 ? (props.width * 9) / 16 : root.value?.offsetHeight;
+  return props.width > 0 ? (props.width * 9) / 16 : root.value?.offsetHeight
 }
 
 const videoId = computed(() => {
-  if (/v=.+$/.test(props.url)) {
-    return props.url.match(/v=(.+)$/)[1];
-  } else {
-    return props.url.match(
-      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/,
-    )[1];
-  }
-});
+  if (!props.url) return ''
+  if (/v=.+$/.test(props.url)) return props.url.match(/v=(.+)$/)[1]
 
-const debounceTimer = ref(null);
+  return props.url.match(
+    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
+  )[1]
+})
+
+const debounceTimer = ref(null)
 // onMounted(() => {
 //   changeYoutubeSize();
 // });
 
 watch(player, () => {
-  if (!player.value) return;
+  if (!player.value) return
 
-  const resizeObserver = new ResizeObserver(changeYoutubeSize);
-  resizeObserver.observe(root.value);
-});
+  const resizeObserver = new ResizeObserver(changeYoutubeSize)
+  resizeObserver.observe(root.value)
+})
 
 watch(
   () => props.width,
   () => {
-    changeYoutubeSize();
-  },
-);
+    changeYoutubeSize()
+  }
+)
 
 function changeYoutubeSize() {
-  clearTimeout(debounceTimer.value);
+  clearTimeout(debounceTimer.value)
   debounceTimer.value = setTimeout(() => {
     if (player.value) {
-      player.value.setAttribute("width", videoWidth());
-      player.value.setAttribute("height", videoHeight());
+      player.value.setAttribute('width', videoWidth())
+      player.value.setAttribute('height', videoHeight())
     }
-  }, 200);
+  }, 200)
 }
 </script>
 
