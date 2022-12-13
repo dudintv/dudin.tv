@@ -38,8 +38,8 @@ const hasMobileMenu = ref(false)
 const animMenuLeaf = ref({})
 
 onMounted(() => {
-  console.log('nuxtApp.$lottie =', nuxtApp.$lottie())
-  nuxtApp.$lottie().loadAnimation({
+  console.log('nuxtApp.$lottie =', nuxtApp.$lottie)
+  nuxtApp.$lottie.loadAnimation({
     container: document.getElementById('menu-burger'),
     name: 'menu-burger',
     renderer: 'svg',
@@ -49,7 +49,7 @@ onMounted(() => {
   })
 
   const feather = document.getElementById('feathers')
-  nuxtApp.$lottie().loadAnimation({
+  nuxtApp.$lottie.loadAnimation({
     container: feather,
     name: feather.id,
     renderer: 'svg',
@@ -59,7 +59,7 @@ onMounted(() => {
   })
   Array.from(document.getElementsByClassName('anim-selector')).forEach(
     (element) => {
-      const lottieAnim = nuxtApp.$lottie().loadAnimation({
+      const lottieAnim = nuxtApp.$lottie.loadAnimation({
         container: element,
         name: element.id,
         renderer: 'svg',

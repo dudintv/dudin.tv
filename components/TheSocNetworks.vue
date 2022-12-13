@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     loadLottie(name) {
-      const animation = nuxtApp.$lottie().loadAnimation({
+      const animation = nuxtApp.$lottie.loadAnimation({
         container: document.getElementById(name),
         renderer: 'svg',
         loop: true,
