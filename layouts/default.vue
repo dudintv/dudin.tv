@@ -15,7 +15,7 @@ const copyCode = ref()
 const animation = ref()
 
 onMounted(() => {
-  animation.value = nuxtApp.lottie.loadAnimation({
+  animation.value = nuxtApp.$lottie.loadAnimation({
     container: copyCode.value,
     renderer: 'svg',
     loop: false,

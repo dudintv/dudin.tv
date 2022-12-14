@@ -27,7 +27,7 @@ const bg = ref(null)
 watch(bg, () => {
   if (!bg.value) return
 
-  turnipPlayer.value = nuxtApp.lottie.loadAnimation({
+  turnipPlayer.value = nuxtApp.$lottie.loadAnimation({
     container: bg.value,
     renderer: 'svg',
     loop: true,

@@ -45,7 +45,7 @@ export default {
     //   path: '/animations/portfolio-bg.json'
     // })
 
-    nuxtApp.lottie
+    nuxtApp.$lottie
       .loadAnimation({
         container: this.$refs.flag,
         renderer: 'svg',

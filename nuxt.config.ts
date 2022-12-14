@@ -2,6 +2,9 @@
 
 export default defineNuxtConfig({
   ssr: false,
+  nitro: {
+    preset: 'service-worker',
+  },
   typescript: {
     strict: true,
   },
@@ -102,12 +105,14 @@ export default defineNuxtConfig({
       theme: 'github-dark',
       preload: ['r', 'xml', 'vb'],
     },
+    // documentDriven: true,
   },
   imports: {
     dirs: ['store'],
   },
-  // experimental: {
-  //   payloadExtraction: false,
-  // },
   plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
+  routeRules: {
+    '/contacts': { static: true },
+    '/links': { static: true },
+  },
 })

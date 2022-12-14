@@ -19,7 +19,7 @@ const articles = (
 })
 
 onMounted(() => {
-  nuxtApp.lottie
+  nuxtApp.$lottie
     .loadAnimation({
       container: document.getElementById('articles-bg'),
       renderer: 'svg',
