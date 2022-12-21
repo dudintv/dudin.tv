@@ -97,9 +97,7 @@ code {
   background-color: #2d2d2d;
   padding: 0.2rem;
   overflow: auto;
-  line-height: 1rem;
   max-width: 100%;
-  // display: inline-flex;
   overflow-inline: scroll;
   overflow-wrap: break-word;
   border-radius: 0.2rem;
@@ -120,6 +118,10 @@ pre[class*='language-'] {
   font-weight: normal;
   font-variant-ligatures: none;
   font-size: 0.8rem;
+}
+
+code code {
+  line-height: 0.3rem;
 }
 
 a {
