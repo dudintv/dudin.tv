@@ -21,10 +21,10 @@ export const useStore = defineStore('store', {
       }
 
       try {
-        const response = await fetch(
+        const { data: code } = await useFetch(
           `https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${script.path}/${script.file}`
         )
-        return await response.text()
+        return code.value as string
       } catch (error) {
         alert("ERROR: I couldn't get code from the GitHub repository.")
         console.warn('Something went wrong:', error)
