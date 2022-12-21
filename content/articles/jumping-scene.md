@@ -1,6 +1,6 @@
 ---
-title: "Jumping scene for seamless graphics"
-description: "Jumping scene useful for unpredictable seamless graphic flow."
+title: 'Jumping scene for seamless graphics'
+description: 'Jumping scene useful for unpredictable seamless graphic flow.'
 date: 2018-10-10 12:00:00 +0300
 tags: artist vcp
 ---

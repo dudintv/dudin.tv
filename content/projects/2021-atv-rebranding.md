@@ -1,6 +1,6 @@
 ---
-title: "Rebranding for ATV"
-description: "Graphic idea for TV channel renovation"
+title: 'Rebranding for ATV'
+description: 'Graphic idea for TV channel renovation'
 date: 2021-04-01 12:00:00 +0100
 image: ATV_Sinhron.jpg
 ---

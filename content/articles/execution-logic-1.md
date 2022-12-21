@@ -1,6 +1,6 @@
 ---
-title: "Execution Logic. Part 1"
-description: "Creating custom logic for custom vizrt template."
+title: 'Execution Logic. Part 1'
+description: 'Creating custom logic for custom vizrt template.'
 date: 2017-11-12 12:00:00 +0300
 tags: vcp vtw
 ---

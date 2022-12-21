@@ -1,6 +1,6 @@
 ---
-title: "MuzTV Awards 2019"
-description: "Set of Augment Reality Vizrt graphics for a enormous stadium in Russia."
+title: 'MuzTV Awards 2019'
+description: 'Set of Augment Reality Vizrt graphics for a enormous stadium in Russia.'
 date: 2019-06-01 12:00:00 +0100
 youtube: https://youtu.be/tFViRnyZ2F4
 ---

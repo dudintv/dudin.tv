@@ -1,6 +1,6 @@
 ---
-title: "Windowed mode for VizArtist 3"
-description: "Yes, you can make classic VizArtist working in window."
+title: 'Windowed mode for VizArtist 3'
+description: 'Yes, you can make classic VizArtist working in window.'
 date: 2015-04-07 12:08:10 +0300
 tags: artist
 ---

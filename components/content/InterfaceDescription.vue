@@ -36,15 +36,15 @@ export default {
   props: {
     image: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     src() {
-      return `/images${this.$route.path}/${this.image}`;
+      return `/images${this.$route.path}/${this.image}`
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -81,7 +81,7 @@ export default {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "interface description";
+  grid-template-areas: 'interface description';
   justify-content: center;
   position: relative;
   z-index: 20;
@@ -117,8 +117,8 @@ export default {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     grid-template-areas:
-      "interface"
-      "description";
+      'interface'
+      'description';
   }
 
   .interface {

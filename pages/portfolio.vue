@@ -44,11 +44,11 @@
 </template>
 
 <script setup>
-const projects = (await queryContent("/projects").find()).sort((a1, a2) => {
-  const data1 = new Date(a1.date);
-  const data2 = new Date(a2.date);
-  return data1 < data2 ? 1 : -1;
-});
+const projects = (await queryContent('/projects').find()).sort((a1, a2) => {
+  const data1 = new Date(a1.date)
+  const data2 = new Date(a2.date)
+  return data1 < data2 ? 1 : -1
+})
 </script>
 
 <style lang="scss" scoped>

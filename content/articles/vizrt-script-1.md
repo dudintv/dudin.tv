@@ -1,6 +1,6 @@
 ---
-title: "Vizrt script. Part 1"
-description: "To get non-existed functionality or remake existing with new options. Significantly speed up your work, including creating complex structures, keyframes, etc"
+title: 'Vizrt script. Part 1'
+description: 'To get non-existed functionality or remake existing with new options. Significantly speed up your work, including creating complex structures, keyframes, etc'
 date: 2019-01-04 12:00:00 +0300
 tags: artist
 ---

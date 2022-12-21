@@ -9,21 +9,28 @@
 </template>
 
 <script setup>
-const emit = defineEmits(["filterChanged"]);
+const emit = defineEmits(['filterChanged'])
 
-const store = useStore();
+const store = useStore()
 
-const options = ["all", "animation", "link", "logic", "transformation", "texture"];
-const selectedOption = ref("all");
+const options = [
+  'all',
+  'animation',
+  'link',
+  'logic',
+  'transformation',
+  'texture',
+]
+const selectedOption = ref('all')
 
 function gradByName(name) {
-  const gradient = store.gradients[name];
-  return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`;
+  const gradient = store.gradients[name]
+  return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`
 }
 
 function select(name) {
-  selectedOption.value = name;
-  emit("filterChanged", name);
+  selectedOption.value = name
+  emit('filterChanged', name)
 }
 </script>
 
@@ -33,7 +40,7 @@ function select(name) {
   margin-top: 0.7rem;
 
   &::after {
-    content: "";
+    content: '';
     width: 100%;
     height: 4px;
     background-color: transparent;

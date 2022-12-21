@@ -1,6 +1,6 @@
 ---
-title: "Startup options"
-description: "To run several VizArtist instances with different configs, or automatically load particular scene when VizEngine is started, you need this options."
+title: 'Startup options'
+description: 'To run several VizArtist instances with different configs, or automatically load particular scene when VizEngine is started, you need this options.'
 date: 2019-01-15 12:00:00 +0300
 tags: artist vtw
 ---
@@ -15,7 +15,7 @@ Default options:
 1. Right mouse click on a shortcut of the Artist / Engine / TemplateWizard (VTW)
 2. Find string field "Target"
 3. Check out the format. It must be `"<path to engine>" <startup options #1> <startup options #2>`. Every option is separated by space. For example: <br/> `"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y`
-4. Add your option through space. _Or delete existing one._ For example: <br/> `"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y  -g videowall.cfg`
+4. Add your option through space. _Or delete existing one._ For example: <br/> `"C:\Program Files\Vizrt\Viz3\viz.exe" -u1 -y -g videowall.cfg`
 
 Each option starts with the minus sign "-". If the option has a parameter, it writes after the option definition separated by space.
 

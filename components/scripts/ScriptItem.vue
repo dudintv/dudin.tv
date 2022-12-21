@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import Color from "color";
-const store = useStore();
+import Color from 'color'
+const store = useStore()
 
 export default {
   props: {
@@ -53,39 +53,39 @@ export default {
   },
   methods: {
     slug() {
-      return this.script._path;
+      return this.script._path
     },
     permalink() {
-      return `scripts/${this.slug()}`;
+      return `scripts/${this.slug()}`
     },
     thumbnailUrl() {
-      return `/images${this.slug()}/thumbnail.svg`;
+      return `/images${this.slug()}/thumbnail.svg`
     },
     gradByName(name) {
-      const gradient = store.gradients[name];
-      return `background: linear-gradient(10deg, ${gradient[0]}, ${gradient[1]})`;
+      const gradient = store.gradients[name]
+      return `background: linear-gradient(10deg, ${gradient[0]}, ${gradient[1]})`
     },
     darkGradByName(name) {
-      const gradient = store.gradients[name];
-      const start = Color(gradient[0]).darken(0.6).desaturate(0.5).hex();
-      const end = Color(gradient[1]).darken(0.6).desaturate(0.5).hex();
-      return [start, end];
+      const gradient = store.gradients[name]
+      const start = Color(gradient[0]).darken(0.6).desaturate(0.5).hex()
+      const end = Color(gradient[1]).darken(0.6).desaturate(0.5).hex()
+      return [start, end]
     },
     shadowGradByName(name) {
-      const gradient = store.gradients[name];
-      const start = Color(gradient[0]).darken(0.8).hex();
-      const end = Color(gradient[1]).darken(0.8).hex();
-      return [start, end];
+      const gradient = store.gradients[name]
+      const start = Color(gradient[0]).darken(0.8).hex()
+      const end = Color(gradient[1]).darken(0.8).hex()
+      return [start, end]
     },
     colorByName(name) {
-      const gradient = store.gradients[name];
-      return `color: ${gradient[0]}`;
+      const gradient = store.gradients[name]
+      return `color: ${gradient[0]}`
     },
     // copyCode(script) {
     //   this.$store.dispatch("copyCode", script);
     // },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

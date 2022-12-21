@@ -11,20 +11,24 @@ export default {
   props: {
     name: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     src() {
-      return `/images${this.$route.path}/${this.name}`;
+      return `/images${this.$route.path}/${this.name}`
     },
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .file {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(53, 6, 6, 0.15) 100%),
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(53, 6, 6, 0.15) 100%
+    ),
     linear-gradient(108.04deg, #6c3392 0%, #79071c 100%);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 1rem;

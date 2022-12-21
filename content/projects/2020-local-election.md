@@ -1,6 +1,6 @@
 ---
-title: "Branding of the local Election"
-description: "Graphic idea and set of Lower Thirds & AR graphics in Bosnia and Herzegovina."
+title: 'Branding of the local Election'
+description: 'Graphic idea and set of Lower Thirds & AR graphics in Bosnia and Herzegovina.'
 date: 2020-09-01 12:00:00 +0100
 youtube: https://youtu.be/9KekPt0Goxk
 ---

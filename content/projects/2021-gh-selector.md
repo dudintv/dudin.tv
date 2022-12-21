@@ -1,6 +1,6 @@
 ---
-title: "GH geom selector in HTML"
-description: "Part of big remote graphics control solution via Vue.js web-page"
+title: 'GH geom selector in HTML'
+description: 'Part of big remote graphics control solution via Vue.js web-page'
 date: 2021-04-01 12:00:00 +0100
 image: gh-selector-interface.png
 published: true

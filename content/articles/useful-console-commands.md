@@ -1,6 +1,6 @@
 ---
-title: "Useful console commands"
-description: "For animation and control parameter"
+title: 'Useful console commands'
+description: 'For animation and control parameter'
 date: 2021-12-21 12:00:00 +0300
 tags: artist
 ---

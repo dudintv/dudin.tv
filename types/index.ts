@@ -1,4 +1,4 @@
 export interface Script {
-  path: string;
-  file: string;
+  path: string
+  file: string
 }
