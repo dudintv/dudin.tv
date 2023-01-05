@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  ssr: false,
-  nitro: {
-    preset: 'service-worker',
-  },
+  // ssr: false,
+  // nitro: {
+  //   preset: 'service-worker',
+  // },
   typescript: {
     strict: true,
   },
@@ -111,8 +111,8 @@ export default defineNuxtConfig({
     dirs: ['store'],
   },
   plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
-  routeRules: {
-    '/contacts': { static: true },
-    '/links': { static: true },
-  },
+  // routeRules: {
+  //   '/contacts': { static: true },
+  //   '/links': { static: true },
+  // },
 })
