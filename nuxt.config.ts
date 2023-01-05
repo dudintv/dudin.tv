@@ -111,8 +111,8 @@ export default defineNuxtConfig({
     dirs: ['store'],
   },
   plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
-  routeRules: {
-    '/contacts': { static: true },
-    '/links': { static: true },
-  },
+  // routeRules: {
+  //   '/contacts': { static: true },
+  //   '/links': { static: true },
+  // },
 })
