@@ -1,10 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  ssr: true,
-  // nitro: {
-  //   preset: 'service-worker',
-  // },
+  ssr: false,
+  nitro: {
+    preset: 'service-worker',
+  },
   typescript: {
     strict: true,
   },
