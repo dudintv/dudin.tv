@@ -9,47 +9,47 @@
     span.mt-2.mb-10.font-bold dudin.tv
 </template>
 
-<script>
+<script setup>
 const nuxtApp = useNuxtApp()
 
-export default {
-  data: () => ({
-    youtube: null,
-    facebook: null,
-    linkedin: null,
-    youtube_hover: false,
-    facebook_hover: false,
-    linkedin_hover: false,
-  }),
-  mounted() {
-    this.youtube = this.loadLottie('youtube')
-    this.facebook = this.loadLottie('facebook')
-    this.linkedin = this.loadLottie('linkedin')
-  },
-  methods: {
-    loadLottie(name) {
-      const animation = nuxtApp.$lottie.loadAnimation({
-        container: document.getElementById(name),
-        renderer: 'svg',
-        loop: true,
-        autoplay: false,
-        path: `/animations/dudintv-${name}.json`,
-      })
-      animation.addEventListener('loopComplete', () => {
-        if (!this[`${name}_hover`]) {
-          animation.stop()
-        }
-      })
-      return animation
-    },
-    hover(name) {
-      this[name].play()
-      this[`${name}_hover`] = true
-    },
-    leave(name) {
-      this[`${name}_hover`] = false
-    },
-  },
+const data = reactive({
+  youtube: null,
+  facebook: null,
+  linkedin: null,
+  youtube_hover: false,
+  facebook_hover: false,
+  linkedin_hover: false,
+})
+
+onMounted(() => {
+  data.youtube = loadLottie('youtube')
+  data.facebook = loadLottie('facebook')
+  data.linkedin = loadLottie('linkedin')
+})
+
+function loadLottie(name) {
+  const animation = nuxtApp.$lottie.loadAnimation({
+    container: document.getElementById(name),
+    renderer: 'svg',
+    loop: true,
+    autoplay: false,
+    path: `/animations/dudintv-${name}.json`,
+  })
+  animation.addEventListener('loopComplete', () => {
+    if (!data[`${name}_hover`]) {
+      animation.stop()
+    }
+  })
+  return animation
+}
+
+function hover(name) {
+  data[name].play()
+  data[`${name}_hover`] = true
+}
+
+function leave(name) {
+  data[`${name}_hover`] = false
 }
 </script>
 
