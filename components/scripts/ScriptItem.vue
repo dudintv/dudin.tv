@@ -82,7 +82,7 @@ export default {
       return `color: ${gradient[0]}`
     },
     copyCode(script) {
-      this.$store.dispatch('copyCode', script)
+      store.copyCode(script)
     },
   },
 }
