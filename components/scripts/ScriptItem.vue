@@ -81,9 +81,9 @@ export default {
       const gradient = store.gradients[name]
       return `color: ${gradient[0]}`
     },
-    // copyCode(script) {
-    //   this.$store.dispatch("copyCode", script);
-    // },
+    copyCode(script) {
+      this.$store.dispatch('copyCode', script)
+    },
   },
 }
 </script>

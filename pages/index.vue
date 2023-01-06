@@ -1,9 +1,9 @@
 <template lang="pug">
 .content
   TheIntro
-  .under-construction.border.border-4.border-yellow-500.text-center.mx-4
-    h2.uppercase.text-yellow-300.mt-6.mb-2 Under construction
-    p <code>Copy</code> button doesn't work. Please use <code>Script home page</code> button.
+  //- .under-construction.border.border-4.border-yellow-500.text-center.mx-4
+  //-   h2.uppercase.text-yellow-300.mt-6.mb-2 Under construction
+  //-   p <code>Copy</code> button doesn't work. Please use <code>Script home page</code> button.
   .flex.items-center.justify-around.flex-wrap
     ScriptsTheScriptsFilter.mx-4(@filterChanged="updateFilter")
     .flex.items-start.mx-4.mt-4
