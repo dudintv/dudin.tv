@@ -120,10 +120,6 @@ pre[class*='language-'] {
   font-size: 0.8rem;
 }
 
-code code {
-  line-height: 0.3rem;
-}
-
 a {
   color: #78beff;
   text-decoration: none;
