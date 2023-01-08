@@ -33,12 +33,10 @@ const highlightedCode = ref('')
 async function getCode() {
   code.value = await store.getCode(props.script)
 
-  console.log('getHighlighter =', getHighlighter)
   const highlighter = await getHighlighter({
     theme: 'nord',
     langs: ['vb'],
   })
-  console.log('highlighter =', highlighter)
   highlightedCode.value = highlighter.codeToHtml(code.value, { lang: 'vb' })
 }
 </script>
@@ -103,5 +101,9 @@ details {
   width: 40px;
   height: 40px;
   animation: spin 2s linear infinite;
+}
+
+:deep(pre code .line) {
+  display: inline;
 }
 </style>
