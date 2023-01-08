@@ -45,6 +45,14 @@ onMounted(() => {
     autoplay: true,
     path: '/animations/menu-burger.json',
   })
+  animMenuLeaf.value = nuxtApp.$lottie.loadAnimation({
+    container: document.getElementById('menu-leaf'),
+    name: 'menu-leaf',
+    renderer: 'svg',
+    loop: false,
+    autoplay: false,
+    path: '/animations/menu-leaf.json',
+  })
 
   const feather = document.getElementById('feathers')
   nuxtApp.$lottie.loadAnimation({
