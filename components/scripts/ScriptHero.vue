@@ -120,7 +120,7 @@ function copyCode() {
     left: -2rem;
   }
 
-  .tip {
+  .copy-code {
     display: none;
   }
 }
