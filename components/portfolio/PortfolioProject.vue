@@ -13,79 +13,72 @@
       MediaYoutube.z-10(v-if="youtube" :url="youtube" :width="youtubeWidth")
 </template>
 
-<script>
+<script setup>
 const nuxtApp = useNuxtApp()
 
-export default {
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    youtube: {
-      type: String,
-      default: '',
-      required: false,
-    },
-    image: {
-      type: String,
-      default: '',
-      required: false,
-    },
-    reverse: {
-      type: Boolean,
-      default: false,
-    },
+const props = defineProps({
+  id: {
+    type: String,
+    required: true,
   },
-  data() {
-    return {
-      youtubeWidth: 650,
-      mediaQueryClasses: '',
-    }
+  youtube: {
+    type: String,
+    default: '',
+    required: false,
   },
-  computed: {
-    mediaQueryClassesWithReverse() {
-      const reverse = this.reverse ? 'reverse' : ''
-      return `${reverse} ${this.mediaQueryClasses}`
-    },
-    imagePath() {
-      return `/images${this.id}/${this.image}`
-    },
+  image: {
+    type: String,
+    default: '',
+    required: false,
   },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.windowSizeChanged)
-      this.windowSizeChanged()
+  reverse: {
+    type: Boolean,
+    default: false,
+  },
+})
+
+const flag = ref()
+const youtubeWidth = ref(650)
+const mediaQueryClasses = ref('')
+
+const mediaQueryClassesWithReverse = computed(
+  () => `${props.reverse ? 'reverse' : ''} ${mediaQueryClasses.value}`
+)
+
+const imagePath = computed(() => `/images${props.id}/${props.image}`)
+
+onMounted(() => {
+  nextTick(() => {
+    window.addEventListener('resize', windowSizeChanged)
+    windowSizeChanged()
+  })
+
+  const animationFile = props.reverse
+    ? 'project-flag-right.json'
+    : 'project-flag-left.json'
+
+  nuxtApp.$lottie
+    .loadAnimation({
+      container: flag.value,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: `/animations/${animationFile}`,
     })
+    .setSpeed(2)
+})
 
-    const animationFile = this.reverse
-      ? 'project-flag-right.json'
-      : 'project-flag-left.json'
-
-    nuxtApp.$lottie
-      .loadAnimation({
-        container: this.$refs.flag,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: `/animations/${animationFile}`,
-      })
-      .setSpeed(2)
-  },
-  methods: {
-    windowSizeChanged() {
-      if (document.body.clientWidth < 900) {
-        this.youtubeWidth = 0.8 * document.body.clientWidth
-        this.mediaQueryClasses = 'upto-900'
-      } else if (document.body.clientWidth < 1240) {
-        this.youtubeWidth = 500
-        this.mediaQueryClasses = 'upto-1240'
-      } else {
-        this.youtubeWidth = 650
-        this.mediaQueryClasses = ''
-      }
-    },
-  },
+function windowSizeChanged() {
+  if (document.body.clientWidth < 900) {
+    youtubeWidth.value = 0.8 * document.body.clientWidth
+    mediaQueryClasses.value = 'upto-900'
+  } else if (document.body.clientWidth < 1240) {
+    youtubeWidth.value = 500
+    mediaQueryClasses.value = 'upto-1240'
+  } else {
+    youtubeWidth.value = 650
+    mediaQueryClasses.value = ''
+  }
 }
 </script>
 
@@ -162,6 +155,7 @@ h3 {
 }
 
 .flag {
+  max-width: 100wv;
   @apply absolute z-0 right-0;
 
   width: 550px;
@@ -169,7 +163,7 @@ h3 {
 
   &.reverse {
     left: 0;
-    top: -160px;
+    top: -200px;
   }
 
   &.upto-1240 {
@@ -184,11 +178,11 @@ h3 {
 
   &.upto-900 {
     width: 114vw;
-    top: -320px;
+    top: -260px;
 
     &.reverse {
       width: 110vw;
-      top: -210px;
+      top: -190px;
       left: 0;
     }
   }

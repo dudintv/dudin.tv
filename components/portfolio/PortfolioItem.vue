@@ -11,69 +11,63 @@
             slot
 </template>
 
-<script>
+<script setup>
 const nuxtApp = useNuxtApp()
 
-export default {
-  // components: {
-  //   MediaYoutube,
-  // },
-  props: {
-    youtube: {
-      type: String,
-      required: true,
-    },
+const props = defineProps({
+  youtube: {
+    type: String,
+    required: true,
   },
-  data() {
-    return {
-      youtubeWidth: 650,
-      mediaQueryClasses: '',
-      flagStyle: '',
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.windowSizeChanged)
-      this.windowSizeChanged()
+})
+
+const bg = ref()
+const flag = ref()
+const youtubeWidth = ref(650)
+const mediaQueryClasses = ref('')
+const flagStyle = ref('')
+
+onMounted(() => {
+  nextTick(() => {
+    window.addEventListener('resize', windowSizeChanged)
+    windowSizeChanged()
+  })
+
+  nuxtApp.$lottie.loadAnimation({
+    container: bg.value,
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '/animations/portfolio-bg.json',
+  })
+
+  nuxtApp.$lottie
+    .loadAnimation({
+      container: flag.value,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/animations/project-flag-right.json',
     })
+    .setSpeed(2)
+})
 
-    // lottie.loadAnimation({
-    //   container: this.$refs.bg,
-    //   renderer: 'svg',
-    //   loop: true,
-    //   autoplay: true,
-    //   path: '/animations/portfolio-bg.json'
-    // })
-
-    nuxtApp.$lottie
-      .loadAnimation({
-        container: this.$refs.flag,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        path: '/animations/project-flag-right.json',
-      })
-      .setSpeed(2)
-  },
-  methods: {
-    windowSizeChanged() {
-      if (document.body.clientWidth < 900) {
-        this.youtubeWidth = 0.8 * document.body.clientWidth
-        this.mediaQueryClasses = 'upto-900'
-        this.flagStyle =
-          'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px'
-      } else if (document.body.clientWidth < 1240) {
-        this.youtubeWidth = 500
-        this.mediaQueryClasses = 'upto-1240'
-        this.flagStyle = ''
-      } else {
-        // document.body.clientWidth > 1240
-        this.youtubeWidth = 650
-        this.mediaQueryClasses = ''
-        this.flagStyle = ''
-      }
-    },
-  },
+function windowSizeChanged() {
+  if (document.body.clientWidth < 900) {
+    youtubeWidth.value = 0.8 * document.body.clientWidth
+    mediaQueryClasses.value = 'upto-900'
+    flagStyle.value =
+      'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px'
+  } else if (document.body.clientWidth < 1240) {
+    youtubeWidth.value = 500
+    mediaQueryClasses.value = 'upto-1240'
+    flagStyle.value = ''
+  } else {
+    // document.body.clientWidth > 1240
+    youtubeWidth.value = 650
+    mediaQueryClasses.value = ''
+    flagStyle.value = ''
+  }
 }
 </script>
 

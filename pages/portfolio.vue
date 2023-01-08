@@ -3,18 +3,18 @@
   .hero.container.mx-auto.w-4_5.xl--w-3_5.mb-24
     .personal.flex.items-start.md--items-center.flex-col.md--flex-row
       img.w-48.mx-auto.md--mx-0(src="/common/dudin-dmitry-2021.jpg")
-      p.my-8.md--mx-8
+      p.my-8.mx-4.md--mx-8
         | I'm a graphic designer, script writer and fullstack web developer.
         br
         br
         | I have experience with Vizrt from&nbsp;2007
         br
         | and I'm a <a href="https://www.vizrt.com/community/viz-university/certified-professionals/dmitry-dudin">Vizrt Certified Pro Viz Artist Designer</a>
-    .details
+    .details.mx-4
       p.md--my-8 I use VizArtist, VizTrio, VizDirector (VizContentPilot), PilotEdge and Multiplay for creating Lowerthirds, Fullscreen, Virtual and Agument Reality graphics and for robotic virtual studio with UX-perfect control panels as usefull as possible with custom scripts.
 
   h1.text-center.mt-16.mb-16 My last projects
-  .project-items.flex.flex-col.items-center
+  .project-items.flex.flex-col.items-center.gap-y-24.py-16.-my-12.overflow-hidden
 
     template(v-for="(project, index) in projects")
       PortfolioProject(:id="project._path" :youtube="project.youtube" :image="project.image" :reverse="index % 2 === 0" )
@@ -24,7 +24,7 @@
         nuxt-link(:to="project._path") ~ watch more details
 
   h1.text-center.mt-64.mb-16 My ancient portfolio
-  .portfolio-items.flex.flex-col.items-center
+  .portfolio-items.flex.flex-col.items-center.overflow-hidden
     PortfolioItem(youtube="https://youtu.be/4xH6bjEoEq8")
       small Portfolio
       h3 Lower Thirds & Fullscreen
