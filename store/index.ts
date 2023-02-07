@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
-import { Script } from '@/types'
+import { defineStore } from 'pinia';
+import { Script } from '@/types';
 
 export const useStore = defineStore('store', {
   state: () => ({
@@ -16,34 +16,34 @@ export const useStore = defineStore('store', {
   actions: {
     async getCode(script: Script): Promise<string | undefined> {
       if (!script.path || !script.file) {
-        console.warn("There isn't a script path URL")
-        return ''
+        console.warn("There isn't a script path URL");
+        return '';
       }
 
       try {
         const { data: code } = await useFetch(
           `https://raw.githubusercontent.com/dudintv/vizartist-scripts/master/${script.path}/${script.file}`
-        )
-        return code.value as string
+        );
+        return code.value as string;
       } catch (error) {
-        alert("ERROR: I couldn't get code from the GitHub repository.")
-        console.warn('Something went wrong:', error)
+        alert("ERROR: I couldn't get code from the GitHub repository.");
+        console.warn('Something went wrong:', error);
       }
     },
     async copyCode(script: Script): Promise<void> {
-      const code = await this.getCode(script)
-      if (!code) return
+      const code = await this.getCode(script);
+      if (!code) return;
 
-      await navigator.clipboard.writeText(code)
+      await navigator.clipboard.writeText(code);
 
-      if (!this.copyCodeAnim) return
-      this.copyCodeAnim.wrapper.style = 'display: block'
-      this.copyCodeAnim.goToAndStop(0, true)
-      this.copyCodeAnim.play()
+      if (!this.copyCodeAnim) return;
+      this.copyCodeAnim.wrapper.style = 'display: block';
+      this.copyCodeAnim.goToAndStop(0, true);
+      this.copyCodeAnim.play();
     },
   },
-})
+});
 
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useStore, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useStore, import.meta.hot));
 }
