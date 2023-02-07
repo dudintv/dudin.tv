@@ -75,7 +75,15 @@ To highlight different languages you can use "language tag". Working examples:
 ```r — nice for console commands
 ````
 
-# Components
+Example:
+
+````
+```basic
+Dim i As Integer
+```
+````
+
+# Custom components for Scripts and Articles
 
 ## InterfaceDescription
 
@@ -97,7 +105,7 @@ Simple plain text
 
 ## WideWidthContainer
 
-Use it for for wide-width content, like the "Full-Bleed Layout"
+Use it for for full-width content, like the "Full-Bleed Layout"
 
 ```
 ::WideWidthContainer
@@ -114,10 +122,16 @@ Use it for static images (jpg, png, svg).
 
 ```
 // in pug template:
-media-image(name="image.svg")
+media-image(name="xxx.svg")
 
 // in Markdown file:
-:media-image{name="image.png"}
+:media-image{name="xxx.png"}
+```
+
+How to insert a static image (for components):
+
+```
+img(:src="`/images/icons/facebook.png`" width="32" height="32")
 ```
 
 ## MediaYoutube
@@ -132,12 +146,12 @@ Use it to embed YouTube video by link or video-id.
 
 ## MediaFile
 
-Use it to render beautiful link to download file. File will be looking in to corresponding path:
+Use it to render beautiful button to download a file.
 
-- **File.via** for **{script}** should be stored in **public/images/scripts/{script name}/File.via**
-- **File.via** for **{article}** article should be stored in **public/images/articles/{article name}/File.via**
+- `File.via` for **{script}** should be stored in `public/images/scripts/{script name}/File.via`
+- `File.via` for **{article}** article should be stored in `public/images/articles/{article name}/File.via`
 
-Example:
+Example for a markdown file:
 
 ```
 :media-file{name="File.via"}
