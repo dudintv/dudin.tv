@@ -54,26 +54,26 @@
 </template>
 
 <script setup>
-const store = useStore()
+const store = useStore();
 
 const props = defineProps({
   script: {
     type: Object,
     required: true,
   },
-})
+});
 
-const examples = []
+const examples = [];
 
 const gradColorBegin = computed(
   () => store.gradients[props.script.category]?.[0] || ''
-)
+);
 const gradColorEnd = computed(
   () => store.gradients[props.script.category]?.[1] || ''
-)
+);
 
 function copyCode() {
-  store.copyCode(props.script)
+  store.copyCode(props.script);
 }
 </script>
 

@@ -19,13 +19,13 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
-const turnipPlayer = ref(null)
-const bg = ref(null)
+const turnipPlayer = ref(null);
+const bg = ref(null);
 
 watch(bg, () => {
-  if (!bg.value) return
+  if (!bg.value) return;
 
   turnipPlayer.value = nuxtApp.$lottie.loadAnimation({
     container: bg.value,
@@ -33,12 +33,12 @@ watch(bg, () => {
     loop: true,
     autoplay: true,
     path: '/animations/bg-turnip.json',
-  })
-})
+  });
+});
 
 onBeforeUnmount(() => {
-  turnipPlayer.value?.destroy?.()
-})
+  turnipPlayer.value?.destroy?.();
+});
 </script>
 
 <style lang="scss" scoped>

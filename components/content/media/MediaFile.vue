@@ -16,10 +16,10 @@ export default {
   },
   computed: {
     src() {
-      return `/images${this.$route.path}/${this.name}`
+      return `/images${this.$route.path}/${this.name}`;
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

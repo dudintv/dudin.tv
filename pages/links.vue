@@ -26,13 +26,13 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
-const rockPlayer = ref({})
-const bg = ref(null)
+const rockPlayer = ref({});
+const bg = ref(null);
 
 watch(bg, () => {
-  if (!bg.value) return
+  if (!bg.value) return;
 
   rockPlayer.value = nuxtApp.$lottie
     .loadAnimation({
@@ -43,12 +43,12 @@ watch(bg, () => {
       path: '/animations/bg-rock.json',
       speed: 500,
     })
-    .setSpeed(3)
-})
+    .setSpeed(3);
+});
 
 onUnmounted(() => {
-  rockPlayer.value?.destroy?.()
-})
+  rockPlayer.value?.destroy?.();
+});
 </script>
 
 <style lang="scss" scoped>

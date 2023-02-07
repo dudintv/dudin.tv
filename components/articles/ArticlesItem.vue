@@ -16,20 +16,20 @@ const props = defineProps({
     type: Object,
     required: true,
   },
-})
+});
 
 const icons = computed(() => {
-  return props.article.tags.split(' ')
-})
+  return props.article.tags.split(' ');
+});
 
 const displayDate = computed(() => {
-  const date = new Date(props.article.date)
+  const date = new Date(props.article.date);
   return date.toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  })
-})
+  });
+});
 </script>
 
 <style lang="scss" scoped>

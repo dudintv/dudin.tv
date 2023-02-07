@@ -6,17 +6,17 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
 const articles = (
   await queryContent('/articles')
     .only(['_path', 'date', 'title', 'description', 'tags'])
     .find()
 ).sort((a1, a2) => {
-  const data1 = new Date(a1.date)
-  const data2 = new Date(a2.date)
-  return data1 < data2 ? 1 : -1
-})
+  const data1 = new Date(a1.date);
+  const data2 = new Date(a2.date);
+  return data1 < data2 ? 1 : -1;
+});
 
 onMounted(() => {
   nuxtApp.$lottie
@@ -28,8 +28,8 @@ onMounted(() => {
       path: '/animations/bg-rock.json',
       speed: 500,
     })
-    .setSpeed(2)
-})
+    .setSpeed(2);
+});
 </script>
 
 <style lang="scss" scoped>

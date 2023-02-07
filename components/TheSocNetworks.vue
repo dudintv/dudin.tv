@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
 const data = reactive({
   youtube: null,
@@ -19,13 +19,13 @@ const data = reactive({
   youtube_hover: false,
   facebook_hover: false,
   linkedin_hover: false,
-})
+});
 
 onMounted(() => {
-  data.youtube = loadLottie('youtube')
-  data.facebook = loadLottie('facebook')
-  data.linkedin = loadLottie('linkedin')
-})
+  data.youtube = loadLottie('youtube');
+  data.facebook = loadLottie('facebook');
+  data.linkedin = loadLottie('linkedin');
+});
 
 function loadLottie(name) {
   const animation = nuxtApp.$lottie.loadAnimation({
@@ -34,22 +34,22 @@ function loadLottie(name) {
     loop: true,
     autoplay: false,
     path: `/animations/dudintv-${name}.json`,
-  })
+  });
   animation.addEventListener('loopComplete', () => {
     if (!data[`${name}_hover`]) {
-      animation.stop()
+      animation.stop();
     }
-  })
-  return animation
+  });
+  return animation;
 }
 
 function hover(name) {
-  data[name].play()
-  data[`${name}_hover`] = true
+  data[name].play();
+  data[`${name}_hover`] = true;
 }
 
 function leave(name) {
-  data[`${name}_hover`] = false
+  data[`${name}_hover`] = false;
 }
 </script>
 

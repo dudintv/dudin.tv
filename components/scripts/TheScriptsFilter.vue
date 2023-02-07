@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
-const emit = defineEmits(['filterChanged'])
+const emit = defineEmits(['filterChanged']);
 
-const store = useStore()
+const store = useStore();
 
 const options = [
   'all',
@@ -20,17 +20,17 @@ const options = [
   'logic',
   'transformation',
   'texture',
-]
-const selectedOption = ref('all')
+];
+const selectedOption = ref('all');
 
 function gradByName(name) {
-  const gradient = store.gradients[name]
-  return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`
+  const gradient = store.gradients[name];
+  return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`;
 }
 
 function select(name) {
-  selectedOption.value = name
-  emit('filterChanged', name)
+  selectedOption.value = name;
+  emit('filterChanged', name);
 }
 </script>
 

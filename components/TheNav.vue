@@ -26,15 +26,15 @@ header.header
       NuxtLink(to="/contacts") Contacts
 </template>
 
-<script setup>
-const nuxtApp = useNuxtApp()
-const route = useRoute()
+<script setup lang="ts">
+const nuxtApp = useNuxtApp();
+const route = useRoute();
 
-const currentNav = ref('scripts')
-const navNames = ['scripts', 'articles', 'links', 'portfolio', 'contacts']
-const animSelectors = ref([])
-const hasMobileMenu = ref(false)
-const animMenuLeaf = ref({})
+const currentNav = ref('scripts');
+const navNames = ['scripts', 'articles', 'links', 'portfolio', 'contacts'];
+const animSelectors = ref<{ id: string; anim: any }[]>([]);
+const hasMobileMenu = ref(false);
+const animMenuLeaf = ref({});
 
 onMounted(() => {
   nuxtApp.$lottie.loadAnimation({
@@ -44,7 +44,7 @@ onMounted(() => {
     loop: true,
     autoplay: true,
     path: '/animations/menu-burger.json',
-  })
+  });
   animMenuLeaf.value = nuxtApp.$lottie.loadAnimation({
     container: document.getElementById('menu-leaf'),
     name: 'menu-leaf',
@@ -52,17 +52,17 @@ onMounted(() => {
     loop: false,
     autoplay: false,
     path: '/animations/menu-leaf.json',
-  })
+  });
 
-  const feather = document.getElementById('feathers')
+  const feather = document.getElementById('feathers');
   nuxtApp.$lottie.loadAnimation({
     container: feather,
-    name: feather.id,
+    name: feather?.id,
     renderer: 'svg',
     loop: true,
     autoplay: true,
     path: '/animations/header-feathers.json',
-  })
+  });
   Array.from(document.getElementsByClassName('anim-selector')).forEach(
     (element) => {
       const lottieAnim = nuxtApp.$lottie.loadAnimation({
@@ -72,100 +72,104 @@ onMounted(() => {
         loop: false,
         autoplay: false,
         path: '/animations/selected-menu-item.json',
-      })
-      lottieAnim.addEventListener('complete', function (anim) {
+      });
+      lottieAnim.addEventListener('complete', function (anim: any) {
         if (lottieAnim.firstFrame + lottieAnim.currentFrame >= 300) {
-          lottieAnim.currentFrame = -100
+          lottieAnim.currentFrame = -100;
         }
-      })
+      });
       animSelectors.value.push({
         id: element.id,
         anim: lottieAnim,
-      })
+      });
     }
-  )
-  currentNav.value = route.name
+  );
+  currentNav.value = route.name as string;
   if (currentNav.value === 'index') {
-    currentNav.value = 'scripts'
+    currentNav.value = 'scripts';
   }
-  setupPosAllAnimSelectors()
-  window.onresize = setupPosAllAnimSelectors
-  setSelected(currentNav.value)
-})
+  setupPosAllAnimSelectors();
+  window.onresize = setupPosAllAnimSelectors;
+  setSelected(currentNav.value);
+});
 
 watch(currentNav, (newValue) => {
-  setSelected(newValue)
-})
+  setSelected(newValue);
+});
 
 watch(hasMobileMenu, (newValue) => {
-  const menuMobile = document.getElementById('menu-mobile')
-  const menuMobileLinks = document.getElementById('menu-mobile-links')
-  const body = document.body || document.getElementsByTagName('body')[0]
+  const menuMobile = document.getElementById('menu-mobile');
+  const menuMobileLinks = document.getElementById('menu-mobile-links');
+  const body = document.body || document.getElementsByTagName('body')[0];
+
+  if (!menuMobile || !menuMobileLinks || !body)
+    throw new Error("Can't find a html element");
+
   if (newValue) {
-    menuMobile.style.display = 'block'
-    menuMobileLinks.classList.add('show')
-    animMenuLeaf.value.playSegments([0, 50], true)
-    body.style = 'overflow:hidden'
+    menuMobile.style.display = 'block';
+    menuMobileLinks.classList.add('show');
+    (animMenuLeaf.value as any).playSegments([0, 50], true);
+    body.style = 'overflow:hidden';
   } else {
     setTimeout(() => {
-      menuMobile.style.display = 'none'
-    }, 500)
-    menuMobileLinks.classList.remove('show')
+      menuMobile.style.display = 'none';
+    }, 500);
+    menuMobileLinks.classList.remove('show');
     animMenuLeaf.value.playSegments(
       [animMenuLeaf.value.currentFrame, 100],
       true
-    )
-    body.style = 'overflow:auto'
+    );
+    body.style = 'overflow:auto';
   }
-})
+});
 
-function clickNav(obj) {
-  if (obj.target.id) {
-    currentNav.value = obj.target.id
+function clickNav(navItem) {
+  if (navItem.target.id) {
+    currentNav.value = navItem.target.id;
   }
 }
 function setupPosAllAnimSelectors() {
   navNames.forEach((name) => {
-    const animSelector = document.getElementById(`anim-${name}`)
-    const navLink = document.getElementById(name)
-    animSelector.style.left = `${navLink.getBoundingClientRect().left - 80}px`
-  })
+    const animSelector = document.getElementById(`anim-${name}`);
+    const navLink = document.getElementById(name);
+    animSelector.style.left = `${navLink.getBoundingClientRect().left - 80}px`;
+  });
 }
 function setSelected(theName) {
   navNames.forEach((name) => {
-    const navLink = document.getElementById(name)
+    const navLink = document.getElementById(name);
     if (theName === name) {
-      navLink.classList.add('selected')
-      playTakeAnim(name)
+      navLink.classList.add('selected');
+      playTakeAnim(name);
     } else {
-      navLink.classList.remove('selected')
-      playTakeoutAnim(name)
+      navLink.classList.remove('selected');
+      playTakeoutAnim(name);
     }
-  })
+  });
 }
 function playTakeAnim(name) {
   const animSelector = animSelectors.value.find((element) => {
-    return element.id === `anim-${name}`
-  }).anim
+    return element.id === `anim-${name}`;
+  }).anim;
   if (animSelector.isLoaded) {
-    animSelector.playSegments([0, 200], true)
+    animSelector.playSegments([0, 200], true);
   } else {
     animSelector.addEventListener('data_ready', function () {
-      animSelector.playSegments([0, 200], true)
-    })
+      animSelector.playSegments([0, 200], true);
+    });
   }
 }
 function playTakeoutAnim(name) {
   const animSelector = animSelectors.value.find((element) => {
-    return element.id === `anim-${name}`
-  }).anim
+    return element.id === `anim-${name}`;
+  }).anim;
 
   if (animSelector.currentFrame > 0 && animSelector.currentFrame < 300) {
-    animSelector.playSegments([animSelector.currentFrame, 302], true)
+    animSelector.playSegments([animSelector.currentFrame, 302], true);
   }
 }
 function toggleMobileMenu() {
-  hasMobileMenu.value = !hasMobileMenu.value
+  hasMobileMenu.value = !hasMobileMenu.value;
 }
 </script>
 

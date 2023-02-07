@@ -11,7 +11,7 @@ section.article.container.mx-auto
 
 <script setup>
 function tagNames(tagsString) {
-  return tagsString.split(' ')
+  return tagsString.split(' ');
 }
 </script>
 

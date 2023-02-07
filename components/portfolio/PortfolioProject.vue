@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
 const props = defineProps({
   id: {
@@ -35,27 +35,25 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-})
+});
 
-const flag = ref()
-const youtubeWidth = ref(650)
-const mediaQueryClasses = ref('')
+const flag = ref('');
+const youtubeWidth = ref(650);
+const mediaQueryClasses = ref('');
 
 const mediaQueryClassesWithReverse = computed(
   () => `${props.reverse ? 'reverse' : ''} ${mediaQueryClasses.value}`
-)
+);
 
-const imagePath = computed(() => `/images${props.id}/${props.image}`)
+const imagePath = computed(() => `/images${props.id}/${props.image}`);
 
 onMounted(() => {
   nextTick(() => {
-    window.addEventListener('resize', windowSizeChanged)
-    windowSizeChanged()
-  })
+    window.addEventListener('resize', windowSizeChanged);
+    windowSizeChanged();
+  });
 
-  const animationFile = props.reverse
-    ? 'project-flag-right.json'
-    : 'project-flag-left.json'
+  const animationFile = `project-flag-${props.reverse ? 'right' : 'left'}.json`;
 
   nuxtApp.$lottie
     .loadAnimation({
@@ -65,20 +63,25 @@ onMounted(() => {
       autoplay: true,
       path: `/animations/${animationFile}`,
     })
-    .setSpeed(2)
-})
+    .setSpeed(2);
+});
 
 function windowSizeChanged() {
   if (document.body.clientWidth < 900) {
-    youtubeWidth.value = 0.8 * document.body.clientWidth
-    mediaQueryClasses.value = 'upto-900'
-  } else if (document.body.clientWidth < 1240) {
-    youtubeWidth.value = 500
-    mediaQueryClasses.value = 'upto-1240'
-  } else {
-    youtubeWidth.value = 650
-    mediaQueryClasses.value = ''
+    youtubeWidth.value = 0.8 * document.body.clientWidth;
+    mediaQueryClasses.value = 'upto-900';
+    return;
   }
+
+  if (document.body.clientWidth < 1240) {
+    youtubeWidth.value = 500;
+    mediaQueryClasses.value = 'upto-1240';
+    return;
+  }
+
+  // if document.body.clientWidth >= 1240
+  youtubeWidth.value = 650;
+  mediaQueryClasses.value = '';
 }
 </script>
 

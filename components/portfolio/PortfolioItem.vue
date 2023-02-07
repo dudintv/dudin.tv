@@ -12,26 +12,26 @@
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
 const props = defineProps({
   youtube: {
     type: String,
     required: true,
   },
-})
+});
 
-const bg = ref()
-const flag = ref()
-const youtubeWidth = ref(650)
-const mediaQueryClasses = ref('')
-const flagStyle = ref('')
+const bg = ref('');
+const flag = ref('');
+const youtubeWidth = ref(650);
+const mediaQueryClasses = ref('');
+const flagStyle = ref('');
 
 onMounted(() => {
   nextTick(() => {
-    window.addEventListener('resize', windowSizeChanged)
-    windowSizeChanged()
-  })
+    window.addEventListener('resize', windowSizeChanged);
+    windowSizeChanged();
+  });
 
   nuxtApp.$lottie.loadAnimation({
     container: bg.value,
@@ -39,7 +39,7 @@ onMounted(() => {
     loop: true,
     autoplay: true,
     path: '/animations/portfolio-bg.json',
-  })
+  });
 
   nuxtApp.$lottie
     .loadAnimation({
@@ -49,25 +49,29 @@ onMounted(() => {
       autoplay: true,
       path: '/animations/project-flag-right.json',
     })
-    .setSpeed(2)
-})
+    .setSpeed(2);
+});
 
 function windowSizeChanged() {
   if (document.body.clientWidth < 900) {
-    youtubeWidth.value = 0.8 * document.body.clientWidth
-    mediaQueryClasses.value = 'upto-900'
+    youtubeWidth.value = 0.8 * document.body.clientWidth;
+    mediaQueryClasses.value = 'upto-900';
     flagStyle.value =
-      'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px'
-  } else if (document.body.clientWidth < 1240) {
-    youtubeWidth.value = 500
-    mediaQueryClasses.value = 'upto-1240'
-    flagStyle.value = ''
-  } else {
-    // document.body.clientWidth > 1240
-    youtubeWidth.value = 650
-    mediaQueryClasses.value = ''
-    flagStyle.value = ''
+      'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px';
+    return;
   }
+
+  if (document.body.clientWidth < 1240) {
+    youtubeWidth.value = 500;
+    mediaQueryClasses.value = 'upto-1240';
+    flagStyle.value = '';
+    return;
+  }
+
+  // if document.body.clientWidth >= 1240
+  youtubeWidth.value = 650;
+  mediaQueryClasses.value = '';
+  flagStyle.value = '';
 }
 </script>
 

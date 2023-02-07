@@ -41,10 +41,10 @@ export default {
   },
   computed: {
     src() {
-      return `/images${this.$route.path}/${this.image}`
+      return `/images${this.$route.path}/${this.image}`;
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

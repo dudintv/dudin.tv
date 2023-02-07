@@ -17,27 +17,27 @@
 </template>
 
 <script setup>
-import { getHighlighter } from 'shiki-es'
+import { getHighlighter } from 'shiki-es';
 
 const props = defineProps({
   script: {
     type: Object,
     required: true,
   },
-})
+});
 
-const store = useStore()
-const code = ref('')
-const highlightedCode = ref('')
+const store = useStore();
+const code = ref('');
+const highlightedCode = ref('');
 
 async function getCode() {
-  code.value = await store.getCode(props.script)
+  code.value = await store.getCode(props.script);
 
   const highlighter = await getHighlighter({
     theme: 'nord',
     langs: ['vb'],
-  })
-  highlightedCode.value = highlighter.codeToHtml(code.value, { lang: 'vb' })
+  });
+  highlightedCode.value = highlighter.codeToHtml(code.value, { lang: 'vb' });
 }
 </script>
 
