@@ -22,11 +22,11 @@ $ yarn dev
 
 ## Adding a new script
 
-1. Create new markdown file to under `/content/scripts/`
-2. Add thumbnail image to `public/images/scripts/{script name}/thumbnail.svg`. SVG format is recommended.
+1. Create a new markdown file in `/content/scripts/`
+2. Add a thumbnail image to `public/images/scripts/{script name}/thumbnail.svg`. SVG format is recommended.
 3. Add images to `public/images/scripts/{script name}/`. Where **{script-name}** is exact same as markdown filename.
 
-**Frontmatter** sample for Script:
+**Frontmatter** sample for a Script:
 
 ```
 ---
@@ -38,14 +38,14 @@ category: texture
 
 ## Adding a new article
 
-1. Create new markdown file to under `/content/articles/`
+1. Create a new markdown file in `/content/articles/`
 2. Add images & files to `public/images/articles/{article-name}/`. Where "{article-name}" is exact same as markdown filename.
 
-**Frontmatter** sample for Article:
+**Frontmatter** sample for an Article:
 
 ```
 ---
-title:  "Execution Logic. Part 1"
+title: "Execution Logic. Part 1"
 description: "Creating custom logic for custom vizrt template."
 date: 2017-11-12 12:00:00 +0300
 tags: vcp vtw
@@ -63,17 +63,51 @@ List of possible tags:
 - multiplay
 - excel
 
-# Code highlighter
+To add a new tag just add a new icon in `public/images/icons/{tag name}.png`
 
-Wrap code by three backslash symbols "```".
+## Adding a new project on the Portfolio page
 
-To highlight different languages you can use "language tag". Working examples:
+1. Create a new markdown file in `/content/projects/`
+2. Add images & files to `public/images/projects/{project-name}/`. Where "{project-name}" is exact same as markdown filename.
+
+**Frontmatter** sample for a Project:
+
+```
+---
+title: 'MuzTV Awards 2019'
+description: 'Set of Augment Reality Vizrt graphics for a enormous stadium in Russia.'
+date: 2019-06-01 12:00:00 +0100
+youtube: https://youtu.be/tFViRnyZ2F4
+---
+```
+
+There can be used either `youtube` or `image` key:
+
+```
+youtube: https://youtu.be/tFViRnyZ2F4
+```
+
+OR
+
+```
+image: zenit-template-16x9.png
+```
+
+# Code highlighter "Shiki"
+
+Inline code — just wrap it with single backticks "`Dim s As String`".
+
+Code block should be wrapped by two lines, each is three backticks "```" with the language name.
+
+Recommended languages:
 
 ````
 ```xml — for Execution logic
 ```basic — for VizArtist scripts
 ```r — nice for console commands
 ````
+
+But it's possible to use any other languages: https://github.com/shikijs/shiki/blob/main/docs/languages.md
 
 Example:
 
