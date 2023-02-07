@@ -23,7 +23,7 @@
         p {{ project.description }}
         nuxt-link(:to="project._path") ~ watch more details
 
-  h1.text-center.mt-64.mb-16 My ancient portfolio
+  h1.text-center.mt-64.mb-16.px-4 My ancient portfolio
   .portfolio-items.flex.flex-col.items-center.overflow-hidden
     PortfolioItem(youtube="https://youtu.be/4xH6bjEoEq8")
       small Portfolio
