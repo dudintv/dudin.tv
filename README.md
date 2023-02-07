@@ -93,9 +93,21 @@ OR
 image: zenit-template-16x9.png
 ```
 
+## Frontmatter
+
+About native keys: https://content.nuxtjs.org/guide/writing/markdown#native-parameters
+
+E.g. use `draft` key to make script/article/project available only on the `developing` environment.
+
+```
+---
+draft: true
+---
+```
+
 # Code highlighter "Shiki"
 
-Inline code — just wrap it with single backticks "`Dim s As String`".
+Inline code — just wrap it with single backticks "\`Dim s As String\`".
 
 Code block should be wrapped by two lines, each is three backticks "```" with the language name.
 
@@ -123,7 +135,7 @@ Dim i As Integer
 
 Set `name` param as **interface image** and default slot as **description**.
 
-- Image is searched into `public/images/scripts/[script-name]/[image-name]`
+- Image is searched into `public/images/scripts/{script-name}/{image-name}`
 
 Sample of using:
 
