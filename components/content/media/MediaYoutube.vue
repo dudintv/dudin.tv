@@ -4,7 +4,8 @@
     <iframe ref="player" v-if="videoId" width="560" height="315" :src="`https://www.youtube.com/embed/${videoId}`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ComponentPublicInstance } from 'vue';
 const props = defineProps({
   url: {
     type: String,
@@ -16,32 +17,29 @@ const props = defineProps({
   },
 });
 
-const root = ref(null);
-const player = ref(null);
+const root = ref<HTMLDivElement>();
+const player = ref<HTMLIFrameElement>();
 
-function videoWidth() {
-  return props.width > 0 ? props.width : root.value?.offsetWidth;
+function videoWidth(): number {
+  return props.width > 0 ? props.width : root.value?.offsetWidth || 800;
 }
-function videoHeight() {
-  return props.width > 0 ? (props.width * 9) / 16 : root.value?.offsetHeight;
+function videoHeight(): number {
+  return props.width > 0 ? (props.width * 9) / 16 : root.value?.offsetHeight || 600;
 }
 
 const videoId = computed(() => {
   if (!props.url) return '';
-  if (/v=.+$/.test(props.url)) return props.url.match(/v=(.+)$/)[1];
+  if (/v=.+$/.test(props.url)) return props.url.match(/v=(.+)$/)?.[1];
 
   return props.url.match(
     /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-  )[1];
+  )?.[1];
 });
 
-const debounceTimer = ref(null);
-// onMounted(() => {
-//   changeYoutubeSize();
-// });
+const debounceTimer = ref<ReturnType<typeof setTimeout> | undefined>(undefined);
 
 watch(player, () => {
-  if (!player.value) return;
+  if (!player.value || !root.value) return;
 
   const resizeObserver = new ResizeObserver(changeYoutubeSize);
   resizeObserver.observe(root.value);
@@ -58,8 +56,8 @@ function changeYoutubeSize() {
   clearTimeout(debounceTimer.value);
   debounceTimer.value = setTimeout(() => {
     if (player.value) {
-      player.value.setAttribute('width', videoWidth());
-      player.value.setAttribute('height', videoHeight());
+      player.value.setAttribute('width', videoWidth().toString());
+      player.value.setAttribute('height', videoHeight().toString());
     }
   }, 200);
 }

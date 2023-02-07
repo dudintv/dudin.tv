@@ -5,18 +5,12 @@
     ArticlesItem(v-for="article in articles" :article="article" :key="article.title")
 </template>
 
-<script setup>
+<script setup lang="ts">
 const nuxtApp = useNuxtApp();
 
-const articles = (
-  await queryContent('/articles')
-    .only(['_path', 'date', 'title', 'description', 'tags'])
-    .find()
-).sort((a1, a2) => {
-  const data1 = new Date(a1.date);
-  const data2 = new Date(a2.date);
-  return data1 < data2 ? 1 : -1;
-});
+const articles = (await queryContent('/articles').only(['_path', 'date', 'title', 'description', 'tags']).find()).sort(
+  (a1, a2) => (new Date(a1.date) < new Date(a2.date) ? 1 : -1)
+);
 
 onMounted(() => {
   nuxtApp.$lottie

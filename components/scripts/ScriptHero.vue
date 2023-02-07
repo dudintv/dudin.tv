@@ -20,7 +20,7 @@
     .title.flex
       h1.title-text.text-left
         | {{ script.title }}
-      a.red-button.copy-code(v-if="script.file" @click="copyCode")
+      a.red-button.copy-code(v-if="script.file" @click="copyCode()")
         <svg class="icon svg-copy-icon" width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13.2632 0.5H1.89474C0.847895 0.5 0 1.35432 0 2.40909V15.7727H1.89474V2.40909H13.2632V0.5ZM16.1053 4.31818H5.68421C4.63737 4.31818 3.78947 5.1725 3.78947 6.22727V19.5909C3.78947 20.6457 4.63737 21.5 5.68421 21.5H16.1053C17.1521 21.5 18 20.6457 18 19.5909V6.22727C18 5.1725 17.1521 4.31818 16.1053 4.31818ZM16.1053 19.5909H5.68421V6.22727H16.1053V19.5909Z" fill="#E4D4E9"/>
         </svg>
@@ -53,24 +53,21 @@
       span.note(v-if="examples.length > 0") NOTE: The example scene may contain not the latest version of the script!
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { Script } from '@/types';
 const store = useStore();
 
 const props = defineProps({
   script: {
-    type: Object,
+    type: Object as () => Script,
     required: true,
   },
 });
 
 const examples = [];
 
-const gradColorBegin = computed(
-  () => store.gradients[props.script.category]?.[0] || ''
-);
-const gradColorEnd = computed(
-  () => store.gradients[props.script.category]?.[1] || ''
-);
+const gradColorBegin = computed(() => store.gradients[props.script.category]?.[0] || '');
+const gradColorEnd = computed(() => store.gradients[props.script.category]?.[1] || '');
 
 function copyCode() {
   store.copyCode(props.script);

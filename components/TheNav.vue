@@ -27,6 +27,7 @@ header.header
 </template>
 
 <script setup lang="ts">
+import { AnimationItem } from 'lottie-web';
 const nuxtApp = useNuxtApp();
 const route = useRoute();
 
@@ -34,7 +35,7 @@ const currentNav = ref('scripts');
 const navNames = ['scripts', 'articles', 'links', 'portfolio', 'contacts'];
 const animSelectors = ref<{ id: string; anim: any }[]>([]);
 const hasMobileMenu = ref(false);
-const animMenuLeaf = ref({});
+const animMenuLeaf = ref<AnimationItem | null>(null);
 
 onMounted(() => {
   nuxtApp.$lottie.loadAnimation({
@@ -63,27 +64,25 @@ onMounted(() => {
     autoplay: true,
     path: '/animations/header-feathers.json',
   });
-  Array.from(document.getElementsByClassName('anim-selector')).forEach(
-    (element) => {
-      const lottieAnim = nuxtApp.$lottie.loadAnimation({
-        container: element,
-        name: element.id,
-        renderer: 'svg',
-        loop: false,
-        autoplay: false,
-        path: '/animations/selected-menu-item.json',
-      });
-      lottieAnim.addEventListener('complete', function (anim: any) {
-        if (lottieAnim.firstFrame + lottieAnim.currentFrame >= 300) {
-          lottieAnim.currentFrame = -100;
-        }
-      });
-      animSelectors.value.push({
-        id: element.id,
-        anim: lottieAnim,
-      });
-    }
-  );
+  Array.from(document.getElementsByClassName('anim-selector')).forEach((element) => {
+    const lottieAnim = nuxtApp.$lottie.loadAnimation({
+      container: element,
+      name: element.id,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: '/animations/selected-menu-item.json',
+    });
+    lottieAnim.addEventListener('complete', function (anim: any) {
+      if (lottieAnim.firstFrame + lottieAnim.currentFrame >= 300) {
+        lottieAnim.currentFrame = -100;
+      }
+    });
+    animSelectors.value.push({
+      id: element.id,
+      anim: lottieAnim,
+    });
+  });
   currentNav.value = route.name as string;
   if (currentNav.value === 'index') {
     currentNav.value = 'scripts';
@@ -102,28 +101,24 @@ watch(hasMobileMenu, (newValue) => {
   const menuMobileLinks = document.getElementById('menu-mobile-links');
   const body = document.body || document.getElementsByTagName('body')[0];
 
-  if (!menuMobile || !menuMobileLinks || !body)
-    throw new Error("Can't find a html element");
+  if (!menuMobile || !menuMobileLinks || !body) throw new Error("Can't find a html element");
 
   if (newValue) {
     menuMobile.style.display = 'block';
     menuMobileLinks.classList.add('show');
     (animMenuLeaf.value as any).playSegments([0, 50], true);
-    body.style = 'overflow:hidden';
+    body.setAttribute('style', 'overflow:hidden');
   } else {
     setTimeout(() => {
       menuMobile.style.display = 'none';
     }, 500);
     menuMobileLinks.classList.remove('show');
-    animMenuLeaf.value.playSegments(
-      [animMenuLeaf.value.currentFrame, 100],
-      true
-    );
-    body.style = 'overflow:auto';
+    animMenuLeaf.value?.playSegments([animMenuLeaf.value?.currentFrame || 0, 100], true);
+    body.setAttribute('style', 'overflow:auto');
   }
 });
 
-function clickNav(navItem) {
+function clickNav(navItem: { target: HTMLElement }) {
   if (navItem.target.id) {
     currentNav.value = navItem.target.id;
   }
@@ -132,12 +127,16 @@ function setupPosAllAnimSelectors() {
   navNames.forEach((name) => {
     const animSelector = document.getElementById(`anim-${name}`);
     const navLink = document.getElementById(name);
+    if (!animSelector || !navLink) throw new Error("Can't find anim selector element or nav link");
+
     animSelector.style.left = `${navLink.getBoundingClientRect().left - 80}px`;
   });
 }
-function setSelected(theName) {
+function setSelected(theName: string) {
   navNames.forEach((name) => {
     const navLink = document.getElementById(name);
+    if (!navLink) throw new Error("Can't find nav link");
+
     if (theName === name) {
       navLink.classList.add('selected');
       playTakeAnim(name);
@@ -147,11 +146,9 @@ function setSelected(theName) {
     }
   });
 }
-function playTakeAnim(name) {
-  const animSelector = animSelectors.value.find((element) => {
-    return element.id === `anim-${name}`;
-  }).anim;
-  if (animSelector.isLoaded) {
+function playTakeAnim(name: string) {
+  const animSelector = animSelectors.value.find((element) => element.id === `anim-${name}`)?.anim;
+  if (animSelector?.isLoaded) {
     animSelector.playSegments([0, 200], true);
   } else {
     animSelector.addEventListener('data_ready', function () {
@@ -159,12 +156,10 @@ function playTakeAnim(name) {
     });
   }
 }
-function playTakeoutAnim(name) {
-  const animSelector = animSelectors.value.find((element) => {
-    return element.id === `anim-${name}`;
-  }).anim;
+function playTakeoutAnim(name: string) {
+  const animSelector = animSelectors.value.find((element) => element.id === `anim-${name}`)?.anim;
 
-  if (animSelector.currentFrame > 0 && animSelector.currentFrame < 300) {
+  if (animSelector?.currentFrame > 0 && animSelector.currentFrame < 300) {
     animSelector.playSegments([animSelector.currentFrame, 302], true);
   }
 }

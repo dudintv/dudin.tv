@@ -40,52 +40,45 @@
     p.description {{ script.description }}
 </template>
 
-<script>
+<script setup lang="ts">
+import { Script } from '@/types';
 import Color from 'color';
 const store = useStore();
 
-export default {
-  props: {
-    script: {
-      type: Object,
-      default: () => ({}),
-    },
+const props = defineProps({
+  script: {
+    type: Object as () => Script,
+    default: () => ({}),
   },
-  methods: {
-    slug() {
-      return this.script._path;
-    },
-    permalink() {
-      return `scripts/${this.slug()}`;
-    },
-    thumbnailUrl() {
-      return `/images${this.slug()}/thumbnail.svg`;
-    },
-    gradByName(name) {
-      const gradient = store.gradients[name];
-      return `background: linear-gradient(10deg, ${gradient[0]}, ${gradient[1]})`;
-    },
-    darkGradByName(name) {
-      const gradient = store.gradients[name];
-      const start = Color(gradient[0]).darken(0.6).desaturate(0.5).hex();
-      const end = Color(gradient[1]).darken(0.6).desaturate(0.5).hex();
-      return [start, end];
-    },
-    shadowGradByName(name) {
-      const gradient = store.gradients[name];
-      const start = Color(gradient[0]).darken(0.8).hex();
-      const end = Color(gradient[1]).darken(0.8).hex();
-      return [start, end];
-    },
-    colorByName(name) {
-      const gradient = store.gradients[name];
-      return `color: ${gradient[0]}`;
-    },
-    copyCode(script) {
-      store.copyCode(script);
-    },
-  },
-};
+});
+
+const slug = computed(() => props.script._path);
+const permalink = computed(() => `scripts/${slug.value}`);
+const thumbnailUrl = computed(() => `/images${slug.value}/thumbnail.svg`);
+
+function gradByName(name: string) {
+  const gradient = store.gradients[name];
+  return `background: linear-gradient(10deg, ${gradient[0]}, ${gradient[1]})`;
+}
+function darkGradByName(name: string) {
+  const gradient = store.gradients[name];
+  const start = Color(gradient[0]).darken(0.6).desaturate(0.5).hex();
+  const end = Color(gradient[1]).darken(0.6).desaturate(0.5).hex();
+  return [start, end];
+}
+function shadowGradByName(name: string) {
+  const gradient = store.gradients[name];
+  const start = Color(gradient[0]).darken(0.8).hex();
+  const end = Color(gradient[1]).darken(0.8).hex();
+  return [start, end];
+}
+function colorByName(name: string) {
+  const gradient = store.gradients[name];
+  return `color: ${gradient[0]}`;
+}
+function copyCode(script: Script) {
+  store.copyCode(script);
+}
 </script>
 
 <style lang="scss" scoped>

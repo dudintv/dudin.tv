@@ -18,10 +18,11 @@
       .realm Amsterdam, NL
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { AnimationItem } from 'lottie-web';
 const nuxtApp = useNuxtApp();
 
-const turnipPlayer = ref(null);
+const turnipPlayer = ref<AnimationItem | null>(null);
 const bg = ref(null);
 
 watch(bg, () => {

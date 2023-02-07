@@ -16,12 +16,13 @@
     span Script home page on GitHub
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { Script } from '@/types';
 import { getHighlighter } from 'shiki-es';
 
 const props = defineProps({
   script: {
-    type: Object,
+    type: Object as () => Script,
     required: true,
   },
 });
@@ -31,7 +32,7 @@ const code = ref('');
 const highlightedCode = ref('');
 
 async function getCode() {
-  code.value = await store.getCode(props.script);
+  code.value = (await store.getCode(props.script)) || '';
 
   const highlighter = await getHighlighter({
     theme: 'nord',

@@ -7,30 +7,30 @@
   //- component(:is="'script'" src="https://player.vimeo.com/api/player.js")
 </template>
 
-<script>
-export default {
-  props: {
-    url: {
-      type: String,
-      required: true,
-    },
+<script setup lang="ts">
+const props = defineProps({
+  url: {
+    type: String,
+    required: true,
   },
-  computed: {
-    videoId() {
-      // https://vimeo.com/530075847
-      if (/vimeo.com\/\d+$/.test(this.url)) {
-        return this.url.match(/vimeo.com\/(\d+)$/)[1];
-      } else if (/\d+/.test(this.url)) {
-        return this.url;
-      } else {
-        return '';
-      }
-    },
-    videoUrl() {
-      return `https://player.vimeo.com/video/${this.videoId}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`;
-    },
-  },
-};
+});
+
+const videoId = computed(() => {
+  // https://vimeo.com/530075847
+  if (/vimeo.com\/\d+$/.test(props.url)) {
+    return props.url.match(/vimeo.com\/(\d+)$/)?.[1];
+  }
+
+  if (/\d+/.test(props.url)) {
+    return props.url;
+  }
+
+  return '';
+});
+
+const videoUrl = computed(
+  () => `https://player.vimeo.com/video/${videoId.value}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`
+);
 </script>
 
 <style scoped>

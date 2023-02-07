@@ -11,7 +11,7 @@
             slot
 </template>
 
-<script setup>
+<script setup lang="ts">
 const nuxtApp = useNuxtApp();
 
 const props = defineProps({
@@ -52,12 +52,11 @@ onMounted(() => {
     .setSpeed(2);
 });
 
-function windowSizeChanged() {
+function windowSizeChanged(): void {
   if (document.body.clientWidth < 900) {
     youtubeWidth.value = 0.8 * document.body.clientWidth;
     mediaQueryClasses.value = 'upto-900';
-    flagStyle.value =
-      'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px';
+    flagStyle.value = 'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px';
     return;
   }
 

@@ -6,7 +6,7 @@
     ScriptsSourceCode(v-if="doc.file" :script="doc")
 </template>
 
-<script></script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .script-content {

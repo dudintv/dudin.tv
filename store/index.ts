@@ -1,3 +1,4 @@
+import { AnimationItem } from 'lottie-web';
 import { defineStore } from 'pinia';
 import { Script } from '@/types';
 
@@ -11,7 +12,7 @@ export const useStore = defineStore('store', {
       transformation: ['#2DCFE6', '#B6E78C'],
       texture: ['#C389F0', '#ED7485'],
     } as Record<string, [string, string]>,
-    copyCodeAnim: null as any,
+    copyCodeAnim: null as AnimationItem | null,
   }),
   actions: {
     async getCode(script: Script): Promise<string | undefined> {
@@ -37,7 +38,7 @@ export const useStore = defineStore('store', {
       await navigator.clipboard.writeText(code);
 
       if (!this.copyCodeAnim) return;
-      this.copyCodeAnim.wrapper.style = 'display: block';
+      (this.copyCodeAnim as any).wrapper.style = 'display: block';
       this.copyCodeAnim.goToAndStop(0, true);
       this.copyCodeAnim.play();
     },

@@ -24,7 +24,7 @@
         )
 </template>
 
-<script setup>
+<script setup lang="ts">
 const currentFilter = ref('');
 
 const scripts = (await queryContent('/scripts').find()).sort((a1, a2) => {
@@ -38,7 +38,7 @@ const filteredScripts = computed(() => {
   return scripts.filter((script) => script.category === currentFilter.value);
 });
 
-function updateFilter(filterName) {
+function updateFilter(filterName: string): void {
   currentFilter.value = filterName;
 }
 </script>

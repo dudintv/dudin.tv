@@ -2,7 +2,7 @@
 img.my-4(:src="imageSrc" :class="{'transparent-background': transparent}" :style="imageStyle" :width="imageWidth")
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute();
 
 const props = defineProps({
@@ -28,13 +28,9 @@ const props = defineProps({
   },
 });
 
-const imageSrc = computed(() =>
-  props.isFullPath ? props.name : `/images${route.path}/${props.name}`
-);
+const imageSrc = computed(() => (props.isFullPath ? props.name : `/images${route.path}/${props.name}`));
 const imageWidth = computed(() => (props.width > 0 ? props.width : ''));
-const imageStyle = computed(() =>
-  props.center ? 'margin-left: auto; margin-right: auto;' : ''
-);
+const imageStyle = computed(() => (props.center ? 'margin-left: auto; margin-right: auto;' : ''));
 </script>
 
 <style scoped>

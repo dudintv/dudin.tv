@@ -8,27 +8,18 @@
     ) {{ option }}
 </template>
 
-<script setup>
+<script setup lang="ts">
 const emit = defineEmits(['filterChanged']);
 
-const store = useStore();
-
-const options = [
-  'all',
-  'animation',
-  'link',
-  'logic',
-  'transformation',
-  'texture',
-];
+const options = ['all', 'animation', 'link', 'logic', 'transformation', 'texture'];
 const selectedOption = ref('all');
 
-function gradByName(name) {
-  const gradient = store.gradients[name];
+function gradByName(name: string): string {
+  const gradient = useStore().gradients[name];
   return `background: linear-gradient(to bottom right, ${gradient[0]}, ${gradient[1]})`;
 }
 
-function select(name) {
+function select(name: string): void {
   selectedOption.value = name;
   emit('filterChanged', name);
 }

@@ -25,11 +25,12 @@
       | If some link doesn’t work, please let me know facebook.com/dudintv
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { AnimationItem } from 'lottie-web';
 const nuxtApp = useNuxtApp();
 
-const rockPlayer = ref({});
-const bg = ref(null);
+const rockPlayer = ref<AnimationItem | null>(null);
+const bg = ref<HTMLElement | null>(null);
 
 watch(bg, () => {
   if (!bg.value) return;

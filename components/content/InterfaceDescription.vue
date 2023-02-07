@@ -31,20 +31,15 @@
       </svg>
 </template>
 
-<script>
-export default {
-  props: {
-    image: {
-      type: String,
-      default: '',
-    },
+<script setup lang="ts">
+const props = defineProps({
+  image: {
+    type: String,
+    default: '',
   },
-  computed: {
-    src() {
-      return `/images${this.$route.path}/${this.image}`;
-    },
-  },
-};
+});
+
+const src = computed(() => `/images${useRoute().path}/${props.image}`);
 </script>
 
 <style lang="scss" scoped>

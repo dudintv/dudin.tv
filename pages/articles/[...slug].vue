@@ -9,8 +9,8 @@ section.article.container.mx-auto
     ContentRenderer(:value="doc")
 </template>
 
-<script setup>
-function tagNames(tagsString) {
+<script setup lang="ts">
+function tagNames(tagsString: string) {
   return tagsString.split(' ');
 }
 </script>

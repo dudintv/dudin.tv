@@ -9,13 +9,16 @@
     span.mt-2.mb-10.font-bold dudin.tv
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { AnimationItem } from 'lottie-web';
+type ServiceName = 'youtube' | 'facebook' | 'linkedin';
+
 const nuxtApp = useNuxtApp();
 
 const data = reactive({
-  youtube: null,
-  facebook: null,
-  linkedin: null,
+  youtube: null as AnimationItem | null,
+  facebook: null as AnimationItem | null,
+  linkedin: null as AnimationItem | null,
   youtube_hover: false,
   facebook_hover: false,
   linkedin_hover: false,
@@ -27,28 +30,24 @@ onMounted(() => {
   data.linkedin = loadLottie('linkedin');
 });
 
-function loadLottie(name) {
-  const animation = nuxtApp.$lottie.loadAnimation({
+function loadLottie(name: ServiceName): AnimationItem {
+  const animation: AnimationItem = nuxtApp.$lottie.loadAnimation({
     container: document.getElementById(name),
     renderer: 'svg',
     loop: true,
     autoplay: false,
     path: `/animations/dudintv-${name}.json`,
   });
-  animation.addEventListener('loopComplete', () => {
-    if (!data[`${name}_hover`]) {
-      animation.stop();
-    }
-  });
+  animation.addEventListener('loopComplete', () => !data[`${name}_hover`] && animation.stop());
   return animation;
 }
 
-function hover(name) {
-  data[name].play();
+function hover(name: ServiceName): void {
+  data[name]?.play();
   data[`${name}_hover`] = true;
 }
 
-function leave(name) {
+function leave(name: ServiceName): void {
   data[`${name}_hover`] = false;
 }
 </script>

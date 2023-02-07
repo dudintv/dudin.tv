@@ -4,9 +4,7 @@
     slot
 </template>
 
-<script>
-export default {};
-</script>
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .wide-width-wrapper {

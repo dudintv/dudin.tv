@@ -13,7 +13,7 @@
       MediaYoutube.z-10(v-if="youtube" :url="youtube" :width="youtubeWidth")
 </template>
 
-<script setup>
+<script setup lang="ts">
 const nuxtApp = useNuxtApp();
 
 const props = defineProps({
@@ -41,9 +41,7 @@ const flag = ref('');
 const youtubeWidth = ref(650);
 const mediaQueryClasses = ref('');
 
-const mediaQueryClassesWithReverse = computed(
-  () => `${props.reverse ? 'reverse' : ''} ${mediaQueryClasses.value}`
-);
+const mediaQueryClassesWithReverse = computed(() => `${props.reverse ? 'reverse' : ''} ${mediaQueryClasses.value}`);
 
 const imagePath = computed(() => `/images${props.id}/${props.image}`);
 

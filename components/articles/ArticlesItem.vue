@@ -10,7 +10,7 @@
   small: nuxt-link(:to="article._path") read more ...
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   article: {
     type: Object,
@@ -18,9 +18,7 @@ const props = defineProps({
   },
 });
 
-const icons = computed(() => {
-  return props.article.tags.split(' ');
-});
+const icons = computed(() => props.article.tags.split(' '));
 
 const displayDate = computed(() => {
   const date = new Date(props.article.date);
