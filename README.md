@@ -4,7 +4,7 @@ https://dudin.tv
 
 > My personal Nuxt 3 website with my Vizrt scripts and articles.
 
-![dudin.tv presentation](https://github.com/dudintv/dudin.tv/raw/master/static/images/for-github-readme/dudin.tv-presentation.gif)
+![dudin.tv presentation](https://github.com/dudintv/dudin.tv/raw/master/public/images/for-github-readme/dudin.tv-presentation.gif)
 
 ## Setup
 
