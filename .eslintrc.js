@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  plugins: ['vitest'],
   env: {
     browser: true,
     node: true,
@@ -28,4 +29,4 @@ module.exports = {
       },
     },
   ],
-}
+};
