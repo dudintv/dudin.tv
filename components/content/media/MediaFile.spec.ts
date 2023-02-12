@@ -12,7 +12,7 @@ vi.mock('vue-router', () => ({
   })),
 }));
 
-describe('HelloWorld', () => {
+describe('MediaFile', () => {
   const wrapper = mount(MediaFile, {
     props: {
       name,
