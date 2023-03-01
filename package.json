@@ -17,12 +17,14 @@
     "eslint-plugin-vitest": "^0.0.32",
     "jsdom": "^21.1.0",
     "nuxt": "^3.0.0",
+    "path": "^0.12.7",
     "postcss": "^8.4.19",
     "pug": "^3.0.2",
+    "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.56.1",
     "tailwindcss": "^3.2.4",
     "unplugin-auto-import": "^0.14.2",
-    "vitest": "^0.28.4"
+    "vitest": "^0.29.2"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.6",

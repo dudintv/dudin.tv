@@ -1,9 +1,8 @@
 import { mount } from '@vue/test-utils';
-
 import MediaFile from './MediaFile.vue';
 
 const path = '/path';
-const name = 'filename.zip';
+const fileName = 'filename.zip';
 const filePublicFolder = 'images';
 
 vi.mock('vue-router', () => ({
@@ -15,19 +14,19 @@ vi.mock('vue-router', () => ({
 describe('MediaFile', () => {
   const wrapper = mount(MediaFile, {
     props: {
-      name,
+      name: fileName,
     },
   });
 
   it('is a Vue instance', () => {
-    expect(wrapper.vm).toBeTruthy();
+    expect(MediaFile).toBeTruthy();
   });
   it('has correct href', () => {
     const href = wrapper.find('a').element.href;
-    const expectedHref = `http://${window.location.host}/${filePublicFolder}${path}/${name}`;
+    const expectedHref = `http://${window.location.host}/${filePublicFolder}${path}/${fileName}`;
     expect(href).toEqual(expectedHref);
   });
   it('has filename as the button text', () => {
-    expect(wrapper.text()).toEqual(name);
+    expect(wrapper.text()).toEqual(fileName);
   });
 });

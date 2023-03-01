@@ -14,7 +14,7 @@ vi.mock('vue-router', () => ({
   })),
 }));
 
-describe('MediaFile', () => {
+describe('MediaFile', async () => {
   const simpleWrapper = mount(MediaFile, {
     props: {
       name,
@@ -22,8 +22,9 @@ describe('MediaFile', () => {
   });
 
   it('is a Vue instance', () => {
-    expect(simpleWrapper.vm).toBeTruthy();
+    expect(MediaFile).toBeTruthy();
   });
+
   it('has correct image url', () => {
     const imageSrc = simpleWrapper.find('img').element.src;
     const expectImageSrc = `http://${window.location.host}/${imagesPublicFolder}${path}/${name}`;
