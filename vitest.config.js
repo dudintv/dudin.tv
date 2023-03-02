@@ -4,7 +4,13 @@ import AutoImport from 'unplugin-auto-import/vite';
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['nuxt-link'].includes(tag),
+        },
+      },
+    }),
     AutoImport({
       imports: ['vue', 'vue-router'],
     }),
