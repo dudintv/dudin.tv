@@ -32,7 +32,6 @@ onMounted(() => {
     window.addEventListener('resize', windowSizeChanged);
     windowSizeChanged();
   });
-
   nuxtApp.$lottie.loadAnimation({
     container: bg.value,
     renderer: 'svg',
@@ -40,7 +39,6 @@ onMounted(() => {
     autoplay: true,
     path: '/animations/portfolio-bg.json',
   });
-
   nuxtApp.$lottie
     .loadAnimation({
       container: flag.value,
