@@ -15,7 +15,13 @@ Make sure to install the dependencies:
 yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+yarn dev
+```
+
+## Test
+
+```bash
+yarn test
 ```
 
 # Directory/File structure

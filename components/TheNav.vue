@@ -9,21 +9,14 @@ header.header
     img(src="/common/dudintv-logo.svg")
   nav.nav.flex.justify-between.w-full(@click="clickNav")
     .first-links.flex
-      NuxtLink#scripts.name-selector(to="/") Scripts
-      NuxtLink#articles.name-selector(to="/articles") Articles
+      NuxtLink#scripts.name-selector(v-for="item in menuItems[0]" :to="item.to") {{ item.title }}
     .second-links.flex
-      NuxtLink#links.name-selector(to="/links") Links
-      NuxtLink#portfolio.name-selector(to="/portfolio") Portfolio
-      NuxtLink#contacts.name-selector(to="/contacts") Contacts
+      NuxtLink#links.name-selector(v-for="item in menuItems[1]" :to="item.to") {{ item.title }}
   #menu-burger(@click="toggleMobileMenu" style="width: 96px; height: 96px;")
   #menu-mobile(@click="hasMobileMenu = false")
     #menu-leaf
     #menu-mobile-links
-      NuxtLink(to="/") Scripts
-      NuxtLink(to="/articles") Articles
-      NuxtLink(to="/links") Links
-      NuxtLink(to="/portfolio") Portfolio
-      NuxtLink(to="/contacts") Contacts
+      NuxtLink(v-for="item in menuItems.flat()" :to="item.to") {{ item.title }}
 </template>
 
 <script setup lang="ts">
@@ -35,7 +28,34 @@ const currentNav = ref('scripts');
 const navNames = ['scripts', 'articles', 'links', 'portfolio', 'contacts'];
 const animSelectors = ref<{ id: string; anim: any }[]>([]);
 const hasMobileMenu = ref(false);
-const animMenuLeaf = ref<AnimationItem | null>(null);
+const animMenuLeaf = ref<AnimationItem>();
+
+const menuItems = [
+  [
+    {
+      to: '/',
+      title: 'Scripts',
+    },
+    {
+      to: '/articles',
+      title: 'Articles',
+    },
+  ],
+  [
+    {
+      to: '/links',
+      title: 'Links',
+    },
+    {
+      to: '/portfolio',
+      title: 'Portfolio',
+    },
+    {
+      to: '/contacts',
+      title: 'Contacts',
+    },
+  ],
+];
 
 onMounted(() => {
   nuxtApp.$lottie.loadAnimation({

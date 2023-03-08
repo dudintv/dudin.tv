@@ -23,11 +23,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  css: [
-    '@/assets/css/fonts.css',
-    '@/assets/css/tailwind.css',
-    '@/assets/css/main.css',
-  ],
+  css: ['@/assets/css/fonts.css', '@/assets/css/tailwind.css', '@/assets/css/main.css'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -111,8 +107,4 @@ export default defineNuxtConfig({
     dirs: ['store'],
   },
   plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
-  // routeRules: {
-  //   '/contacts': { static: true },
-  //   '/links': { static: true },
-  // },
-})
+});

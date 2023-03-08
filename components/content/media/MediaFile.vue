@@ -7,6 +7,9 @@ a.file(:href="filePath")
 </template>
 
 <script setup lang="ts">
+// import { useRoute } from 'vue-router';
+// import { useRoute } from '#imports';
+
 const props = defineProps({
   name: {
     type: String,

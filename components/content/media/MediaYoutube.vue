@@ -5,7 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { ComponentPublicInstance } from 'vue';
 const props = defineProps({
   url: {
     type: String,
@@ -13,7 +12,7 @@ const props = defineProps({
   },
   width: {
     type: Number,
-    default: 0,
+    default: 600,
   },
 });
 
@@ -31,9 +30,11 @@ const videoId = computed(() => {
   if (!props.url) return '';
   if (/v=.+$/.test(props.url)) return props.url.match(/v=(.+)$/)?.[1];
 
-  return props.url.match(
-    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-  )?.[1];
+  return (
+    props.url.match(
+      /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
+    )?.[1] || props.url
+  );
 });
 
 const debounceTimer = ref<ReturnType<typeof setTimeout> | undefined>(undefined);
