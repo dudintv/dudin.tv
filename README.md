@@ -4,6 +4,9 @@ https://dudin.tv
 
 > My personal Nuxt 3 website with my Vizrt scripts and articles.
 
+On this website I'm sharing my scripts I made for real tasks. And have some articles.
+There is also my professional portfolio as a vizrt designer and developer.
+
 ![dudin.tv presentation](https://github.com/dudintv/dudin.tv/raw/master/public/images/for-github-readme/dudin.tv-presentation.gif)
 
 ## Setup
