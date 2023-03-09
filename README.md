@@ -4,8 +4,13 @@ https://dudin.tv
 
 > My personal Nuxt 3 website with my Vizrt scripts and articles.
 
-On this website I'm sharing my scripts I made for real tasks. And have some articles.
+On this website I'm sharing my articles and scripts I made for real tasks.
 There is also my professional portfolio as a vizrt designer and developer.
+
+Used stack: Nuxt 3, Vue 3, Pinia, Vitest, Vite.
+All animations I made by myself using After Effects and the Lottie plugin.
+
+All the buttons "Copy code" and "Show source code" work dynamically, they get the code directly from my Github repo and copy the latest version of the code into the clipboard.
 
 ![dudin.tv presentation](https://github.com/dudintv/dudin.tv/raw/master/public/images/for-github-readme/dudin.tv-presentation.gif)
 
