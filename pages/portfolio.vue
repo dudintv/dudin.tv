@@ -2,7 +2,7 @@
 .portfolio
   .hero.container.mx-auto.w-4_5.xl--w-3_5.mb-24
     .personal.flex.items-start.md--items-center.flex-col.md--flex-row
-      img.w-48.mx-auto.md--mx-0(src="/common/dudin-dmitry-2019.jpg")
+      //- img.w-48.mx-auto.md--mx-0(src="/common/dudin-dmitry-2019.jpg")
       p.my-8.mx-4.md--mx-8
         | I'm a graphic designer, script writer and fullstack web developer.
         br
