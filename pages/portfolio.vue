@@ -2,7 +2,7 @@
 .portfolio
   .hero.container.mx-auto.w-4_5.xl--w-3_5.mb-24
     .personal.flex.items-start.md--items-center.flex-col.md--flex-row
-      //- img.w-48.mx-auto.md--mx-0(src="/common/dudin-dmitry-2019.jpg")
+      img.w-48.mx-auto.md--mx-0.rounded-3xl.drop-shadow-2xl(src="/images/common/dudin-dmitry-2019.jpg")
       p.my-8.mx-4.md--mx-8
         | I'm a graphic designer, script writer and fullstack web developer.
         br
@@ -29,7 +29,7 @@
       small Portfolio
       h3 Lower Thirds & Fullscreen
       p
-        | Tonns of Vizrt graphics for Russian federal TV channels such as lowerthirds, fullscreens, videwall graphics connected with iPad in talents hand.
+        | Tons of Vizrt graphics for Russian federal TV channels such as lowerthirds, fullscreen, videowall graphics connected with iPad in talents hand.
       p
         | Russia 24&nbsp;(News&nbsp;Channel)
         | Podmoskovie&nbsp;360
