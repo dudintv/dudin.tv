@@ -17,7 +17,7 @@
   .project-items.flex.flex-col.items-center.gap-y-24.py-16.-my-12.overflow-hidden
 
     template(v-for="(project, index) in projects")
-      PortfolioProject(:id="project._path" :youtube="project.youtube" :image="project.image" :reverse="index % 2 === 0" )
+      PortfolioProject(:id="project._path || ''" :youtube="project.youtube" :image="project.image" :reverse="index % 2 === 0" )
         small {{ new Date(project.date).getFullYear() }}
         h3 {{ project.title }}
         p {{ project.description }}

@@ -9,9 +9,9 @@ header.header
     img(src="/common/dudintv-logo.svg")
   nav.nav.flex.justify-between.w-full(@click="clickNav")
     .first-links.flex
-      NuxtLink#scripts.name-selector(v-for="item in menuItems[0]" :to="item.to") {{ item.title }}
+      NuxtLink.name-selector(v-for="item in menuItems[0]" :to="item.to" :id="item.id") {{ item.title }}
     .second-links.flex
-      NuxtLink#links.name-selector(v-for="item in menuItems[1]" :to="item.to") {{ item.title }}
+      NuxtLink.name-selector(v-for="item in menuItems[1]" :to="item.to" :id="item.id") {{ item.title }}
   #menu-burger(@click="toggleMobileMenu" style="width: 96px; height: 96px;")
   #menu-mobile(@click="hasMobileMenu = false")
     #menu-leaf
@@ -34,24 +34,29 @@ const menuItems = [
   [
     {
       to: '/',
+      id: 'scripts',
       title: 'Scripts',
     },
     {
       to: '/articles',
+      id: 'articles',
       title: 'Articles',
     },
   ],
   [
     {
       to: '/links',
+      id: 'links',
       title: 'Links',
     },
     {
       to: '/portfolio',
+      id: 'portfolio',
       title: 'Portfolio',
     },
     {
       to: '/contacts',
+      id: 'contacts',
       title: 'Contacts',
     },
   ],
@@ -138,9 +143,9 @@ watch(hasMobileMenu, (newValue) => {
   }
 });
 
-function clickNav(navItem: { target: HTMLElement }) {
-  if (navItem.target.id) {
-    currentNav.value = navItem.target.id;
+function clickNav(navItem: { target: EventTarget | null }) {
+  if ((navItem.target as any)?.id) {
+    currentNav.value = (navItem.target as any).id;
   }
 }
 function setupPosAllAnimSelectors() {

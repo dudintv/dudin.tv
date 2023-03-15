@@ -15,7 +15,7 @@ export const useStore = defineStore('store', {
     copyCodeAnim: null as AnimationItem | null,
   }),
   actions: {
-    async getCode(script: Script): Promise<string | undefined> {
+    async getCode(script: { file: string; path: string }): Promise<string | undefined> {
       if (!script.path || !script.file) {
         console.warn("There isn't a script path URL");
         return '';
@@ -31,7 +31,7 @@ export const useStore = defineStore('store', {
         console.warn('Something went wrong:', error);
       }
     },
-    async copyCode(script: Script): Promise<void> {
+    async copyCode(script: { file: string; path: string }): Promise<void> {
       const code = await this.getCode(script);
       if (!code) return;
 

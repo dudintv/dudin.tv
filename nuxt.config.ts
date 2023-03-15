@@ -1,10 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  // ssr: false,
-  // nitro: {
-  //   preset: 'service-worker',
-  // },
   typescript: {
     strict: true,
   },
@@ -101,7 +97,6 @@ export default defineNuxtConfig({
       theme: 'github-dark',
       preload: ['r', 'xml', 'vb'],
     },
-    // documentDriven: true,
   },
   imports: {
     dirs: ['store'],

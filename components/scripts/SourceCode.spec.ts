@@ -4,9 +4,10 @@ import { Script } from '@/types';
 
 const script: Script = {
   path: 'path',
-  _path: '_path',
   file: 'file',
   category: 'category',
+  title: 'title',
+  description: 'description',
 };
 
 vi.stubGlobal('useStore', () => ({

@@ -4,7 +4,7 @@
     :to="script._path"
     :style="gradByName(script.category)"
     )
-    img(:src="thumbnailUrl()")
+    img(:src="thumbnailUrl")
     .viz4-label(v-if="script.viz4")
       <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 14.7531V26.7284L1.46809 23.3333L18.1277 11.9136V0L16.5957 3.39506L0 14.7531Z" fill="white"/>
@@ -41,14 +41,20 @@
 </template>
 
 <script setup lang="ts">
-import { Script } from '@/types';
+// @ts-ignore
 import Color from 'color';
+import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
+import type { ParsedScript } from '@/types';
 const store = useStore();
 
 const props = defineProps({
   script: {
-    type: Object as () => Script,
+    type: Object as () => ParsedContent,
     default: () => ({}),
+    validator(parsedContent: ParsedContent): parsedContent is ParsedScript {
+      const scriptProps = ['category', 'title', 'description', 'path'];
+      return scriptProps.every((scriptProp) => scriptProp in parsedContent);
+    },
   },
 });
 
@@ -76,8 +82,8 @@ function colorByName(name: string) {
   const gradient = store.gradients[name];
   return `color: ${gradient[0]}`;
 }
-function copyCode(script: Script) {
-  store.copyCode(script);
+function copyCode(script: ParsedScript) {
+  store.copyCode({ file: script.file, path: script.path });
 }
 </script>
 

@@ -43,18 +43,18 @@
           <path d="M16 16H2V2H9V0H2C0.89 0 0 0.9 0 2V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V9H16V16ZM11 0V2H14.59L4.76 11.83L6.17 13.24L16 3.41V7H18V0H11Z" fill="white"/>
         </svg>
         span Script home page on GitHub
-      .example(v-for="example in script.examples")
-        a.red-button.example(:href="example.link")
-          <svg class="icon svg-download" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 17.5H14V15.5H0V17.5ZM14 6.5H10V0.5H4V6.5H0L7 13.5L14 6.5Z" fill="white"/>
-          </svg>
-          span {{ example.name }}
+      //- .example(v-for="example in script.examples")
+      //-   a.red-button.example(:href="example.link")
+      //-     <svg class="icon svg-download" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      //-       <path d="M0 17.5H14V15.5H0V17.5ZM14 6.5H10V0.5H4V6.5H0L7 13.5L14 6.5Z" fill="white"/>
+      //-     </svg>
+      //-     span {{ example.name }}
 
-      span.note(v-if="examples.length > 0") NOTE: The example scene may contain not the latest version of the script!
+      //- span.note(v-if="examples.length > 0") NOTE: The example scene may contain not the latest version of the script!
 </template>
 
 <script setup lang="ts">
-import { Script } from '@/types';
+import type { Script } from '@/types';
 const store = useStore();
 
 const props = defineProps({
@@ -64,7 +64,7 @@ const props = defineProps({
   },
 });
 
-const examples = [];
+const examples = [] as any[];
 
 const gradColorBegin = computed(() => store.gradients[props.script.category]?.[0] || '');
 const gradColorEnd = computed(() => store.gradients[props.script.category]?.[1] || '');

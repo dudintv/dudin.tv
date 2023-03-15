@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { Script } from '@/types';
+import type { Script } from '@/types';
 import { getHighlighter } from 'shiki-es';
 
 const props = defineProps({
@@ -32,7 +32,9 @@ const code = ref('');
 const highlightedCode = ref('');
 
 async function getCode() {
-  code.value = (await store.getCode(props.script)) || '';
+  if (!props.script.file || !props.script.path) return;
+
+  code.value = (await store.getCode({ file: props.script.file, path: props.script.path })) || '';
 
   const highlighter = await getHighlighter({
     theme: 'nord',
