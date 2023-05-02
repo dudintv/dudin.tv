@@ -1,7 +1,7 @@
 <template lang="pug">
 .links-page.container.mx-auto
   #links-bg-container
-    #links-bg(ref="bg")
+    #links-bg(ref="linksBackground")
   .content
     h2.text-left Vizrt lessons
     p
@@ -30,14 +30,14 @@ import { AnimationItem } from 'lottie-web';
 const nuxtApp = useNuxtApp();
 
 const rockPlayer = ref<AnimationItem | null>(null);
-const bg = ref<HTMLElement | null>(null);
+const linksBackground = ref<HTMLElement | null>(null);
 
-watch(bg, () => {
-  if (!bg.value) return;
+watch(linksBackground, () => {
+  if (!linksBackground.value) return;
 
   rockPlayer.value = nuxtApp.$lottie
     .loadAnimation({
-      container: bg.value,
+      container: linksBackground.value,
       renderer: 'svg',
       loop: true,
       autoplay: true,

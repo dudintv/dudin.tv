@@ -1,7 +1,7 @@
 <template lang="pug">
 .contacts.mx-auto
   #contacts-bg-container
-    #contacts-bg(ref="bg")
+    #contacts-bg(ref="contactsBackground")
   .content
     h3.name Dmitry Dudin
     .contact.facebook
@@ -23,13 +23,13 @@ import { AnimationItem } from 'lottie-web';
 const nuxtApp = useNuxtApp();
 
 const turnipPlayer = ref<AnimationItem | null>(null);
-const bg = ref(null);
+const contactsBackground = ref(null);
 
-watch(bg, () => {
-  if (!bg.value) return;
+watch(contactsBackground, () => {
+  if (!contactsBackground.value) return;
 
   turnipPlayer.value = nuxtApp.$lottie.loadAnimation({
-    container: bg.value,
+    container: contactsBackground.value,
     renderer: 'svg',
     loop: true,
     autoplay: true,

@@ -22,7 +22,6 @@ const props = defineProps({
   },
 });
 
-const bg = ref('');
 const flag = ref('');
 const youtubeWidth = ref(650);
 const mediaQueryClasses = ref('');
@@ -32,13 +31,6 @@ onMounted(() => {
   nextTick(() => {
     window.addEventListener('resize', windowSizeChanged);
     windowSizeChanged();
-  });
-  nuxtApp.$lottie.loadAnimation({
-    container: bg.value,
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: '/animations/portfolio-bg.json',
   });
   nuxtApp.$lottie
     .loadAnimation({
