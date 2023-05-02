@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 const nuxtApp = useNuxtApp();
+import { getSizesByWindowWidth } from '@/utils';
 
 const props = defineProps({
   youtube: {
@@ -50,25 +51,11 @@ onMounted(() => {
     .setSpeed(2);
 });
 
-function windowSizeChanged(): void {
-  if (document.body.clientWidth < 900) {
-    youtubeWidth.value = 0.8 * document.body.clientWidth;
-    mediaQueryClasses.value = 'upto-900';
-    flagStyle.value = 'width: ' + (1 / document.body.clientWidth) ** 0.2 * 4000.0 + 'px';
-    return;
-  }
-
-  if (document.body.clientWidth < 1240) {
-    youtubeWidth.value = 500;
-    mediaQueryClasses.value = 'upto-1240';
-    flagStyle.value = '';
-    return;
-  }
-
-  // if document.body.clientWidth >= 1240
-  youtubeWidth.value = 650;
-  mediaQueryClasses.value = '';
-  flagStyle.value = '';
+function windowSizeChanged() {
+  const newSizes = getSizesByWindowWidth();
+  youtubeWidth.value = newSizes.youtubeWidth;
+  mediaQueryClasses.value = newSizes.mediaQueryClasses;
+  flagStyle.value = newSizes.flagStyle;
 }
 </script>
 

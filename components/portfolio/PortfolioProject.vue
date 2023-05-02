@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 const nuxtApp = useNuxtApp();
+import { getSizesByWindowWidth } from '@/utils';
 
 const props = defineProps({
   id: {
@@ -65,21 +66,9 @@ onMounted(() => {
 });
 
 function windowSizeChanged() {
-  if (document.body.clientWidth < 900) {
-    youtubeWidth.value = 0.8 * document.body.clientWidth;
-    mediaQueryClasses.value = 'upto-900';
-    return;
-  }
-
-  if (document.body.clientWidth < 1240) {
-    youtubeWidth.value = 500;
-    mediaQueryClasses.value = 'upto-1240';
-    return;
-  }
-
-  // if document.body.clientWidth >= 1240
-  youtubeWidth.value = 650;
-  mediaQueryClasses.value = '';
+  const newSizes = getSizesByWindowWidth();
+  youtubeWidth.value = newSizes.youtubeWidth;
+  mediaQueryClasses.value = newSizes.mediaQueryClasses;
 }
 </script>
 
