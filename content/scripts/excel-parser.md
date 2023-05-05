@@ -69,7 +69,7 @@ In this mode, you can spread your data to all children containers with a name wi
 Also, you can specify the data type. There are available types (actual for 1.7 version):
 
 - `:number`, or `:number(2)` — number `(2)` means rounding number to this count digits after point
-- `:percent`, or `:percent(2)` — works like the :number, but also multiply by 100
+- `:percent`, or `:percent(2)` — works like the `:number`, but also multiply by 100
 - `:omo` — for Omo plugin
 - `:color` — for emission color
 
