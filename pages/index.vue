@@ -12,7 +12,7 @@
       span.leading-tight
         strong Copy code in one-click.
         br
-        i This button gets the latest version
+        i This button pulls the latest version
         br
         i from my GitHub repo!
   section.flex.items-center.my-8

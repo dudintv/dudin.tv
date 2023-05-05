@@ -13,9 +13,9 @@
 
 <script setup lang="ts">
 const nuxtApp = useNuxtApp();
-import { getSizesByWindowWidth } from '@/utils';
+import { useWindowSize } from '@/composables/windowSize';
 
-const props = defineProps({
+defineProps({
   youtube: {
     type: String,
     required: true,
@@ -26,6 +26,7 @@ const flag = ref('');
 const youtubeWidth = ref(650);
 const mediaQueryClasses = ref('');
 const flagStyle = ref('');
+const { windowSizeChanged } = useWindowSize({ youtubeWidth, mediaQueryClasses, flagStyle });
 
 onMounted(() => {
   nextTick(() => {
@@ -42,13 +43,6 @@ onMounted(() => {
     })
     .setSpeed(2);
 });
-
-function windowSizeChanged() {
-  const newSizes = getSizesByWindowWidth();
-  youtubeWidth.value = newSizes.youtubeWidth;
-  mediaQueryClasses.value = newSizes.mediaQueryClasses;
-  flagStyle.value = newSizes.flagStyle;
-}
 </script>
 
 <style lang="scss" scoped>

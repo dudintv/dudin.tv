@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 const nuxtApp = useNuxtApp();
-import { getSizesByWindowWidth } from '@/utils';
+import { useWindowSize } from '@/composables/windowSize';
 
 const props = defineProps({
   id: {
@@ -41,6 +41,7 @@ const props = defineProps({
 const flag = ref('');
 const youtubeWidth = ref(650);
 const mediaQueryClasses = ref('');
+const { windowSizeChanged } = useWindowSize({ youtubeWidth, mediaQueryClasses });
 
 const mediaQueryClassesWithReverse = computed(() => `${props.reverse ? 'reverse' : ''} ${mediaQueryClasses.value}`);
 
@@ -64,12 +65,6 @@ onMounted(() => {
     })
     .setSpeed(2);
 });
-
-function windowSizeChanged() {
-  const newSizes = getSizesByWindowWidth();
-  youtubeWidth.value = newSizes.youtubeWidth;
-  mediaQueryClasses.value = newSizes.mediaQueryClasses;
-}
 </script>
 
 <style lang="scss" scoped>
