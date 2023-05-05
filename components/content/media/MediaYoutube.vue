@@ -12,7 +12,7 @@ const props = defineProps({
   },
   width: {
     type: Number,
-    default: 600,
+    default: 0,
   },
 });
 
@@ -56,10 +56,9 @@ watch(
 function changeYoutubeSize() {
   clearTimeout(debounceTimer.value);
   debounceTimer.value = setTimeout(() => {
-    if (player.value) {
-      player.value.setAttribute('width', videoWidth().toString());
-      player.value.setAttribute('height', videoHeight().toString());
-    }
+    if (!player.value) return;
+    player.value.setAttribute('width', videoWidth().toString());
+    player.value.setAttribute('height', videoHeight().toString());
   }, 200);
 }
 </script>
