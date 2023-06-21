@@ -17,7 +17,7 @@
     "autoprefixer": "^10.4.13",
     "eslint-plugin-vitest": "^0.0.32",
     "jsdom": "^21.1.0",
-    "nuxt": "^3.0.0",
+    "nuxt": "^3.4.3",
     "path": "^0.12.7",
     "postcss": "^8.4.19",
     "pug": "^3.0.2",
