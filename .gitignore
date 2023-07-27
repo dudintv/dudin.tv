@@ -92,3 +92,6 @@ sw.*
 # NUXT
 .output
 dist
+
+# YARN BERRY
+.yarn
