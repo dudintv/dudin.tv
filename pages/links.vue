@@ -1,9 +1,14 @@
 <template lang="pug">
-.links-page.container.mx-auto
+.links-page.container.mx-auto.mb-32
   #links-bg-container
     #links-bg(ref="linksBackground")
   .content
-    h2.text-left Vizrt lessons
+    h2.text-left Download Free VizArtist
+    p
+      a(href="https://www.vizrt.com/campaign/free-viz-artist/" target="_blank") Official Vizrt Download page
+      br
+      i.opacity-50 Here you have to fill in a short form to download the free version of Viz Artist.
+    h2.text-left.mt-8 Vizrt lessons
     p
       | Official, by Vizrt —&nbsp;
       a(href="http://vizuniversity.learnupon.com" target="_blank") vizuniversity.learnupon.com
@@ -21,8 +26,13 @@
       br
       | VBN Converter —
       a(href="https://app.box.com/s/i8e6djm6moewtxfu550c848052bouri2" target="_blank") Viz Image Converter 3.0.0.14629
-    small
-      | If some link doesn’t work, please let me know facebook.com/dudintv
+      br
+      a(href="https://marketplace.visualstudio.com/items?itemName=fhareide.vizscript") VSCode plugin
+      |  for vizrt-scripts highlighting.
+    small.opacity-50.my-4
+      | If some link doesn’t work, please let me know
+      |
+      a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
 </template>
 
 <script setup lang="ts">
