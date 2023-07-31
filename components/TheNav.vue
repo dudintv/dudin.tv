@@ -9,9 +9,13 @@ header.header
     img(src="/common/dudintv-logo.svg")
   nav.nav.flex.justify-between.w-full(@click="clickNav")
     .first-links.flex
-      NuxtLink.name-selector(v-for="item in menuItems[0]" :to="item.to" :id="item.id") {{ item.title }}
+      NuxtLink.flex.name-selector(v-for="item in menuItems[0]" :to="item.to" :id="item.id")
+        img.mr-2(:src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato")
+        | {{ item.title }}
     .second-links.flex
-      NuxtLink.name-selector(v-for="item in menuItems[1]" :to="item.to" :id="item.id") {{ item.title }}
+      NuxtLink.flex.name-selector(v-for="item in menuItems[1]" :to="item.to" :id="item.id")
+        img.mr-2(:src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato")
+        | {{ item.title }}
   #menu-burger(@click="toggleMobileMenu" style="width: 96px; height: 96px;")
   #menu-mobile(@click="hasMobileMenu = false")
     #menu-leaf

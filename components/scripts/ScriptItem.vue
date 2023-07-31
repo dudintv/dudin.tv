@@ -89,13 +89,13 @@ function copyCode(script: ParsedScript) {
 
 const scriptItemRef = ref<HTMLInputElement>();
 const thumbnailImageRef = ref<HTMLInputElement>();
-const extractor: UseMouseEventExtractor = (event) => {
+const mouseExtractor: UseMouseEventExtractor = (event) => {
   const { offsetLeft, offsetTop, offsetWidth, offsetHeight } = scriptItemRef.value as HTMLInputElement;
   const relativeX = Math.min(Math.max(((event.pageX - offsetLeft) / offsetWidth) * 100, 0), 100);
   const relativeY = Math.min(Math.max(((event.pageY - offsetTop) / offsetHeight) * 100, 0), 100);
   return event instanceof Touch ? null : [relativeX, relativeY];
 };
-const { x: offsetX, y: offsetY } = useMouse({ target: scriptItemRef.value, type: extractor, touch: false });
+const { x: offsetX, y: offsetY } = useMouse({ target: scriptItemRef.value, type: mouseExtractor, touch: false });
 const isHovered = useElementHover(scriptItemRef);
 watchEffect(() => {
   if (!thumbnailImageRef.value) return;
@@ -137,7 +137,7 @@ watchEffect(() => {
     transform: translateZ(100px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
     transform-origin: center center -60px;
     transition: transform 0.7s ease-in-out;
-    transition: scale 0.2s cubic-bezier(0, 0.6, 0.4, 1);
+    transition: scale 0s linear;
 
     &.non-hover-script-item {
       transition: all 0.7s cubic-bezier(0, 0.6, 0.4, 1);
