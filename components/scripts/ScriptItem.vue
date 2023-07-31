@@ -1,10 +1,10 @@
 <template lang="pug">
-.script-item
+.script-item(ref="scriptItemRef")
   nuxt-link.thumbnail.flex.items-center.justify-center.cursor-pointer(
     :to="script._path"
     :style="gradByName(script.category)"
     )
-    img(:src="thumbnailUrl")
+    img.thumbnail-image(:src="thumbnailUrl" ref="thumbnailImageRef")
     .viz4-label(v-if="script.viz4")
       <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 14.7531V26.7284L1.46809 23.3333L18.1277 11.9136V0L16.5957 3.39506L0 14.7531Z" fill="white"/>
@@ -45,6 +45,8 @@
 import Color from 'color';
 import type { ParsedContent } from '@nuxt/content/dist/runtime/types';
 import type { ParsedScript } from '@/types';
+import { type UseMouseEventExtractor, useMouse, useElementHover } from '@vueuse/core';
+
 const store = useStore();
 
 const props = defineProps({
@@ -59,7 +61,6 @@ const props = defineProps({
 });
 
 const slug = computed(() => props.script._path);
-const permalink = computed(() => `scripts/${slug.value}`);
 const thumbnailUrl = computed(() => `/images${slug.value}/thumbnail.svg`);
 
 function gradByName(name: string) {
@@ -83,17 +84,39 @@ function colorByName(name: string) {
   return `color: ${gradient[0]}`;
 }
 function copyCode(script: ParsedScript) {
-  store.copyCode({ file: script.file, path: script.path });
+  script.file && store.copyCode({ file: script.file, path: script.path });
 }
+
+const scriptItemRef = ref<HTMLInputElement>();
+const thumbnailImageRef = ref<HTMLInputElement>();
+const extractor: UseMouseEventExtractor = (event) => {
+  const { offsetLeft, offsetTop, offsetWidth, offsetHeight } = scriptItemRef.value as HTMLInputElement;
+  const relativeX = Math.min(Math.max(((event.pageX - offsetLeft) / offsetWidth) * 100, 0), 100);
+  const relativeY = Math.min(Math.max(((event.pageY - offsetTop) / offsetHeight) * 100, 0), 100);
+  return event instanceof Touch ? null : [relativeX, relativeY];
+};
+const { x: offsetX, y: offsetY } = useMouse({ target: scriptItemRef.value, type: extractor, touch: false });
+const isHovered = useElementHover(scriptItemRef);
+watchEffect(() => {
+  if (!thumbnailImageRef.value) return;
+
+  const smoothTransformClass = 'non-hover-script-item';
+  isHovered.value
+    ? thumbnailImageRef.value?.classList.remove(smoothTransformClass)
+    : thumbnailImageRef.value.classList.add(smoothTransformClass);
+  thumbnailImageRef.value.style.setProperty('scale', isHovered.value ? '110%' : '100%');
+  thumbnailImageRef.value.style.setProperty('--rotate-x', isHovered.value ? `${-(offsetY.value - 50) / 4}deg` : '0deg');
+  thumbnailImageRef.value.style.setProperty('--rotate-y', isHovered.value ? `${(offsetX.value - 50) / 2}deg` : '0deg');
+});
 </script>
 
 <style lang="scss" scoped>
 .script-item {
+  z-index: 10;
   background-color: #455c82;
   max-width: 355px;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.2s ease-in-out;
-  z-index: 10;
   transition: background-color 0.1s linear;
 
   &:hover {
@@ -107,6 +130,19 @@ function copyCode(script: ParsedScript) {
   position: relative;
   width: 355px;
   height: 200px;
+  transform-style: preserve-3d;
+  transform: perspective(900px);
+
+  .thumbnail-image {
+    transform: translateZ(100px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+    transform-origin: center center -60px;
+    transition: transform 0.7s ease-in-out;
+    transition: scale 0.2s cubic-bezier(0, 0.6, 0.4, 1);
+
+    &.non-hover-script-item {
+      transition: all 0.7s cubic-bezier(0, 0.6, 0.4, 1);
+    }
+  }
 
   .hover {
     position: absolute;
