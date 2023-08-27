@@ -69,10 +69,7 @@
       </div>
       <p class="description">{{ script.description }}</p>
       <div class="buttons">
-        <a
-          class="red-button home-page"
-          :href="`https://github.com/dudintv/vizartist-scripts/tree/master/${script.path}`"
-          target="_blank"
+        <a class="red-button home-page" :href="`${useRuntimeConfig().github.scriptsUrl}${script.path}`" target="_blank"
           ><svg
             class="icon svg-open-new-window"
             width="18"

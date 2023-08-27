@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      github: {
+        scriptsUrl: 'https://github.com/dudintv/vizartist-scripts/tree/master/',
+      },
+    },
+  },
   typescript: {
     strict: true,
   },

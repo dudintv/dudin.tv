@@ -13,7 +13,7 @@
     </div>
     <a
       class="red-button home-page mx-auto"
-      :href="`https://github.com/dudintv/vizartist-scripts/tree/master/${script.path}`"
+      :href="`${useRuntimeConfig().github.scriptsUrl}${script.path}`"
       target="_blank"
       ><svg
         class="icon svg-open-new-window"

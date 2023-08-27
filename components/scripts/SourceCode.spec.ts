@@ -26,7 +26,7 @@ describe('SourceCode', () => {
   });
 
   it('has button with correct url to github', () => {
-    const expectedHref = `https://github.com/dudintv/vizartist-scripts/tree/master/${script.path}`;
+    const expectedHref = `${useRuntimeConfig().github.scriptsUrl}${script.path}`;
     const button = wrapper.find('a');
     expect(button.attributes().href).toEqual(expectedHref);
   });
