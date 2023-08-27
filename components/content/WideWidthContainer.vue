@@ -1,7 +1,9 @@
-<template lang="pug">
-.wide-width-wrapper
-  .wide-width-container
-    slot
+<template>
+  <div class="wide-width-wrapper">
+    <div class="wide-width-container">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts"></script>

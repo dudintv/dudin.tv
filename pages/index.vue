@@ -1,27 +1,23 @@
-<template lang="pug">
-.content
-  TheIntro
-  //- .under-construction.border.border-4.border-yellow-500.text-center.mx-4
-  //-   h2.uppercase.text-yellow-300.mt-6.mb-2 Under construction
-  //-   p <code>Copy</code> button doesn't work. Please use <code>Script home page</code> button.
-  .flex.items-center.justify-around.flex-wrap
-    ScriptsTheScriptsFilter.mx-4(@filterChanged="updateFilter")
-    .flex.items-start.mx-4.mt-4
-      img(src="/images/common/copy.svg")
-      span.mx-2 —
-      span.leading-tight
-        strong Copy code in one-click.
-        br
-        i This button pulls the latest version
-        br
-        i from my GitHub repo!
-  section.flex.items-center.my-8
-    .scripts-list
-      ScriptsScriptItem(
-        v-for="script in filteredScripts"
-        :script="script"
-        :key="script.title"
-        )
+<template>
+  <div class="content">
+    <TheIntro></TheIntro>
+    <div class="flex items-center justify-around flex-wrap">
+      <ScriptsTheScriptsFilter class="mx-4" @filterChanged="updateFilter"></ScriptsTheScriptsFilter>
+      <div class="flex items-start mx-4 mt-4">
+        <img src="/images/common/copy.svg" /><span class="mx-2">—</span>
+        <span class="leading-tight">
+          <strong>Copy code in one-click.</strong><br /><i>This button pulls the latest version</i><br /><i>
+            from my GitHub repo!
+          </i>
+        </span>
+      </div>
+    </div>
+    <section class="flex items-center my-8">
+      <div class="scripts-list">
+        <ScriptsScriptItem v-for="script in filteredScripts" :script="script" :key="script.title"></ScriptsScriptItem>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,14 +1,21 @@
-<template lang="pug">
-.portfolio-item
-  .item-content(:class="mediaQueryClasses")
-    .content(:class="mediaQueryClasses")
-      MediaYoutube.z-10(:url="youtube" :width="youtubeWidth")
-      .description(:class="mediaQueryClasses")
-        .flag-container
-          .flag(ref="flag" :class="mediaQueryClasses" :style="flagStyle")
-        .text-container
-          .text(ref="text" :class="mediaQueryClasses")
-            slot
+<template>
+  <div class="portfolio-item">
+    <div class="item-content" :class="mediaQueryClasses">
+      <div class="content" :class="mediaQueryClasses">
+        <MediaYoutube class="z-10" :url="youtube" :width="youtubeWidth"></MediaYoutube>
+        <div class="description" :class="mediaQueryClasses">
+          <div class="flag-container">
+            <div class="flag" ref="flag" :class="mediaQueryClasses" :style="flagStyle"></div>
+          </div>
+          <div class="text-container">
+            <div class="text" ref="text" :class="mediaQueryClasses">
+              <slot></slot>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

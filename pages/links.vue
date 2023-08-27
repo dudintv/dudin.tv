@@ -1,38 +1,56 @@
-<template lang="pug">
-.links-page.container.mx-auto.mb-32
-  #links-bg-container
-    #links-bg(ref="linksBackground")
-  .content
-    h2.text-left Download Free VizArtist
-    p
-      a(href="https://www.vizrt.com/campaign/free-viz-artist/" target="_blank") Official Vizrt Download page
-      br
-      i.opacity-50 Here you have to fill in a short form to download the free version of Viz Artist.
-    h2.text-left.mt-8 Vizrt lessons
-    p
-      | Official, by Vizrt —&nbsp;
-      a(href="http://vizuniversity.learnupon.com" target="_blank") vizuniversity.learnupon.com
-      br
-      | tutsGFX —&nbsp;
-      a(href="http://tutsgfx.com/free-vizrt-training" target="_blank") tutsgfx.com/free-vizrt-training
-    h2.text-left.mt-8 Vizrt scripts
-    p
-      a(href="http://erizos.tv/scripts" target="_blank") erizos.tv/scripts
-      br
-      a(href="http://viztoolkit.com" target="_blank") viztoolkit.com
-    h2.text-left.mt-8 Vizrt tools
-    p
-      a(href="https://idonix.com/graphics/viz-script-notepadplusplus?fbclid=IwAR0HiX_9Z-TkM5fAKYg4tqpVzUarByCZqlLeJ7ysaNpTfpCbfTfuIVwEsSw" target="_blank") IDONIX Notepad++ conector for scripting
-      br
-      | VBN Converter —
-      a(href="https://app.box.com/s/i8e6djm6moewtxfu550c848052bouri2" target="_blank") Viz Image Converter 3.0.0.14629
-      br
-      a(href="https://marketplace.visualstudio.com/items?itemName=fhareide.vizscript") VSCode plugin
-      |  for vizrt-scripts highlighting.
-    small.opacity-50.my-4
-      | If some link doesn’t work, please let me know
-      |
-      a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
+<template>
+  <div class="links-page container mx-auto mb-32">
+    <div id="links-bg-container">
+      <div id="links-bg" ref="linksBackground"></div>
+    </div>
+    <div class="content">
+      <h2 class="text-left">Download Free VizArtist</h2>
+      <p>
+        <a href="https://www.vizrt.com/campaign/free-viz-artist/" target="_blank">Official Vizrt Download page</a>
+        <br />
+        <i class="opacity-50"> Here you have to fill in a short form to download the free version of Viz Artist. </i>
+      </p>
+      <h2 class="text-left mt-8">Vizrt lessons</h2>
+      <p>
+        Official, by Vizrt —&nbsp;<a href="http://vizuniversity.learnupon.com" target="_blank">
+          vizuniversity.learnupon.com
+        </a>
+        <br />
+        tutsGFX —&nbsp;<a href="http://tutsgfx.com/free-vizrt-training" target="_blank">
+          tutsgfx.com/free-vizrt-training
+        </a>
+      </p>
+      <h2 class="text-left mt-8">Vizrt scripts</h2>
+      <p>
+        <a href="http://erizos.tv/scripts" target="_blank">erizos.tv/scripts</a><br /><a
+          href="http://viztoolkit.com"
+          target="_blank"
+        >
+          viztoolkit.com
+        </a>
+      </p>
+      <h2 class="text-left mt-8">Vizrt tools</h2>
+      <p>
+        <a
+          href="https://idonix.com/graphics/viz-script-notepadplusplus?fbclid=IwAR0HiX_9Z-TkM5fAKYg4tqpVzUarByCZqlLeJ7ysaNpTfpCbfTfuIVwEsSw"
+          target="_blank"
+        >
+          IDONIX Notepad++ connector for scripting
+        </a>
+        <br />
+        VBN Converter —<a href="https://app.box.com/s/i8e6djm6moewtxfu550c848052bouri2" target="_blank">
+          Viz Image Converter 3.0.0.14629
+        </a>
+        <br />
+        <a href="https://marketplace.visualstudio.com/items?itemName=fhareide.vizscript">VSCode plugin</a>
+        for vizrt-scripts highlighting.
+      </p>
+      <small class="opacity-50 my-4">
+        If some link doesn’t work, please let me know
+        <a href="https://www.facebook.com/dudintv" target="_blank">facebook.com/dudintv</a></small
+      >
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

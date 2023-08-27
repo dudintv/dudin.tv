@@ -1,12 +1,15 @@
-<template lang="pug">
-section.article.container.mx-auto
-  ContentDoc(v-slot="{ doc }")
-    header.flex.justify-center
-      h1
-        | {{ doc.title }}
-      span.icons(v-if="doc.tags")
-        img.icon(v-for="tagName in tagNames(doc.tags)" :src="`/images/icons/${tagName}.png`")
-    ContentRenderer(:value="doc")
+<template>
+  <section class="article container mx-auto">
+    <ContentDoc v-slot="{ doc }">
+      <header class="flex justify-center">
+        <h1>{{ doc.title }}</h1>
+        <span class="icons" v-if="doc.tags">
+          <img class="icon" v-for="tagName in tagNames(doc.tags)" :src="`/images/icons/${tagName}.png`" />
+        </span>
+      </header>
+      <ContentRenderer :value="doc"></ContentRenderer>
+    </ContentDoc>
+  </section>
 </template>
 
 <script setup lang="ts">

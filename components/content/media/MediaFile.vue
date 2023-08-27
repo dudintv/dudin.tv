@@ -1,9 +1,17 @@
-<template lang="pug">
-a.file(:href="filePath")
-  <svg class="download-icon" width="14" height="22" viewBox="0 0 14 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 17.5H14V15.5H0V17.5ZM14 6.5H10V0.5H4V6.5H0L7 13.5L14 6.5Z" fill="white"/>
-  </svg>
-  | {{ name }}
+<template>
+  <a class="file" :href="filePath">
+    <svg
+      class="download-icon"
+      width="14"
+      height="22"
+      viewBox="0 0 14 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 17.5H14V15.5H0V17.5ZM14 6.5H10V0.5H4V6.5H0L7 13.5L14 6.5Z" fill="white" />
+    </svg>
+    {{ name }}
+  </a>
 </template>
 
 <script setup lang="ts">

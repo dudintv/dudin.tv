@@ -1,5 +1,11 @@
-<template lang="pug">
-img.my-4(:src="imageSrc" :class="{'transparent-background': transparent}" :style="imageStyle" :width="imageWidth")
+<template>
+  <img
+    class="my-4"
+    :src="imageSrc"
+    :class="{ 'transparent-background': transparent }"
+    :style="imageStyle"
+    :width="imageWidth"
+  />
 </template>
 
 <script setup lang="ts">

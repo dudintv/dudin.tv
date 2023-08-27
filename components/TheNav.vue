@@ -1,26 +1,35 @@
-<template lang="pug">
-header.header
-  #feathers
-  #anim-selectors-container
-    .anim-selector(v-for="navName in navNames" :id="`anim-${navName}`")
-  #nav-bg-container
-    img#nav-bg(src="/common/nav-bg.svg")
-  a.logo(href="/")
-    img(src="/common/dudintv-logo.svg")
-  nav.nav.flex.justify-between.w-full(@click="clickNav")
-    .first-links.flex
-      NuxtLink.flex.name-selector(v-for="item in menuItems[0]" :to="item.to" :id="item.id")
-        img.mr-2(:src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato")
-        | {{ item.title }}
-    .second-links.flex
-      NuxtLink.flex.name-selector(v-for="item in menuItems[1]" :to="item.to" :id="item.id")
-        img.mr-2(:src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato")
-        | {{ item.title }}
-  #menu-burger(@click="toggleMobileMenu" style="width: 96px; height: 96px;")
-  #menu-mobile(@click="hasMobileMenu = false")
-    #menu-leaf
-    #menu-mobile-links
-      NuxtLink(v-for="item in menuItems.flat()" :to="item.to") {{ item.title }}
+<template>
+  <header class="header">
+    <div id="feathers"></div>
+    <div id="anim-selectors-container">
+      <div class="anim-selector" v-for="navName in navNames" :id="`anim-${navName}`"></div>
+    </div>
+    <div id="nav-bg-container"><img id="nav-bg" src="/common/nav-bg.svg" /></div>
+    <a class="logo" href="/"><img src="/common/dudintv-logo.svg" /></a>
+    <nav class="nav flex justify-between w-full" @click="clickNav">
+      <div class="first-links flex">
+        <NuxtLink class="flex name-selector" v-for="item in menuItems[0]" :to="item.to" :id="item.id"
+          ><img class="mr-2" :src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato" />{{
+            item.title
+          }}</NuxtLink
+        >
+      </div>
+      <div class="second-links flex">
+        <NuxtLink class="flex name-selector" v-for="item in menuItems[1]" :to="item.to" :id="item.id"
+          ><img class="mr-2" :src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato" />{{
+            item.title
+          }}</NuxtLink
+        >
+      </div>
+    </nav>
+    <div id="menu-burger" @click="toggleMobileMenu" style="width: 96px; height: 96px"></div>
+    <div id="menu-mobile" @click="hasMobileMenu = false">
+      <div id="menu-leaf"></div>
+      <div id="menu-mobile-links">
+        <NuxtLink v-for="item in menuItems.flat()" :to="item.to">{{ item.title }}</NuxtLink>
+      </div>
+    </div>
+  </header>
 </template>
 
 <script setup lang="ts">

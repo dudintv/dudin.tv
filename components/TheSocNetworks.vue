@@ -1,12 +1,36 @@
-<template lang="pug">
-.social-networks.relative.flex.justify-center.items-end
-  img.ellipse-shadow(src="/common/ellipse-shadow.svg")
-  .content.flex.flex-col.justify-center.items-center
-    .links.w-full.flex.justify-center.items-center.relative
-      a#youtube.cursor-pointer(href="https://www.youtube.com/channel/UCNAcWv6Eybjq7BCz7JHkxiw" target="_blank" @mouseover="hover('youtube')" @mouseleave="leave('youtube')")
-      a#facebook.cursor-pointer.mx-4(href="https://www.facebook.com/dudintv" target="_blank" @mouseover="hover('facebook')" @mouseleave="leave('facebook')")
-      a#linkedin.cursor-pointer(href="https://www.linkedin.com/in/dudintv" target="_blank" @mouseover="hover('linkedin')" @mouseleave="leave('linkedin')")
-    span.mt-2.mb-10.font-bold dudin.tv
+<template>
+  <div class="social-networks relative flex justify-center items-end">
+    <img class="ellipse-shadow" src="/common/ellipse-shadow.svg" />
+    <div class="content flex flex-col justify-center items-center">
+      <div class="links w-full flex justify-center items-center relative">
+        <a
+          class="cursor-pointer"
+          id="youtube"
+          href="https://www.youtube.com/channel/UCNAcWv6Eybjq7BCz7JHkxiw"
+          target="_blank"
+          @mouseover="hover('youtube')"
+          @mouseleave="leave('youtube')"
+        />
+        <a
+          class="cursor-pointer mx-4"
+          id="facebook"
+          href="https://www.facebook.com/dudintv"
+          target="_blank"
+          @mouseover="hover('facebook')"
+          @mouseleave="leave('facebook')"
+        />
+        <a
+          class="cursor-pointer"
+          id="linkedin"
+          href="https://www.linkedin.com/in/dudintv"
+          target="_blank"
+          @mouseover="hover('linkedin')"
+          @mouseleave="leave('linkedin')"
+        />
+      </div>
+      <span class="mt-2 mb-10 font-bold">dudin.tv</span>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

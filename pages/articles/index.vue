@@ -1,8 +1,10 @@
-<template lang="pug">
-.articles-page
-  #articles-bg
-  .articles-list
-    ArticlesItem(v-for="article in articles" :article="article" :key="article.title")
+<template>
+  <div class="articles-page">
+    <div id="articles-bg" />
+    <div class="articles-list">
+      <ArticlesItem v-for="article in articles" :article="article" :key="article.title" />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

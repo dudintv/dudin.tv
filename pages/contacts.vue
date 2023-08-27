@@ -1,21 +1,35 @@
-<template lang="pug">
-.contacts.mx-auto
-  #contacts-bg-container
-    #contacts-bg(ref="contactsBackground")
-  .content
-    h3.name Dmitry Dudin
-    .contact.facebook
-      img(:src="`/images/icons/facebook.png`" width="32" height="32")
-      a(href="https://www.facebook.com/dudintv" target="_blank") facebook.com/dudintv
-    .contact.linkedin
-      img(src="/images/icons/linkedin.png" width="32" height="32")
-      a(href="https://www.linkedin.com/in/dudintv" target="_blank") linkedin.com/in/dudintv
-    .contact.telegram
-      img(src="/images/icons/telegram.png" width="32" height="32")
-      a(href="http://t.me/dudintv" target="_blank") @dudintv
-    .contact.phone
-      .phone-number +31 6 189 765 18
-      .realm Amsterdam, NL
+<template>
+  <div class="contacts mx-auto">
+    <div id="contacts-bg-container">
+      <div id="contacts-bg" ref="contactsBackground"></div>
+    </div>
+    <div class="content">
+      <h3 class="name">Dmitry Dudin</h3>
+      <div class="contact facebook">
+        <img :src="`/images/icons/facebook.png`" width="32" height="32" /><a
+          href="https://www.facebook.com/dudintv"
+          target="_blank"
+          >facebook.com/dudintv</a
+        >
+      </div>
+      <div class="contact linkedin">
+        <img src="/images/icons/linkedin.png" width="32" height="32" /><a
+          href="https://www.linkedin.com/in/dudintv"
+          target="_blank"
+          >linkedin.com/in/dudintv</a
+        >
+      </div>
+      <div class="contact telegram">
+        <img src="/images/icons/telegram.png" width="32" height="32" /><a href="http://t.me/dudintv" target="_blank"
+          >@dudintv</a
+        >
+      </div>
+      <div class="contact phone">
+        <div class="phone-number">+31 6 189 765 18</div>
+        <div class="realm">Amsterdam, NL</div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,19 @@
-<template lang="pug">
-.media-youtube.my-4(ref="root")
-  .youtube-wrapper
-    <iframe ref="player" v-if="videoId" width="560" height="315" :src="`https://www.youtube.com/embed/${videoId}`" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<template>
+  <div class="media-youtube my-4" ref="root">
+    <div class="youtube-wrapper">
+      <iframe
+        ref="player"
+        v-if="videoId"
+        width="560"
+        height="315"
+        :src="`https://www.youtube.com/embed/${videoId}`"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

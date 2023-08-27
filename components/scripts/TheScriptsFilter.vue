@@ -1,11 +1,15 @@
-<template lang="pug">
-#scripts-filter.flex.flex-wrap.items-start.cursor-pointer.text-white.font-bold.py-4
-  .option.px-3.py-1(
-    v-for="option in options"
-    :style="gradByName(option)"
-    @click="select(option)"
-    :class="{selected: (option===selectedOption)}"
-    ) {{ option }}
+<template>
+  <div class="flex flex-wrap items-start cursor-pointer text-white font-bold py-4" id="scripts-filter">
+    <div
+      class="option px-3 py-1"
+      v-for="option in options"
+      :style="gradByName(option)"
+      @click="select(option)"
+      :class="{ selected: option === selectedOption }"
+    >
+      {{ option }}
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

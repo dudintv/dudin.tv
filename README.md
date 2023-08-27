@@ -181,8 +181,8 @@ Use it for static images (jpg, png, svg).
 - `name="xxx.png"` reflects `public/images/{current url path}/xxx.png`.
 
 ```
-// in pug template:
-media-image(name="xxx.svg")
+// in template:
+<media-image name="xxx.svg" />
 
 // in Markdown file:
 :media-image{name="xxx.png"}

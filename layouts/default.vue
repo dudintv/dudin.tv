@@ -1,18 +1,19 @@
-<template lang="pug">
-div
-  TheNav
-  slot
-  TheSocNetworks
-  #copy-code(ref="copyCode")
+<template>
+  <div>
+    <TheNav></TheNav>
+    <slot></slot>
+    <TheSocNetworks></TheSocNetworks>
+    <div id="copy-code" ref="copyCode"></div>
+  </div>
 </template>
 
 <script setup>
-const nuxtApp = useNuxtApp()
+const nuxtApp = useNuxtApp();
 
-const store = useStore()
+const store = useStore();
 
-const copyCode = ref()
-const animation = ref()
+const copyCode = ref();
+const animation = ref();
 
 onMounted(() => {
   animation.value = nuxtApp.$lottie.loadAnimation({
@@ -21,12 +22,12 @@ onMounted(() => {
     loop: false,
     autoplay: false,
     path: '/animations/copy-code.json',
-  })
+  });
   animation.value.addEventListener('complete', () => {
-    animation.value.wrapper.style = 'display: none'
-  })
-  store.copyCodeAnim = animation.value
-})
+    animation.value.wrapper.style = 'display: none';
+  });
+  store.copyCodeAnim = animation.value;
+});
 </script>
 
 <style lang="scss">
@@ -38,8 +39,7 @@ onMounted(() => {
 }
 
 html {
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans',
-    'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
   font-size: 18px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -311,11 +311,7 @@ table {
   width: fit-content;
   height: fit-content;
   color: white;
-  background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(53, 6, 6, 0.15) 100%
-    ),
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(53, 6, 6, 0.15) 100%),
     linear-gradient(101.31deg, #6c3392 0%, #79071c 100%);
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.5s ease;
@@ -327,11 +323,7 @@ table {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.27) 0%,
-        rgba(53, 6, 6, 0.15) 100%
-      ),
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.27) 0%, rgba(53, 6, 6, 0.15) 100%),
       linear-gradient(101.31deg, #782ea9 0%, #960a24 100%);
     transition: opacity 0.2s ease-out;
     z-index: 2;

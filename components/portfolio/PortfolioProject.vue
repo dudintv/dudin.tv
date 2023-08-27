@@ -1,16 +1,26 @@
-<template lang="pug">
-.portfolio-item
-  .item-content.relative(:class="mediaQueryClasses")
-    .bg-container
-      img.bg(v-if="!reverse" src="/common/project-bg-left.svg" :class="mediaQueryClassesWithReverse")
-      img.bg(v-if="reverse" src="/common/project-bg-right.svg" :class="mediaQueryClassesWithReverse")
-    .content(:class="mediaQueryClassesWithReverse")
-      .description.relative(:class="mediaQueryClasses")
-        .flag(ref="flag" :class="mediaQueryClassesWithReverse")
-        .text(:class="mediaQueryClassesWithReverse")
-          slot
-      MediaImage.z-10(v-if="image" :name="imagePath" :isFullPath="true" :width="650")
-      MediaYoutube.z-10(v-if="youtube" :url="youtube" :width="youtubeWidth")
+<template>
+  <div class="portfolio-item">
+    <div class="item-content relative" :class="mediaQueryClasses">
+      <div class="bg-container">
+        <img class="bg" v-if="!reverse" src="/common/project-bg-left.svg" :class="mediaQueryClassesWithReverse" /><img
+          class="bg"
+          v-if="reverse"
+          src="/common/project-bg-right.svg"
+          :class="mediaQueryClassesWithReverse"
+        />
+      </div>
+      <div class="content" :class="mediaQueryClassesWithReverse">
+        <div class="description relative" :class="mediaQueryClasses">
+          <div class="flag" ref="flag" :class="mediaQueryClassesWithReverse"></div>
+          <div class="text" :class="mediaQueryClassesWithReverse">
+            <slot></slot>
+          </div>
+        </div>
+        <MediaImage class="z-10" v-if="image" :name="imagePath" :isFullPath="true" :width="650"></MediaImage>
+        <MediaYoutube class="z-10" v-if="youtube" :url="youtube" :width="youtubeWidth"></MediaYoutube>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">

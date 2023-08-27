@@ -1,7 +1,15 @@
-<template lang="pug">
-.media-vimeo.my-4
-  <div style="padding:56.25% 0 0 0;position:relative;">
-    <iframe :src="videoUrl" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LogoTransformations"></iframe>
+<template>
+  <div class="media-vimeo my-4">
+    <div style="padding: 56.25% 0 0 0; position: relative">
+      <iframe
+        :src="videoUrl"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+        title="LogoTransformations"
+      ></iframe>
+    </div>
   </div>
 </template>
 

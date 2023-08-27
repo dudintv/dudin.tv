@@ -1,13 +1,15 @@
-<template lang="pug">
-.article-item.mb-16
-  span.date {{ displayDate }}
-  .title
-    .icons
-      img.icon(v-for="icon in icons" :src="`/icons/${icon}.png`")
-    nuxt-link(:to="article._path")
-      h2.title.text-left.my-2 {{ article.title }}
-  p.description.mb-0 {{ article.description }}
-  small: nuxt-link(:to="article._path") read more ...
+<template>
+  <div class="article-item mb-16">
+    <span class="date">{{ displayDate }}</span>
+    <div class="title">
+      <div class="icons"><img class="icon" v-for="icon in icons" :src="`/icons/${icon}.png`" /></div>
+      <nuxt-link :to="article._path">
+        <h2 class="title text-left my-2">{{ article.title }}</h2>
+      </nuxt-link>
+    </div>
+    <p class="description mb-0">{{ article.description }}</p>
+    <small> <nuxt-link :to="article._path">read more ...</nuxt-link></small>
+  </div>
 </template>
 
 <script setup lang="ts">
