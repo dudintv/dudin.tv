@@ -8,11 +8,12 @@
 </template>
 
 <script setup lang="ts">
-const nuxtApp = useNuxtApp();
+import { Article } from '@/types';
 
+const nuxtApp = useNuxtApp();
 const articles = (await queryContent('/articles').only(['_path', 'date', 'title', 'description', 'tags']).find()).sort(
   (a1, a2) => (new Date(a1.date) < new Date(a2.date) ? 1 : -1)
-);
+) as unknown as Article[];
 
 onMounted(() => {
   nuxtApp.$lottie

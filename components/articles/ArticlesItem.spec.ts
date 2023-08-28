@@ -1,8 +1,9 @@
 import { mount } from '@vue/test-utils';
 import ArticlesItem from './ArticlesItem.vue';
+import { Article } from '@/types';
 
 const tags = ['vizartist', 'vizpilot'];
-const article = {
+const article: Article = {
   _path: 'path',
   title: 'Article Title',
   description: 'Article Description',

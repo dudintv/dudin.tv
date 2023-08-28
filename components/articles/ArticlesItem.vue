@@ -13,9 +13,12 @@
 </template>
 
 <script setup lang="ts">
+import { Article } from '@/types';
+import { PropType } from 'vue';
+
 const props = defineProps({
   article: {
-    type: Object,
+    type: Object as PropType<Article>,
     required: true,
   },
 });
@@ -23,7 +26,7 @@ const props = defineProps({
 const icons = computed(() => props.article.tags.split(' '));
 
 const displayDate = computed(() => {
-  const date = new Date(props.article.date);
+  const date = new Date(props.article.date || 0);
   return date.toLocaleDateString('en-GB', {
     year: 'numeric',
     month: 'long',

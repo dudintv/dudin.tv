@@ -10,3 +10,11 @@ export interface Script {
 }
 
 export type ParsedScript = Script & ParsedContent;
+
+export interface Article {
+  _path: string;
+  title: string;
+  description: string;
+  tags: string;
+  date?: string;
+}
