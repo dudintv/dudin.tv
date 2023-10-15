@@ -44,6 +44,8 @@
         <br />
         <a href="https://marketplace.visualstudio.com/items?itemName=fhareide.vizscript">VSCode plugin</a>
         for vizrt-scripts highlighting.
+        <br />
+        <a href="https://disk.yandex.ru/i/HYQigK-AwT8P2A">Viz External commands Manual</a> with a lot of examples of the VizEngine console commands
       </p>
       <small class="opacity-50 my-4">
         If some link doesn’t work, please let me know
