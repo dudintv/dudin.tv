@@ -44,9 +44,16 @@
         <br />
         <a href="https://marketplace.visualstudio.com/items?itemName=fhareide.vizscript">VSCode plugin</a>
         for vizrt-scripts highlighting.
-        <br />
-        <a href="https://disk.yandex.ru/i/HYQigK-AwT8P2A">Viz External commands Manual</a> with a lot of examples of the VizEngine console commands
+        
       </p>
+
+      <h2 class="text-left mt-8">Documentations</h2>
+      <p>
+        <a href="https://disk.yandex.ru/i/HYQigK-AwT8P2A">Viz External commands Manual</a> with a lot of examples of the VizEngine console commands
+        <br />
+        Detailed <a href="https://disk.yandex.ru/i/t4Qpca-KoIWyPA">Dexter documentation</a> with examples
+      </p>
+      
       <small class="opacity-50 my-4">
         If some link doesn’t work, please let me know
         <a href="https://www.facebook.com/dudintv" target="_blank">facebook.com/dudintv</a></small
@@ -122,11 +129,11 @@ onUnmounted(() => {
 }
 
 .content {
-  // position: absolute;
   top: 5vw;
   display: flex;
   flex-direction: column;
   z-index: 100;
   padding: 0 1rem;
+  margin-bottom: 10rem;
 }
 </style>
