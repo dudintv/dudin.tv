@@ -2,6 +2,44 @@ import { AnimationItem } from 'lottie-web';
 import { defineStore } from 'pinia';
 import { type Shader } from '@/types';
 
+const interfaceMapping: Record<string, any> = {
+  Int: {
+    type: 'integer',
+    parseParams: (params: string[]) => ({ default: params[2], min: params[3], max: params[4] }),
+  },
+  Float: {
+    type: 'float',
+    parseParams: (params: string[]) => ({ default: params[2], min: params[3], max: params[4] }),
+  },
+  Vec2: {
+    type: 'vec2',
+    parseParams: (params: string[]) => ({ defaultX: params[2], defaultY: params[3] }),
+  },
+  Vec3: {
+    type: 'vec3',
+    parseParams: (params: string[]) => ({ defaultX: params[2], defaultY: params[3], defaultZ: params[4] }),
+  },
+  Vec4: {
+    type: 'vec4',
+    parseParams: (params: string[]) => ({
+      defaultX: params[2],
+      defaultY: params[3],
+      defaultZ: params[4],
+      defaultW: params[5],
+    }),
+  },
+  Color: {
+    type: 'color',
+    parseParams: (params: string[]) => ({
+      defaultR: params[2],
+      defaultG: params[3],
+      defaultB: params[4],
+      defaultA: params[5],
+    }),
+  },
+  Sampler2D: { type: 'image', parseParams: (params: string[]) => ({}) },
+};
+
 export const useStore = defineStore('store', {
   state: () => ({
     gradients: {
@@ -50,13 +88,6 @@ export const useStore = defineStore('store', {
       const endInterfaceIndex = vizShaderLines.findIndex((line) => line.trim() === '@registerParametersEnd');
       if (startInterfaceIndex === -1 || endInterfaceIndex === -1) return null;
 
-      const interfaceMapping: Record<string, any> = {
-        Sampler2D: { type: 'image', parseParams: (params: string[]) => ({}) },
-        Float: {
-          type: 'float',
-          parseParams: (params: string[]) => ({ default: params[2], min: params[3], max: params[4] }),
-        },
-      };
       const interfaceElements: Shader[] = [];
       for (let i = startInterfaceIndex + 1; i < endInterfaceIndex; i++) {
         const line = vizShaderLines[i].trim();
