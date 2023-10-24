@@ -21,6 +21,6 @@ export type Article = {
 
 export type Shader = {
   type: string;
-  name: string;
+  label: string;
   parameters: Record<string, string | number>;
 };

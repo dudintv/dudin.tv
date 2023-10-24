@@ -34,7 +34,7 @@ watch(props.shader, async () => {
 <template>
   <h3>Shader interface parameters</h3>
   <ul v-if="shaderParams" class="mb-16">
-    <li v-for="param in shaderParams" :key="param.name">{{ param.type }}: {{ param.name }}</li>
+    <li v-for="param in shaderParams" :key="param.name">{{ param.type }}: {{ param.label }}</li>
   </ul>
   <div v-else class="bg flex justify-center">Loading the shader code...</div>
 </template>

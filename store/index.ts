@@ -70,7 +70,7 @@ export const useStore = defineStore('store', {
         interfaceMapping[typeName] &&
           interfaceElements.push({
             type: interfaceMapping[typeName].type,
-            name: parametersStrings[1].replaceAll('"', ''),
+            label: parametersStrings[1].replaceAll('"', ''),
             parameters: interfaceMapping[typeName].parseParams(parametersStrings),
           });
       }
