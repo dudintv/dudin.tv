@@ -2,6 +2,7 @@
   <div class="script-content container mx-auto">
     <ContentDoc v-slot="{ doc }">
       <ScriptsScriptHero :script="doc" />
+      <ShaderPlayground :shader="doc" />
       <ContentRenderer :value="doc" />
       <ScriptsSourceCode v-if="doc.file" :script="doc" />
     </ContentDoc>

@@ -1,6 +1,6 @@
 import { AnimationItem } from 'lottie-web';
 import { defineStore } from 'pinia';
-import { Script } from '@/types';
+import { type Shader } from '@/types';
 
 export const useStore = defineStore('store', {
   state: () => ({
@@ -42,6 +42,40 @@ export const useStore = defineStore('store', {
       (this.copyCodeAnim as any).wrapper.style = 'display: block';
       this.copyCodeAnim.goToAndStop(0, true);
       this.copyCodeAnim.play();
+    },
+    parseShader(vizShaderCode: string): null | any {
+      if (!vizShaderCode) return null;
+      const vizShaderLines = vizShaderCode.split('\n');
+      const startInterfaceIndex = vizShaderLines.findIndex((line) => line.trim() === '@registerParametersBegin');
+      const endInterfaceIndex = vizShaderLines.findIndex((line) => line.trim() === '@registerParametersEnd');
+      if (startInterfaceIndex === -1 || endInterfaceIndex === -1) return null;
+
+      const interfaceMapping: Record<string, any> = {
+        Sampler2D: { type: 'image', parseParams: (params: string[]) => ({}) },
+        Float: {
+          type: 'float',
+          parseParams: (params: string[]) => ({ default: params[2], min: params[3], max: params[4] }),
+        },
+      };
+      const interfaceElements: Shader[] = [];
+      for (let i = startInterfaceIndex + 1; i < endInterfaceIndex; i++) {
+        const line = vizShaderLines[i].trim();
+        const typeNameStartIndex = 18; // after '@registerParameter'
+        const parametersStartIndex = line.indexOf('(');
+        const parametersEndIndex = line.indexOf(')');
+        const typeName = line.substring(typeNameStartIndex, parametersStartIndex).trim();
+        const parametersSourceText = line.substring(parametersStartIndex + 1, parametersEndIndex);
+        const parametersStrings = parametersSourceText.split(',').map((s) => s.trim());
+
+        interfaceMapping[typeName] &&
+          interfaceElements.push({
+            type: interfaceMapping[typeName].type,
+            name: parametersStrings[1].replaceAll('"', ''),
+            parameters: interfaceMapping[typeName].parseParams(parametersStrings),
+          });
+      }
+      console.log('interfaceElements =', interfaceElements);
+      return interfaceElements;
     },
   },
 });

@@ -1,6 +1,6 @@
 ---
 title: Simple blur
-description: Blurs any input image. Using simple gaussian algorithm.
+description: The shader blurs any input image using simple gaussian algorithm.
 category: shader
 path: dudin-shaders/simple-gaussian-blur/
 file: simple-gaussian-blur.glsl
