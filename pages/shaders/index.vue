@@ -1,5 +1,5 @@
 <template>
-  <div class="content -mt-16">
+  <div class="content -mt-8 md:-mt-16">
     <div class="flex items-center justify-end flex-wrap">
       <div class="flex items-start mx-16">
         <img src="/images/common/copy.svg" /><span class="mx-2">—</span>
