@@ -1,7 +1,7 @@
 <template>
   <div class="content -mt-16">
     <div class="flex items-center justify-end flex-wrap">
-      <div class="flex items-start mx-8">
+      <div class="flex items-start mx-16">
         <img src="/images/common/copy.svg" /><span class="mx-2">—</span>
         <span class="leading-tight">
           <strong>Copy code in one-click.</strong><br /><i>This button pulls the latest version</i><br /><i>

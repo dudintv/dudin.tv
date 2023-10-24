@@ -6,20 +6,18 @@
     </div>
     <div id="nav-bg-container"><img id="nav-bg" src="/common/nav-bg.svg" /></div>
     <a class="logo" href="/"><img src="/common/dudintv-logo.svg" /></a>
-    <nav class="nav flex justify-between w-full" @click="clickNav">
+    <nav class="nav flex justify-between" @click="clickNav">
       <div class="first-links flex">
-        <NuxtLink class="flex name-selector" v-for="item in menuItems[0]" :to="item.to" :id="item.id"
-          ><img class="mr-2" :src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato" />{{
-            item.title
-          }}</NuxtLink
-        >
+        <NuxtLink class="flex name-selector" v-for="item in menuItems[0]" :to="item.to" :id="item.id">
+          <img class="mr-2" :src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato" />
+          {{ item.title }}
+        </NuxtLink>
       </div>
       <div class="second-links flex">
-        <NuxtLink class="flex name-selector" v-for="item in menuItems[1]" :to="item.to" :id="item.id"
-          ><img class="mr-2" :src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato" />{{
-            item.title
-          }}</NuxtLink
-        >
+        <NuxtLink class="flex name-selector" v-for="item in menuItems[1]" :to="item.to" :id="item.id">
+          <img class="mr-2" :src="`/icons/${item.id}.svg`" width="18" style="fill: red; color: tomato" />
+          {{ item.title }}
+        </NuxtLink>
       </div>
     </nav>
     <div id="menu-burger" @click="toggleMobileMenu" style="width: 96px; height: 96px"></div>
@@ -38,7 +36,6 @@ const nuxtApp = useNuxtApp();
 const route = useRoute();
 
 const currentNav = ref('scripts');
-const navNames = ['scripts', 'articles', 'links', 'portfolio', 'contacts'];
 const animSelectors = ref<{ id: string; anim: any }[]>([]);
 const hasMobileMenu = ref(false);
 const animMenuLeaf = ref<AnimationItem>();
@@ -79,6 +76,7 @@ const menuItems = [
     },
   ],
 ];
+const navNames = menuItems.flat().map((item) => item.id);
 
 onMounted(() => {
   nuxtApp.$lottie.loadAnimation({
@@ -248,8 +246,8 @@ function toggleMobileMenu() {
 .nav {
   position: absolute;
   top: 25%;
-  left: 40%;
-  width: 50%;
+  left: 30%;
+  width: 65%;
   z-index: 200;
 
   a {
@@ -360,7 +358,7 @@ function toggleMobileMenu() {
 
 @media (max-width: 1024px) {
   .nav {
-    left: 30%;
+    left: 25%;
     width: 70%;
   }
 }
