@@ -50,8 +50,8 @@ html {
 
 html,
 body {
-  background-color: #243b61;
-  color: #d8dee8;
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-text));
 }
 
 body {

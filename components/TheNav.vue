@@ -51,6 +51,11 @@ const menuItems = [
       title: 'Scripts',
     },
     {
+      to: '/shaders',
+      id: 'shaders',
+      title: 'Shaders',
+    },
+    {
       to: '/articles',
       id: 'articles',
       title: 'Articles',

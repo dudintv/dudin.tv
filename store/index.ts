@@ -11,6 +11,7 @@ export const useStore = defineStore('store', {
       logic: ['#C45ADD', '#7F4EF4'],
       transformation: ['#2DCFE6', '#B6E78C'],
       texture: ['#C389F0', '#ED7485'],
+      shader: ['#F285C6', '#EFAEA0'],
     } as Record<string, [string, string]>,
     copyCodeAnim: null as AnimationItem | null,
   }),
