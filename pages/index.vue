@@ -13,9 +13,13 @@
       </div>
     </div>
     <section class="flex items-center my-8">
-      <div class="scripts-list">
-        <ScriptsScriptItem v-for="script in filteredScripts" :script="script" :key="script.title"></ScriptsScriptItem>
-      </div>
+      <!-- <div class="scripts-list"> -->
+      <TransitionGroup name="scripts" tag="div" class="scripts-list">
+        <div v-for="script in filteredScripts" :key="script.title">
+          <ScriptsScriptItem :script="script" />
+        </div>
+      </TransitionGroup>
+      <!-- </div> -->
     </section>
   </div>
 </template>
@@ -48,5 +52,35 @@ function updateFilter(filterName: string): void {
   justify-content: center;
   width: 100%;
   max-width: 1500px;
+  position: relative;
+}
+
+.scripts-move,
+.scripts-enter-active,
+.scripts-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.scripts-enter-from,
+.scripts-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01);
+}
+
+.scripts-leave-active {
+  position: absolute;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .scripts-move,
+  .scripts-enter-active,
+  .scripts-leave-active {
+    transition: none;
+  }
+
+  .scripts-enter-from,
+  .scripts-leave-to {
+    transform: none;
+  }
 }
 </style>

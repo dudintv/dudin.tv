@@ -4,7 +4,8 @@
       class="thumbnail flex items-center justify-center cursor-pointer"
       :to="script._path"
       :style="gradByName(script.category)"
-      ><img class="thumbnail-image" :src="thumbnailUrl" ref="thumbnailImageRef" />
+    >
+      <img class="thumbnail-image" :src="thumbnailUrl" ref="thumbnailImageRef" />
       <div class="viz4-label" v-if="script.viz4">
         <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 14.7531V26.7284L1.46809 23.3333L18.1277 11.9136V0L16.5957 3.39506L0 14.7531Z" fill="white" />
@@ -123,6 +124,7 @@ watchEffect(() => {
   z-index: 10;
   background-color: #455c82;
   max-width: 355px;
+  height: 100%;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
   transition: box-shadow 0.2s ease-in-out;
   transition: background-color 0.1s linear;
