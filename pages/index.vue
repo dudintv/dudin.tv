@@ -13,13 +13,11 @@
       </div>
     </div>
     <section class="flex items-center my-8">
-      <!-- <div class="scripts-list"> -->
       <TransitionGroup name="scripts" tag="div" class="scripts-list">
         <div v-for="script in filteredScripts" :key="script.title">
           <ScriptsScriptItem :script="script" />
         </div>
       </TransitionGroup>
-      <!-- </div> -->
     </section>
   </div>
 </template>
@@ -52,7 +50,7 @@ function updateFilter(filterName: string): void {
   justify-content: center;
   width: 100%;
   max-width: 1500px;
-  position: relative;
+  /* position: relative; */
 }
 
 .scripts-move,
