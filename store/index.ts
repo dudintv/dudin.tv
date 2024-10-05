@@ -1,4 +1,4 @@
-import { AnimationItem } from 'lottie-web';
+import { type AnimationItem } from 'lottie-web';
 import { defineStore } from 'pinia';
 import { type Shader } from '@/types';
 

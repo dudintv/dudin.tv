@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import { Article } from '@/types';
-import { PropType } from 'vue';
+import { type Article } from '@/types';
+import { type PropType } from 'vue';
 
 const props = defineProps({
   article: {

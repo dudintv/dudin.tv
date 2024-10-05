@@ -24,3 +24,27 @@ export type Shader = {
   label: string;
   parameters: Record<string, string | number>;
 };
+
+export type Container = {
+  name: string;
+  plugins?: string[];
+  children?: Container[];
+};
+
+export type FacadeContainer = {
+  container: Container;
+  order: number;
+  name: string;
+  plugins?: string[];
+  parent?: Container;
+  children?: Container[];
+  next?: Container;
+  previous?: Container;
+  nesting: number;
+  highlighted?: boolean;
+};
+
+export type Scene = {
+  name: string;
+  children: Container[];
+};

@@ -8,9 +8,11 @@ export default defineNuxtConfig({
       },
     },
   },
+
   typescript: {
     strict: true,
   },
+
   modules: [
     '@nuxt/content',
     [
@@ -20,13 +22,16 @@ export default defineNuxtConfig({
       },
     ],
   ],
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   css: ['@/assets/css/fonts.css', '@/assets/css/tailwind.css', '@/assets/css/main.css'],
+
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
@@ -99,14 +104,18 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   content: {
     highlight: {
       theme: 'github-dark',
       preload: ['r', 'xml', 'vb'],
     },
   },
+
   imports: {
     dirs: ['store'],
   },
+
   plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
+  compatibilityDate: '2024-09-29',
 });
