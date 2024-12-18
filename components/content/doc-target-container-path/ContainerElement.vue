@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { FacadeContainer } from '@/types';
+import type { Container } from '@/types';
 
-const { container } = defineProps<{ container: FacadeContainer }>();
+const { container } = defineProps<{ container: Container; highlighted: boolean }>();
 
 const pluginsIcons: Record<string, string> = {
   script: 'script.png',
@@ -9,7 +9,7 @@ const pluginsIcons: Record<string, string> = {
 </script>
 
 <template>
-  <div class="scene-container" :class="container.highlighted ? 'highlighted-container' : 'regular-container'">
+  <div class="scene-container" :class="highlighted ? 'highlighted-container' : 'regular-container'">
     <span>{{ container.name }}</span>
     <template v-if="container.plugins">
       <template v-for="(plugin, index) in container.plugins" :key="index">

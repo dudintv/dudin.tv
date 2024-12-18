@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { type FacadeContainer } from '@/types';
-
 defineProps({
   query: {
     type: [String, Array] as PropType<string | string[]>,
     default: '',
   },
   containers: {
-    type: Array as PropType<FacadeContainer[]>,
+    type: Array,
     default: () => [],
   },
 });

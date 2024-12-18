@@ -31,20 +31,17 @@ export type Container = {
   children?: Container[];
 };
 
-export type FacadeContainer = {
+export type EnrichedContainer = Container & {
   container: Container;
   order: number;
-  name: string;
-  plugins?: string[];
   parent?: Container;
-  children?: Container[];
   next?: Container;
   previous?: Container;
   nesting: number;
-  highlighted?: boolean;
+  // highlighted?: boolean;
 };
 
 export type Scene = {
   name: string;
-  children: Container[];
+  rootContainers: Container[];
 };

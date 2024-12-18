@@ -60,16 +60,16 @@
               />
             </svg>
             <div class="tip-text">
-              <strong>Copy code in one-click.</strong><br /><i>This button pulls the latest version</i><br /><i
-                >from my GitHub repo!</i
-              >
+              <strong>Copy code in one-click.</strong><br /><i>This button pulls the latest version</i><br /><i>
+                from my GitHub repo!
+              </i>
             </div>
           </div></a
         >
       </div>
       <p class="description">{{ script.description }}</p>
       <div class="buttons">
-        <a class="red-button home-page" :href="`${useRuntimeConfig().github.scriptsUrl}${script.path}`" target="_blank"
+        <a class="red-button home-page" :href="`${runtimeConfig.github.scriptsUrl}${script.path}`" target="_blank"
           ><svg
             class="icon svg-open-new-window"
             width="18"
@@ -92,6 +92,7 @@
 <script setup lang="ts">
 import type { Script } from '@/types';
 const store = useStore();
+const runtimeConfig = useRuntimeConfig();
 
 const props = defineProps({
   script: {

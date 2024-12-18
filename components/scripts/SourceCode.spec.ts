@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import SourceCode from './SourceCode.vue';
-import { Script } from '@/types';
+import { type Script } from '@/types';
 
 const script: Script = {
   path: 'path',
@@ -14,6 +14,12 @@ vi.stubGlobal('useStore', () => ({
   getCode: vi.fn(),
 }));
 
+(globalThis as any).useRuntimeConfig = () => {
+  return {
+    github: { scriptsUrl: 'http://xxx.com' },
+  };
+};
+
 describe('SourceCode', () => {
   const wrapper = shallowMount(SourceCode, {
     props: {
@@ -26,7 +32,7 @@ describe('SourceCode', () => {
   });
 
   it('has button with correct url to github', () => {
-    const expectedHref = `${useRuntimeConfig().github.scriptsUrl}${script.path}`;
+    const expectedHref = `${(useRuntimeConfig() as any).github.scriptsUrl}${script.path}`;
     const button = wrapper.find('a');
     expect(button.attributes().href).toEqual(expectedHref);
   });

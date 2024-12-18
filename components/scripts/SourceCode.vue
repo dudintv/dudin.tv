@@ -11,10 +11,7 @@
       </details>
       <span class="tip">automatically pulls the latest version from my GitHub repository <br /><br /></span>
     </div>
-    <a
-      class="red-button home-page mx-auto"
-      :href="`${useRuntimeConfig().github.scriptsUrl}${script.path}`"
-      target="_blank"
+    <a class="red-button home-page mx-auto" :href="`${runtimeConfig.github.scriptsUrl}${script.path}`" target="_blank"
       ><svg
         class="icon svg-open-new-window"
         width="18"
@@ -45,6 +42,7 @@ const props = defineProps({
 });
 
 const store = useStore();
+const runtimeConfig = useRuntimeConfig();
 const code = ref('');
 const highlightedCode = ref('');
 
