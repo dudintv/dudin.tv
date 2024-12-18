@@ -107,6 +107,13 @@ watch(query, () => {
       <ScriptInputVariant :query="['/**/back']" :containers="findByQuery('/**/back')" @mouseover="query = '/**/back'">
         find containers by name in whole tree
       </ScriptInputVariant>
+      <ScriptInputVariant
+        :query="['items/re:^item[1|2]']"
+        :containers="findByQuery('items/re:^item[1|2]')"
+        @mouseover="query = 'items/re:^item[1|2]'"
+      >
+        find containers by Regular Expression
+      </ScriptInputVariant>
 
       <h3>By relative index</h3>
       <ScriptInputVariant

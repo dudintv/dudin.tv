@@ -103,9 +103,7 @@ export function useSceneTree(initialScene: Scene) {
 
     let isSameLevel = true; // for the first step
 
-    console.log('querySteps =', querySteps);
     querySteps.forEach((queryStep, stepIndex) => {
-      console.log('stepIndex =', stepIndex);
       const currentStepContainers: (Container | undefined)[] = [];
       currentContainers.forEach((currentContainer: Container, index) => {
         const enrichedContainer = containersMap.value.get(currentContainer);
@@ -113,7 +111,6 @@ export function useSceneTree(initialScene: Scene) {
           return;
         }
 
-        console.log('currentContainer =', currentContainer);
         if (['this', '.', ''].includes(queryStep)) {
           // do nothing — stay where we are
           currentStepContainers.push(enrichedContainer.container);
@@ -134,6 +131,17 @@ export function useSceneTree(initialScene: Scene) {
           const targetContainers = enrichedContainer.parent?.children || rootContainers.value;
           const foundContainer = targetContainers?.[enrichedContainer.order - offset - 1];
           currentStepContainers.push(foundContainer);
+        } else if (queryStep.match(/^re:(.*)/)) {
+          const regexText = queryStep.match(/^re:(.*)/)![1];
+          const regex = new RegExp(regexText);
+          const consideringContainers = isSameLevel
+            ? findSiblingsContainers(currentContainer)
+            : currentContainer.children;
+          consideringContainers?.forEach((container) => {
+            if (regex.test(container.name)) {
+              currentStepContainers.push(container);
+            }
+          });
         } else if (queryStep.match(/^\+\+\d+$/)) {
           // get next by "++1" or "++3"
           const offset = Math.round(Number(queryStep.slice(2)));
@@ -213,9 +221,7 @@ export function useSceneTree(initialScene: Scene) {
           currentStepContainers.push(...filteredContainers);
         }
       });
-      console.log('+++currentContainers =', currentContainers);
       currentContainers = currentStepContainers.filter((container) => container !== undefined);
-      console.log('===currentContainers =', currentContainers);
 
       isSameLevel = false; // by default after first step
 

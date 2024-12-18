@@ -277,6 +277,10 @@ describe('sceneTree', () => {
             const result = getContainersByQuery('./deeply-nested-container', starterContainer);
             expect(result).toEqual([mockScene.rootContainers[0].children![0].children![0]]);
           });
+          it('gets container by Regex "./re:^deeply.*/"', () => {
+            const result = getContainersByQuery('./re:^deeply.*/', starterContainer);
+            expect(result).toEqual([mockScene.rootContainers[0].children![0].children![0]]);
+          });
         });
 
         describe('by deep nesting', () => {
