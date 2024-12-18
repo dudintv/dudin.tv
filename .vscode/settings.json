@@ -1,3 +1,4 @@
 {
-  "css.customData": ["./css-data.json"]
+  "css.customData": ["./css-data.json"],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

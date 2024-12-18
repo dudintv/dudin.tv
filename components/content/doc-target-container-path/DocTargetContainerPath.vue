@@ -102,7 +102,7 @@ watch(query, () => {
         :containers="findByQuery('element_*')"
         @mouseover="query = 'element_*'"
       >
-        select containers by name with wildcard
+        select containers by name with the wildcard "*"
       </ScriptInputVariant>
       <ScriptInputVariant :query="['/**/back']" :containers="findByQuery('/**/back')" @mouseover="query = '/**/back'">
         find containers by name in whole tree

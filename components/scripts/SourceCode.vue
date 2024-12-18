@@ -11,7 +11,10 @@
       </details>
       <span class="tip">automatically pulls the latest version from my GitHub repository <br /><br /></span>
     </div>
-    <a class="red-button home-page mx-auto" :href="`${runtimeConfig.github.scriptsUrl}${script.path}`" target="_blank"
+    <a
+      class="red-button home-page mx-auto"
+      :href="`${runtimeConfig.public.github.scriptsUrl}${script.path}`"
+      target="_blank"
       ><svg
         class="icon svg-open-new-window"
         width="18"
@@ -32,7 +35,7 @@
 
 <script setup lang="ts">
 import type { Script } from '@/types';
-import { getHighlighter } from 'shiki-es';
+import { createHighlighter } from 'shiki';
 
 const props = defineProps({
   script: {
@@ -51,11 +54,11 @@ async function getCode() {
 
   code.value = (await store.getCode({ file: props.script.file, path: props.script.path })) || '';
 
-  const highlighter = await getHighlighter({
-    theme: 'nord',
+  const highlighter = await createHighlighter({
+    themes: ['nord'],
     langs: ['vb'],
   });
-  highlightedCode.value = highlighter.codeToHtml(code.value, { lang: 'vb' });
+  highlightedCode.value = highlighter.codeToHtml(code.value, { theme: 'nord', lang: 'vb' });
 }
 </script>
 

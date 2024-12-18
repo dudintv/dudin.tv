@@ -2,7 +2,7 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "lib": ["DOM", "ES2021.String"],
+    "lib": ["DOM", "esnext"],
     "types": ["vitest/globals"]
   }
 }

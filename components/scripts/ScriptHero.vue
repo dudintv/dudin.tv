@@ -69,7 +69,10 @@
       </div>
       <p class="description">{{ script.description }}</p>
       <div class="buttons">
-        <a class="red-button home-page" :href="`${runtimeConfig.github.scriptsUrl}${script.path}`" target="_blank"
+        <a
+          class="red-button home-page"
+          :href="`${runtimeConfig.public.github.scriptsUrl}${script.path}`"
+          target="_blank"
           ><svg
             class="icon svg-open-new-window"
             width="18"
