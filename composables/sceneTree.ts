@@ -84,6 +84,43 @@ export function useSceneTree(initialScene: Scene) {
     query: string,
     starterContainers: Container | Container[] = scene.value.rootContainers
   ) {
+    const normalizedQuery = query.trim().toLowerCase();
+    const summandSeparator = /\s+[\+|\|\-|\&]\s+/g;
+    const operators = normalizedQuery.match(summandSeparator)?.map((s) => s.trim());
+    const querySummandArray: string[] = normalizedQuery.split(summandSeparator);
+
+    const resultingContainers = getContainersFromSummand(querySummandArray[0], starterContainers);
+    querySummandArray.splice(0, 1); // remove the first summand
+    querySummandArray?.forEach((summand, index) => {
+      const operator = operators?.[index];
+      if (!operator) return;
+
+      const containers = getContainersFromSummand(summand, starterContainers);
+      console.log('containers =', containers);
+      if (['+', '|'].includes(operator)) {
+        resultingContainers.push(...containers);
+        const uniqueContainers = new Set(resultingContainers);
+        resultingContainers.splice(0, resultingContainers.length, ...Array.from(uniqueContainers));
+      } else if (['&'].includes(operator)) {
+        const firstSummand = new Set(resultingContainers);
+        const secondSummand = new Set(containers);
+        const intersected = firstSummand.intersection(secondSummand);
+        resultingContainers.splice(0, resultingContainers.length, ...Array.from(intersected));
+      } else if (['-'].includes(operator)) {
+        const firstSummand = new Set(resultingContainers);
+        const secondSummand = new Set(containers);
+        const difference = firstSummand.difference(secondSummand);
+        resultingContainers.splice(0, resultingContainers.length, ...Array.from(difference));
+      }
+    });
+
+    return resultingContainers;
+  }
+
+  function getContainersFromSummand(
+    query: string,
+    starterContainers: Container | Container[] = scene.value.rootContainers
+  ) {
     const normalizedQuery = query.trim().toLowerCase().replace('\\', '/');
     const querySteps: string[] = normalizedQuery.split('/');
     let currentContainers: Container[] = Array.isArray(starterContainers)

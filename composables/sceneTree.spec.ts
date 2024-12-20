@@ -313,6 +313,64 @@ describe('sceneTree', () => {
           });
         });
       });
+
+      describe('algebra operations', () => {
+        describe('unions', () => {
+          const simpleUnionQuery = '1 | 2';
+          it(`gets a union of two containers by query "${simpleUnionQuery}"`, () => {
+            const result = getContainersByQuery(simpleUnionQuery, starterContainer);
+            expect(result).toEqual([
+              mockScene.rootContainers[0].children![0],
+              mockScene.rootContainers[0].children![1],
+            ]);
+          });
+
+          const aliasUnionQuery = '1 + 2';
+          it(`gets a union of two containers by query "${aliasUnionQuery}"`, () => {
+            const result = getContainersByQuery(aliasUnionQuery, starterContainer);
+            expect(result).toEqual([
+              mockScene.rootContainers[0].children![0],
+              mockScene.rootContainers[0].children![1],
+            ]);
+          });
+
+          const multipleUnionQuery = '1   +  2 +  /second-root-container';
+          it(`gets a union of containers by query "${multipleUnionQuery}" (with extra spaces)`, () => {
+            const result = getContainersByQuery(multipleUnionQuery, starterContainer);
+            expect(result).toEqual([
+              mockScene.rootContainers[0].children![0],
+              mockScene.rootContainers[0].children![1],
+              mockScene.rootContainers[1],
+            ]);
+          });
+        });
+        describe('intersections', () => {
+          const intersectionQuery = '* & second-*';
+          it(`gets an intersection of two results by query "${intersectionQuery}"`, () => {
+            const result = getContainersByQuery(intersectionQuery, starterContainer);
+            expect(result).toEqual([mockScene.rootContainers[0].children![1]]);
+          });
+
+          const globalIntersectionQuery = '/** & second-*';
+          it(`gets an intersection of two results by query "${globalIntersectionQuery}"`, () => {
+            const result = getContainersByQuery(globalIntersectionQuery, starterContainer);
+            expect(result).toEqual([mockScene.rootContainers[0].children![1]]);
+          });
+        });
+        describe('differences', () => {
+          const queryDifference = '* - second-*';
+          it('gets a difference of two containers queries "* - second-*"', () => {
+            const result = getContainersByQuery(queryDifference, starterContainer);
+            expect(result).toEqual([mockScene.rootContainers[0].children![0]]);
+          });
+
+          const multipleDiffQuery = '/**/second-* - /second-* - second-*';
+          it(`gets a difference of a few containers queries "${multipleDiffQuery}"`, () => {
+            const result = getContainersByQuery(multipleDiffQuery, starterContainer);
+            expect(result).toEqual([mockScene.rootContainers[0].children![0].children![1]]);
+          });
+        });
+      });
     });
   });
 });
