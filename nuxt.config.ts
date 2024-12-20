@@ -13,15 +13,7 @@ export default defineNuxtConfig({
     strict: true,
   },
 
-  modules: [
-    '@nuxt/content',
-    [
-      '@pinia/nuxt',
-      {
-        autoImports: ['defineStore', 'acceptHMRUpdate'],
-      },
-    ],
-  ],
+  modules: ['@nuxt/content', '@pinia/nuxt'],
 
   postcss: {
     plugins: {
