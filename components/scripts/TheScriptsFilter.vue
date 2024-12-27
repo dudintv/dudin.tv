@@ -15,7 +15,7 @@
 <script setup lang="ts">
 const emit = defineEmits(['filterChanged']);
 
-const options = ['all', 'animation', 'link', 'logic', 'transformation', 'texture'];
+const options = ['all', 'animation', 'link', 'logic', 'transformation', 'texture', 'helper'];
 const selectedOption = ref('all');
 
 function gradByName(name: string): string {

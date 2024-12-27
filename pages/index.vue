@@ -26,9 +26,7 @@
 const currentFilter = ref('');
 
 const scripts = (await queryContent('/scripts').find()).sort((a1, a2) => {
-  const data1 = new Date(a1.date);
-  const data2 = new Date(a2.date);
-  return data1 < data2 ? 1 : -1;
+  return a1.title!.toLowerCase() > a2.title!.toLowerCase() ? 1 : -1;
 });
 
 const filteredScripts = computed(() => {

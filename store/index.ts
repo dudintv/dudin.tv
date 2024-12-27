@@ -50,6 +50,7 @@ export const useStore = defineStore('store', {
       transformation: ['#2DCFE6', '#B6E78C'],
       texture: ['#C389F0', '#ED7485'],
       shader: ['#F285C6', '#EFAEA0'],
+      helper: ['#4F6B9E', '#3E64A6'],
     } as Record<string, [string, string]>,
     copyCodeAnim: null as AnimationItem | null,
   }),
