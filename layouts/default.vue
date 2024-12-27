@@ -1,8 +1,10 @@
 <template>
   <div>
     <TheNav></TheNav>
-    <slot></slot>
-    <TheSocNetworks></TheSocNetworks>
+    <main>
+      <slot></slot>
+    </main>
+    <TheSocNetworks />
     <div id="copy-code" ref="copyCode"></div>
   </div>
 </template>
