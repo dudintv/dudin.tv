@@ -4,11 +4,34 @@
       <div id="links-bg" ref="linksBackground"></div>
     </div>
     <div class="content">
-      <h2 class="text-left">Download Free VizArtist</h2>
+      <!-- <h2 class="text-left">Download Free VizArtist</h2>
       <p>
         <a href="https://www.vizrt.com/campaign/free-viz-artist/" target="_blank">Official Vizrt Download page</a>
         <br />
         <i class="opacity-50"> Here you have to fill in a short form to download the free version of Viz Artist. </i>
+      </p> -->
+      <h2 class="text-left">Vizrt Resources</h2>
+      <p>
+        <a href="https://forum.vizrt.com" target="_blank">Vizrt Forum</a>
+        <br />
+        <i class="opacity-50"> To find detailed answer to almost any question.</i>
+      </p>
+      <p>
+        <a href="https://www.facebook.com/groups/VizArtistDesigners" target="_blank"
+          >Facebook Viz Artist Designers group</a
+        >
+        <br />
+        <i class="opacity-50"> To quickly ask questions about Vizrt products.</i>
+      </p>
+      <p>
+        <a href="https://license.vizrt.com/" target="_blank">Vizrt License Portal</a>
+        <br />
+        <i class="opacity-50"> To manage (update) your Vizrt licenses.</i>
+      </p>
+      <p>
+        <a href="https://ideas.vizrt.com/" target="_blank">Vizrt Ideas Portal</a>
+        <br />
+        <i class="opacity-50"> To suggest your idea and support others.</i>
       </p>
       <h2 class="text-left mt-8">Vizrt lessons</h2>
       <p>

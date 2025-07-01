@@ -36,7 +36,7 @@ Just look at your palms and count your fingers:
 
 There are several types of rotation orders. And, the type by default also is OK.
 
-media-image{name="vizrt-axes-order.png"}
+:media-image{name="vizrt-axes-order.png"}
 
 Fortunately, AE and Vizrt have the same types of Axis System Definition — right-handed, and the same orders of rotation — XYZ! Nice! :)
 
