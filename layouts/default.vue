@@ -1,14 +1,3 @@
-<template>
-  <div>
-    <TheNav></TheNav>
-    <main>
-      <slot></slot>
-    </main>
-    <TheSocNetworks />
-    <div id="copy-code" ref="copyCode"></div>
-  </div>
-</template>
-
 <script setup>
 const nuxtApp = useNuxtApp();
 
@@ -16,6 +5,16 @@ const store = useStore();
 
 const copyCode = ref();
 const animation = ref();
+
+useHead({
+  script: [
+    {
+      src: 'https://analytics.ahrefs.com/analytics.js',
+      async: true,
+      'data-key': 'cDkRTZLCq67SNonAvFdgow',
+    },
+  ],
+});
 
 onMounted(() => {
   animation.value = nuxtApp.$lottie.loadAnimation({
@@ -31,6 +30,17 @@ onMounted(() => {
   store.copyCodeAnim = animation.value;
 });
 </script>
+
+<template>
+  <div>
+    <TheNav></TheNav>
+    <main>
+      <slot></slot>
+    </main>
+    <TheSocNetworks />
+    <div id="copy-code" ref="copyCode"></div>
+  </div>
+</template>
 
 <style lang="scss">
 *,
