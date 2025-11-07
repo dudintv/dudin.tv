@@ -12,6 +12,10 @@ useHead({
   ],
   script: [
     {
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-7PQT580LQ1',
+      async: true,
+    },
+    {
       src: 'https://analytics.ahrefs.com/analytics.js',
       async: true,
       'data-key': 'cDkRTZLCq67SNonAvFdgow',
@@ -20,6 +24,15 @@ useHead({
 });
 
 onMounted(() => {
+  if (import.meta.client) {
+    globalThis.dataLayer = globalThis.dataLayer || [];
+    function gtag() {
+      globalThis.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-7PQT580LQ1');
+  }
+
   animation.value = nuxtApp.$lottie.loadAnimation({
     container: copyCode.value,
     renderer: 'svg',
