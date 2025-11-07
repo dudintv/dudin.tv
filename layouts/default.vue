@@ -7,6 +7,9 @@ const copyCode = ref();
 const animation = ref();
 
 useHead({
+  meta: [
+    { name: 'ahrefs-site-verification', content: '7064a1611c438522b293182cd4131a8c06daa9bfbf2f346924ee3cb0d48be2a5' },
+  ],
   script: [
     {
       src: 'https://analytics.ahrefs.com/analytics.js',
