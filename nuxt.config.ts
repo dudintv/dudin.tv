@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     strict: true,
   },
 
-  modules: ['@nuxt/content', '@pinia/nuxt', '@nuxtjs/gtm'],
+  modules: ['@nuxt/content', '@pinia/nuxt', '@zadigetvoltaire/nuxt-gtm'],
 
   gtm: {
     id: 'GTM-TRNMHM4Z',

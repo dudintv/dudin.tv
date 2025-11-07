@@ -13,6 +13,7 @@
     "@nuxt/test-utils": "^3.15.1",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/test-utils": "^2.4.6",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "autoprefixer": "^10.4.13",
     "eslint-plugin-vitest": "^0.5.4",
     "jsdom": "^25.0.1",
@@ -31,7 +32,6 @@
     "vue-router": "latest"
   },
   "dependencies": {
-    "@nuxtjs/gtm": "^2.4.0",
     "@pinia/nuxt": "^0.9.0",
     "@vueuse/core": "^12.0.0",
     "color": "^4.2.3",
