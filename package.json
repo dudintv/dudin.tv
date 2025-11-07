@@ -31,6 +31,7 @@
     "vue-router": "latest"
   },
   "dependencies": {
+    "@nuxtjs/gtm": "^2.4.0",
     "@pinia/nuxt": "^0.9.0",
     "@vueuse/core": "^12.0.0",
     "color": "^4.2.3",

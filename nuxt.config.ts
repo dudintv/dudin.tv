@@ -13,7 +13,11 @@ export default defineNuxtConfig({
     strict: true,
   },
 
-  modules: ['@nuxt/content', '@pinia/nuxt'],
+  modules: ['@nuxt/content', '@pinia/nuxt', '@nuxtjs/gtm'],
+
+  gtm: {
+    id: 'GTM-TRNMHM4Z',
+  },
 
   postcss: {
     plugins: {
